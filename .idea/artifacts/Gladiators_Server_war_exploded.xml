@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Gladiators-Server:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Gladiators_Server_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="GladiatorsServer" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="org.glassfish.jersey.core:jersey-server:2.28" module-name="Gladiators-Server" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="GladiatorsServer/web/Web" />
+    </root>
+  </artifact>
+</component>
