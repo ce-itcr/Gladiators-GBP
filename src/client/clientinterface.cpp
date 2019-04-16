@@ -12,10 +12,9 @@ void ClientInterface::getGladiators()
     client->GET("/populations/gladiators");
 }
 
-void ClientInterface::postGladiators(QList<Gladiator> gladiators)
+void ClientInterface::postGladiators(QString jsonGladiators)
 {
-    QString json;
-    client->POST("/populations/gladiators/stats", json);
+    client->POST("/populations/gladiators/stats", jsonGladiators);
 }
 
 void ClientInterface::getTowers()
@@ -23,8 +22,7 @@ void ClientInterface::getTowers()
     client->GET("/populations/towers");
 }
 
-void ClientInterface::postTowers(QList<Tower> towers)
+void ClientInterface::postTowers(QString jsonTowers)
 {
-    QString json;
-    client->POST("/populations/towers/stats", json);
+    client->POST("/populations/towers/stats", jsonTowers);
 }

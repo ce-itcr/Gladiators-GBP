@@ -3,10 +3,6 @@
 
 #include "client.h"
 
-#include <entities/gladiator.h>
-#include <entities/tower.h>
-
-
 class ClientInterface
 {
 public:
@@ -14,11 +10,11 @@ public:
 
     void getGladiators();
 
-    void postGladiators(QList<Gladiator> gladiators);
+    void postGladiators(QString jsonGladiators);
 
     void getTowers();
 
-    void postTowers(QList<Tower> towers);
+    void postTowers(QString jsonTowers);
 
 private:
     static Client *client;
