@@ -31,7 +31,9 @@ void Client::POST(const QString &path, const QString &data)
 
 void Client::replyFinished(QNetworkReply *reply)
 {
-    qDebug() << "Finished : " << reply->readAll();
+    QString message = reply->readAll();
+    qDebug() << "Finished : " << message;
+    readyRead(&message);
 }
 
 Client::Client()

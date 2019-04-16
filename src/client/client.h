@@ -16,6 +16,9 @@ public:
 
     void POST(const QString &path, const QString &data);
 
+signals:
+    void readyRead(QString *);
+
 public slots:
     void replyFinished(QNetworkReply *);
 
