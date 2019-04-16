@@ -1,6 +1,6 @@
 package ce.itcr.gladiators.ws;
 
-import ce.itcr.gladiators.ws.res.Gladiator;
+import ce.itcr.gladiators.entities.Gladiator;
 import ce.itcr.gladiators.ws.res.Gladiators;
 
 import javax.ws.rs.*;

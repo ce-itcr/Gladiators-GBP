@@ -1,5 +1,7 @@
 package ce.itcr.gladiators.ws.res;
 
+import ce.itcr.gladiators.entities.Gladiator;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;

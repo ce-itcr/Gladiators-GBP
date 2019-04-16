@@ -1,4 +1,4 @@
-package ce.itcr.gladiators.ws.res;
+package ce.itcr.gladiators.entities;
 
 public class Gladiator {
 
