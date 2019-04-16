@@ -19,20 +19,10 @@ public class GladiatorsResource {
         return gladiators.viewAllGladiators();
     }
 
-    @Path("/{id}")
-    @DELETE
-    public void deleteGladiator(@PathParam("id") String gladiatorId) {
-        gladiators.removeGladiator(gladiatorId);
-    }
-
+    @Path("/stats")
     @POST
-    public void postGladiator(Gladiator newGladiator) {
-        gladiators.putGladiator(newGladiator);
+    public void postGladiator(Collection<Gladiator> newGladiators) {
+        gladiators.replaceAllGladiators(newGladiators);
     }
 
-    @Path("{id}")
-    @PUT
-    public void putGladiator(@PathParam("id") String gladiatorId, Gladiator newGladiator) {
-        gladiators.updateGladiator(gladiatorId, newGladiator);
-    }
 }

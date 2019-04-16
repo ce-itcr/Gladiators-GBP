@@ -7,7 +7,7 @@
           <element id="module-output" name="GladiatorsServer" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="module" name="org.glassfish.jersey.core:jersey-server:2.28" module-name="Gladiators-Server" />
+          <element id="library" level="module" name="org.glassfish.jersey.core:jersey-server:2.28" module-name="GladiatorsServer" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="GladiatorsServer/web/Web" />

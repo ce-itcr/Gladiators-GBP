@@ -27,6 +27,13 @@ public class Gladiators {
         return gladiators.values();
     }
 
+    public void replaceAllGladiators(Collection<Gladiator> newGladiators) {
+        gladiators = new HashMap<>();
+        for (Gladiator gladiator : newGladiators) {
+            gladiators.put(gladiator.getId(), gladiator);
+        }
+    }
+
     public void removeGladiator(String gladiatorId) {
         gladiators.remove(gladiatorId);
     }
