@@ -1,5 +1,6 @@
 package ce.itcr.gladiators.ws;
 
+import ce.itcr.gladiators.ws.res.PopulationsResource;
 import ce.itcr.gladiators.ws.res.gladiators.GladiatorsResource;
 
 import javax.ws.rs.ApplicationPath;

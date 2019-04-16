@@ -1,13 +1,13 @@
-package ce.itcr.gladiators.ws;
+package ce.itcr.gladiators.ws.res;
 
 import ce.itcr.gladiators.entities.Gladiator;
 import ce.itcr.gladiators.entities.Tower;
 import ce.itcr.gladiators.ws.res.gladiators.Gladiators;
 import ce.itcr.gladiators.ws.res.towers.Towers;
 
-public class MockPopulation {
+class MockPopulation {
 
-    public static void startNewPopulation() {
+    static void startNewPopulation() {
         startGladiators();
         startTowers();
     }

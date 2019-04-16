@@ -1,4 +1,4 @@
-package ce.itcr.gladiators.ws;
+package ce.itcr.gladiators.ws.res;
 
 import ce.itcr.gladiators.ws.res.gladiators.GladiatorsResource;
 
@@ -16,10 +16,5 @@ public class PopulationsResource {
     @POST
     public void startNewPopulation() {
         MockPopulation.startNewPopulation();
-    }
-
-    @Path("/")
-    public GladiatorsResource getGladiatorsResource() {
-        return new GladiatorsResource();
     }
 }
