@@ -15,7 +15,7 @@ void Client::GET(const QString &path)
     qDebug() << "Client GET request to: " << url;
     manager->get(request);
 
-    QObject::connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(replyFinished(QNetworkReply *)));
+    QObject::connect(manager, &QNetworkAccessManager::finished, this, &Client::replyFinished);
 }
 
 void Client::POST(const QString &path, const QString &data)
@@ -26,7 +26,7 @@ void Client::POST(const QString &path, const QString &data)
     qDebug() << "Client POST request to: " << url;
     manager->post(request,  data.toUtf8());
 
-    QObject::connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(replyFinished(QNetworkReply *)));
+    QObject::connect(manager, &QNetworkAccessManager::finished, this, &Client::replyFinished);
 }
 
 void Client::replyFinished(QNetworkReply *reply)

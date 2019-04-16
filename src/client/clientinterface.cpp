@@ -1,6 +1,7 @@
 #include "clientinterface.h"
 
 Client *ClientInterface::client = Client::getInstance();
+Populations *ClientInterface::populations = Populations::getInstance();
 
 void ClientInterface::postPopulations()
 {
@@ -10,6 +11,8 @@ void ClientInterface::postPopulations()
 void ClientInterface::getGladiators()
 {
     client->GET("/populations/gladiators");
+    QObject::connect(client, &Client::readyRead,
+                     populations, &Populations::updateGladiators);
 }
 
 void ClientInterface::postGladiators(QString jsonGladiators)
@@ -20,6 +23,8 @@ void ClientInterface::postGladiators(QString jsonGladiators)
 void ClientInterface::getTowers()
 {
     client->GET("/populations/towers");
+    QObject::connect(client, &Client::readyRead,
+                     populations, &Populations::updateTowers);
 }
 
 void ClientInterface::postTowers(QString jsonTowers)

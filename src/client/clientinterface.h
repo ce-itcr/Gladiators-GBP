@@ -2,6 +2,7 @@
 #define CLIENTINTERFACE_H
 
 #include "client.h"
+#include "entities/populations.h"
 
 class ClientInterface
 {
@@ -18,6 +19,8 @@ public:
 
 private:
     static Client *client;
+    static Populations *populations;
+
 };
 
 #endif // CLIENTINTERFACE_H
