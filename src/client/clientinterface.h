@@ -6,15 +6,15 @@
 class ClientInterface
 {
 public:
-    void postPopulations();
+    static void postPopulations();
 
-    void getGladiators();
+    static void getGladiators();
 
-    void postGladiators(QString jsonGladiators);
+    static void postGladiators(QString jsonGladiators);
 
-    void getTowers();
+    static void getTowers();
 
-    void postTowers(QString jsonTowers);
+    static void postTowers(QString jsonTowers);
 
 private:
     static Client *client;
