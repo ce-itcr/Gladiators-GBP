@@ -12,9 +12,11 @@ TEMPLATE = lib
 SOURCES += \
 	client/client.cpp \
 	client/clientinterface.cpp \
-	entities/gladiator.cpp
+	entities/gladiator.cpp \
+	entities/tower.cpp
 
 HEADERS += \
 	client/client.h \
 	client/clientinterface.h \
-	entities/gladiator.h
+	entities/gladiator.h \
+	entities/tower.h
