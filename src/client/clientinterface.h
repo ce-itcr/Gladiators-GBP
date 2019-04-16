@@ -10,11 +10,13 @@
 class ClientInterface
 {
 public:
-    QList<Gladiator> getGladiators();
+    void postPopulations();
+
+    void getGladiators();
 
     void postGladiators(QList<Gladiator> gladiators);
 
-    QList<Tower> getTowers();
+    void getTowers();
 
     void postTowers(QList<Tower> towers);
 
