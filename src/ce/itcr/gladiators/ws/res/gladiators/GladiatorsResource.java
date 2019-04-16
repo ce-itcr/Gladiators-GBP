@@ -1,7 +1,6 @@
-package ce.itcr.gladiators.ws;
+package ce.itcr.gladiators.ws.res.gladiators;
 
 import ce.itcr.gladiators.entities.Gladiator;
-import ce.itcr.gladiators.ws.res.Gladiators;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

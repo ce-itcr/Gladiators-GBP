@@ -1,4 +1,4 @@
-package ce.itcr.gladiators.ws.res;
+package ce.itcr.gladiators.ws.res.gladiators;
 
 import ce.itcr.gladiators.entities.Gladiator;
 
@@ -11,15 +11,7 @@ public class Gladiators {
     private static Gladiators instance = new Gladiators();
     private Map<String, Gladiator> gladiators = new HashMap<>();
 
-    private Gladiators() {
-        Gladiator g1 = new Gladiator("1", "Atilius", "23");
-        Gladiator g2 = new Gladiator("2", "Marcus", "25");
-        Gladiator g3 = new Gladiator("3", "Spartacus", "19");
-
-        gladiators.put(g1.getId(), g1);
-        gladiators.put(g2.getId(), g2);
-        gladiators.put(g3.getId(), g3);
-    }
+    private Gladiators() {}
 
     public static Gladiators getInstance() {
         return instance;
