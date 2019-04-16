@@ -9,4 +9,6 @@ app.depends = src
 test.depends = src
 
 DISTFILES += \
-    defaults.pri
+	defaults.pri \
+	README.md \
+	LICENSE
