@@ -12,6 +12,8 @@ TEMPLATE = lib
 SOURCES += \
 	client/client.cpp \
 	client/clientinterface.cpp \
+	game/map.cpp \
+	game/tile.cpp \
 	json/jsonconverter.cpp \
 	json/jsonserializer.cpp \
 	game/populations.cpp \
@@ -21,6 +23,8 @@ SOURCES += \
 HEADERS += \
 	client/client.h \
 	client/clientinterface.h \
+	game/map.h \
+	game/tile.h \
 	json/jsonconverter.h \
 	json/jsonserializable.h \
 	json/jsonserializer.h \
