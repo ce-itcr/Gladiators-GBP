@@ -9,10 +9,10 @@ Client *Client::getInstance()
 
 void Client::GET(const QString &path)
 {
-    QUrl url(defaultPath.append(path));
+    QUrl url(defaultPath + path);
     QNetworkRequest request(url);
 
-    qDebug() << "Client GET request to: " << url;
+    qDebug() << "Client GET request to: " << url.toString();
     manager->get(request);
 
     QObject::connect(manager, &QNetworkAccessManager::finished, this, &Client::replyFinished);
@@ -20,10 +20,10 @@ void Client::GET(const QString &path)
 
 void Client::POST(const QString &path, const QString &data)
 {
-    QUrl url(defaultPath.append(path));
+    QUrl url(defaultPath + path);
     QNetworkRequest request(url);
 
-    qDebug() << "Client POST request to: " << url;
+    qDebug() << "Client POST request to: " << url.toString();
     manager->post(request,  data.toUtf8());
 
     QObject::connect(manager, &QNetworkAccessManager::finished, this, &Client::replyFinished);
@@ -32,7 +32,7 @@ void Client::POST(const QString &path, const QString &data)
 void Client::replyFinished(QNetworkReply *reply)
 {
     QString message = reply->readAll();
-    qDebug() << "Finished : " << message;
+    qDebug() << "Reply finished : " << message;
     readyRead(&message);
 }
 
