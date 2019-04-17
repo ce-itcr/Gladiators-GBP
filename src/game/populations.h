@@ -1,8 +1,8 @@
 #ifndef POPULATIONS_H
 #define POPULATIONS_H
 
-#include "gladiator.h"
-#include "tower.h"
+#include "entities/gladiator.h"
+#include "entities/tower.h"
 
 #include "json/jsonconverter.h"
 

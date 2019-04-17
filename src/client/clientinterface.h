@@ -2,7 +2,7 @@
 #define CLIENTINTERFACE_H
 
 #include "client.h"
-#include "entities/populations.h"
+#include "game/populations.h"
 
 class ClientInterface
 {

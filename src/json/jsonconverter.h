@@ -5,8 +5,8 @@
 #include <QString>
 #include <QJsonArray>
 
-#include "entities/gladiator.h"
-#include "entities/tower.h"
+#include "game/entities/gladiator.h"
+#include "game/entities/tower.h"
 #include "jsonserializer.h"
 
 

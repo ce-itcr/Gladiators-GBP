@@ -14,9 +14,9 @@ SOURCES += \
 	client/clientinterface.cpp \
 	json/jsonconverter.cpp \
 	json/jsonserializer.cpp \
-	entities/gladiator.cpp \
-	entities/populations.cpp \
-	entities/tower.cpp
+	game/populations.cpp \
+	game/entities/gladiator.cpp \
+	game/entities/tower.cpp
 
 HEADERS += \
 	client/client.h \
@@ -24,6 +24,6 @@ HEADERS += \
 	json/jsonconverter.h \
 	json/jsonserializable.h \
 	json/jsonserializer.h \
-	entities/gladiator.h \
-	entities/populations.h \
-	entities/tower.h
+	game/populations.h \
+	game/entities/gladiator.h \
+	game/entities/tower.h
