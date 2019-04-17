@@ -43,3 +43,17 @@ void Gladiator::setAge(const QString &value)
 {
     age = value;
 }
+
+void Gladiator::write(QJsonObject &jsonObj) const
+{
+    jsonObj["id"] = id;
+    jsonObj["name"] = name;
+    jsonObj["age"] = age;
+}
+
+void Gladiator::read(const QJsonObject &jsonObj)
+{
+    id = jsonObj["id"].toString();
+    name = jsonObj["name"].toString();
+    age = jsonObj["age"].toString();
+}

@@ -3,8 +3,10 @@
 
 #include <QString>
 
+#include <json/jsonserializable.h>
 
-class Tower
+
+class Tower : public JsonSerializable
 {
 public:
     Tower();
@@ -13,6 +15,9 @@ public:
 
     QString getId() const;
     void setId(const QString &value);
+
+    void write(QJsonObject &jsonObj) const;
+    void read(const QJsonObject &jsonObj);
 
 private:
     QString id;

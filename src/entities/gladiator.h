@@ -3,8 +3,10 @@
 
 #include <QString>
 
+#include <json/jsonserializable.h>
 
-class Gladiator
+
+class Gladiator : public JsonSerializable
 {
 public:
     Gladiator();
@@ -19,6 +21,9 @@ public:
 
     QString getAge() const;
     void setAge(const QString &value);
+
+    void write(QJsonObject &jsonObj) const;
+    void read(const QJsonObject &jsonObj);
 
 private:
     QString id;
