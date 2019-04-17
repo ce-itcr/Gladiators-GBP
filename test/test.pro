@@ -9,9 +9,11 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES +=  main.cpp \
-	default/tst_default.cpp
+	default/tst_default.cpp \
+	json/tst_jsonconvertertest.cpp
 
 HEADERS += \
-	default/tst_default.h
+	default/tst_default.h \
+	json/tst_jsonconvertertest.h
 
 LIBS += -L../src -lmylib

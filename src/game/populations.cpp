@@ -15,8 +15,8 @@ void Populations::startNewPopulation()
 
 void Populations::sendPopulation(QList<Gladiator> newGladiators, QList<Tower> newTowers)
 {
-    QString jsonGladiators = JsonConverter::GladiatorsToJson(newGladiators);
-    QString jsonTowers = JsonConverter::TowersToJson(newTowers);
+    QString jsonGladiators = JsonConverter::gladiatorsToJson(newGladiators);
+    QString jsonTowers = JsonConverter::towersToJson(newTowers);
     ClientInterface::postGladiators(jsonGladiators);
     ClientInterface::postTowers(jsonTowers);
 }
