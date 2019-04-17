@@ -5,29 +5,41 @@ Populations *ClientInterface::populations = Populations::getInstance();
 
 void ClientInterface::postPopulations()
 {
-    client->POST("/populations", "");
+    QString path = "/populations";
+    client->POST(path, "");
+    qDebug() << "ClientInterface : POST < " << path;
 }
 
 void ClientInterface::getGladiators()
 {
-    client->GET("/populations/gladiators");
+    QString path = "/populations/gladiators";
+    client->GET(path);
+    qDebug() << "ClientInterface : GET < " << path;
+
     QObject::connect(client, &Client::readyRead,
                      populations, &Populations::updateGladiators);
 }
 
 void ClientInterface::postGladiators(QString jsonGladiators)
 {
-    client->POST("/populations/gladiators/stats", jsonGladiators);
+    QString path = "/populations/gladiators/stats";
+    client->POST(path, jsonGladiators);
+    qDebug() << "ClientInterface : POST < " << path;
 }
 
 void ClientInterface::getTowers()
 {
-    client->GET("/populations/towers");
+    QString path = "/populations/towers";
+    client->GET(path);
+    qDebug() << "ClientInterface : GET < " << path;
+
     QObject::connect(client, &Client::readyRead,
                      populations, &Populations::updateTowers);
 }
 
 void ClientInterface::postTowers(QString jsonTowers)
 {
-    client->POST("/populations/towers/stats", jsonTowers);
+    QString path = "/populations/towers/stats";
+    client->POST(path, jsonTowers);
+    qDebug() << "ClientInterface : POST < " << path;
 }
