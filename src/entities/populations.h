@@ -4,6 +4,8 @@
 #include "gladiator.h"
 #include "tower.h"
 
+#include "json/jsonconverter.h"
+
 #include <QObject>
 
 class Populations : public QObject
@@ -15,6 +17,8 @@ public:
     void startNewPopulation();
 
     void sendPopulation(QList<Gladiator> newGladiators, QList<Tower> newTowers);
+
+    void updatePopulation();
 
     QList<Gladiator> *getGladiators() const;
     void setGladiators(QList<Gladiator> *value);

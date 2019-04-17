@@ -15,10 +15,16 @@ void Populations::startNewPopulation()
 
 void Populations::sendPopulation(QList<Gladiator> newGladiators, QList<Tower> newTowers)
 {
-    QString jsonGladiators;
-    QString jsonTowers;
+    QString jsonGladiators = JsonConverter::GladiatorsToJson(newGladiators);
+    QString jsonTowers = JsonConverter::TowersToJson(newTowers);
     ClientInterface::postGladiators(jsonGladiators);
     ClientInterface::postTowers(jsonTowers);
+}
+
+void Populations::updatePopulation()
+{
+    ClientInterface::getGladiators();
+    ClientInterface::getTowers();
 }
 
 QList<Gladiator> *Populations::getGladiators() const
@@ -39,6 +45,16 @@ QList<Tower> *Populations::getTowers() const
 void Populations::setTowers(QList<Tower> *value)
 {
     towers = value;
+}
+
+void Populations::updateGladiators(QString *jsonGladiators)
+{
+    qDebug() << "Populations::updateGladiators() " << jsonGladiators;
+}
+
+void Populations::updateTowers(QString *jsonTowers)
+{
+    qDebug() << "Populations::updateTowers() " << jsonTowers;
 }
 
 Populations::Populations()

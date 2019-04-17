@@ -12,6 +12,8 @@ TEMPLATE = lib
 SOURCES += \
 	client/client.cpp \
 	client/clientinterface.cpp \
+	json/jsonconverter.cpp \
+	json/jsonserializer.cpp \
 	entities/gladiator.cpp \
 	entities/populations.cpp \
 	entities/tower.cpp
@@ -19,6 +21,9 @@ SOURCES += \
 HEADERS += \
 	client/client.h \
 	client/clientinterface.h \
+	json/jsonconverter.h \
+	json/jsonserializable.h \
+	json/jsonserializer.h \
 	entities/gladiator.h \
 	entities/populations.h \
 	entities/tower.h
