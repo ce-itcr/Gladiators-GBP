@@ -23,6 +23,7 @@ SOURCES += \
 HEADERS += \
 	client/client.h \
 	client/clientinterface.h \
+	game/entities/entity.h \
 	game/map.h \
 	game/tile.h \
 	json/jsonconverter.h \
