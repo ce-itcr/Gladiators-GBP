@@ -10,10 +10,12 @@ TEMPLATE = app
 
 SOURCES +=  main.cpp \
 	default/tst_default.cpp \
+	game/tst_maptest.cpp \
 	json/tst_jsonconvertertest.cpp
 
 HEADERS += \
 	default/tst_default.h \
+	game/tst_maptest.h \
 	json/tst_jsonconvertertest.h
 
 LIBS += -L../src -lmylib
