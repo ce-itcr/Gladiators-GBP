@@ -19,6 +19,9 @@ public:
 
     QPair<int, int> indexOf(Tile *tile);
 
+    QList<QList<Tile *> *> *getMatrix() const;
+    void setMatrix(QList<QList<Tile *> *> *value);
+
 private:
     static Map *instance;
     int rows;

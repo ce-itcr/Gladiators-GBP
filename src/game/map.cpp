@@ -13,7 +13,6 @@ void Map::reSizeMatrix(int rows, int columns)
     this->columns = columns;
 
     delete matrix;
-    matrix = new QList<QList<Tile *> *>();
     loadMatrix();
 }
 
@@ -49,10 +48,20 @@ QPair<int, int> Map::indexOf(Tile *tile)
     return index;
 }
 
+QList<QList<Tile *> *> *Map::getMatrix() const
+{
+    return matrix;
+}
+
+void Map::setMatrix(QList<QList<Tile *> *> *value)
+{
+    matrix = value;
+}
+
 Map::Map()
 {
-    rows = 10;
-    columns = 10;
+    rows = 15;
+    columns = 15;
     loadMatrix();
 }
 
