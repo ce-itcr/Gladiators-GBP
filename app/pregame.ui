@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PreGame</class>
+ <widget class="QWidget" name="PreGame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Loading Game</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="imgresources.qrc">
+    <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
+  </property>
+  <widget class="QPushButton" name="playGame">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>720</y>
+     <width>88</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Continuar</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="imgresources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

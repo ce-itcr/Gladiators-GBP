@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/imagotipo.png</file>
+        <file>img/isotipo.png</file>
+        <file>img/trophy.png</file>
+        <file>img/settings.png</file>
+        <file>img/achievementsTitle.png</file>
+        <file>img/settingsTitle.png</file>
+    </qresource>
+</RCC>

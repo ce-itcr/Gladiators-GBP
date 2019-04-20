@@ -27,13 +27,25 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    settings.cpp \
+    achievements.cpp \
+    pregame.cpp \
+    game.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    settings.h \
+    achievements.h \
+    pregame.h \
+    game.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    settings.ui \
+    achievements.ui \
+    pregame.ui \
+    game.ui
 
 LIBS += -L../src -lmylib
 
@@ -41,3 +53,7 @@ LIBS += -L../src -lmylib
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    imgresources.qrc
+
