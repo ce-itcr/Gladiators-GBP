@@ -17,6 +17,9 @@
    <iconset resource="imgresources.qrc">
     <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgba(40, 27, 27, 0.50);</string>
+  </property>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

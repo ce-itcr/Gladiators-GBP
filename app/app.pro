@@ -26,6 +26,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+	game/grid.cpp \
+	game/tile.cpp \
         main.cpp \
         mainwindow.cpp \
     settings.cpp \
@@ -34,6 +36,8 @@ SOURCES += \
     game.cpp
 
 HEADERS += \
+	game/grid.h \
+	game/tile.h \
         mainwindow.h \
     settings.h \
     achievements.h \
