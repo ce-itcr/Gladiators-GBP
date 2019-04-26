@@ -3,8 +3,8 @@
 
 #include <QFrame>
 
-#include "game/map.h"
 #include "tile.h"
+#include "graph/map.h"
 
 class Grid : public QFrame
 {
@@ -19,6 +19,8 @@ public slots:
 private:
     Map *map;
     QList<Tile *> tiles;
+
+    void loadGrid();
 };
 
 #endif // GRID_H

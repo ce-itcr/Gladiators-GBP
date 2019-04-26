@@ -2,7 +2,7 @@
 #define TST_MAPTEST_H
 
 #include <QTest>
-#include "game/map.h"
+#include "graph/map.h"
 
 class MapTest : public QObject
 {

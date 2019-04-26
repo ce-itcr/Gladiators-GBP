@@ -1,8 +1,7 @@
-#ifndef TILE_H
-#define TILE_H
+#ifndef NODE_H
+#define NODE_H
 
 #include "game/entities/entity.h"
-
 
 class Node
 {
@@ -20,4 +19,4 @@ private:
     bool occupied;
 };
 
-#endif // TILE_H
+#endif // NODE_H

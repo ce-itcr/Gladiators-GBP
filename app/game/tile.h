@@ -1,17 +1,27 @@
 #ifndef TILE_H
 #define TILE_H
 
-#include <QWidget>
+#include <QFrame>
+#include "graph/node.h"
 
-class Tile : public QWidget
+class Tile : public QFrame
 {
     Q_OBJECT
 public:
-    explicit Tile(QWidget *parent = nullptr);
+    Tile(QWidget *parent = nullptr, int i = 0, int j = 0);
+
+    int getI() const;
+
+    int getJ() const;
 
 signals:
 
 public slots:
+
+private:
+    int i;
+    int j;
+    Node *node;
 };
 
 #endif // TILE_H

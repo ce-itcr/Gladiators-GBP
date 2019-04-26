@@ -1,10 +1,9 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include "node.h"
-
 #include <QList>
 
+#include "node.h"
 
 class Map
 {
