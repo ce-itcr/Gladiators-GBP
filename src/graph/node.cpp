@@ -4,6 +4,12 @@ Node::Node()
 {
     entity = nullptr;
     occupied = false;
+    neighbors = new QList<Node *>();
+}
+
+void Node::addNeighbor(Node *node)
+{
+    neighbors->push_back(node);
 }
 
 Entity *Node::getEntity() const
@@ -24,4 +30,14 @@ bool Node::isOccupied() const
 void Node::setOccupied(bool value)
 {
     occupied = value;
+}
+
+QList<Node *> *Node::getNeighbors() const
+{
+    return neighbors;
+}
+
+void Node::setNeighbors(QList<Node *> *value)
+{
+    neighbors = value;
 }

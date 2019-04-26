@@ -14,9 +14,9 @@ public:
 
     void clearMatrix();
 
-    Node *tileAt(int row, int column);
+    Node *nodeAt(int row, int column);
 
-    QPair<int, int> indexOf(Node *tile);
+    QPair<int, int> indexOf(Node *node);
 
     QList<QList<Node *> *> *getMatrix() const;
     void setMatrix(QList<QList<Node *> *> *value);
@@ -33,7 +33,13 @@ private:
 
     Map();
 
+    void load();
+
     void loadMatrix();
+
+    void loadNeighbors();
+
+    void loadNeighbors(int i, int j, Node *node);
 };
 
 #endif // MAP_H

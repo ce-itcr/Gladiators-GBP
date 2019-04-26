@@ -31,7 +31,7 @@ void Grid::loadGrid()
             x = width * j + offset * j + 1;
 
             Tile *tile = new Tile(this, i, j);
-            tile->setNode(map->tileAt(i, j));
+            tile->setNode(map->nodeAt(i, j));
             tile->setGeometry(x, y, width, height);
             tile->show();
             tiles.push_back(tile);

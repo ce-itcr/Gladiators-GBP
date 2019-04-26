@@ -1,4 +1,4 @@
-#include "map.h"
+﻿#include "map.h"
 
 Map *Map::instance = new Map();
 
@@ -13,7 +13,7 @@ void Map::reSizeMatrix(int rows, int columns)
     this->columns = columns;
 
     delete matrix;
-    loadMatrix();
+    load();
 }
 
 void Map::clearMatrix()
@@ -21,14 +21,22 @@ void Map::clearMatrix()
     reSizeMatrix(rows, columns);
 }
 
-Node *Map::tileAt(int row, int column)
+Node *Map::nodeAt(int row, int column)
 {
-    QList<Node *> *columns = matrix->value(row);
-    Node *tile = columns->value(column);
+    Node *tile;
+
+    if (row >= 0 && row < rows
+            && column >= 0 && column < columns )
+    {
+        QList<Node *> *columns = matrix->value(row);
+        tile = columns->value(column);
+    }
+    else tile = nullptr;
+
     return tile;
 }
 
-QPair<int, int> Map::indexOf(Node *tile)
+QPair<int, int> Map::indexOf(Node *node)
 {
     bool finished = false;
     QPair<int, int> index;
@@ -36,7 +44,7 @@ QPair<int, int> Map::indexOf(Node *tile)
         QList<Node*> *column = matrix->value(i);
         for (int j = 0; j < columns; j++) {
             Node *tmp = column->value(j);
-            if (tmp == tile)
+            if (tmp == node)
             {
                 index = qMakePair(i, j);
                 finished = true;
@@ -72,7 +80,13 @@ Map::Map()
 {
     rows = 15;
     columns = 15;
+    load();
+}
+
+void Map::load()
+{
     loadMatrix();
+    loadNeighbors();
 }
 
 void Map::loadMatrix()
@@ -83,7 +97,35 @@ void Map::loadMatrix()
         matrix->push_back(row);
 
         for (int j = 0; j < columns; j++) {
-            row->push_back(new Node());
+            Node *node = new Node();
+            row->push_back(node);
+        }
+    }
+}
+
+void Map::loadNeighbors()
+{
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            Node *node = nodeAt(i, j);
+            loadNeighbors(i, j, node);
+        }
+    }
+}
+
+void Map::loadNeighbors(int i, int j, Node *node)
+{
+    QList<Node *> neighbors;
+    neighbors.push_back(nodeAt(i-1, j));
+    neighbors.push_back(nodeAt(i, j-1));
+    neighbors.push_back(nodeAt(i-1, j-1));
+    neighbors.push_back(nodeAt(i+1, j-1));
+
+    for (Node *neighbor : neighbors)
+    {
+        if (neighbor != nullptr) {
+            neighbor->addNeighbor(node);
+            node->getNeighbors()->push_back(neighbor);
         }
     }
 }

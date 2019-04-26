@@ -15,6 +15,7 @@ private slots:
     void test_resize();
     void test_tileAt();
     void test_indexOfTile();
+    void test_neighbors();
 };
 
 #endif // TST_MAPTEST_H
