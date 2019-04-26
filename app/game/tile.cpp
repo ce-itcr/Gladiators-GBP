@@ -17,3 +17,13 @@ int Tile::getJ() const
 {
     return j;
 }
+
+Node *Tile::getNode() const
+{
+    return node;
+}
+
+void Tile::setNode(Node *value)
+{
+    node = value;
+}

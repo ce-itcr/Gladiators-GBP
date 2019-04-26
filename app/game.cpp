@@ -25,6 +25,7 @@ void Game::loadGrid()
     int width, height;
     width = height = this->height() - offset * 2;
     grid->setGeometry(x, y, width, height);
+    grid->load();
     grid->show();
 }
 

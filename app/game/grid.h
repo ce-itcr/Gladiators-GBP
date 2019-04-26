@@ -12,15 +12,26 @@ class Grid : public QFrame
 public:
     explicit Grid(QWidget *parent = nullptr);
 
+    void load();
+
 signals:
 
 public slots:
 
+protected:
+    void resizeEvent(QResizeEvent *);
+
 private:
     Map *map;
     QList<Tile *> tiles;
+    int rows;
+    int columns;
+    int offset = 1;
 
     void loadGrid();
+    void updateGrid();
+
+    // QWidget interface
 };
 
 #endif // GRID_H

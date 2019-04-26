@@ -14,6 +14,9 @@ public:
 
     int getJ() const;
 
+    Node *getNode() const;
+    void setNode(Node *value);
+
 signals:
 
 public slots:
