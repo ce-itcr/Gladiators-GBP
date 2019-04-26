@@ -18,7 +18,7 @@
     <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(235, 245, 238);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="gladiators_imagotipo">
@@ -56,13 +56,19 @@
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background: rgb(136, 13, 30);
+border: none;
+border-radius: 8px;
+
+color: rgb(235, 245, 238);
+font-size: 50px;
+</string>
     </property>
     <property name="text">
-     <string>JUGAR</string>
+     <string>PLAY</string>
     </property>
     <property name="autoDefault">
      <bool>false</bool>
@@ -84,7 +90,13 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(156, 163, 159);
+border: none;
+border-radius: 8px;
+
+color: rgb(235, 245, 238);
+font-size: 20px;
+</string>
     </property>
     <property name="text">
      <string notr="true">SETTINGS</string>
@@ -106,7 +118,13 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(156, 163, 159);
+border: none;
+border-radius: 8px;
+
+color: rgb(235, 245, 238);
+font-size: 20px;
+</string>
     </property>
     <property name="text">
      <string>ACHIEV</string>

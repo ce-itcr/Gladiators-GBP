@@ -17,6 +17,9 @@
    <iconset resource="imgresources.qrc">
     <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(235, 245, 238);</string>
+  </property>
   <widget class="QPushButton" name="playGame">
    <property name="geometry">
     <rect>
@@ -25,6 +28,15 @@
      <width>88</width>
      <height>33</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(156, 163, 159);
+border: none;
+border-radius: 8px;
+
+color: rgb(235, 245, 238);
+font-size: 18px;
+</string>
    </property>
    <property name="text">
     <string>Continuar</string>
