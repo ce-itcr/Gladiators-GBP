@@ -26,19 +26,19 @@ void MapTest::test_resize()
 void MapTest::test_tileAt()
 {
     Map *map = Map::getInstance();
-    Tile *tile = map->tileAt(1, 1);
+    Node *tile = map->tileAt(1, 1);
 
     QVERIFY(!tile->isOccupied());
     tile->setOccupied(true);
 
-    Tile *newTile = map->tileAt(1, 1);
+    Node *newTile = map->tileAt(1, 1);
     QVERIFY(newTile->isOccupied());
 }
 
 void MapTest::test_indexOfTile()
 {
     Map *map = Map::getInstance();
-    Tile *tile = map->tileAt(1, 2);
+    Node *tile = map->tileAt(1, 2);
 
     QPair<int, int> index = map->indexOf(tile);
 

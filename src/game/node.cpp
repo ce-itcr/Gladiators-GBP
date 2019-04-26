@@ -1,27 +1,27 @@
-#include "tile.h"
+#include "node.h"
 
-Tile::Tile()
+Node::Node()
 {
     entity = nullptr;
     occupied = false;
 }
 
-Entity *Tile::getEntity() const
+Entity *Node::getEntity() const
 {
     return entity;
 }
 
-void Tile::setEntity(Entity *value)
+void Node::setEntity(Entity *value)
 {
     entity = value;
 }
 
-bool Tile::isOccupied() const
+bool Node::isOccupied() const
 {
     return occupied;
 }
 
-void Tile::setOccupied(bool value)
+void Node::setOccupied(bool value)
 {
     occupied = value;
 }

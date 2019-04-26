@@ -1,7 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include "tile.h"
+#include "node.h"
 
 #include <QList>
 
@@ -15,18 +15,22 @@ public:
 
     void clearMatrix();
 
-    Tile *tileAt(int row, int column);
+    Node *tileAt(int row, int column);
 
-    QPair<int, int> indexOf(Tile *tile);
+    QPair<int, int> indexOf(Node *tile);
 
-    QList<QList<Tile *> *> *getMatrix() const;
-    void setMatrix(QList<QList<Tile *> *> *value);
+    QList<QList<Node *> *> *getMatrix() const;
+    void setMatrix(QList<QList<Node *> *> *value);
+
+    int getRows() const;
+
+    int getColumns() const;
 
 private:
     static Map *instance;
     int rows;
     int columns;
-    QList<QList<Tile *> *> *matrix;
+    QList<QList<Node *> *> *matrix;
 
     Map();
 

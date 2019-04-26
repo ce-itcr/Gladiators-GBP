@@ -21,21 +21,21 @@ void Map::clearMatrix()
     reSizeMatrix(rows, columns);
 }
 
-Tile *Map::tileAt(int row, int column)
+Node *Map::tileAt(int row, int column)
 {
-    QList<Tile *> *columns = matrix->value(row);
-    Tile *tile = columns->value(column);
+    QList<Node *> *columns = matrix->value(row);
+    Node *tile = columns->value(column);
     return tile;
 }
 
-QPair<int, int> Map::indexOf(Tile *tile)
+QPair<int, int> Map::indexOf(Node *tile)
 {
     bool finished = false;
     QPair<int, int> index;
     for (int i = 0; i < rows; i++) {
-        QList<Tile*> *column = matrix->value(i);
+        QList<Node*> *column = matrix->value(i);
         for (int j = 0; j < columns; j++) {
-            Tile *tmp = column->value(j);
+            Node *tmp = column->value(j);
             if (tmp == tile)
             {
                 index = qMakePair(i, j);
@@ -48,14 +48,24 @@ QPair<int, int> Map::indexOf(Tile *tile)
     return index;
 }
 
-QList<QList<Tile *> *> *Map::getMatrix() const
+QList<QList<Node *> *> *Map::getMatrix() const
 {
     return matrix;
 }
 
-void Map::setMatrix(QList<QList<Tile *> *> *value)
+void Map::setMatrix(QList<QList<Node *> *> *value)
 {
     matrix = value;
+}
+
+int Map::getRows() const
+{
+    return rows;
+}
+
+int Map::getColumns() const
+{
+    return columns;
 }
 
 Map::Map()
@@ -67,13 +77,13 @@ Map::Map()
 
 void Map::loadMatrix()
 {
-    matrix = new QList<QList<Tile *> *>();
+    matrix = new QList<QList<Node *> *>();
     for (int i = 0; i < rows; i++) {
-        QList<Tile*> *row = new  QList<Tile *>();
+        QList<Node*> *row = new  QList<Node *>();
         matrix->push_back(row);
 
         for (int j = 0; j < columns; j++) {
-            row->push_back(new Tile());
+            row->push_back(new Node());
         }
     }
 }

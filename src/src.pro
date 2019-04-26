@@ -13,7 +13,7 @@ SOURCES += \
 	client/client.cpp \
 	client/clientinterface.cpp \
 	game/map.cpp \
-	game/tile.cpp \
+	game/node.cpp \
 	json/jsonconverter.cpp \
 	json/jsonserializer.cpp \
 	game/populations.cpp \
@@ -25,7 +25,7 @@ HEADERS += \
 	client/clientinterface.h \
 	game/entities/entity.h \
 	game/map.h \
-	game/tile.h \
+	game/node.h \
 	json/jsonconverter.h \
 	json/jsonserializable.h \
 	json/jsonserializer.h \

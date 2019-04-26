@@ -4,10 +4,10 @@
 #include "game/entities/entity.h"
 
 
-class Tile
+class Node
 {
 public:
-    Tile();
+    Node();
 
     Entity *getEntity() const;
     void setEntity(Entity *value);
