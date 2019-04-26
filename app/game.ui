@@ -18,8 +18,26 @@
     <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgba(40, 27, 27, 0.50);</string>
+   <string notr="true">#Game{
+background-image: url(:/img/background.jpg);
+}</string>
   </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1201</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgba(40, 27, 27, 0.5);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>
