@@ -12,8 +12,8 @@ public class Gladiators {
 		
 	}
 	
-	public Gladiator getFittestGladiator() {
-		return this;
-	}
+//	public Gladiator getFittestGladiator() {
+//		return this;
+//	}
 
 }

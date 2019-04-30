@@ -21,7 +21,7 @@ public class Towers {
         return towers.values();
     }
 
-    public void replaceAllGladiators(Collection<Tower> newTowers) {
+    public void replaceAllTowers(Collection<Tower> newTowers) {
         towers = new HashMap<>();
         for (Tower tower : newTowers) {
             towers.put(tower.getId(), tower);
