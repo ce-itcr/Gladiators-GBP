@@ -35,7 +35,8 @@ SOURCES += \
     pregame.cpp \
     game.cpp \
     game/entities/player.cpp \
-    game/gamecontroller.cpp
+    game/gamecontroller.cpp \
+    game/entities/enemy.cpp
 
 HEADERS += \
 	game/grid.h \
@@ -47,7 +48,8 @@ HEADERS += \
     game/entities/player.h \
     game/entities/entity.h \
     game/gamecontroller.h \
-    game.h
+    game.h \
+    game/entities/enemy.h
 
 FORMS += \
         mainwindow.ui \

@@ -28,6 +28,10 @@ void GameController::update()
 
     for (Entity *entity : *entities)
     {
+        QList<QRect> colliders = rectsOfEntities();
+        if (Collision::collide(entity->getRect(), colliders)) entity->collide();
+        else entity->uncollide();
+
         entity->update();
         entity->draw();
     }
@@ -47,4 +51,14 @@ GameController::GameController()
 {
     entities = new QList<Entity *>();
     cycleTime = 25;
+}
+
+QList<QRect> GameController::rectsOfEntities()
+{
+    QList<QRect> rects;
+    for (Entity *entity : *entities)
+    {
+        rects.push_back(entity->getRect());
+    }
+    return rects;
 }

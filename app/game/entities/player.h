@@ -14,19 +14,35 @@ class Player : public QFrame, public Entity
 public:
     Player(QWidget *parent = nullptr);
 
+    void update();
+
+    void draw();
+
+    void collide();
+
+    void uncollide();
+
+    QRect getRect();
+
+    int getX() const;
+    void setX(int value);
+
+    int getY() const;
+    void setY(int value);
+
 private:
     int x;
     int y;
+    int width;
+    int height;
     int speed;
     int acc;
 
     int maxSpeed;
     int maxAcc;
+    bool canMove;
 
-    // Entity interface
-public:
-    void update();
-    void draw();
+    void move();
 };
 
 #endif // PLAYER_H

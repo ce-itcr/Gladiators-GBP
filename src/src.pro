@@ -2,6 +2,7 @@ include(../defaults.pri)
 
 QT += network
 QT += core
+QT += widgets
 
 CONFIG += console
 CONFIG -= app_bundle
@@ -19,7 +20,8 @@ SOURCES += \
 	game/populations.cpp \
 	game/entities/gladiator.cpp \
 	game/entities/tower.cpp \
-    util/math.cpp
+    util/math.cpp \
+    util/collision.cpp
 
 HEADERS += \
 	client/client.h \
@@ -33,4 +35,5 @@ HEADERS += \
 	game/entities/gladiator.h \
 	game/entities/tower.h \
     util/math.h \
-    game/entities/entity.h
+    game/entities/entity.h \
+    util/collision.h

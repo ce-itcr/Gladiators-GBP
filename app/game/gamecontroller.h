@@ -3,8 +3,10 @@
 
 #include <QObject>
 #include <QTimer>
+#include <QDebug>
 
 #include "entities/entity.h"
+#include "util/collision.h"
 
 class GameController : public QObject
 {
@@ -32,6 +34,8 @@ private:
     int cycleTime;
 
     GameController();
+
+    QList<QRect> rectsOfEntities();
 };
 
 #endif // GAMECONTROLLER_H

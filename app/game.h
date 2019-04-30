@@ -14,6 +14,7 @@
 #include "game/grid.h"
 #include "game/gamecontroller.h"
 #include "game/entities/player.h"
+#include "game/entities/enemy.h"
 
 namespace Ui {
 class Game;

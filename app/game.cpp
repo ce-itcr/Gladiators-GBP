@@ -44,4 +44,9 @@ void Game::on_pushButton_clicked()
 {
     Entity *player = new Player(this);
     gameController->addEntity(player);
+
+    Enemy *enemy = new Enemy(this);
+    enemy->setX(100);
+    enemy->setY(100);
+    gameController->addEntity(enemy);
 }
