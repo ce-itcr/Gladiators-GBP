@@ -18,12 +18,12 @@ SOURCES += \
 	json/jsonserializer.cpp \
 	game/populations.cpp \
 	game/entities/gladiator.cpp \
-	game/entities/tower.cpp
+	game/entities/tower.cpp \
+    util/math.cpp
 
 HEADERS += \
 	client/client.h \
 	client/clientinterface.h \
-	game/entities/entity.h \
 	graph/map.h \
 	graph/node.h \
 	json/jsonconverter.h \
@@ -31,4 +31,6 @@ HEADERS += \
 	json/jsonserializer.h \
 	game/populations.h \
 	game/entities/gladiator.h \
-	game/entities/tower.h
+	game/entities/tower.h \
+    util/math.h \
+    game/entities/entity.h

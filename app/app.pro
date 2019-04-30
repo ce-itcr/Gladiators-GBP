@@ -33,7 +33,9 @@ SOURCES += \
     settings.cpp \
     achievements.cpp \
     pregame.cpp \
-    game.cpp
+    game.cpp \
+    game/entities/player.cpp \
+    game/gamecontroller.cpp
 
 HEADERS += \
 	game/grid.h \
@@ -42,6 +44,9 @@ HEADERS += \
     settings.h \
     achievements.h \
     pregame.h \
+    game/entities/player.h \
+    game/entities/entity.h \
+    game/gamecontroller.h \
     game.h
 
 FORMS += \
