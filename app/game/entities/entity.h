@@ -6,6 +6,8 @@
 class Entity
 {
 public:
+    QString tag = "";
+
     virtual ~Entity() {}
 
     virtual void update() = 0;

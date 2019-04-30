@@ -2,6 +2,7 @@
 
 Enemy::Enemy(QWidget *parent) : QFrame(parent)
 {
+    tag = "enemy";
     x = 0;
     y = 0;
     width = 50;

@@ -10,7 +10,7 @@ bool Collision::collide(QRect rect, QList<QRect> rects)
     bool result = false;
     for (QRect rect2 : rects)
     {
-        if (rect != rect2) result = rect.intersects(rect2);
+        result = rect.intersects(rect2);
         if (result) break;
     }
     return result;

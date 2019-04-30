@@ -42,11 +42,11 @@ void Game::resizeEvent(QResizeEvent *event)
 
 void Game::on_pushButton_clicked()
 {
-    Entity *player = new Player(this);
+    Entity *player = new Player(grid);
     gameController->addEntity(player);
 
-    Enemy *enemy = new Enemy(this);
-    enemy->setX(100);
-    enemy->setY(100);
+    Enemy *enemy = new Enemy(grid);
+    enemy->setX(600);
+    enemy->setY(600);
     gameController->addEntity(enemy);
 }

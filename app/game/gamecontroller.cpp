@@ -58,7 +58,10 @@ QList<QRect> GameController::rectsOfEntities()
     QList<QRect> rects;
     for (Entity *entity : *entities)
     {
-        rects.push_back(entity->getRect());
+        if (entity->tag != "player")
+        {
+            rects.push_back(entity->getRect());
+        }
     }
     return rects;
 }

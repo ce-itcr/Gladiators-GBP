@@ -2,6 +2,7 @@
 
 Player::Player(QWidget *parent) : QFrame (parent)
 {
+    tag = "player";
     x = 0;
     y = 0;
     width = 50;
