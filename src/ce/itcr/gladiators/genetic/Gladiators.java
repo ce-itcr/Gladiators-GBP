@@ -12,7 +12,7 @@ public class Gladiators {
 		
 	}
 	
-	public Gladiators getFittestGladiator() {
+	public Gladiator getFittestGladiator() {
 		return this;
 	}
 
