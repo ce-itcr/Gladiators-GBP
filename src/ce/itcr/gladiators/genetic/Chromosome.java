@@ -2,6 +2,7 @@ package ce.itcr.gladiators.genetic;
 
 public class Chromosome {
 	
+	private int [] chromosomeArray;
 	private int health;
 	private int resistanceUpperBody;
 	private int resistanceLowerBody;
@@ -9,7 +10,17 @@ public class Chromosome {
 	private int age;
 
 	public int[] getChromosomeArray() {
-		return new int[] {health, resistanceLowerBody, resistanceUpperBody, dodgeChance, age};
+		this.chromosomeArray = new int[] {health, resistanceLowerBody, resistanceUpperBody, dodgeChance, age};
+		return this.chromosomeArray;
+	}
+	
+	public void mutateGene(int i) {
+		chromosomeArray[i] ++;
+		setHealth(chromosomeArray[0]);
+		setResistanceLowerBody(chromosomeArray[1]);
+		setResistanceUpperBody(chromosomeArray[2]);
+		setDodgeChance(chromosomeArray[3]);
+		setAge(chromosomeArray[4]);
 	}
 
 	public int getHealth() {

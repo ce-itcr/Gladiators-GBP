@@ -21,17 +21,13 @@ public class Gladiator {
 		finalChromosome.setResistanceLowerBody((chromosome.getResistanceLowerBody()+this.chromosome.getResistanceLowerBody())/2);
 		finalChromosome.setResistanceUpperBody((chromosome.getResistanceUpperBody()+this.chromosome.getResistanceUpperBody())/2);
 		finalChromosome.setDodgeChance((chromosome.getDodgeChance()+this.chromosome.getDodgeChance())/2);
-		return finalChromosome;
+		return mutate(finalChromosome);
 	}
 	
-	public Chromosome mutate() {
-		if (Math.random() < 0.5)
-			random.nextInt()
+	public Chromosome mutate(Chromosome chromosome) {
+		if (Math.random() < 0.10)
+			chromosome.mutateGene(random.nextInt(((3 - 0) + 1) + 0));
 		return chromosome;
-	}
-	
-	public int getFitness() {
-		
 	}
 	
 	public int getSpeed() {
