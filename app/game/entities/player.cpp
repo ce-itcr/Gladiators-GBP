@@ -5,11 +5,13 @@ Player::Player(QWidget *parent) : QFrame (parent)
     x = 0;
     y = 0;
     speed = 0;
-    acc = 0;
-    maxSpeed = 50;
-    maxAcc = 10;
+    acc = 1;
+    maxSpeed = 10;
+    maxAcc = 2;
 
     this->setStyleSheet("background-color:green;");
+    this->setGeometry(x, y, 50, 50);
+    this->show();
 }
 
 void Player::update()

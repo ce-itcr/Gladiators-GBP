@@ -6,8 +6,9 @@
 #include "cmath"
 
 #include <QFrame>
+#include <QDebug>
 
-class Player : public QFrame, Entity
+class Player : public QFrame, public Entity
 {
     Q_OBJECT
 public:

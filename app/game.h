@@ -12,6 +12,8 @@
 
 #include <QMainWindow>
 #include "game/grid.h"
+#include "game/gamecontroller.h"
+#include "game/entities/player.h"
 
 namespace Ui {
 class Game;
@@ -28,12 +30,16 @@ public:
 private:
     Ui::Game *ui;
     Grid *grid;
+    GameController *gameController;
 
     void loadGrid();
 
     // QWidget interface
 protected:
     void resizeEvent(QResizeEvent *event);
+
+private slots:
+    void on_pushButton_clicked();
 };
 
 #endif // GAME_H

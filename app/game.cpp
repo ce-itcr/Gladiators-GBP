@@ -8,6 +8,9 @@ Game::Game(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    gameController = GameController::getInstance();
+    gameController->run();
+
     loadGrid();
 }
 
@@ -24,6 +27,7 @@ void Game::loadGrid()
     int x = offset, y = offset;
     int width, height;
     width = height = this->height() - offset * 2;
+
     grid->setGeometry(x, y, width, height);
     grid->load();
     grid->show();
@@ -34,4 +38,10 @@ void Game::resizeEvent(QResizeEvent *event)
     int width, height;
     width = height = this->height() - 10 * 2;
     grid->resize(width, height);
+}
+
+void Game::on_pushButton_clicked()
+{
+    Entity *player = new Player(this);
+    gameController->addEntity(player);
 }
