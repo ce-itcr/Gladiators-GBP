@@ -18,6 +18,16 @@ void Grid::resizeEvent(QResizeEvent *)
     updateGrid();
 }
 
+QList<Tile *> Grid::getTiles() const
+{
+    return tiles;
+}
+
+void Grid::setTiles(const QList<Tile *> &value)
+{
+    tiles = value;
+}
+
 void Grid::loadGrid()
 {
     int x = offset, y = offset;

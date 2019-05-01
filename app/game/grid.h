@@ -14,6 +14,9 @@ public:
 
     void load();
 
+    QList<Tile *> getTiles() const;
+    void setTiles(const QList<Tile *> &value);
+
 signals:
 
 public slots:

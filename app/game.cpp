@@ -33,7 +33,7 @@ void Game::loadGrid()
     grid->show();
 }
 
-void Game::resizeEvent(QResizeEvent *event)
+void Game::resizeEvent(QResizeEvent *)
 {
     int width, height;
     width = height = this->height() - 10 * 2;
@@ -43,6 +43,12 @@ void Game::resizeEvent(QResizeEvent *event)
 void Game::on_pushButton_clicked()
 {
     Entity *player = new Player(grid);
+    QList<Node *> nodes;
+    for (Tile *tile : grid->getTiles())
+    {
+        nodes.push_back(tile->getNode());
+    }
+    static_cast<Player *>(player)->setNodePath(nodes);
     gameController->addEntity(player);
 
     Enemy *enemy = new Enemy(grid);
@@ -50,3 +56,4 @@ void Game::on_pushButton_clicked()
     enemy->setY(600);
     gameController->addEntity(enemy);
 }
+
