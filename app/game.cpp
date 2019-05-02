@@ -12,6 +12,7 @@ Game::Game(QWidget *parent) :
     gameController->run();
 
     loadGrid();
+    loadWaveButton();
 }
 
 Game::~Game()
@@ -33,27 +34,23 @@ void Game::loadGrid()
     grid->show();
 }
 
+void Game::loadWaveButton()
+{
+    int offset = 10;
+    int x = grid->x() + offset;
+    int y = grid->y() + offset;
+
+    QPushButton *waveButton = new QPushButton(grid);
+    waveButton->setGeometry(x, y, 16, 16);
+    QObject::connect(waveButton, &QPushButton::clicked, grid, &Grid::on_waveButton_clicked);
+    waveButton->setStyleSheet("border-radius: 16px;");
+
+    waveButton->show();
+}
+
 void Game::resizeEvent(QResizeEvent *)
 {
     int width, height;
     width = height = this->height() - 10 * 2;
     grid->resize(width, height);
 }
-
-void Game::on_pushButton_clicked()
-{
-    Entity *player = new Player(grid);
-    QList<Node *> nodes;
-    for (Tile *tile : grid->getTiles())
-    {
-        nodes.push_back(tile->getNode());
-    }
-    static_cast<Player *>(player)->setNodePath(nodes);
-    gameController->addEntity(player);
-
-    Enemy *enemy = new Enemy(grid);
-    enemy->setX(600);
-    enemy->setY(600);
-    gameController->addEntity(enemy);
-}
-

@@ -38,19 +38,6 @@ background-image: url(:/img/background.jpg);
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>1088</x>
-     <y>10</y>
-     <width>101</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>CreatePlayer</string>
-   </property>
-  </widget>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

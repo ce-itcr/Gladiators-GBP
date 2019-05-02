@@ -6,6 +6,7 @@
 #include "game/tile.h"
 #include "game/grid.h"
 #include "graph/node.h"
+#include "game/entities/gladiator.h"
 
 #include <QFrame>
 #include <QDebug>
@@ -35,8 +36,12 @@ public:
     QList<Node *> getNodePath() const;
     void setNodePath(const QList<Node *> &value);
 
+    Gladiator *getGladiator() const;
+    void setGladiator(Gladiator *value);
+
 private:
     Grid *grid;
+    Gladiator *gladiator;
     int x;
     int y;
     int width;

@@ -18,6 +18,12 @@ int Tile::getJ() const
     return j;
 }
 
+QRect Tile::getRect() const
+{
+    QRect rect(x(), y(), width(), height());
+    return rect;
+}
+
 Node *Tile::getNode() const
 {
     return node;

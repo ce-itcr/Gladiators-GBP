@@ -27,6 +27,7 @@ CONFIG += c++11
 
 SOURCES += \
 	game/grid.cpp \
+	game/spawner.cpp \
 	game/tile.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -40,6 +41,7 @@ SOURCES += \
 
 HEADERS += \
 	game/grid.h \
+	game/spawner.h \
 	game/tile.h \
         mainwindow.h \
     settings.h \

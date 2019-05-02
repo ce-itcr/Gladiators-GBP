@@ -5,6 +5,9 @@
 
 #include "tile.h"
 #include "graph/map.h"
+#include "game/entities/enemy.h"
+#include "game/gamecontroller.h"
+#include "game/spawner.h"
 
 class Grid : public QFrame
 {
@@ -20,21 +23,28 @@ public:
 signals:
 
 public slots:
+       void on_waveButton_clicked();
 
+// QWidget interface
 protected:
     void resizeEvent(QResizeEvent *);
 
+    void mousePressEvent(QMouseEvent *event);
+
 private:
     Map *map;
+    GameController *gameController;
+    Spawner *spawner;
     QList<Tile *> tiles;
     int rows;
     int columns;
     int offset = 1;
 
     void loadGrid();
+
     void updateGrid();
 
-    // QWidget interface
+    void createEntity(Tile *tile);
 };
 
 #endif // GRID_H

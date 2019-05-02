@@ -14,6 +14,8 @@ public:
 
     int getJ() const;
 
+    QRect getRect() const;
+
     Node *getNode() const;
     void setNode(Node *value);
 

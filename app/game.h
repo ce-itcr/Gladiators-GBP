@@ -11,10 +11,10 @@
 #define GAME_H
 
 #include <QMainWindow>
+#include <QPushButton>
+
 #include "game/grid.h"
 #include "game/gamecontroller.h"
-#include "game/entities/player.h"
-#include "game/entities/enemy.h"
 
 namespace Ui {
 class Game;
@@ -35,12 +35,13 @@ private:
 
     void loadGrid();
 
+    void loadWaveButton();
+
     // QWidget interface
 protected:
     void resizeEvent(QResizeEvent *event);
 
 private slots:
-    void on_pushButton_clicked();
 };
 
 #endif // GAME_H

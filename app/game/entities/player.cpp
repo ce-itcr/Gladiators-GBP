@@ -2,6 +2,7 @@
 
 Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(parent))
 {
+    gladiator = nullptr;
     tag = "player";
     x = 0;
     y = 0;
@@ -74,6 +75,16 @@ QList<Node *> Player::getNodePath() const
 void Player::setNodePath(const QList<Node *> &value)
 {
     nodePath = value;
+}
+
+Gladiator *Player::getGladiator() const
+{
+    return gladiator;
+}
+
+void Player::setGladiator(Gladiator *value)
+{
+    gladiator = value;
 }
 
 void Player::move()

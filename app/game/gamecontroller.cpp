@@ -37,6 +37,16 @@ void GameController::update()
     }
 }
 
+bool GameController::isWaveActive() const
+{
+    return waveActive;
+}
+
+void GameController::setWaveActive(bool value)
+{
+    waveActive = value;
+}
+
 QList<Entity *> *GameController::getEntities() const
 {
     return entities;

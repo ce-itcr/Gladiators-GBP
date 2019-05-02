@@ -3,6 +3,8 @@
 Grid::Grid(QWidget *parent) : QFrame(parent)
 {
     map = Map::getInstance();
+    gameController = GameController::getInstance();
+    spawner = Spawner::getInstance(this);
     rows = map->getRows();
     columns = map->getColumns();
     this->setStyleSheet("background-color: #EBF5EE;");
@@ -18,6 +20,16 @@ void Grid::resizeEvent(QResizeEvent *)
     updateGrid();
 }
 
+void Grid::mousePressEvent(QMouseEvent *event)
+{
+    int x = event->x();
+    int y = event->y();
+    for (Tile *tile : tiles)
+    {
+        if (tile->getRect().contains(x, y)) createEntity(tile);
+    }
+}
+
 QList<Tile *> Grid::getTiles() const
 {
     return tiles;
@@ -26,6 +38,25 @@ QList<Tile *> Grid::getTiles() const
 void Grid::setTiles(const QList<Tile *> &value)
 {
     tiles = value;
+}
+
+void Grid::on_waveButton_clicked()
+{
+    // Loads a path
+    QList<Node *> nodes;
+    for (Tile *tile : tiles)
+    {
+        nodes.push_back(tile->getNode());
+    }
+
+    QList<Gladiator *> gladiators;
+    for (int i = 0; i < 10; i++) {
+        Gladiator *gladiator = new Gladiator();
+        gladiator->setNodePath(nodes);
+        gladiators.push_back(gladiator);
+    }
+
+    spawner->spawnGladiators(gladiators);
 }
 
 void Grid::loadGrid()
@@ -65,5 +96,19 @@ void Grid::updateGrid()
         tile->setGeometry(x, y, width, height);
         tile->update();
     }
+}
+
+void Grid::createEntity(Tile *tile)
+{
+    Node *node = tile->getNode();
+    if (node->isOccupied()) return;
+
+    Enemy *enemy = new Enemy(this);
+    enemy->setX(tile->x());
+    enemy->setY(tile->y());
+    gameController->addEntity(enemy);
+
+    node->setEntity(enemy);
+    node->setOccupied(true);
 }
 

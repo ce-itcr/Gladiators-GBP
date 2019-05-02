@@ -3,7 +3,8 @@
 
 #include <QString>
 
-#include <json/jsonserializable.h>
+#include "json/jsonserializable.h"
+#include "graph/node.h"
 
 
 class Gladiator : public JsonSerializable
@@ -25,10 +26,14 @@ public:
     void write(QJsonObject &jsonObj) const;
     void read(const QJsonObject &jsonObj);
 
+    QList<Node *> getNodePath() const;
+    void setNodePath(const QList<Node *> &value);
+
 private:
     QString id;
     QString name;
     QString age;
+    QList<Node *> nodePath;
 };
 
 #endif // GLADIATOR_H
