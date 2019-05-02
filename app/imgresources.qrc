@@ -12,5 +12,7 @@
         <file>img/waveIcon.png</file>
         <file>img/fast.png</file>
         <file>img/pauseIcon.png</file>
+        <file>img/slow.png</file>
+        <file>img/normal.png</file>
     </qresource>
 </RCC>

@@ -32,6 +32,7 @@ private:
     Ui::Game *ui;
     Grid *grid;
     GameController *gameController;
+    int speed;
 
     void loadGrid();
 

@@ -29,6 +29,9 @@ public:
     bool isPause() const;
     void setPause(bool value);
 
+    int getCycleTime() const;
+    void setCycleTime(int value);
+
 signals:
 
 public slots:

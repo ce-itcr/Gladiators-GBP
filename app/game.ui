@@ -26,8 +26,8 @@ background-image: url(:/img/background.jpg);
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-10</y>
-     <width>1201</width>
+     <y>0</y>
+     <width>1200</width>
      <height>800</height>
     </rect>
    </property>
@@ -137,7 +137,7 @@ timesTable::section {
     <bool>false</bool>
    </property>
    <attribute name="horizontalHeaderVisible">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
    <attribute name="horizontalHeaderCascadingSectionResizes">
     <bool>false</bool>
@@ -273,7 +273,7 @@ QPushButton:hover{
    </property>
    <property name="icon">
     <iconset resource="imgresources.qrc">
-     <normaloff>:/img/fast.png</normaloff>:/img/fast.png</iconset>
+     <normaloff>:/img/normal.png</normaloff>:/img/normal.png</iconset>
    </property>
    <property name="iconSize">
     <size>

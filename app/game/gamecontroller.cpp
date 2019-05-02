@@ -38,6 +38,16 @@ void GameController::update()
     }
 }
 
+int GameController::getCycleTime() const
+{
+    return cycleTime;
+}
+
+void GameController::setCycleTime(int value)
+{
+    cycleTime = value;
+}
+
 bool GameController::isPause() const
 {
     return pause;

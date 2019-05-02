@@ -7,6 +7,7 @@ Game::Game(QWidget *parent) :
     ui(new Ui::Game)
 {
     ui->setupUi(this);
+    speed = 2;
 
     gameController = GameController::getInstance();
     gameController->run();
@@ -24,10 +25,10 @@ void Game::loadGrid()
 {
     grid = new Grid(this);
 
-    int offset = 10;
-    int x = offset, y = offset;
+    int xOffset = 16, yOffset = 82;
+    int x = xOffset, y = yOffset;
     int width, height;
-    width = height = this->height() - offset * 2;
+    width = height = this->height() - yOffset;
 
     grid->setGeometry(x, y, width, height);
     grid->load();
@@ -55,7 +56,16 @@ void Game::on_waveButton_clicked()
 
 void Game::on_fastButton_clicked()
 {
+    int cycles = gameController->getCycleTime();
+    speed = speed % 3 + 1;
 
+    QIcon icon;
+    if (speed == 1) { cycles = 50; icon.addFile(":img/slow.png"); }
+    if (speed == 2) { cycles = 25; icon.addFile(":img/normal.png"); }
+    if (speed == 3) { cycles = 10; icon.addFile(":img/fast.png"); }
+    ui->fastButton->setIcon(icon);
+
+    gameController->setCycleTime(cycles);
 }
 
 void Game::on_pauseButton_clicked()
