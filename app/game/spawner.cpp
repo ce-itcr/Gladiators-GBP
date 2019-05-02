@@ -16,6 +16,11 @@ void Spawner::spawnGladiators(QList<Gladiator *> gladiators)
     spawn();
 }
 
+bool Spawner::isWaveFinished()
+{
+    return gladiators.isEmpty();
+}
+
 void Spawner::spawn()
 {
     if (gladiators.isEmpty()) return;
