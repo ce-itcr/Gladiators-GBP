@@ -76,6 +76,16 @@ int Map::getColumns() const
     return columns;
 }
 
+QList<Node *> Map::getNodes() const
+{
+    return nodes;
+}
+
+void Map::setNodes(const QList<Node *> &value)
+{
+    nodes = value;
+}
+
 Map::Map()
 {
     rows = 15;
@@ -99,6 +109,7 @@ void Map::loadMatrix()
         for (int j = 0; j < columns; j++) {
             Node *node = new Node();
             row->push_back(node);
+            nodes.push_back(node);
         }
     }
 }

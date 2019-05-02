@@ -25,11 +25,15 @@ public:
 
     int getColumns() const;
 
+    QList<Node *> getNodes() const;
+    void setNodes(const QList<Node *> &value);
+
 private:
     static Map *instance;
     int rows;
     int columns;
     QList<QList<Node *> *> *matrix;
+    QList<Node *> nodes;
 
     Map();
 
