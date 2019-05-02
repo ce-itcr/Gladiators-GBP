@@ -59,12 +59,20 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: rgb(136, 13, 30);
-border: none;
-border-radius: 8px;
+     <string notr="true">QPushButton{
+	border: none;
+	border-radius: 8px;
+	font-size: 50px;
+}
+QPushButton:!hover{
+	background: rgb(136, 13, 30);
+	color: rgb(235, 245, 238);
+}
+QPushButton:hover {
+	color: rgb(136, 13, 30);
+	background: rgb(235, 245, 238);
+}
 
-color: rgb(235, 245, 238);
-font-size: 50px;
 </string>
     </property>
     <property name="text">
@@ -90,13 +98,19 @@ font-size: 50px;
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(156, 163, 159);
-border: none;
-border-radius: 8px;
-
-color: rgb(235, 245, 238);
-font-size: 20px;
-</string>
+     <string notr="true">QPushButton{
+	border: none;
+	border-radius: 8px;
+	font-size: 20px;
+}
+QPushButton:!hover{
+	background-color: rgb(156, 163, 159);
+	color: rgb(235, 245, 238);
+}
+QPushButton:hover{
+	color: rgb(156, 163, 159);
+	background-color: rgb(235, 245, 238);
+}</string>
     </property>
     <property name="text">
      <string notr="true">SETTINGS</string>
@@ -118,13 +132,19 @@ font-size: 20px;
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(156, 163, 159);
-border: none;
-border-radius: 8px;
-
-color: rgb(235, 245, 238);
-font-size: 20px;
-</string>
+     <string notr="true">QPushButton{
+	border: none;
+	border-radius: 8px;
+	font-size: 20px;
+}
+QPushButton:!hover{
+	background-color: rgb(156, 163, 159);
+	color: rgb(235, 245, 238);
+}
+QPushButton:hover{
+	color: rgb(156, 163, 159);
+	background-color: rgb(235, 245, 238);
+}</string>
     </property>
     <property name="text">
      <string>ACHIEV</string>
