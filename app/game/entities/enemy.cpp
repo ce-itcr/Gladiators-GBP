@@ -2,6 +2,7 @@
 
 Enemy::Enemy(QWidget *parent) : QFrame(parent)
 {
+    tower = nullptr;
     tag = "enemy";
     x = 0;
     y = 0;
@@ -57,4 +58,14 @@ int Enemy::getY() const
 void Enemy::setY(int value)
 {
     y = value;
+}
+
+Tower *Enemy::getTower() const
+{
+    return tower;
+}
+
+void Enemy::setTower(Tower *value)
+{
+    tower = value;
 }

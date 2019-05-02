@@ -35,13 +35,16 @@ private:
 
     void loadGrid();
 
-    void loadWaveButton();
+    void loadButtons();
 
     // QWidget interface
 protected:
     void resizeEvent(QResizeEvent *event);
 
 private slots:
+    void on_waveButton_clicked();
+    void on_fastButton_clicked();
+    void on_pauseButton_clicked();
 };
 
 #endif // GAME_H

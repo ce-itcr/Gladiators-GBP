@@ -25,6 +25,7 @@ void GameController::removeEntity(Entity *entity)
 void GameController::update()
 {
     QTimer::singleShot(cycleTime, this, &GameController::update);
+    if (pause) return;
 
     for (Entity *entity : *entities)
     {
@@ -35,6 +36,16 @@ void GameController::update()
         entity->update();
         entity->draw();
     }
+}
+
+bool GameController::isPause() const
+{
+    return pause;
+}
+
+void GameController::setPause(bool value)
+{
+    pause = value;
 }
 
 bool GameController::isWaveActive() const
@@ -61,6 +72,7 @@ GameController::GameController()
 {
     entities = new QList<Entity *>();
     cycleTime = 25;
+    pause = false;
 }
 
 QList<QRect> GameController::rectsOfEntities()

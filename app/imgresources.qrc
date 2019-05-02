@@ -8,5 +8,9 @@
         <file>img/settingsTitle.png</file>
         <file>img/background.jpg</file>
         <file>img/color_palette.png</file>
+        <file>img/icon.png</file>
+        <file>img/waveIcon.png</file>
+        <file>img/fast.png</file>
+        <file>img/pauseIcon.png</file>
     </qresource>
 </RCC>

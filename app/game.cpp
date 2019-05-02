@@ -12,7 +12,7 @@ Game::Game(QWidget *parent) :
     gameController->run();
 
     loadGrid();
-    loadWaveButton();
+    loadButtons();
 }
 
 Game::~Game()
@@ -34,18 +34,11 @@ void Game::loadGrid()
     grid->show();
 }
 
-void Game::loadWaveButton()
+void Game::loadButtons()
 {
-    int offset = 10;
-    int x = grid->x() + offset;
-    int y = grid->y() + offset;
-
-    QPushButton *waveButton = new QPushButton(grid);
-    waveButton->setGeometry(x, y, 16, 16);
-    QObject::connect(waveButton, &QPushButton::clicked, grid, &Grid::on_waveButton_clicked);
-    waveButton->setStyleSheet("border-radius: 16px;");
-
-    waveButton->show();
+    ui->waveButton->raise();
+    ui->fastButton->raise();
+    ui->pauseButton->raise();
 }
 
 void Game::resizeEvent(QResizeEvent *)
@@ -53,4 +46,20 @@ void Game::resizeEvent(QResizeEvent *)
     int width, height;
     width = height = this->height() - 10 * 2;
     grid->resize(width, height);
+}
+
+void Game::on_waveButton_clicked()
+{
+    grid->on_waveButton_clicked();
+}
+
+void Game::on_fastButton_clicked()
+{
+
+}
+
+void Game::on_pauseButton_clicked()
+{
+    bool pause = gameController->isPause();
+    gameController->setPause(!pause);
 }

@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include "entity.h"
+#include "game/entities/tower.h"
 
 class Enemy : public QFrame, public Entity
 {
@@ -26,7 +27,11 @@ public:
     int getY() const;
     void setY(int value);
 
+    Tower *getTower() const;
+    void setTower(Tower *value);
+
 private:
+    Tower *tower;
     int x;
     int y;
     int width;

@@ -26,6 +26,9 @@ public:
     bool isWaveActive() const;
     void setWaveActive(bool value);
 
+    bool isPause() const;
+    void setPause(bool value);
+
 signals:
 
 public slots:
@@ -36,6 +39,7 @@ private:
     QList<Entity *> *entities;
     int cycleTime;
     bool waveActive;
+    bool pause;
 
     GameController();
 

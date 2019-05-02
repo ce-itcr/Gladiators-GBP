@@ -19,6 +19,9 @@ public:
     Node *getNode() const;
     void setNode(Node *value);
 
+    bool getCanBuild() const;
+    void setCanBuild(bool value);
+
 signals:
 
 public slots:
@@ -27,6 +30,7 @@ private:
     int i;
     int j;
     Node *node;
+    bool canBuild;
 };
 
 #endif // TILE_H

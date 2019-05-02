@@ -5,6 +5,7 @@ Tile::Tile(QWidget *parent, int i, int j) : QFrame(parent)
     this->i = i;
     this->j = j;
     this->node = nullptr;
+    this->canBuild = true;
     this->setStyleSheet("background-color:#8B786D;");
 }
 
@@ -32,4 +33,14 @@ Node *Tile::getNode() const
 void Tile::setNode(Node *value)
 {
     node = value;
+}
+
+bool Tile::getCanBuild() const
+{
+    return canBuild;
+}
+
+void Tile::setCanBuild(bool value)
+{
+    canBuild = value;
 }
