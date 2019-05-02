@@ -20,10 +20,12 @@ public:
     QList<Tile *> getTiles() const;
     void setTiles(const QList<Tile *> &value);
 
+    int getTileSize() const;
+
 signals:
 
 public slots:
-       void on_waveButton_clicked();
+    void on_waveButton_clicked();
 
 // QWidget interface
 protected:
@@ -39,6 +41,7 @@ private:
     int rows;
     int columns;
     int offset = 1;
+    int tileSize;
 
     void loadGrid();
 

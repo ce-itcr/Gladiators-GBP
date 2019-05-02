@@ -21,6 +21,11 @@ Game::~Game()
     delete ui;
 }
 
+void Game::enableWaveButton()
+{
+    ui->waveButton->setEnabled(true);
+}
+
 void Game::loadGrid()
 {
     grid = new Grid(this);
@@ -28,7 +33,7 @@ void Game::loadGrid()
     int xOffset = 16, yOffset = 82;
     int x = xOffset, y = yOffset;
     int width, height;
-    width = height = this->height() - yOffset;
+    width = height = this->height() - yOffset * 2;
 
     grid->setGeometry(x, y, width, height);
     grid->load();
@@ -45,12 +50,15 @@ void Game::loadButtons()
 void Game::resizeEvent(QResizeEvent *)
 {
     int width, height;
-    width = height = this->height() - 10 * 2;
+    width = height = this->height() - 94;
     grid->resize(width, height);
 }
 
 void Game::on_waveButton_clicked()
 {
+    if (gameController->isWaveActive()) return;
+
+    ui->waveButton->setEnabled(false);
     grid->on_waveButton_clicked();
 }
 

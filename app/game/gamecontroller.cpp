@@ -82,6 +82,7 @@ GameController::GameController()
 {
     entities = new QList<Entity *>();
     cycleTime = 25;
+    waveActive = false;
     pause = false;
 }
 

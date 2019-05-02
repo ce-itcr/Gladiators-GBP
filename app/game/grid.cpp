@@ -30,6 +30,11 @@ void Grid::mousePressEvent(QMouseEvent *event)
     }
 }
 
+int Grid::getTileSize() const
+{
+    return tileSize;
+}
+
 QList<Tile *> Grid::getTiles() const
 {
     return tiles;
@@ -56,7 +61,8 @@ void Grid::on_waveButton_clicked()
         gladiators.push_back(gladiator);
     }
 
-    spawner->spawnGladiators(gladiators);
+    spawner->setGladiators(gladiators);
+    spawner->spawnGladiators();
 }
 
 void Grid::loadGrid()
@@ -64,6 +70,7 @@ void Grid::loadGrid()
     int x = offset, y = offset;
     int width = (this->width() - offset * columns) / columns;
     int height = (this->height() - offset * rows) / rows;
+    tileSize = (width + height) / 2;
 
     for(int i = 0; i < rows; i++)
     {
@@ -87,6 +94,7 @@ void Grid::updateGrid()
     int i, j;
     int width = (this->width() - offset * columns) / columns;
     int height = (this->height() - offset * rows) / rows;
+    tileSize = (width + height) / 2;
     for (Tile *tile : tiles)
     {
         i = tile->getI();
@@ -106,6 +114,7 @@ void Grid::createEntity(Tile *tile)
     Enemy *enemy = new Enemy(this);
     enemy->setX(tile->x());
     enemy->setY(tile->y());
+    enemy->resize(tileSize, tileSize);
     gameController->addEntity(enemy);
 
     node->setEntity(enemy);

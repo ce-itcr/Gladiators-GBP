@@ -2,6 +2,8 @@
 
 #include <game/entities/player.h>
 
+#include <game.h>
+
 Spawner *Spawner::instance = nullptr;
 
 Spawner *Spawner::getInstance(QObject *parent)
@@ -10,9 +12,9 @@ Spawner *Spawner::getInstance(QObject *parent)
     return instance;
 }
 
-void Spawner::spawnGladiators(QList<Gladiator *> gladiators)
+void Spawner::spawnGladiators()
 {
-    this->gladiators = gladiators;
+    gameController->setWaveActive(true);
     spawn();
 }
 
@@ -34,13 +36,28 @@ void Spawner::spawn()
     player->setNodePath(gladiator->getNodePath());
     gameController->addEntity(player);
 
+    int size = grid->getTileSize();
+    player->resize(size, size);
+
     // Recursive call
     gladiators.removeFirst();
     QTimer::singleShot(spawnDelay, this, &Spawner::spawn);
 }
 
+void Spawner::enableWaveButton()
+{
+    Grid *grid = static_cast<Grid *>(parent());
+    Game *game = static_cast<Game *>(grid->parent());
+    game->enableWaveButton();
+}
+
+void Spawner::setGladiators(const QList<Gladiator *> &value)
+{
+    gladiators = value;
+}
+
 Spawner::Spawner(QObject *parent) : QObject (parent)
 {
     gameController = GameController::getInstance();
-    spawnDelay = 2000;
+    spawnDelay = 1000;
 }

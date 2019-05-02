@@ -15,9 +15,13 @@ class Spawner : public QObject
 public:
     static Spawner *getInstance(QObject *parent = nullptr);
 
-    void spawnGladiators(QList<Gladiator *> gladiators);
+    void spawnGladiators();
 
     bool isWaveFinished();
+
+    void enableWaveButton();
+
+    void setGladiators(const QList<Gladiator *> &value);
 
 public slots:
     void spawn();

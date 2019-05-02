@@ -28,6 +28,8 @@ public:
     explicit Game(QWidget *parent = nullptr);
     ~Game();
 
+    void enableWaveButton();
+
 private:
     Ui::Game *ui;
     Grid *grid;
