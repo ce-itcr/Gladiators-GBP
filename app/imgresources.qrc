@@ -14,5 +14,6 @@
         <file>img/pauseIcon.png</file>
         <file>img/slow.png</file>
         <file>img/normal.png</file>
+        <file>img/playIcon.png</file>
     </qresource>
 </RCC>

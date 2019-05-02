@@ -72,4 +72,9 @@ void Game::on_pauseButton_clicked()
 {
     bool pause = gameController->isPause();
     gameController->setPause(!pause);
+
+    QIcon icon;
+    if (pause) icon.addFile(":img/pauseIcon.png");
+    else icon.addFile(":img/playIcon.png");
+    ui->pauseButton->setIcon(icon);
 }
