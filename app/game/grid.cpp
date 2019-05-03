@@ -7,6 +7,8 @@ Grid::Grid(QWidget *parent) : QFrame(parent)
     spawner = Spawner::getInstance(this);
     rows = map->getRows();
     columns = map->getColumns();
+    mapFile = MapFiles::read("://maps/map1");
+
     this->setStyleSheet("background-color: #EBF5EE;");
 }
 
@@ -67,9 +69,19 @@ void Grid::loadGrid()
             tile->setGeometry(x, y, width, height);
             tile->show();
             tiles.push_back(tile);
+
+            loadTileSettings(tile, i, j);
         }
         x = offset;
     }
+}
+
+void Grid::loadTileSettings(Tile *tile, int i, int j)
+{
+    QChar qchar = mapFile[i][j];
+    if (qchar != '.') tile->getNode()->setOccupied(true);
+    if (qchar == 'B') tile->setCanBuild(true);
+    if (qchar == '0') tile->setStyleSheet("background-color:white;");
 }
 
 void Grid::updateGrid()

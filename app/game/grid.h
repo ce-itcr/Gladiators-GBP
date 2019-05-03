@@ -5,6 +5,7 @@
 
 #include "tile.h"
 #include "graph/map.h"
+#include "graph/mapfiles.h"
 #include "game/entities/enemy.h"
 #include "game/gamecontroller.h"
 #include "game/spawner.h"
@@ -37,12 +38,16 @@ private:
     GameController *gameController;
     Spawner *spawner;
     QList<Tile *> tiles;
+    QList<QList<QChar>> mapFile;
+    QString mapFilePath;
     int rows;
     int columns;
     int offset = 1;
     int tileSize;
 
     void loadGrid();
+
+    void loadTileSettings(Tile *tile, int i, int j);
 
     void updateGrid();
 

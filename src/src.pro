@@ -14,6 +14,7 @@ SOURCES += \
 	client/client.cpp \
 	client/clientinterface.cpp \
 	graph/map.cpp \
+	graph/mapfiles.cpp \
 	graph/node.cpp \
 	json/jsonconverter.cpp \
 	json/jsonserializer.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
 	client/client.h \
 	client/clientinterface.h \
 	graph/map.h \
+	graph/mapfiles.h \
 	graph/node.h \
 	json/jsonconverter.h \
 	json/jsonserializable.h \
