@@ -10,6 +10,12 @@
     <height>800</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>Scrabble GBP</string>
   </property>
@@ -22,13 +28,13 @@
 background-image: url(:/img/background.jpg);
 }</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="background">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1201</width>
-     <height>801</height>
+     <width>1200</width>
+     <height>800</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -36,6 +42,293 @@ background-image: url(:/img/background.jpg);
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="statsLabel">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>20</y>
+     <width>360</width>
+     <height>150</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(136, 13, 30, 0.7);
+border-radius: 10px</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="iconLabel">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>30</y>
+     <width>115</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imgresources.qrc">:/img/icon.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>933</x>
+     <y>30</y>
+     <width>20</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">gridline-color: rgb(235, 245, 238);
+border-color: rgb(235, 245, 238);
+color: rgb(235, 245, 238);
+</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="timesTable">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>191</y>
+     <width>360</width>
+     <height>355</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(235, 245, 238, 0.29);
+border-radius: 10px;
+timesTable::section { 
+	background-color: rgba(235, 245, 238, 0.29); 
+}</string>
+   </property>
+   <property name="autoScroll">
+    <bool>true</bool>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <property name="gridStyle">
+    <enum>Qt::SolidLine</enum>
+   </property>
+   <property name="sortingEnabled">
+    <bool>false</bool>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="cornerButtonEnabled">
+    <bool>false</bool>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>180</number>
+   </attribute>
+   <attribute name="horizontalHeaderHighlightSections">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>Name</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+      <underline>true</underline>
+      <strikeout>false</strikeout>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="background">
+     <color alpha="74">
+      <red>235</red>
+      <green>245</green>
+      <blue>238</blue>
+     </color>
+    </property>
+    <property name="foreground">
+     <brush brushstyle="NoBrush">
+      <color alpha="255">
+       <red>235</red>
+       <green>245</green>
+       <blue>238</blue>
+      </color>
+     </brush>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Time</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="background">
+     <color alpha="74">
+      <red>235</red>
+      <green>245</green>
+      <blue>238</blue>
+     </color>
+    </property>
+    <property name="foreground">
+     <brush brushstyle="SolidPattern">
+      <color alpha="255">
+       <red>235</red>
+       <green>245</green>
+       <blue>238</blue>
+      </color>
+     </brush>
+    </property>
+   </column>
+  </widget>
+  <widget class="QPushButton" name="waveButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>84</x>
+     <y>16</y>
+     <width>50</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border-radius: 20px;
+}
+QPushButton:!hover{
+	background-color: rgb(136, 13, 30);
+}
+QPushButton:hover{
+	background-color: rgb(235, 245, 238);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="imgresources.qrc">
+     <normaloff>:/img/waveIcon.png</normaloff>:/img/waveIcon.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>48</width>
+     <height>48</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="fastButton">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>16</y>
+     <width>50</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border-radius: 20px;
+}
+QPushButton:!hover{
+	background-color: rgb(136, 13, 30);
+}
+QPushButton:hover{
+	background-color: rgb(235, 245, 238);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="imgresources.qrc">
+     <normaloff>:/img/normal.png</normaloff>:/img/normal.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>48</width>
+     <height>48</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pauseButton">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>16</y>
+     <width>50</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border-radius: 20px;
+}
+QPushButton:!hover{
+	background-color: rgb(136, 13, 30);
+}
+QPushButton:hover{
+	background-color: rgb(235, 245, 238);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="imgresources.qrc">
+     <normaloff>:/img/pauseIcon.png</normaloff>:/img/pauseIcon.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
    </property>
   </widget>
  </widget>

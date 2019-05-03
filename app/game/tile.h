@@ -14,8 +14,13 @@ public:
 
     int getJ() const;
 
+    QRect getRect() const;
+
     Node *getNode() const;
     void setNode(Node *value);
+
+    bool getCanBuild() const;
+    void setCanBuild(bool value);
 
 signals:
 
@@ -25,6 +30,7 @@ private:
     int i;
     int j;
     Node *node;
+    bool canBuild;
 };
 
 #endif // TILE_H

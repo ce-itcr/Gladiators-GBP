@@ -27,22 +27,31 @@ CONFIG += c++11
 
 SOURCES += \
 	game/grid.cpp \
+	game/spawner.cpp \
 	game/tile.cpp \
         main.cpp \
         mainwindow.cpp \
     settings.cpp \
     achievements.cpp \
     pregame.cpp \
-    game.cpp
+    game.cpp \
+    game/entities/player.cpp \
+    game/gamecontroller.cpp \
+    game/entities/enemy.cpp
 
 HEADERS += \
 	game/grid.h \
+	game/spawner.h \
 	game/tile.h \
         mainwindow.h \
     settings.h \
     achievements.h \
     pregame.h \
-    game.h
+    game/entities/player.h \
+    game/entities/entity.h \
+    game/gamecontroller.h \
+    game.h \
+    game/entities/enemy.h
 
 FORMS += \
         mainwindow.ui \
@@ -59,5 +68,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    imgresources.qrc
+    imgresources.qrc \
+    mapresources.qrc
 

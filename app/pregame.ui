@@ -23,20 +23,26 @@
   <widget class="QPushButton" name="playGame">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>720</y>
+     <x>20</x>
+     <y>20</y>
      <width>88</width>
      <height>33</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(156, 163, 159);
-border: none;
-border-radius: 8px;
-
-color: rgb(235, 245, 238);
-font-size: 18px;
-</string>
+    <string notr="true">QPushButton{
+	border: none;
+	border-radius: 8px;
+	font-size: 18px;
+}
+QPushButton:!hover{
+	background-color: rgb(156, 163, 159);
+	color: rgb(235, 245, 238);
+}
+QPushButton:hover{
+	color: rgb(156, 163, 159);
+	background-color: rgb(235, 245, 238);
+}</string>
    </property>
    <property name="text">
     <string>Continuar</string>

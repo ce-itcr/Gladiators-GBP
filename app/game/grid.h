@@ -5,6 +5,10 @@
 
 #include "tile.h"
 #include "graph/map.h"
+#include "graph/mapfiles.h"
+#include "game/entities/enemy.h"
+#include "game/gamecontroller.h"
+#include "game/spawner.h"
 
 class Grid : public QFrame
 {
@@ -14,24 +18,40 @@ public:
 
     void load();
 
+    QList<Tile *> getTiles() const;
+    void setTiles(const QList<Tile *> &value);
+
+    int getTileSize() const;
+
 signals:
 
 public slots:
 
+// QWidget interface
 protected:
     void resizeEvent(QResizeEvent *);
 
+    void mousePressEvent(QMouseEvent *event);
+
 private:
     Map *map;
+    GameController *gameController;
+    Spawner *spawner;
     QList<Tile *> tiles;
+    QList<QList<QChar>> mapFile;
+    QString mapFilePath;
     int rows;
     int columns;
     int offset = 1;
+    int tileSize;
 
     void loadGrid();
+
+    void loadTileSettings(Tile *tile, int i, int j);
+
     void updateGrid();
 
-    // QWidget interface
+    void createEntity(Tile *tile);
 };
 
 #endif // GRID_H

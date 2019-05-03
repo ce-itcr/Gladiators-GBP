@@ -7,5 +7,13 @@
         <file>img/achievementsTitle.png</file>
         <file>img/settingsTitle.png</file>
         <file>img/background.jpg</file>
+        <file>img/color_palette.png</file>
+        <file>img/icon.png</file>
+        <file>img/waveIcon.png</file>
+        <file>img/fast.png</file>
+        <file>img/pauseIcon.png</file>
+        <file>img/slow.png</file>
+        <file>img/normal.png</file>
+        <file>img/playIcon.png</file>
     </qresource>
 </RCC>

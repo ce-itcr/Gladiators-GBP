@@ -18,9 +18,9 @@ public:
 
     static QString towersToJson(QList<Tower> towers);
 
-    static QList<Gladiator> jsonToGladiators(QString jsonGladiators);
+    static QList<Gladiator *> *jsonToGladiators(QString jsonGladiators);
 
-    static QList<Tower> jsonToTowers(QString jsonTowers);
+    static QList<Tower *> *jsonToTowers(QString jsonTowers);
 
 private:
     static QJsonObject stringToJsonObject(const QString& data);

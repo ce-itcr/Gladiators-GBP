@@ -27,28 +27,28 @@ QString JsonConverter::towersToJson(QList<Tower> towers)
     return data;
 }
 
-QList<Gladiator> JsonConverter::jsonToGladiators(QString jsonGladiators)
+QList<Gladiator*> *JsonConverter::jsonToGladiators(QString jsonGladiators)
 {
-    QList<Gladiator> gladiators;
+    QList<Gladiator *> *gladiators = new QList<Gladiator *>();
     QJsonArray jsonArray = stringToJsonArray(jsonGladiators);
     for(QJsonValue jsonValue : jsonArray)
     {
-        Gladiator gladiator;
-        JsonSerializer::parse(jsonValue.toString(), gladiator);
-        gladiators.push_back(gladiator);
+        Gladiator *gladiator = new Gladiator();
+        JsonSerializer::parse(jsonValue.toString(), *gladiator);
+        gladiators->push_back(gladiator);
     }
     return gladiators;
 }
 
-QList<Tower> JsonConverter::jsonToTowers(QString jsonTowers)
+QList<Tower *> *JsonConverter::jsonToTowers(QString jsonTowers)
 {
-    QList<Tower> towers;
+    QList<Tower *> *towers = new QList<Tower *>();
     QJsonArray jsonArray = stringToJsonArray(jsonTowers);
     for(QJsonValue jsonValue : jsonArray)
     {
-        Tower tower;
-        JsonSerializer::parse(jsonValue.toString(), tower);
-        towers.push_back(tower);
+        Tower *tower = new Tower();
+        JsonSerializer::parse(jsonValue.toString(), *tower);
+        towers->push_back(tower);
     }
     return towers;
 }

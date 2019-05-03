@@ -23,42 +23,59 @@ void Populations::sendPopulation(QList<Gladiator> newGladiators, QList<Tower> ne
 
 void Populations::updatePopulation()
 {
+    gladiatorsReady = false;
+    towerReady = false;
     ClientInterface::getGladiators();
     ClientInterface::getTowers();
 }
 
-QList<Gladiator> *Populations::getGladiators() const
-{
-    return gladiators;
-}
-
-void Populations::setGladiators(QList<Gladiator> *value)
-{
-    gladiators = value;
-}
-
-QList<Tower> *Populations::getTowers() const
-{
-    return towers;
-}
-
-void Populations::setTowers(QList<Tower> *value)
-{
-    towers = value;
-}
-
 void Populations::updateGladiators(QString *jsonGladiators)
 {
-    qDebug() << "Populations::updateGladiators() " << jsonGladiators;
+    qDebug() << "Populations::updateGladiators() " << *jsonGladiators;
+    QList<Gladiator *> *newGladiators = JsonConverter::jsonToGladiators(*jsonGladiators);
+    gladiatorsReady = true;
+    gladiators = newGladiators;
+    populationUpdated();
 }
 
 void Populations::updateTowers(QString *jsonTowers)
 {
-    qDebug() << "Populations::updateTowers() " << jsonTowers;
+    qDebug() << "Populations::updateTowers() " << *jsonTowers;
+    QList<Tower *> *newTowers = JsonConverter::jsonToTowers(*jsonTowers);
+    towerReady = true;
+    towers = newTowers;
+    populationUpdated();
+}
+
+QList<Tower *> *Populations::getTowers() const
+{
+    return towers;
+}
+
+void Populations::setTowers(QList<Tower *> *value)
+{
+    towers = value;
+}
+
+QList<Gladiator *> *Populations::getGladiators() const
+{
+    return gladiators;
+}
+
+void Populations::setGladiators(QList<Gladiator *> *value)
+{
+    gladiators = value;
 }
 
 Populations::Populations()
 {
-    gladiators = new QList<Gladiator>();
-    towers = new QList<Tower>();
+    gladiators = new QList<Gladiator *>();
+    towers = new QList<Tower *>();
+    gladiatorsReady = false;
+    towerReady = false;
+}
+
+void Populations::populationUpdated()
+{
+    if (gladiatorsReady && towerReady) readyPopulation();
 }

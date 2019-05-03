@@ -57,3 +57,13 @@ void Gladiator::read(const QJsonObject &jsonObj)
     name = jsonObj["name"].toString();
     age = jsonObj["age"].toString();
 }
+
+QList<Node *> Gladiator::getNodePath() const
+{
+    return nodePath;
+}
+
+void Gladiator::setNodePath(const QList<Node *> &value)
+{
+    nodePath = value;
+}
