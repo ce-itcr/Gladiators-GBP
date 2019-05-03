@@ -25,7 +25,6 @@ public:
 signals:
 
 public slots:
-    void on_waveButton_clicked();
 
 // QWidget interface
 protected:

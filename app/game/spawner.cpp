@@ -20,17 +20,17 @@ void Spawner::spawnGladiators()
 
 bool Spawner::isWaveFinished()
 {
-    return gladiators.isEmpty();
+    return gladiators->isEmpty();
 }
 
 void Spawner::spawn()
 {
-    if (gladiators.isEmpty()) return;
+    if (gladiators->isEmpty()) return;
 
     // Generates the player
     Grid *grid = static_cast<Grid *>(parent());
     Entity *entity = new Player(grid);
-    Gladiator *gladiator = gladiators.first();
+    Gladiator *gladiator = gladiators->first();
     Player *player = static_cast<Player *>(entity);
     player->setGladiator(gladiator);
     player->setNodePath(gladiator->getNodePath());
@@ -40,18 +40,11 @@ void Spawner::spawn()
     player->resize(size, size);
 
     // Recursive call
-    gladiators.removeFirst();
+    gladiators->removeFirst();
     QTimer::singleShot(spawnDelay, this, &Spawner::spawn);
 }
 
-void Spawner::enableWaveButton()
-{
-    Grid *grid = static_cast<Grid *>(parent());
-    Game *game = static_cast<Game *>(grid->parent());
-    game->enableWaveButton();
-}
-
-void Spawner::setGladiators(const QList<Gladiator *> &value)
+void Spawner::setGladiators(QList<Gladiator *> *value)
 {
     gladiators = value;
 }

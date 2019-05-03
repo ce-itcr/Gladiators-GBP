@@ -221,6 +221,9 @@ timesTable::section {
    </column>
   </widget>
   <widget class="QPushButton" name="waveButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>84</x>

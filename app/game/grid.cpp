@@ -45,26 +45,6 @@ void Grid::setTiles(const QList<Tile *> &value)
     tiles = value;
 }
 
-void Grid::on_waveButton_clicked()
-{
-    // Loads a path
-    QList<Node *> nodes;
-    for (Tile *tile : tiles)
-    {
-        nodes.push_back(tile->getNode());
-    }
-
-    QList<Gladiator *> gladiators;
-    for (int i = 0; i < 10; i++) {
-        Gladiator *gladiator = new Gladiator();
-        gladiator->setNodePath(nodes);
-        gladiators.push_back(gladiator);
-    }
-
-    spawner->setGladiators(gladiators);
-    spawner->spawnGladiators();
-}
-
 void Grid::loadGrid()
 {
     int x = offset, y = offset;

@@ -15,6 +15,8 @@
 
 #include "game/grid.h"
 #include "game/gamecontroller.h"
+#include "game/populations.h"
+#include "game/spawner.h"
 
 namespace Ui {
 class Game;
@@ -30,10 +32,15 @@ public:
 
     void enableWaveButton();
 
+public slots:
+    void populationReady();
+
 private:
     Ui::Game *ui;
     Grid *grid;
     GameController *gameController;
+    Populations *populations;
+    Spawner *spawner;
     int speed;
 
     void loadGrid();

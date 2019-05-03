@@ -9,8 +9,12 @@ Game::Game(QWidget *parent) :
     ui->setupUi(this);
     speed = 2;
 
+    spawner = Spawner::getInstance();
     gameController = GameController::getInstance();
     gameController->run();
+    populations = Populations::getInstance();
+    QObject::connect(populations, &Populations::readyPopulation,
+                     this, &Game::populationReady);
 
     loadGrid();
     loadButtons();
@@ -22,6 +26,11 @@ Game::~Game()
 }
 
 void Game::enableWaveButton()
+{
+    ui->waveButton->setEnabled(true);
+}
+
+void Game::populationReady()
 {
     ui->waveButton->setEnabled(true);
 }
@@ -59,7 +68,7 @@ void Game::on_waveButton_clicked()
     if (gameController->isWaveActive()) return;
 
     ui->waveButton->setEnabled(false);
-    grid->on_waveButton_clicked();
+    spawner->setGladiators(populations->getGladiators());
 }
 
 void Game::on_fastButton_clicked()

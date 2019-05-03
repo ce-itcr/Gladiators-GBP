@@ -20,13 +20,14 @@ public:
 
     void updatePopulation();
 
-    QList<Gladiator> *getGladiators() const;
-    void setGladiators(QList<Gladiator> *value);
+    QList<Gladiator *> *getGladiators() const;
+    void setGladiators(QList<Gladiator *> *value);
 
-    QList<Tower> *getTowers() const;
-    void setTowers(QList<Tower> *value);
+    QList<Tower *> *getTowers() const;
+    void setTowers(QList<Tower *> *value);
 
 signals:
+    void readyPopulation();
 
 public slots:
     void updateGladiators(QString *);
@@ -35,10 +36,14 @@ public slots:
 
 private:
     static Populations *instance;
-    QList<Gladiator> *gladiators;
-    QList<Tower> *towers;
+    QList<Gladiator *> *gladiators;
+    QList<Tower *> *towers;
+    bool gladiatorsReady;
+    bool towerReady;
 
     Populations();
+
+    void populationUpdated();
 };
 
 #endif // POPULATIONS_H

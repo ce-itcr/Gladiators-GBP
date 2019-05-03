@@ -19,9 +19,7 @@ public:
 
     bool isWaveFinished();
 
-    void enableWaveButton();
-
-    void setGladiators(const QList<Gladiator *> &value);
+    void setGladiators(QList<Gladiator *> *value);
 
 public slots:
     void spawn();
@@ -29,7 +27,7 @@ public slots:
 private:
     static Spawner *instance;
     GameController *gameController;
-    QList<Gladiator *> gladiators;
+    QList<Gladiator *> *gladiators;
     int spawnDelay;
 
     Spawner(QObject *parent);
