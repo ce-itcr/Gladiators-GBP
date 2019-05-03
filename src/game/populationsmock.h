@@ -2,6 +2,7 @@
 #define POPULATIONSMOCK_H
 
 #include "game/populations.h"
+#include "json/jsonconverter.h"
 
 class PopulationsMock
 {

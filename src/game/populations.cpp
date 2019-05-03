@@ -31,20 +31,20 @@ void Populations::updatePopulation()
 
 void Populations::updateGladiators(QString *jsonGladiators)
 {
-    qDebug() << "Populations::updateGladiators() " << jsonGladiators;
+    qDebug() << "Populations::updateGladiators() " << *jsonGladiators;
     QList<Gladiator *> *newGladiators = JsonConverter::jsonToGladiators(*jsonGladiators);
     gladiatorsReady = true;
     gladiators = newGladiators;
-    updatePopulation();
+    populationUpdated();
 }
 
 void Populations::updateTowers(QString *jsonTowers)
 {
-    qDebug() << "Populations::updateTowers() " << jsonTowers;
+    qDebug() << "Populations::updateTowers() " << *jsonTowers;
     QList<Tower *> *newTowers = JsonConverter::jsonToTowers(*jsonTowers);
     towerReady = true;
     towers = newTowers;
-    updatePopulation();
+    populationUpdated();
 }
 
 QList<Tower *> *Populations::getTowers() const

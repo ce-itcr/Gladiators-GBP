@@ -1,6 +1,7 @@
 #include "game.h"
 #include "ui_game.h"
 #include <QLabel>
+#include "game/populationsmock.h"
 
 Game::Game(QWidget *parent) :
     QMainWindow(parent),
@@ -15,6 +16,8 @@ Game::Game(QWidget *parent) :
     populations = Populations::getInstance();
     QObject::connect(populations, &Populations::readyPopulation,
                      this, &Game::populationReady);
+
+    PopulationsMock::run();  // Fake population
 
     loadGrid();
     loadButtons();

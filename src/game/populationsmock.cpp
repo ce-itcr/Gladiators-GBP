@@ -6,19 +6,24 @@ QString *PopulationsMock::towers = new QString();
 
 void PopulationsMock::run()
 {
+    loadJsons();
     loadPopulations();
 }
 
 void PopulationsMock::loadPopulations()
 {
-    for (int i = 0; i < 20; i++) {
-        populations->updateGladiators(gladiators);
-        populations->updateTowers(towers);
-    }
+    populations->updateGladiators(gladiators);
+    populations->updateTowers(towers);
 }
 
 void PopulationsMock::loadJsons()
 {
-    gladiators = new QString("");
+    QList<Gladiator> newGladitors;
+    for (int i = 0; i < 10; i++) {
+        Gladiator gladiator;
+        newGladitors.push_back(gladiator);
+    }
+
+    gladiators = new QString(JsonConverter::gladiatorsToJson(newGladitors));
     towers = new QString("");
 }
