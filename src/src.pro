@@ -21,7 +21,8 @@ SOURCES += \
 	game/entities/gladiator.cpp \
 	game/entities/tower.cpp \
     util/math.cpp \
-    util/collision.cpp
+    util/collision.cpp \
+    game/populationsmock.cpp
 
 HEADERS += \
 	client/client.h \
@@ -36,4 +37,5 @@ HEADERS += \
 	game/entities/tower.h \
     util/math.h \
     game/entities/entity.h \
-    util/collision.h
+    util/collision.h \
+    game/populationsmock.h
