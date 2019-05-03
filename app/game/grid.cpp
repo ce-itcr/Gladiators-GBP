@@ -58,8 +58,12 @@ void Grid::loadGrid()
         for (int j = 0; j < columns; j++) {
             x = width * j + offset * j + 1;
 
+            Node *node = map->nodeAt(i, j);
+            node->setX(x);
+            node->setY(y);
+
             Tile *tile = new Tile(this, i, j);
-            tile->setNode(map->nodeAt(i, j));
+            tile->setNode(node);
             tile->setGeometry(x, y, width, height);
             tile->show();
             tiles.push_back(tile);

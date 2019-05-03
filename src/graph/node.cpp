@@ -5,6 +5,8 @@ Node::Node()
     entity = nullptr;
     occupied = false;
     neighbors = new QList<Node *>();
+    x = 0;
+    y = 0;
 }
 
 void Node::addNeighbor(Node *node)
@@ -40,4 +42,24 @@ QList<Node *> *Node::getNeighbors() const
 void Node::setNeighbors(QList<Node *> *value)
 {
     neighbors = value;
+}
+
+int Node::getX() const
+{
+    return x;
+}
+
+void Node::setX(int value)
+{
+    x = value;
+}
+
+int Node::getY() const
+{
+    return y;
+}
+
+void Node::setY(int value)
+{
+    y = value;
 }

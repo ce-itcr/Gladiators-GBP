@@ -1,6 +1,8 @@
 #include "populationsmock.h"
 
 Populations *PopulationsMock::populations = Populations::getInstance();
+QString *PopulationsMock::gladiators = new QString();
+QString *PopulationsMock::towers = new QString();
 
 void PopulationsMock::run()
 {
