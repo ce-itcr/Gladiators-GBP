@@ -15,7 +15,7 @@ class Grid : public QFrame
 {
     Q_OBJECT
 public:
-    explicit Grid(QWidget *parent = nullptr);
+    Grid(QWidget *parent = nullptr, QString mapFilePath = "://maps/map1");
 
     void load();
 
@@ -43,7 +43,6 @@ private:
     Spawner *spawner;
     QList<Tile *> tiles;
     QList<QList<QChar>> mapFile;
-    QString mapFilePath;
     int rows;
     int columns;
     int offset = 1;

@@ -1,6 +1,6 @@
 #include "grid.h"
 
-Grid::Grid(QWidget *parent) : QFrame(parent)
+Grid::Grid(QWidget *parent, QString mapFilePath) : QFrame(parent)
 {
     map = Map::getInstance();
     gameController = GameController::getInstance();
@@ -9,7 +9,7 @@ Grid::Grid(QWidget *parent) : QFrame(parent)
     spawner->setParent(this);
     rows = map->getRows();
     columns = map->getColumns();
-    mapFile = MapFiles::read("://maps/map1");
+    mapFile = MapFiles::read(mapFilePath);
 
     this->setStyleSheet("background-color: #EBF5EE;");
 }
