@@ -118,7 +118,9 @@ void Grid::createEntity(Tile *tile)
     {
         QList<Tower *> *towers = populations->getTowers();
         QString id = QString::number(towers->size());
-        Tower *tower = new Tower(id);
+        Tower *tower = new Tower(id, 1000);
+        tower->setI(tile->getI());
+        tower->setJ(tile->getJ());
         spawner->spawnTower(tile, tower);
         towers->push_back(tower);
     }
