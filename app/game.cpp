@@ -16,11 +16,12 @@ Game::Game(QWidget *parent) :
     populations = Populations::getInstance();
     QObject::connect(populations, &Populations::readyPopulation,
                      this, &Game::populationReady);
-
-    PopulationsMock::run();  // Fake population
-
     loadGrid();
     loadButtons();
+
+    // Fake population
+    PopulationsMock::run();
+    PopulationsMock::loadNoadesPath(Map::getInstance()->getNodes());
 }
 
 Game::~Game()
@@ -71,7 +72,7 @@ void Game::on_waveButton_clicked()
     if (gameController->isWaveActive()) return;
 
     ui->waveButton->setEnabled(false);
-    spawner->setGladiators(populations->getGladiators());
+    spawner->spawnGladiators(populations->getGladiators());
 }
 
 void Game::on_fastButton_clicked()

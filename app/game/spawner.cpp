@@ -11,8 +11,9 @@ Spawner *Spawner::getInstance(QObject *parent)
     return instance;
 }
 
-void Spawner::spawnGladiators()
+void Spawner::spawnGladiators(QList<Gladiator *> *value)
 {
+    gladiators = value;
     gameController->setWaveActive(true);
     spawn();
 }
@@ -61,11 +62,6 @@ void Spawner::spawn()
 void Spawner::setParent(QObject *value)
 {
     parent = value;
-}
-
-void Spawner::setGladiators(QList<Gladiator *> *value)
-{
-    gladiators = value;
 }
 
 Spawner::Spawner(QObject *parent) : QObject (parent), parent(parent)

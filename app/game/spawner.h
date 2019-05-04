@@ -17,13 +17,11 @@ class Spawner : public QObject
 public:
     static Spawner *getInstance(QObject *parent = nullptr);
 
-    void spawnGladiators();
+    void spawnGladiators(QList<Gladiator *> *value);
 
     void spawnTower(Tile *tile, Tower *tower);
 
     bool isWaveFinished();
-
-    void setGladiators(QList<Gladiator *> *value);
 
     void setParent(QObject *value);
 
