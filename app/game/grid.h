@@ -8,6 +8,7 @@
 #include "graph/mapfiles.h"
 #include "game/entities/enemy.h"
 #include "game/gamecontroller.h"
+#include "game/populations.h"
 #include "game/spawner.h"
 
 class Grid : public QFrame
@@ -17,6 +18,8 @@ public:
     explicit Grid(QWidget *parent = nullptr);
 
     void load();
+
+    Tile *tileAt(int i, int j);
 
     QList<Tile *> getTiles() const;
     void setTiles(const QList<Tile *> &value);
@@ -36,6 +39,7 @@ protected:
 private:
     Map *map;
     GameController *gameController;
+    Populations *populations;
     Spawner *spawner;
     QList<Tile *> tiles;
     QList<QList<QChar>> mapFile;

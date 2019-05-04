@@ -4,7 +4,9 @@ Grid::Grid(QWidget *parent) : QFrame(parent)
 {
     map = Map::getInstance();
     gameController = GameController::getInstance();
-    spawner = Spawner::getInstance(this);
+    populations = Populations::getInstance();
+    spawner = Spawner::getInstance();
+    spawner->setParent(this);
     rows = map->getRows();
     columns = map->getColumns();
     mapFile = MapFiles::read("://maps/map1");
@@ -15,6 +17,16 @@ Grid::Grid(QWidget *parent) : QFrame(parent)
 void Grid::load()
 {
     loadGrid();
+}
+
+Tile *Grid::tileAt(int i, int j)
+{
+    Tile *result = nullptr;
+    for (Tile *tile :tiles)
+    {
+        if (tile->getI() == i && tile->getJ() == j) result = tile;
+    }
+    return result;
 }
 
 void Grid::resizeEvent(QResizeEvent *)
@@ -102,14 +114,13 @@ void Grid::updateGrid()
 
 void Grid::createEntity(Tile *tile)
 {
-    if (!tile->canBuild()) return;
-
-    Enemy *enemy = new Enemy(this);
-    enemy->setX(tile->x());
-    enemy->setY(tile->y());
-    enemy->resize(tileSize, tileSize);
-    gameController->addEntity(enemy);
-
-    tile->getNode()->setEntity(enemy);
+    if (tile->canBuild())
+    {
+        QList<Tower *> *towers = populations->getTowers();
+        QString id = QString::number(towers->size());
+        Tower *tower = new Tower(id);
+        spawner->spawnTower(tile, tower);
+        towers->push_back(tower);
+    }
 }
 

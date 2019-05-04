@@ -1,8 +1,7 @@
 #include "spawner.h"
 
-#include <game/entities/player.h>
-
-#include <game.h>
+#include "game/entities/player.h"
+#include "game/entities/enemy.h"
 
 Spawner *Spawner::instance = nullptr;
 
@@ -18,6 +17,21 @@ void Spawner::spawnGladiators()
     spawn();
 }
 
+void Spawner::spawnTower(Tile *tile, Tower *tower)
+{
+    Grid *grid = static_cast<Grid *>(parent);
+    int tileSize = grid->getTileSize();
+
+    Enemy *enemy = new Enemy(grid);
+    enemy->setX(tile->x());
+    enemy->setY(tile->y());
+    enemy->resize(tileSize, tileSize);
+    enemy->setTower(tower);
+
+    gameController->addEntity(enemy);
+    tile->getNode()->setEntity(enemy);
+}
+
 bool Spawner::isWaveFinished()
 {
     return gladiators->isEmpty();
@@ -28,7 +42,7 @@ void Spawner::spawn()
     if (gladiators->isEmpty()) return;
 
     // Generates the player
-    Grid *grid = static_cast<Grid *>(parent());
+    Grid *grid = static_cast<Grid *>(parent);
     Entity *entity = new Player(grid);
     Gladiator *gladiator = gladiators->first();
     Player *player = static_cast<Player *>(entity);
@@ -44,12 +58,17 @@ void Spawner::spawn()
     QTimer::singleShot(spawnDelay, this, &Spawner::spawn);
 }
 
+void Spawner::setParent(QObject *value)
+{
+    parent = value;
+}
+
 void Spawner::setGladiators(QList<Gladiator *> *value)
 {
     gladiators = value;
 }
 
-Spawner::Spawner(QObject *parent) : QObject (parent)
+Spawner::Spawner(QObject *parent) : QObject (parent), parent(parent)
 {
     gameController = GameController::getInstance();
     spawnDelay = 1000;
