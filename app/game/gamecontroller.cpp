@@ -29,10 +29,7 @@ void GameController::update()
 
     for (Entity *entity : *entities)
     {
-        //QList<QRect> colliders = rectsOfEntities();
-        //if (Collision::collide(entity->getRect(), colliders)) entity->collide();
-        //else entity->uncollide();
-
+        collision(entity);
         entity->update();
         entity->draw();
     }
@@ -86,15 +83,38 @@ GameController::GameController()
     pause = false;
 }
 
-QList<QRect> GameController::rectsOfEntities()
+void GameController::collision(Entity *entity)
 {
-    QList<QRect> rects;
-    for (Entity *entity : *entities)
-    {
-        if (entity->tag != "player")
-        {
-            rects.push_back(entity->getRect());
-        }
+    QList<Entity *> colliders(*entities);
+    colliders.removeOne(entity);
+    colliders = playersInEntities(colliders);
+
+    if (entity->tag == "enemy") {
+        Enemy *enemy = static_cast<Enemy *>(entity);
+        QList<Entity *> players = playersInRange(enemy->getCircle(), colliders);
+        enemy->collide(players);
     }
-    return rects;
+    if (entity->tag == "arrow") {
+
+    }
+}
+
+QList<Entity *> GameController::playersInEntities(QList<Entity *> entities)
+{
+    QList<Entity *> players;
+    for (Entity *entity : entities)
+    {
+        if (entity->tag == "player") players.push_back(entity);
+    }
+    return players;
+}
+
+QList<Entity *> GameController::playersInRange(QRegion region, QList<Entity *> entities)
+{
+    QList<Entity *> players;
+    for (Entity *player : entities)
+    {
+        if (Collision::collide(region, player->getRect())) players.push_back(player);
+    }
+    return players;
 }

@@ -8,6 +8,7 @@ Enemy::Enemy(QWidget *parent) : QFrame(parent)
     y = 0;
     width = 50;
     height = 50;
+    target = nullptr;
 
     this->setStyleSheet("background-color:blue;");
     this->setGeometry(x, y, width, height);
@@ -29,6 +30,16 @@ void Enemy::collide()
 
 }
 
+void Enemy::collide(QList<Entity *> players)
+{
+    if (players.isEmpty()) target = nullptr;
+    else
+    {
+        target = closerPlayer(players);
+    }
+
+}
+
 void Enemy::uncollide()
 {
 
@@ -38,6 +49,16 @@ QRect Enemy::getRect()
 {
     QRect rect(x, y, width, height);
     return rect;
+}
+
+QRegion Enemy::getCircle()
+{
+    int offset =  width / 2;
+    int xCenter = x + offset;
+    int yCenter = y + offset;
+    int range = width + offset;
+    QRegion circle(xCenter, yCenter, range, range, QRegion::Ellipse);
+    return circle;
 }
 
 int Enemy::getX() const
@@ -68,4 +89,27 @@ Tower *Enemy::getTower() const
 void Enemy::setTower(Tower *value)
 {
     tower = value;
+}
+
+Entity *Enemy::closerPlayer(QList<Entity *> players)
+{
+    Entity *closer = nullptr;
+    float min = INFINITY;
+    for (Entity *player : players)
+    {
+        QRect rect1 = this->getRect();
+        QRect rect2 = player->getRect();
+
+        int x1 = rect1.x();
+        int y1 = rect1.y();
+        int x2 = rect2.x();
+        int y2 = rect2.y();
+
+        int distance = Math::distance(x1, y1, x2, y2);
+        if (distance < min) {
+            closer = player;
+            min = distance;
+        }
+    }
+    return closer;
 }

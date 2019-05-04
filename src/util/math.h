@@ -1,6 +1,7 @@
 #ifndef MATH_H
 #define MATH_H
 
+#include <cmath>
 
 class Math
 {
@@ -17,6 +18,8 @@ public:
      * @return an integer
      */
     static int approach(int num, int target, int amount);
+
+    static int distance(int x1, int y1, int x2, int y2);
 };
 
 #endif // MATH_H

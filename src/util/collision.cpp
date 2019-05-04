@@ -15,3 +15,9 @@ bool Collision::collide(QRect rect, QList<QRect> rects)
     }
     return result;
 }
+
+bool Collision::collide(QRegion region, QRect rect)
+{
+    return region.intersects(rect);
+}
+

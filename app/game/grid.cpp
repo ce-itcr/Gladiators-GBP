@@ -125,4 +125,3 @@ void Grid::createEntity(Tile *tile)
         towers->push_back(tower);
     }
 }
-

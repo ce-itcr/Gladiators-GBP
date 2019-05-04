@@ -2,6 +2,7 @@
 #define GRID_H
 
 #include <QFrame>
+#include <QPainter>
 
 #include "tile.h"
 #include "graph/map.h"
@@ -55,6 +56,8 @@ private:
     void updateGrid();
 
     void createEntity(Tile *tile);
+
+    void drawCircle(Entity *entity);
 };
 
 #endif // GRID_H
