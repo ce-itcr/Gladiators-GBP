@@ -10,6 +10,8 @@ class Tile : public QFrame
 public:
     Tile(QWidget *parent = nullptr, int i = 0, int j = 0);
 
+    void setup(QChar qchar);
+
     int getI() const;
 
     int getJ() const;
@@ -19,7 +21,7 @@ public:
     Node *getNode() const;
     void setNode(Node *value);
 
-    bool getCanBuild() const;
+    bool canBuild() const;
     void setCanBuild(bool value);
 
 signals:
@@ -30,7 +32,7 @@ private:
     int i;
     int j;
     Node *node;
-    bool canBuild;
+    bool build;
 };
 
 #endif // TILE_H

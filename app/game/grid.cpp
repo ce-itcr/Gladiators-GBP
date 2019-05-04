@@ -79,9 +79,7 @@ void Grid::loadGrid()
 void Grid::loadTileSettings(Tile *tile, int i, int j)
 {
     QChar qchar = mapFile[i][j];
-    if (qchar != '.') tile->getNode()->setOccupied(true);
-    if (qchar == 'B') tile->setCanBuild(true);
-    if (qchar == '0') tile->setStyleSheet("background-color:white;");
+    tile->setup(qchar);
 }
 
 void Grid::updateGrid()
@@ -104,8 +102,7 @@ void Grid::updateGrid()
 
 void Grid::createEntity(Tile *tile)
 {
-    Node *node = tile->getNode();
-    if (node->isOccupied()) return;
+    if (!tile->canBuild()) return;
 
     Enemy *enemy = new Enemy(this);
     enemy->setX(tile->x());
@@ -113,7 +110,6 @@ void Grid::createEntity(Tile *tile)
     enemy->resize(tileSize, tileSize);
     gameController->addEntity(enemy);
 
-    node->setEntity(enemy);
-    node->setOccupied(true);
+    tile->getNode()->setEntity(enemy);
 }
 
