@@ -8,15 +8,18 @@
 #include "graph/mapfiles.h"
 #include "game/entities/enemy.h"
 #include "game/gamecontroller.h"
+#include "game/populations.h"
 #include "game/spawner.h"
 
 class Grid : public QFrame
 {
     Q_OBJECT
 public:
-    explicit Grid(QWidget *parent = nullptr);
+    Grid(QWidget *parent = nullptr, QString mapFilePath = "://maps/map1");
 
     void load();
+
+    Tile *tileAt(int i, int j);
 
     QList<Tile *> getTiles() const;
     void setTiles(const QList<Tile *> &value);
@@ -36,10 +39,10 @@ protected:
 private:
     Map *map;
     GameController *gameController;
+    Populations *populations;
     Spawner *spawner;
     QList<Tile *> tiles;
     QList<QList<QChar>> mapFile;
-    QString mapFilePath;
     int rows;
     int columns;
     int offset = 1;

@@ -15,5 +15,6 @@
         <file>img/slow.png</file>
         <file>img/normal.png</file>
         <file>img/playIcon.png</file>
+        <file>img/buildIcon.png</file>
     </qresource>
 </RCC>

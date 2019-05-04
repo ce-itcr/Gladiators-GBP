@@ -9,6 +9,8 @@ class PopulationsMock
 public:
     static void run();
 
+    static void loadNoadesPath(QList<Node *> nodesPath);
+
 private:
     static Populations *populations;
     static QString *gladiators;

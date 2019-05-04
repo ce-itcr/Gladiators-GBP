@@ -8,7 +8,7 @@ Game::Game(QWidget *parent) :
     ui(new Ui::Game)
 {
     ui->setupUi(this);
-    speed = 2;
+    gameSpeed = 2;
 
     spawner = Spawner::getInstance();
     gameController = GameController::getInstance();
@@ -16,11 +16,12 @@ Game::Game(QWidget *parent) :
     populations = Populations::getInstance();
     QObject::connect(populations, &Populations::readyPopulation,
                      this, &Game::populationReady);
-
-    PopulationsMock::run();  // Fake population
-
     loadGrid();
     loadButtons();
+
+    // Fake population
+    PopulationsMock::run();
+    PopulationsMock::loadNoadesPath(Map::getInstance()->getNodes());
 }
 
 Game::~Game()
@@ -71,18 +72,18 @@ void Game::on_waveButton_clicked()
     if (gameController->isWaveActive()) return;
 
     ui->waveButton->setEnabled(false);
-    spawner->setGladiators(populations->getGladiators());
+    spawner->spawnGladiators(populations->getGladiators());
 }
 
 void Game::on_fastButton_clicked()
 {
     int cycles = gameController->getCycleTime();
-    speed = speed % 3 + 1;
+    gameSpeed = gameSpeed % 3 + 1;
 
     QIcon icon;
-    if (speed == 1) { cycles = 50; icon.addFile(":img/slow.png"); }
-    if (speed == 2) { cycles = 25; icon.addFile(":img/normal.png"); }
-    if (speed == 3) { cycles = 10; icon.addFile(":img/fast.png"); }
+    if (gameSpeed == 1) { cycles = 50; icon.addFile(":img/slow.png"); }
+    if (gameSpeed == 2) { cycles = 25; icon.addFile(":img/normal.png"); }
+    if (gameSpeed == 3) { cycles = 10; icon.addFile(":img/fast.png"); }
     ui->fastButton->setIcon(icon);
 
     gameController->setCycleTime(cycles);

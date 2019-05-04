@@ -41,7 +41,7 @@ private:
     GameController *gameController;
     Populations *populations;
     Spawner *spawner;
-    int speed;
+    int gameSpeed;
 
     void loadGrid();
 

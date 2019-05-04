@@ -5,8 +5,21 @@ Tile::Tile(QWidget *parent, int i, int j) : QFrame(parent)
     this->i = i;
     this->j = j;
     this->node = nullptr;
-    this->canBuild = true;
-    this->setStyleSheet("background-color:#8B786D;");
+    this->build = false;
+}
+
+void Tile::setup(QChar qchar)
+{
+    if (qchar != '.') node->setOccupied(true);
+    else setStyleSheet("background-color:#8B786D;");  // Road
+
+    if (qchar == '0') setStyleSheet("background-color:#504b58;");  // Wall
+    if (qchar == 'B'){  // Build
+        build = true;
+        setStyleSheet("background-color:#635255;"
+                      "image: url(:img/buildIcon.png)");
+    }
+
 }
 
 int Tile::getI() const
@@ -35,12 +48,12 @@ void Tile::setNode(Node *value)
     node = value;
 }
 
-bool Tile::getCanBuild() const
+bool Tile::canBuild() const
 {
-    return canBuild;
+    return build;
 }
 
 void Tile::setCanBuild(bool value)
 {
-    canBuild = value;
+    build = value;
 }

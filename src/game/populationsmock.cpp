@@ -10,6 +10,14 @@ void PopulationsMock::run()
     loadPopulations();
 }
 
+void PopulationsMock::loadNoadesPath(QList<Node *> nodesPath)
+{
+    for (Gladiator *gladiator : *populations->getGladiators())
+    {
+        gladiator->setNodePath(nodesPath);
+    }
+}
+
 void PopulationsMock::loadPopulations()
 {
     populations->updateGladiators(gladiators);
