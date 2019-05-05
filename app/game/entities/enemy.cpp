@@ -23,7 +23,6 @@ void Enemy::update()
 {
     this->move(x, y);
     if (shootDelay.elapsed() >= tower->getFireRate()) canShoot = true;
-
 }
 
 void Enemy::draw()
@@ -122,6 +121,8 @@ Entity *Enemy::closerPlayer(QList<Entity *> players)
 
 void Enemy::shoot(Entity *entity)
 {
+    if (entity == nullptr &&
+            entity->tag != "player") return;
     canShoot = false;
     shootDelay.restart();
     Spawner::getInstance()->spawnArrow(x, y, entity);

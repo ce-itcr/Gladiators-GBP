@@ -30,7 +30,6 @@ void Spawner::spawnTower(Tile *tile, Tower *tower)
     enemy->setTower(tower);
 
     Entity *entity = enemy;
-
     gameController->addEntity(entity);
     tile->getNode()->setEntity(entity);
 }
@@ -44,7 +43,8 @@ void Spawner::spawnArrow(int x, int y, Entity *target)
     arrow->setX(x);
     arrow->setY(y);
 
-    gameController->addEntity(arrow);
+    Entity *entity = arrow;
+    gameController->addEntity(entity);
 }
 
 bool Spawner::isWaveFinished()
@@ -62,10 +62,11 @@ void Spawner::spawn()
     Gladiator *gladiator = gladiators->takeFirst();
     player->setGladiator(gladiator);
     player->setNodePath(gladiator->getNodePath());
-    gameController->addEntity(player);
-
     int size = grid->getTileSize();
     player->resize(size, size);
+
+    Entity *entity = player;
+    gameController->addEntity(entity);
 
     // Recursive call
     QTimer::singleShot(spawnDelay, this, &Spawner::spawn);
