@@ -30,7 +30,7 @@ SOURCES += \
     graph/PathFinding/vector.cpp \
     graph/PathFinding/point.cpp \
     graph/PathFinding/astardata.cpp \
-    graph/PathFinding/map.cpp
+    graph/PathFinding/astarmap.cpp
 
 HEADERS += \
 	client/client.h \
@@ -54,5 +54,5 @@ HEADERS += \
     graph/PathFinding/vector.h \
     graph/PathFinding/point.h \
     graph/PathFinding/astardata.h \
-    graph/PathFinding/map.h
+    graph/PathFinding/astarmap.h
 

@@ -1,0 +1,5 @@
+#include "mapastar.h"
+
+Map::Map(){
+
+}
