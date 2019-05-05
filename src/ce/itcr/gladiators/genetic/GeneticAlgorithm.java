@@ -16,14 +16,14 @@ public class GeneticAlgorithm {
 		Gladiators.getInstance().sortGladiatorPopulation();
 		Gladiator newGladiator;
 		for (int i = 0; i < numOfGladiatorsToGenerate; i++) {
-			newGladiator = Gladiators.getInstance().getFittestGladiator().crossover(Gladiators.getInstance().population[random.nextInt(gladiators.getPopulationSize()-1)]);
+			newGladiator = Gladiators.getInstance().getFittestGladiator().crossover(Gladiators.getInstance().population[random.nextInt(Gladiators.getInstance().getPopulationSize()-1)]);
 			Gladiators.getInstance().replaceGladiator(newGladiator);
 		}
 	}
 	
 	private Gladiator [] collectionToGladiatorArray(Collection<GladiatorSend> gladiatorCollection) {
 //		GladiatorSend [] gladiatorSendArray = new GladiatorSend [gladiatorCollection.size()];
-		Gladiator [] gladiatorArray = new Gladiator [gladiatorCollection.size()];
+		Gladiator [] gladiatorArray = new Gladiator [100];
 		int i = 0;
 		for (GladiatorSend gladiatorSend : gladiatorCollection) {
 			gladiatorArray[i].getChromosome().setAge(gladiatorSend.getAge());
