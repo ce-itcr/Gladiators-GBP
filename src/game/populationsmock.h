@@ -15,6 +15,7 @@ private:
     static Populations *populations;
     static QString *gladiators;
     static QString *towers;
+    static int gladiatorsCount;
 
     static void loadPopulations();
 

@@ -36,6 +36,7 @@ void Enemy::collide(QList<Entity *> players)
     else
     {
         target = closerPlayer(players);
+        qDebug() << target;
     }
 
 }
@@ -53,11 +54,10 @@ QRect Enemy::getRect()
 
 QRegion Enemy::getCircle()
 {
-    int offset =  width / 2;
-    int xCenter = x + offset;
-    int yCenter = y + offset;
-    int range = width + offset;
-    QRegion circle(xCenter, yCenter, range, range, QRegion::Ellipse);
+    int xPoss = x - width;
+    int yPoss = y - height;
+    int range = width * 3;
+    QRegion circle(xPoss, yPoss, range, range, QRegion::Ellipse);
     return circle;
 }
 
