@@ -32,7 +32,16 @@ void Enemy::draw()
 
 void Enemy::collide()
 {
-
+    QList<Entity *> players;
+    for (Entity *entity : GameController::getInstance()->getEntities())
+    {
+        if (entity->tag == "player" &&
+                Collision::collide(getCircle(), entity->getRect()))
+        {
+            players.push_back(entity);
+        }
+    }
+    collide(players);
 }
 
 void Enemy::collide(QList<Entity *> players)

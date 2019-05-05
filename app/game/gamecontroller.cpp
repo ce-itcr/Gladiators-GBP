@@ -31,7 +31,7 @@ void GameController::update()
     {
         entity->update();
         entity->draw();
-        //collision(entity);
+        //entity->collide();
     }
 }
 

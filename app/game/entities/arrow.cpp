@@ -34,8 +34,15 @@ void Arrow::draw()
 
 void Arrow::collide()
 {
-    //GameController::getInstance()->removeEntity(this);
-    //delete this;
+    for (Entity *entity : GameController::getInstance()->getEntities())
+    {
+        if (entity->tag == "player" &&
+                Collision::collide(getRect(), entity->getRect()))
+        {
+            //GameController::getInstance()->removeEntity(this);
+            //delete this;
+        }
+    }
 }
 
 void Arrow::uncollide()
