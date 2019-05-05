@@ -22,9 +22,6 @@ public:
 
     void removeEntity(Entity *entity);
 
-    QList<Entity *> *getEntities() const;
-    void setEntities(QList<Entity *> *value);
-
     bool isWaveActive() const;
     void setWaveActive(bool value);
 
@@ -34,6 +31,9 @@ public:
     int getCycleTime() const;
     void setCycleTime(int value);
 
+    QList<Entity *> getEntities() const;
+    void setEntities(const QList<Entity *> &value);
+
 signals:
 
 public slots:
@@ -41,7 +41,7 @@ public slots:
 
 private:
     static GameController *instance;
-    QList<Entity *> *entities;
+    QList<Entity *> entities;
     int cycleTime;
     bool waveActive;
     bool pause;
