@@ -29,8 +29,10 @@ void Spawner::spawnTower(Tile *tile, Tower *tower)
     enemy->resize(tileSize, tileSize);
     enemy->setTower(tower);
 
-    gameController->addEntity(enemy);
-    tile->getNode()->setEntity(enemy);
+    Entity *entity = enemy;
+
+    gameController->addEntity(entity);
+    tile->getNode()->setEntity(entity);
 }
 
 void Spawner::spawnArrow(int x, int y, Entity *target)
@@ -56,9 +58,8 @@ void Spawner::spawn()
 
     // Generates the player
     Grid *grid = dynamic_cast<Grid *>(parent);
-    Entity *entity = new Player(grid);
+    Player *player = new Player(grid);
     Gladiator *gladiator = gladiators->takeFirst();
-    Player *player = dynamic_cast<Player *>(entity);
     player->setGladiator(gladiator);
     player->setNodePath(gladiator->getNodePath());
     gameController->addEntity(player);
