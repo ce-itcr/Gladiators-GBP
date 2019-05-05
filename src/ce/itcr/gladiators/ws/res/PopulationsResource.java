@@ -19,5 +19,6 @@ public class PopulationsResource {
     @POST
     public void startNewPopulation() {
     	gladiators.generateRandomPopulation();
+    	FirstPopulation.generateFirstPopulation();
     }
 }
