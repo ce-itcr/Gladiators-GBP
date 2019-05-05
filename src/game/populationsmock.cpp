@@ -3,6 +3,7 @@
 Populations *PopulationsMock::populations = Populations::getInstance();
 QString *PopulationsMock::gladiators = new QString();
 QString *PopulationsMock::towers = new QString();
+int PopulationsMock::gladiatorsCount = 10;
 
 void PopulationsMock::run()
 {
@@ -27,7 +28,7 @@ void PopulationsMock::loadPopulations()
 void PopulationsMock::loadJsons()
 {
     QList<Gladiator> newGladitors;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < gladiatorsCount; i++) {
         Gladiator gladiator;
         newGladitors.push_back(gladiator);
     }

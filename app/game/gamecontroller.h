@@ -8,6 +8,7 @@
 #include "entities/entity.h"
 #include "util/collision.h"
 #include "game/entities/enemy.h"
+#include "game/entities/arrow.h"
 
 class GameController : public QObject
 {
@@ -21,9 +22,6 @@ public:
 
     void removeEntity(Entity *entity);
 
-    QList<Entity *> *getEntities() const;
-    void setEntities(QList<Entity *> *value);
-
     bool isWaveActive() const;
     void setWaveActive(bool value);
 
@@ -33,6 +31,9 @@ public:
     int getCycleTime() const;
     void setCycleTime(int value);
 
+    QList<Entity *> getEntities() const;
+    void setEntities(const QList<Entity *> &value);
+
 signals:
 
 public slots:
@@ -40,7 +41,7 @@ public slots:
 
 private:
     static GameController *instance;
-    QList<Entity *> *entities;
+    QList<Entity *> entities;
     int cycleTime;
     bool waveActive;
     bool pause;
@@ -51,7 +52,9 @@ private:
 
     QList<Entity *> playersInEntities(QList<Entity *> entities);
 
-    QList<Entity *> playersInRange(QRegion region, QList<Entity *> entities);
+    QList<Entity *> playersInRangeOfTower(QRegion region, QList<Entity *> entities);
+
+    bool playerHit(QRect arrowRect, QList<Entity *> entities);
 };
 
 #endif // GAMECONTROLLER_H

@@ -1,4 +1,6 @@
-#include "enemy.h"
+﻿#include "enemy.h"
+
+#include "game/spawner.h"
 
 Enemy::Enemy(QWidget *parent) : QFrame(parent)
 {
@@ -9,6 +11,8 @@ Enemy::Enemy(QWidget *parent) : QFrame(parent)
     width = 50;
     height = 50;
     target = nullptr;
+    shootDelay.start();
+    canShoot = false;
 
     this->setStyleSheet("background-color:blue;");
     this->setGeometry(x, y, width, height);
@@ -18,6 +22,8 @@ Enemy::Enemy(QWidget *parent) : QFrame(parent)
 void Enemy::update()
 {
     this->move(x, y);
+    if (shootDelay.elapsed() >= tower->getFireRate()) canShoot = true;
+
 }
 
 void Enemy::draw()
@@ -36,6 +42,7 @@ void Enemy::collide(QList<Entity *> players)
     else
     {
         target = closerPlayer(players);
+        if(canShoot) shoot(target);
     }
 
 }
@@ -53,11 +60,10 @@ QRect Enemy::getRect()
 
 QRegion Enemy::getCircle()
 {
-    int offset =  width / 2;
-    int xCenter = x + offset;
-    int yCenter = y + offset;
-    int range = width + offset;
-    QRegion circle(xCenter, yCenter, range, range, QRegion::Ellipse);
+    int xPoss = x - width;
+    int yPoss = y - height;
+    int range = width * 3;
+    QRegion circle(xPoss, yPoss, range, range, QRegion::Ellipse);
     return circle;
 }
 
@@ -112,4 +118,11 @@ Entity *Enemy::closerPlayer(QList<Entity *> players)
         }
     }
     return closer;
+}
+
+void Enemy::shoot(Entity *entity)
+{
+    canShoot = false;
+    shootDelay.restart();
+    Spawner::getInstance()->spawnArrow(x, y, entity);
 }

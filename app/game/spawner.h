@@ -8,6 +8,7 @@
 #include "game/gamecontroller.h"
 #include "game/entities/gladiator.h"
 #include "game/entities/tower.h"
+#include "game/entities/arrow.h"
 #include "game/tile.h"
 
 
@@ -20,6 +21,8 @@ public:
     void spawnGladiators(QList<Gladiator *> *value);
 
     void spawnTower(Tile *tile, Tower *tower);
+
+    void spawnArrow(int x, int y, Entity *target);
 
     bool isWaveFinished();
 
