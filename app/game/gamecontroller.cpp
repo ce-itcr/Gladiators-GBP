@@ -29,7 +29,7 @@ void GameController::update()
 
     for (Entity *entity : entities)
     {
-        collision(entity);
+        //collision(entity);
         entity->update();
         entity->draw();
     }
