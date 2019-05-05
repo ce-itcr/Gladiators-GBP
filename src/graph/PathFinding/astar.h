@@ -23,6 +23,7 @@ public:
     bool search(point& s, point& e, AStarMap& mp);
     int path(std::list<point>& path);
     AStar();
+
 };
 
 #endif // ASTAR_H
