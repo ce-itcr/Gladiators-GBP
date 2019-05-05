@@ -35,6 +35,10 @@ public:
 public slots:
     void populationReady();
 
+    // QWidget interface
+protected:
+    void resizeEvent(QResizeEvent *event);
+
 private:
     Ui::Game *ui;
     Grid *grid;
@@ -46,10 +50,6 @@ private:
     void loadGrid();
 
     void loadButtons();
-
-    // QWidget interface
-protected:
-    void resizeEvent(QResizeEvent *event);
 
 private slots:
     void on_waveButton_clicked();

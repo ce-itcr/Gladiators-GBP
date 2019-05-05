@@ -2,8 +2,10 @@
 #define ENEMY_H
 
 #include <QFrame>
+#include <QDebug>
 #include "entity.h"
 #include "game/entities/tower.h"
+#include "util/math.h"
 
 class Enemy : public QFrame, public Entity
 {
@@ -17,9 +19,13 @@ public:
 
     void collide();
 
+    void collide(QList<Entity *> players);
+
     void uncollide();
 
     QRect getRect();
+
+    QRegion getCircle();
 
     int getX() const;
     void setX(int value);
@@ -36,6 +42,9 @@ private:
     int y;
     int width;
     int height;
+    Entity *target;
+
+    Entity *closerPlayer(QList<Entity *> players);
 };
 
 #endif // ENEMY_H

@@ -24,3 +24,11 @@ int Math::approach(int num, int target, int amount)
     }
     return num;
 }
+
+int Math::distance(int x1, int y1, int x2, int y2)
+{
+    int x = (x2 - x1);
+    int y = (y2 - y1);
+    int distance = sqrt(pow(x, 2) + pow(y, 2));
+    return distance;
+}

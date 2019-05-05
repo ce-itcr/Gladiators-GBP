@@ -7,6 +7,7 @@
 
 #include "entities/entity.h"
 #include "util/collision.h"
+#include "game/entities/enemy.h"
 
 class GameController : public QObject
 {
@@ -46,7 +47,11 @@ private:
 
     GameController();
 
-    QList<QRect> rectsOfEntities();
+    void collision(Entity *entity);
+
+    QList<Entity *> playersInEntities(QList<Entity *> entities);
+
+    QList<Entity *> playersInRange(QRegion region, QList<Entity *> entities);
 };
 
 #endif // GAMECONTROLLER_H

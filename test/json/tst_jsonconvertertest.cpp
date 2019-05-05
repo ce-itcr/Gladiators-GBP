@@ -32,8 +32,8 @@ void JsonConverterTest::test_gladiatorsToJson()
 void JsonConverterTest::test_towersToJson()
 {
     QList<Tower> towers;
-    Tower t1("1");
-    Tower t2("2");
+    Tower t1("1", 1000);
+    Tower t2("2", 1000);
     towers.push_back(t1);
     towers.push_back(t2);
 

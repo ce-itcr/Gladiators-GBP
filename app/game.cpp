@@ -37,6 +37,11 @@ void Game::enableWaveButton()
 void Game::populationReady()
 {
     ui->waveButton->setEnabled(true);
+    for (Tower *tower : *populations->getTowers())
+    {
+        Tile *tile = grid->tileAt(tower->getI(), tower->getJ());
+        spawner->spawnTower(tile, tower);
+    }
 }
 
 void Game::loadGrid()
