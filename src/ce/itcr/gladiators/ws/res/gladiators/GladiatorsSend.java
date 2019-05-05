@@ -13,7 +13,6 @@ public class GladiatorsSend {
 
     private static GladiatorsSend instance = new GladiatorsSend();
     private Map<String, GladiatorSend> gladiators = new HashMap<>();
-    private Gladiators gladiatorsServer = new Gladiators();
     private GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
 
     private GladiatorsSend() {}
@@ -27,7 +26,7 @@ public class GladiatorsSend {
     }
 
     public void replaceAllGladiators(Collection<GladiatorSend> newGladiators) {
-    	Gladiator [] gladiatorArray = gladiatorsServer.population;
+    	Gladiator [] gladiatorArray = Gladiators.getInstance().population;
         gladiators = new HashMap<>();
         geneticAlgorithm.newGeneration(newGladiators, 10);
         int i = 0;

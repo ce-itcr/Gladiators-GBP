@@ -8,6 +8,14 @@ public class Gladiators {
 	public Gladiator [] population = new Gladiator [100];
 	Random random = new Random();
 	
+	private static Gladiators gladiators = new Gladiators();
+	
+	public static Gladiators getInstance() {
+		return gladiators;
+	}
+	
+	private Gladiators() {}
+	
 	public int getPopulationSize() {
 		return population.length;
 	}

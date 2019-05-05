@@ -13,12 +13,10 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class PopulationsResource {
-	
-	Gladiators gladiators = new Gladiators();
 
     @POST
     public void startNewPopulation() {
-    	gladiators.generateRandomPopulation();
+    	Gladiators.getInstance().generateRandomPopulation();
     	FirstPopulation.generateFirstPopulation();
     }
 }

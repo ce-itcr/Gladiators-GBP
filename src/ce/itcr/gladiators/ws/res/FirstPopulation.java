@@ -7,14 +7,13 @@ import ce.itcr.gladiators.ws.res.gladiators.GladiatorsSend;
 public class FirstPopulation {
 	
 	public static void generateFirstPopulation() {
-		Gladiators gladiators = new Gladiators();
 		GladiatorsSend gladiatorsSend = GladiatorsSend.getInstance();
-		for (int i = 0; i < gladiators.population.length-1; i++) {
-			int age = gladiators.population[i].getChromosome().getAge();
-			int health = gladiators.population[i].getChromosome().getHealth();
-			int resistanceUpperBody = gladiators.population[i].getChromosome().getResistanceUpperBody();
-			int resistanceLowerBody = gladiators.population[i].getChromosome().getResistanceLowerBody();
-			int dodgeChance = gladiators.population[i].getChromosome().getDodgeChance();
+		for (int i = 0; i < Gladiators.getInstance().population.length-1; i++) {
+			int age = Gladiators.getInstance().population[i].getChromosome().getAge();
+			int health = Gladiators.getInstance().population[i].getChromosome().getHealth();
+			int resistanceUpperBody = Gladiators.getInstance().population[i].getChromosome().getResistanceUpperBody();
+			int resistanceLowerBody = Gladiators.getInstance().population[i].getChromosome().getResistanceLowerBody();
+			int dodgeChance = Gladiators.getInstance().population[i].getChromosome().getDodgeChance();
 			GladiatorSend g = new GladiatorSend(Integer.toString(i), age, health, resistanceUpperBody, resistanceLowerBody, dodgeChance);
 			gladiatorsSend.putGladiator(g);
 		}

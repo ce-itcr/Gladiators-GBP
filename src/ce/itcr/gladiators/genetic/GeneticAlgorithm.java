@@ -9,16 +9,15 @@ import ce.itcr.gladiators.genetic.resources.Gladiators;
 
 public class GeneticAlgorithm {
 
-	Gladiators gladiators = new Gladiators();
 	Random random = new Random();
 	
 	public void newGeneration(Collection<GladiatorSend> gladiatorCollection, int numOfGladiatorsToGenerate) {
-		gladiators.population = collectionToGladiatorArray(gladiatorCollection);
-		gladiators.sortGladiatorPopulation();
+		Gladiators.getInstance().population = collectionToGladiatorArray(gladiatorCollection);
+		Gladiators.getInstance().sortGladiatorPopulation();
 		Gladiator newGladiator;
 		for (int i = 0; i < numOfGladiatorsToGenerate; i++) {
-			newGladiator = gladiators.getFittestGladiator().crossover(gladiators.population[random.nextInt(gladiators.getPopulationSize()-1)]);
-			gladiators.replaceGladiator(newGladiator);
+			newGladiator = Gladiators.getInstance().getFittestGladiator().crossover(Gladiators.getInstance().population[random.nextInt(gladiators.getPopulationSize()-1)]);
+			Gladiators.getInstance().replaceGladiator(newGladiator);
 		}
 	}
 	
