@@ -33,6 +33,18 @@ void Spawner::spawnTower(Tile *tile, Tower *tower)
     tile->getNode()->setEntity(enemy);
 }
 
+void Spawner::spawnArrow(int x, int y, Entity *target)
+{
+    Grid *grid = static_cast<Grid *>(parent);
+
+    Arrow *arrow = new Arrow(grid);
+    arrow->setTarget(target);
+    arrow->setX(x);
+    arrow->setY(y);
+
+    gameController->addEntity(arrow);
+}
+
 bool Spawner::isWaveFinished()
 {
     return gladiators->isEmpty();

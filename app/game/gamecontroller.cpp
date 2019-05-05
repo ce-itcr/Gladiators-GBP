@@ -91,10 +91,13 @@ void GameController::collision(Entity *entity)
 
     if (entity->tag == "enemy") {
         Enemy *enemy = static_cast<Enemy *>(entity);
-        QList<Entity *> players = playersInRange(enemy->getCircle(), colliders);
+        QList<Entity *> players = playersInRangeOfTower(enemy->getCircle(), colliders);
         enemy->collide(players);
     }
     if (entity->tag == "arrow") {
+        Arrow *arrow = static_cast<Arrow *>(entity);
+        bool hit = playerHit(arrow->getRect(), colliders);
+        if (hit) arrow->collide();
 
     }
 }
@@ -109,7 +112,7 @@ QList<Entity *> GameController::playersInEntities(QList<Entity *> entities)
     return players;
 }
 
-QList<Entity *> GameController::playersInRange(QRegion region, QList<Entity *> entities)
+QList<Entity *> GameController::playersInRangeOfTower(QRegion region, QList<Entity *> entities)
 {
     QList<Entity *> players;
     for (Entity *player : entities)
@@ -117,4 +120,18 @@ QList<Entity *> GameController::playersInRange(QRegion region, QList<Entity *> e
         if (Collision::collide(region, player->getRect())) players.push_back(player);
     }
     return players;
+}
+
+bool GameController::playerHit(QRect arrowRect, QList<Entity *> entities)
+{
+    bool collision = false;
+    for (Entity *player : entities)
+    {
+        if (Collision::collide(arrowRect, player->getRect()))
+        {
+            collision = true;
+            break;
+        }
+    }
+    return collision;
 }

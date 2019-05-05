@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+	game/entities/arrow.cpp \
 	game/grid.cpp \
 	game/spawner.cpp \
 	game/tile.cpp \
@@ -40,6 +41,7 @@ SOURCES += \
     game/entities/enemy.cpp
 
 HEADERS += \
+	game/entities/arrow.h \
 	game/grid.h \
 	game/spawner.h \
 	game/tile.h \

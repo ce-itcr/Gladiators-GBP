@@ -3,8 +3,11 @@
 
 #include <QFrame>
 #include <QDebug>
+#include <QTime>
+
 #include "entity.h"
 #include "game/entities/tower.h"
+#include "game/entities/arrow.h"
 #include "util/math.h"
 
 class Enemy : public QFrame, public Entity
@@ -43,8 +46,12 @@ private:
     int width;
     int height;
     Entity *target;
+    QTime shootDelay;
+    bool canShoot;
 
     Entity *closerPlayer(QList<Entity *> players);
+
+    void shoot(Entity *entity);
 };
 
 #endif // ENEMY_H

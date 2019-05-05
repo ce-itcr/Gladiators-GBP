@@ -8,6 +8,7 @@
 #include "entities/entity.h"
 #include "util/collision.h"
 #include "game/entities/enemy.h"
+#include "game/entities/arrow.h"
 
 class GameController : public QObject
 {
@@ -51,7 +52,9 @@ private:
 
     QList<Entity *> playersInEntities(QList<Entity *> entities);
 
-    QList<Entity *> playersInRange(QRegion region, QList<Entity *> entities);
+    QList<Entity *> playersInRangeOfTower(QRegion region, QList<Entity *> entities);
+
+    bool playerHit(QRect arrowRect, QList<Entity *> entities);
 };
 
 #endif // GAMECONTROLLER_H

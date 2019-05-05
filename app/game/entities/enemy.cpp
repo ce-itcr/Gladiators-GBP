@@ -1,4 +1,6 @@
-#include "enemy.h"
+﻿#include "enemy.h"
+
+#include "game/spawner.h"
 
 Enemy::Enemy(QWidget *parent) : QFrame(parent)
 {
@@ -9,6 +11,8 @@ Enemy::Enemy(QWidget *parent) : QFrame(parent)
     width = 50;
     height = 50;
     target = nullptr;
+    shootDelay.start();
+    canShoot = false;
 
     this->setStyleSheet("background-color:blue;");
     this->setGeometry(x, y, width, height);
@@ -18,6 +22,8 @@ Enemy::Enemy(QWidget *parent) : QFrame(parent)
 void Enemy::update()
 {
     this->move(x, y);
+    if (shootDelay.elapsed() >= tower->getFireRate()) canShoot = true;
+
 }
 
 void Enemy::draw()
@@ -36,7 +42,7 @@ void Enemy::collide(QList<Entity *> players)
     else
     {
         target = closerPlayer(players);
-        qDebug() << target;
+        if(canShoot) shoot(target);
     }
 
 }
@@ -112,4 +118,11 @@ Entity *Enemy::closerPlayer(QList<Entity *> players)
         }
     }
     return closer;
+}
+
+void Enemy::shoot(Entity *entity)
+{
+    canShoot = false;
+    shootDelay.restart();
+    Spawner::getInstance()->spawnArrow(x, y, entity);
 }
