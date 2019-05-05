@@ -1,9 +1,9 @@
 package ce.itcr.gladiators.ws.res;
 
-import ce.itcr.gladiators.entities.Gladiator;
-import ce.itcr.gladiators.entities.Tower;
-import ce.itcr.gladiators.ws.res.gladiators.Gladiators;
-import ce.itcr.gladiators.ws.res.towers.Towers;
+import ce.itcr.gladiators.entities.GladiatorSend;
+import ce.itcr.gladiators.entities.TowerSend;
+import ce.itcr.gladiators.ws.res.gladiators.GladiatorsSend;
+import ce.itcr.gladiators.ws.res.towers.TowersSend;
 
 class MockPopulation {
 
@@ -13,11 +13,11 @@ class MockPopulation {
     }
 
     private static void startGladiators() {
-        Gladiators gladiators = Gladiators.getInstance();
+        GladiatorsSend gladiators = GladiatorsSend.getInstance();
 
-        Gladiator g1 = new Gladiator("1", "Atilius", "23");
-        Gladiator g2 = new Gladiator("2", "Marcus", "25");
-        Gladiator g3 = new Gladiator("3", "Spartacus", "19");
+        GladiatorSend g1 = new GladiatorSend("1", "Atilius", "23");
+        GladiatorSend g2 = new GladiatorSend("2", "Marcus", "25");
+        GladiatorSend g3 = new GladiatorSend("3", "Spartacus", "19");
 
         gladiators.putGladiator(g1);
         gladiators.putGladiator(g2);
@@ -25,11 +25,11 @@ class MockPopulation {
     }
 
     private static void startTowers() {
-        Towers towers = Towers.getInstance();
+        TowersSend towers = TowersSend.getInstance();
 
-        Tower t1 = new Tower("1");
-        Tower t2 = new Tower("2");
-        Tower t3 = new Tower("3");
+        TowerSend t1 = new TowerSend("1");
+        TowerSend t2 = new TowerSend("2");
+        TowerSend t3 = new TowerSend("3");
 
         towers.putTower(t1);
         towers.putTower(t2);

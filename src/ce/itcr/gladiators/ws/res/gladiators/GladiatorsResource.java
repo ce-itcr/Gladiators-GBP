@@ -1,6 +1,6 @@
 package ce.itcr.gladiators.ws.res.gladiators;
 
-import ce.itcr.gladiators.entities.Gladiator;
+import ce.itcr.gladiators.entities.GladiatorSend;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -11,16 +11,16 @@ import java.util.Collection;
 @Produces(MediaType.APPLICATION_JSON)
 public class GladiatorsResource {
 
-    private static Gladiators gladiators = Gladiators.getInstance();
+    private static GladiatorsSend gladiators = GladiatorsSend.getInstance();
 
     @GET
-    public Collection<Gladiator> getGladiators() {
+    public Collection<GladiatorSend> getGladiators() {
         return gladiators.viewAllGladiators();
     }
 
     @Path("/stats")
     @POST
-    public void postGladiator(Collection<Gladiator> newGladiators) {
+    public void postGladiator(Collection<GladiatorSend> newGladiators) {
         gladiators.replaceAllGladiators(newGladiators);
     }
 

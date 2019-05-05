@@ -1,12 +1,12 @@
 package ce.itcr.gladiators.entities;
 
-public class Tower {
+public class TowerSend {
 
     private String id;
 
-    public Tower() {}
+    public TowerSend() {}
 
-    public Tower(String id) {
+    public TowerSend(String id) {
         this.id = id;
     }
 
