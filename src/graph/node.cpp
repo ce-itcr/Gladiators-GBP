@@ -12,6 +12,7 @@ Node::Node()
 void Node::addNeighbor(Node *node)
 {
     neighbors->push_back(node);
+
 }
 
 Entity *Node::getEntity() const

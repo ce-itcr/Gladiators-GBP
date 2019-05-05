@@ -22,7 +22,15 @@ SOURCES += \
 	game/entities/tower.cpp \
     util/math.cpp \
     util/collision.cpp \
-    game/populationsmock.cpp
+    game/populationsmock.cpp \
+    graph/PathFinding/astar.cpp \
+    graph/PathFinding/backtrack.cpp \
+    graph/PathFinding/list.cpp \
+    graph/PathFinding/nodelinkedlist.cpp \
+    graph/PathFinding/vector.cpp \
+    graph/PathFinding/point.cpp \
+    graph/PathFinding/astardata.cpp \
+    graph/PathFinding/map.cpp
 
 HEADERS += \
 	client/client.h \
@@ -38,4 +46,13 @@ HEADERS += \
     util/math.h \
     game/entities/entity.h \
     util/collision.h \
-    game/populationsmock.h
+    game/populationsmock.h \
+    graph/PathFinding/astar.h \
+    graph/PathFinding/backtrack.h \
+    graph/PathFinding/list.h \
+    graph/PathFinding/nodelinkedlist.h \
+    graph/PathFinding/vector.h \
+    graph/PathFinding/point.h \
+    graph/PathFinding/astardata.h \
+    graph/PathFinding/map.h
+
