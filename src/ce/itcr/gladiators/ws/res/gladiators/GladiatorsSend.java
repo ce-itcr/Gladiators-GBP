@@ -3,6 +3,7 @@ package ce.itcr.gladiators.ws.res.gladiators;
 import ce.itcr.gladiators.entities.GladiatorSend;
 import ce.itcr.gladiators.genetic.resources.Gladiator;
 import ce.itcr.gladiators.genetic.resources.Gladiators;
+import ce.itcr.gladiators.genetic.GeneticAlgorithm;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ public class GladiatorsSend {
     private static GladiatorsSend instance = new GladiatorsSend();
     private Map<String, GladiatorSend> gladiators = new HashMap<>();
     private Gladiators gladiatorsServer = new Gladiators();
+    private GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
 
     private GladiatorsSend() {}
 
@@ -27,6 +29,7 @@ public class GladiatorsSend {
     public void replaceAllGladiators(Collection<GladiatorSend> newGladiators) {
     	Gladiator [] gladiatorArray = gladiatorsServer.population;
         gladiators = new HashMap<>();
+        geneticAlgorithm.newGeneration(newGladiators, 10);
         int i = 0;
         for (GladiatorSend gladiator : newGladiators) {
         	int age = gladiatorArray[i].getChromosome().getAge();
