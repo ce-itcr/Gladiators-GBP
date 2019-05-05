@@ -1,5 +1,7 @@
-package ce.itcr.gladiators.genetic;
+package ce.itcr.gladiators.genetic.resources;
 import java.util.Random;
+
+import ce.itcr.gladiators.genetic.QuickSort;
 
 public class Gladiators {
 	

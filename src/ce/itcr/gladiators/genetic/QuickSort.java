@@ -1,5 +1,7 @@
 package ce.itcr.gladiators.genetic;
 
+import ce.itcr.gladiators.genetic.resources.Gladiator;
+
 public class QuickSort {
 	
 	public void quickSort(Gladiator arr[], int begin, int end) {

@@ -1,4 +1,4 @@
-package ce.itcr.gladiators.genetic;
+package ce.itcr.gladiators.genetic.resources;
 
 import java.util.LinkedList;
 

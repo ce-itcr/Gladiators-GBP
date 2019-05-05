@@ -2,6 +2,9 @@ package ce.itcr.gladiators.genetic;
 
 import java.util.Random;
 
+import ce.itcr.gladiators.genetic.resources.Gladiator;
+import ce.itcr.gladiators.genetic.resources.Gladiators;
+
 public class MainTest {
 
 	public static void main(String[] args) throws InterruptedException {
