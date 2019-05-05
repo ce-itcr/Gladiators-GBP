@@ -5,6 +5,7 @@
 #include "astarmap.h"
 #include "astardata.h"
 #include "list.h"
+#include <QList>
 #include <list>
 #include <algorithm>
 #include <iostream>
@@ -22,7 +23,8 @@ public:
     bool existPoint(point& p, int cost);
     bool fillOpen(AStarData& n);
     bool search(point& s, point& e, AStarMap& mp);
-    int path(std::list<point>& path, List &list);
+    int path(std::list<point>& path, QList<Node *> &nodeList,QList<Node *> &pathList);
+    int findNode(QList<Node *> &nodeList,QList<Node *> &pathList, point pointToFind);
     AStar();
 
 };
