@@ -1,19 +1,45 @@
 package ce.itcr.gladiators.genetic;
+import java.util.Random;
 
 public class Gladiators {
 	
-	private Gladiator [] population;
+	public Gladiator [] population = new Gladiator [100];
+	Random random = new Random();
 	
 	public int getPopulationSize() {
 		return population.length;
 	}
 	
-	public void sortGladiatorPopulation() {
-		
+	public void generateRandomPopulation() {
+		for (int i = 0; i < population.length; i++) 
+			population[i] = new Gladiator(new Chromosome(random.nextInt(50)));
 	}
 	
-//	public Gladiator getFittestGladiator() {
-//		return this;
-//	}
+	public void sortGladiatorPopulation() {
+		QuickSort quickSort = new QuickSort();
+		quickSort.quickSort(population, 0, population.length-1);
+	}
+	
+	public void printGladiatorPopulation() {
+		int count = 0;
+		for (Gladiator g : population) {
+			System.out.println("-----------------------------");
+			System.out.println("Gladiator: " + count);
+			System.out.println("Fitness: " + g.getFitness());
+			System.out.println();
+			count++;
+		}
+	}
+	
+	public Gladiator getFittestGladiator() {
+		Gladiator gladiator = population[population.length - 1];
+		return gladiator;
+	}
+	
+	public void replaceGladiator(Gladiator newGladiator) {
+		sortGladiatorPopulation();
+		population[0] = newGladiator;
+		sortGladiatorPopulation();
+	}
 
 }

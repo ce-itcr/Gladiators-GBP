@@ -1,31 +1,32 @@
 package ce.itcr.gladiators.genetic;
 
 import java.util.Random;
-import java.util.stream.IntStream;
 
 public class Gladiator {
 	
 	private Chromosome chromosome;
-	private int fitness;
-	Random random;
+	private int fitness = 0;
+	Random random = new Random();
 	
 	public Gladiator(Chromosome chromosome) {
 		super();
 		this.chromosome = chromosome;
+		setFitness();
 	}
 
-	public Chromosome crossover(Chromosome chromosome) {
-		Chromosome finalChromosome = new Chromosome();
+	public Gladiator crossover(Gladiator gladiator) {
+		Chromosome finalChromosome = new Chromosome(0);
 		finalChromosome.setAge(0);
-		finalChromosome.setHealth((chromosome.getHealth()+this.chromosome.getHealth())/2);
-		finalChromosome.setResistanceLowerBody((chromosome.getResistanceLowerBody()+this.chromosome.getResistanceLowerBody())/2);
-		finalChromosome.setResistanceUpperBody((chromosome.getResistanceUpperBody()+this.chromosome.getResistanceUpperBody())/2);
-		finalChromosome.setDodgeChance((chromosome.getDodgeChance()+this.chromosome.getDodgeChance())/2);
-		return mutate(finalChromosome);
+		finalChromosome.setHealth(this.chromosome.getHealth());
+		finalChromosome.setResistanceLowerBody(this.chromosome.getResistanceLowerBody());
+		finalChromosome.setResistanceUpperBody(gladiator.getChromosome().getResistanceUpperBody());
+		finalChromosome.setDodgeChance(gladiator.getChromosome().getDodgeChance());
+		Gladiator finalGladiator = new Gladiator(mutate(finalChromosome));
+		return finalGladiator;
 	}
 	
-	public Chromosome mutate(Chromosome chromosome) {
-		if (Math.random() < 0.10)
+	private Chromosome mutate(Chromosome chromosome) {
+		if (Math.random() < 0.2)
 			chromosome.mutateGene(random.nextInt(((3 - 0) + 1) + 0));
 		return chromosome;
 	}
@@ -49,6 +50,9 @@ public class Gladiator {
 	}
 	public void setChromosome(Chromosome chromosome) {
 		this.chromosome = chromosome;
+	}
+	public void setFitness() {
+		fitness += chromosome.getHealth() + chromosome.getDodgeChance() + chromosome.getResistanceLowerBody() + chromosome.getResistanceUpperBody();
 	}
 	public int getFitness() {
 		return fitness;

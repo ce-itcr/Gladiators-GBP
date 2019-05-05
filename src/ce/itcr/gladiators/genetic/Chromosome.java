@@ -8,6 +8,15 @@ public class Chromosome {
 	private int resistanceLowerBody;
 	private int dodgeChance;
 	private int age;
+	
+	public Chromosome(int num) {
+		super();
+		this.health = num;
+		this.resistanceUpperBody = num;
+		this.resistanceLowerBody = num;
+		this.dodgeChance = num;
+		this.age = num;
+	}
 
 	public int[] getChromosomeArray() {
 		this.chromosomeArray = new int[] {health, resistanceLowerBody, resistanceUpperBody, dodgeChance, age};
@@ -15,12 +24,12 @@ public class Chromosome {
 	}
 	
 	public void mutateGene(int i) {
-		chromosomeArray[i] ++;
+		getChromosomeArray()[i] ++;
 		setHealth(chromosomeArray[0]);
 		setResistanceLowerBody(chromosomeArray[1]);
 		setResistanceUpperBody(chromosomeArray[2]);
 		setDodgeChance(chromosomeArray[3]);
-		setAge(chromosomeArray[4]);
+		setAge(chromosomeArray[4]++);
 	}
 
 	public int getHealth() {
