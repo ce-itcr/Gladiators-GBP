@@ -82,19 +82,22 @@ bool AStar::search(point& s, point& e, AStarMap& mp) {
     return false;
 }
 
-int AStar::path( std::list<point>& path ) {
+int AStar::path(std::list<point>& path, List &list) {
     path.push_front( end );
+    list.add_head(new Vector(end.x,end.y));
     int cost = 1 + closed.back().cost;
     path.push_front( closed.back().pos );
+    list.add_head(new Vector(closed.back().pos.x,closed.back().pos.y));
     point parent = closed.back().parent;
 
     for( std::list<AStarData>::reverse_iterator i = closed.rbegin(); i != closed.rend(); i++ ) {
         if( ( *i ).pos == parent && !( ( *i ).pos == start ) ) {
+            list.add_head(new Vector((*i).pos.x,(*i).pos.y));
             path.push_front( ( *i ).pos );
             parent = ( *i ).parent;
         }
     }
     path.push_front( start );
+    list.add_head(new Vector(start.x,start.y));
     return cost;
 }
-

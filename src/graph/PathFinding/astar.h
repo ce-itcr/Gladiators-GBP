@@ -4,6 +4,7 @@
 #include "point.h"
 #include "astarmap.h"
 #include "astardata.h"
+#include "list.h"
 #include <list>
 #include <algorithm>
 #include <iostream>
@@ -21,7 +22,7 @@ public:
     bool existPoint(point& p, int cost);
     bool fillOpen(AStarData& n);
     bool search(point& s, point& e, AStarMap& mp);
-    int path(std::list<point>& path);
+    int path(std::list<point>& path, List &list);
     AStar();
 
 };
