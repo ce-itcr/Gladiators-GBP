@@ -46,7 +46,7 @@ void Game::populationReady()
 
 void Game::loadGrid()
 {
-    grid = new Grid(this,"://maps/map_donut");
+    grid = new Grid(this);
 
     int xOffset = 16, yOffset = 82;
     int x = xOffset, y = yOffset;
@@ -75,7 +75,7 @@ void Game::resizeEvent(QResizeEvent *)
 void Game::on_waveButton_clicked()
 {
     if (gameController->isWaveActive()) return;
-
+    FindPath::instance->shortestPath();
     ui->waveButton->setEnabled(false);
     spawner->spawnGladiators(populations->getGladiators());
 }

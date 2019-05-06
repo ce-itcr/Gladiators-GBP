@@ -36,13 +36,20 @@ void Grid::resizeEvent(QResizeEvent *)
 
 void Grid::mousePressEvent(QMouseEvent *event)
 {
+    FindPath::instance->pathCost = 10000;
     int x = event->x();
     int y = event->y();
     for (Tile *tile : tiles)
     {
         if (tile->getRect().contains(x, y))
         {
-            createEntity(tile);
+            tile->getNode()->setOccupied(true);
+            FindPath::instance->shortestPath();
+            if(FindPath::instance->pathCost != 10000){
+                createEntity(tile);
+            }else{
+                tile->getNode()->setOccupied(false);
+            }
         }
     }
 }

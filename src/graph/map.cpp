@@ -105,7 +105,6 @@ void Map::loadMatrix()
     for (int i = 0; i < rows; i++) {
         QList<Node*> *row = new  QList<Node *>();
         matrix->push_back(row);
-
         for (int j = 0; j < columns; j++) {
             Node *node = new Node();
             node->setX(i);

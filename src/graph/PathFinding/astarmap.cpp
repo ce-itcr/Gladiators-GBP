@@ -8,22 +8,29 @@ AStarMap::AStarMap(int n){
     }
 };
 
-void AStarMap::updateMap(QList<Node *> nodeList, int row, int column){
-    cout<<"1.5"<<endl;
-    cout<<w<<endl;
-    QList<Node *>::iterator i;
-    cout << nodeList.size() << endl;
-    for(i = nodeList.begin(); i != nodeList.end(); i++){
-        map[(*i)->getX()][(*i)->getY()] = (*i)->isOccupied() ? 1 : 0;
-        cout << (*i)->isOccupied() << endl;
+void AStarMap::updateMap(int row, int column){
+
+    //    QList<Node *>::iterator i;
+    //    for(i = nodeList.begin(); i != nodeList.end(); i++){
+    //        map[(*i)->getX()][(*i)->getY()] = (*i)->isOccupied() ? 1 : 0;
+    //        if(column == 15){
+    //            cout << endl;
+    //            column = 0;
+    //            row++;
+    //        }else{
+    //            cout << (*i)->isOccupied();
+    //            column++;
+    //        }
+    //    }
+    for (int i = 0; i < row; ++i) {
+        for (int j = 0; j < column; ++j) {
+            Node *node = Map::getInstance()->nodeAt(i,j);
+            map[i][j] = node->isOccupied() ? 1 : 0;
+            cout << node->isOccupied();
+        }
+        cout << endl;
     }
-//    for (int i = 0; i < row; ++i) {
-//        for (int j = 0; j < column; ++j) {
-//            map[i][j] = matrixList.front()->front()->isOccupied() ? 1 : 0;
-//            matrixList.front()->erase(0);
-//        }
-//        matrixList.erase(0);
-//    }
+
 };
 
 int AStarMap::operator() (int x, int y){

@@ -11,6 +11,7 @@
 #include "game/gamecontroller.h"
 #include "game/populations.h"
 #include "game/spawner.h"
+#include "graph/PathFinding/findpath.h"
 
 class Grid : public QFrame
 {

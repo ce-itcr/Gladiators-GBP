@@ -5,10 +5,6 @@ AStar::AStar(int n){
     neighbours[1] = point( -1,  0 );
     neighbours[2] = point(  0,  1 );
     neighbours[3] = point(  1,  0 );
-    neighbours[4] = point(  1,  1 );
-    neighbours[5] = point(  -1,  1 );
-    neighbours[6] = point(  1,  -1 );
-    neighbours[7] = point(  -1,  -1 );
     m = *new AStarMap(n);
 }
 
@@ -42,7 +38,7 @@ bool AStar::fillOpen(AStarData& n) {
         int stepCost, nc, dist;
         point neighbour;
 
-        for( int x = 0; x < 8; x++ ) {
+        for( int x = 0; x < 4; x++ ) {
             // one can make diagonals have different cost
             stepCost = x < 4 ? 1 : 1;
             neighbour = n.pos + neighbours[x];
@@ -86,25 +82,21 @@ bool AStar::search(point& s, point& e, AStarMap& mp) {
 
 int AStar::path(std::list<point>& path, const QList<Node *> &nodeList,QList<Node *> &pathList) {
     path.push_front(end);
-    cout << "(" << end.x << ", " << end.y << ")" << "->" ;
     findNode(nodeList,pathList,end);
     int cost = 1 + closed.back().cost;
     path.push_front( closed.back().pos );
     findNode(nodeList,pathList,closed.back().pos);
-    cout << "(" << closed.back().pos.x << ", " << closed.back().pos.y << ")" <<  "->" ;
     point parent = closed.back().parent;
 
     for( std::list<AStarData>::reverse_iterator i = closed.rbegin(); i != closed.rend(); i++ ) {
         if( ( *i ).pos == parent && !( ( *i ).pos == start ) ) {
             findNode(nodeList,pathList,(*i).pos);
-            cout << "(" << (*i).pos.x << ", " << (*i).pos.y << ")" << "->";
             path.push_front( ( *i ).pos );
             parent = ( *i ).parent;
         }
     }
     path.push_front( start );
     findNode(nodeList,pathList,start);
-    cout << "(" << start.x << ", " << start.y << ")" << endl;
     return cost;
 }
 

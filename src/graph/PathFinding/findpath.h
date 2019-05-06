@@ -1,7 +1,6 @@
 #ifndef FINDPATH_H
 #define FINDPATH_H
 
-#include <QList>
 #include <iostream>
 #include "game/populations.h"
 #include "graph/map.h"
@@ -11,25 +10,23 @@
 
 using namespace std;
 
-class FindPath : public QObject
+class FindPath
 {
-    Q_OBJECT
+
 public:
 
-    FindPath();
-
+    FindPath static *instance;
     AStar aStarPathFinding = *new AStar(Map::getInstance()->getRows());
     Backtrack backTrackPathFinding = *new Backtrack((Map::getInstance()->getRows())-1,(Map::getInstance()->getRows())-1,10000,*new Vector(0,0),
                                                   *new Vector((Map::getInstance()->getRows())-1,(Map::getInstance()->getRows())-1),
                                                   Map::getInstance()->getRows());
     point *start = new point(0,0);
     point *end = new point ((Map::getInstance()->getRows())-1,(Map::getInstance()->getRows())-1);
-signals:
-
+    int pathCost = 10000;
+    void shortestPath();
+    FindPath();
 private:
 
-public slots:
-    void slotPath();
 };
 
 #endif // FINDPATH_H

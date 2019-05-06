@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <QList>
+#include "graph/map.h"
 #include "graph/node.h"
 
 using namespace std;
@@ -13,7 +14,7 @@ public:
     AStarMap(int n);
     int ** map;
     int w, h;
-    void updateMap(QList<Node *> nodeList, int row, int column);
+    void updateMap(int row, int column);
     int operator() (int x, int y);
 };
 
