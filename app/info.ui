@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Achievements</class>
- <widget class="QWidget" name="Achievements">
+ <class>Info</class>
+ <widget class="QWidget" name="Info">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,16 +11,16 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Achievements</string>
+   <string>Info</string>
   </property>
   <property name="windowIcon">
    <iconset resource="imgresources.qrc">
-    <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
+    <normaloff>:/img/icon.png</normaloff>:/img/icon.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-image: url(:/img/backgrounds/4.jpg);</string>
   </property>
-  <widget class="QPushButton" name="toMainWIndow">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
      <x>30</x>

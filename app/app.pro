@@ -6,6 +6,7 @@
 include(../defaults.pri)
 
 QT       += core gui
+QT += multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -38,7 +39,8 @@ SOURCES += \
     game.cpp \
     game/entities/player.cpp \
     game/gamecontroller.cpp \
-    game/entities/enemy.cpp
+    game/entities/enemy.cpp \
+    info.cpp
 
 HEADERS += \
 	game/entities/arrow.h \
@@ -53,14 +55,16 @@ HEADERS += \
     game/entities/entity.h \
     game/gamecontroller.h \
     game.h \
-    game/entities/enemy.h
+    game/entities/enemy.h \
+    info.h
 
 FORMS += \
         mainwindow.ui \
     settings.ui \
     achievements.ui \
     pregame.ui \
-    game.ui
+    game.ui \
+    info.ui
 
 LIBS += -L../src -lmylib
 
@@ -71,5 +75,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     imgresources.qrc \
-    mapresources.qrc
+    mapresources.qrc \
+    audioresources.qrc
 

@@ -22,6 +22,14 @@ Game::Game(QWidget *parent) :
     // Fake population
     PopulationsMock::run();
     //PopulationsMock::loadNoadesPath(Map::getInstance()->getNodes());
+
+    QMediaPlaylist *playlist = new QMediaPlaylist();
+    playlist->addMedia(QUrl("qrc:/audio/playerLoop.mp3"));
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
+
+    music = new QMediaPlayer();
+    music->setPlaylist(playlist);
+    music->play();
 }
 
 Game::~Game()
@@ -78,6 +86,11 @@ void Game::on_waveButton_clicked()
     FindPath::instance->shortestPath();
     ui->waveButton->setEnabled(false);
     spawner->spawnGladiators(populations->getGladiators());
+
+    QMediaPlayer* genWave = new QMediaPlayer;
+    genWave->setMedia(QUrl("qrc:/audio/PowerUp01.mp3"));
+    genWave->setVolume(50);
+    genWave->play();
 }
 
 void Game::on_fastButton_clicked()
@@ -92,6 +105,11 @@ void Game::on_fastButton_clicked()
     ui->fastButton->setIcon(icon);
 
     gameController->setCycleTime(cycles);
+
+    QMediaPlayer* fastPowerUp = new QMediaPlayer;
+    fastPowerUp->setMedia(QUrl("qrc:/audio/PowerUp02.mp3"));
+    fastPowerUp->setVolume(50);
+    fastPowerUp->play();
 }
 
 void Game::on_pauseButton_clicked()
@@ -99,8 +117,18 @@ void Game::on_pauseButton_clicked()
     bool pause = gameController->isPause();
     gameController->setPause(!pause);
 
+    if(!pause) music->pause();
+    else music->play();
+
     QIcon icon;
     if (pause) icon.addFile(":img/pauseIcon.png");
     else icon.addFile(":img/playIcon.png");
     ui->pauseButton->setIcon(icon);
+
+    QMediaPlayer* pausesrc = new QMediaPlayer;
+    pausesrc->setMedia(QUrl("qrc:/audio/Fire01.wav"));
+    pausesrc->setVolume(50);
+    pausesrc->play();
+
+
 }

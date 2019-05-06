@@ -12,6 +12,9 @@
 
 #include <QMainWindow>
 #include <QPushButton>
+#include <QMediaPlayer>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 
 #include "game/grid.h"
 #include "game/gamecontroller.h"
@@ -33,6 +36,8 @@ public:
     ~Game();
 
     void enableWaveButton();
+
+    QMediaPlayer *music;
 
 public slots:
     void populationReady();

@@ -14,7 +14,9 @@ Enemy::Enemy(QWidget *parent) : QFrame(parent)
     shootDelay.start();
     canShoot = false;
 
-    this->setStyleSheet("background-color:blue;");
+//    this->setStyleSheet("background-color:blue;");
+    setStyleSheet("background-color:#635255;"
+                  "image: url(:img/tower1.png)");
     this->setGeometry(x, y, width, height);
     this->show();
 }
