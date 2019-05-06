@@ -60,6 +60,8 @@ bool AStar::fillOpen(AStarData& n) {
     }
 
 bool AStar::search(point& s, point& e, AStarMap& mp) {
+    open.clear();
+    closed.clear();
     AStarData n;
     end = e;
     start = s;

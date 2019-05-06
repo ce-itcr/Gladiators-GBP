@@ -30,7 +30,7 @@ void AStarMap::updateMap(int row, int column){
         }
         cout << endl;
     }
-
+    cout<<endl<<endl;
 };
 
 int AStarMap::operator() (int x, int y){

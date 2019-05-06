@@ -20,7 +20,6 @@ void FindPath::shortestPath(){
         }
     }else{
         pathCost = 10000;
-        cout << pathCost << endl;
     }
 
 }
