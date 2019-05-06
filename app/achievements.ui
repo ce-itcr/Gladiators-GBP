@@ -18,7 +18,7 @@
     <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/img/backgrounds/4.jpg);</string>
+   <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
   </property>
   <widget class="QPushButton" name="toMainWIndow">
    <property name="geometry">
