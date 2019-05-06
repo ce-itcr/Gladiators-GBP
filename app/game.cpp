@@ -21,7 +21,7 @@ Game::Game(QWidget *parent) :
 
     // Fake population
     PopulationsMock::run();
-    PopulationsMock::loadNoadesPath(Map::getInstance()->getNodes());
+    //PopulationsMock::loadNoadesPath(Map::getInstance()->getNodes());
 }
 
 Game::~Game()
@@ -46,7 +46,7 @@ void Game::populationReady()
 
 void Game::loadGrid()
 {
-    grid = new Grid(this);
+    grid = new Grid(this,"://maps/map_donut");
 
     int xOffset = 16, yOffset = 82;
     int x = xOffset, y = yOffset;

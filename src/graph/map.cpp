@@ -108,6 +108,8 @@ void Map::loadMatrix()
 
         for (int j = 0; j < columns; j++) {
             Node *node = new Node();
+            node->setX(i);
+            node->setY(j);
             row->push_back(node);
             nodes.push_back(node);
         }

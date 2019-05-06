@@ -40,7 +40,10 @@ void Grid::mousePressEvent(QMouseEvent *event)
     int y = event->y();
     for (Tile *tile : tiles)
     {
-        if (tile->getRect().contains(x, y)) createEntity(tile);
+        if (tile->getRect().contains(x, y))
+        {
+            createEntity(tile);
+        }
     }
 }
 
@@ -73,8 +76,7 @@ void Grid::loadGrid()
             x = width * j + offset * j + 1;
 
             Node *node = map->nodeAt(i, j);
-            node->setX(x);
-            node->setY(y);
+
 
             Tile *tile = new Tile(this, i, j);
             tile->setNode(node);
