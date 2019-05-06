@@ -13,8 +13,8 @@ Arrow::Arrow(QWidget *parent) : QFrame(parent)
     ySpeed = 0;
     xAcc = 1;
     yAcc = 1;
-    maxSpeed = 30;
-    maxAcc = 2;
+    maxSpeed = 50;
+    maxAcc = 3;
     target = nullptr;
 
     this->setStyleSheet("background-color:#EBF5EE;");
@@ -25,6 +25,7 @@ Arrow::Arrow(QWidget *parent) : QFrame(parent)
 void Arrow::update()
 {
     if (target != nullptr) move();
+    //collide();
 }
 
 void Arrow::draw()
@@ -39,8 +40,8 @@ void Arrow::collide()
         if (entity->tag == "player" &&
                 Collision::collide(getRect(), entity->getRect()))
         {
-            //GameController::getInstance()->removeEntity(this);
-            //delete this;
+            GameController::getInstance()->removeEntity(this);
+            delete this;
         }
     }
 }

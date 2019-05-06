@@ -23,6 +23,7 @@ void Enemy::update()
 {
     this->move(x, y);
     if (shootDelay.elapsed() >= tower->getFireRate()) canShoot = true;
+    collide();
 }
 
 void Enemy::draw()

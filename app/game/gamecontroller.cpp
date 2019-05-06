@@ -27,11 +27,12 @@ void GameController::update()
     QTimer::singleShot(cycleTime, this, &GameController::update);
     if (pause) return;
 
-    for (Entity *entity : entities)
+    int size = entities.size();
+    for (int i = 0; i < size; i++)
     {
+        Entity *entity = entities.value(i);
         entity->update();
         entity->draw();
-        //entity->collide();
     }
 }
 
