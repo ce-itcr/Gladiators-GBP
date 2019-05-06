@@ -50,11 +50,9 @@ private:
 
     void collision(Entity *entity);
 
-    QList<Entity *> playersInEntities(QList<Entity *> entities);
+    QList<Entity *> playersInRangeOfTower(QRegion region);
 
-    QList<Entity *> playersInRangeOfTower(QRegion region, QList<Entity *> entities);
-
-    bool playerHit(QRect arrowRect, QList<Entity *> entities);
+    bool playerHit(QRect arrowRect);
 };
 
 #endif // GAMECONTROLLER_H

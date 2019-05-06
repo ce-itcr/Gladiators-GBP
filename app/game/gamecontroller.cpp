@@ -29,9 +29,9 @@ void GameController::update()
 
     for (Entity *entity : entities)
     {
-        //collision(entity);
         entity->update();
         entity->draw();
+        //entity->collide();
     }
 }
 
@@ -84,49 +84,38 @@ GameController::GameController()
 
 void GameController::collision(Entity *entity)
 {
-    QList<Entity *> colliders = entities;
-    colliders.removeOne(entity);
-    colliders = playersInEntities(colliders);
-
     if (entity->tag == "enemy") {
         Enemy *enemy = dynamic_cast<Enemy *>(entity);
-        QList<Entity *> players = playersInRangeOfTower(enemy->getCircle(), colliders);
+        QList<Entity *> players = playersInRangeOfTower(enemy->getCircle());
         enemy->collide(players);
     }
     if (entity->tag == "arrow") {
-        Arrow *arrow = dynamic_cast<Arrow *>(entity);
-        bool hit = playerHit(arrow->getRect(), colliders);
-        if (hit) arrow->collide();
-
+        bool hit = playerHit(entity->getRect());
+        if (hit) entity->collide();
     }
 }
 
-QList<Entity *> GameController::playersInEntities(QList<Entity *> entities)
-{
-    QList<Entity *> players;
-    for (Entity *entity : entities)
-    {
-        if (entity->tag == "player") players.push_back(entity);
-    }
-    return players;
-}
-
-QList<Entity *> GameController::playersInRangeOfTower(QRegion region, QList<Entity *> entities)
+QList<Entity *> GameController::playersInRangeOfTower(QRegion region)
 {
     QList<Entity *> players;
     for (Entity *player : entities)
     {
-        if (Collision::collide(region, player->getRect())) players.push_back(player);
+        if (player->tag == "player" &&
+                Collision::collide(region, player->getRect()))
+        {
+            players.push_back(player);
+        }
     }
     return players;
 }
 
-bool GameController::playerHit(QRect arrowRect, QList<Entity *> entities)
+bool GameController::playerHit(QRect arrowRect)
 {
     bool collision = false;
     for (Entity *player : entities)
     {
-        if (Collision::collide(arrowRect, player->getRect()))
+        if (player->tag == "player" &&
+                Collision::collide(arrowRect, player->getRect()))
         {
             collision = true;
             break;

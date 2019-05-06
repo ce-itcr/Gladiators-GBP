@@ -34,8 +34,15 @@ void Arrow::draw()
 
 void Arrow::collide()
 {
-    qDebug() << "HIT";
-    delete this;
+    for (Entity *entity : GameController::getInstance()->getEntities())
+    {
+        if (entity->tag == "player" &&
+                Collision::collide(getRect(), entity->getRect()))
+        {
+            //GameController::getInstance()->removeEntity(this);
+            //delete this;
+        }
+    }
 }
 
 void Arrow::uncollide()
@@ -81,11 +88,14 @@ void Arrow::setTarget(Entity *value)
 
 void Arrow::move()
 {
+    if (target->tag != "player") return;
+
+    int offset = 20;
     Player *targetPlayer = static_cast<Player *>(target);
     xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);
     ySpeed = Math::clamp(0, maxSpeed, ySpeed + yAcc);
-    x = Math::approach(x, targetPlayer->getX(), xSpeed);
-    y = Math::approach(y, targetPlayer->getY(), ySpeed);;
+    x = Math::approach(x, targetPlayer->getX() + offset, xSpeed);
+    y = Math::approach(y, targetPlayer->getY() + offset, ySpeed);;
 
     QFrame::move(x, y);
 }

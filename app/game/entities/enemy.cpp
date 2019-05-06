@@ -23,7 +23,6 @@ void Enemy::update()
 {
     this->move(x, y);
     if (shootDelay.elapsed() >= tower->getFireRate()) canShoot = true;
-
 }
 
 void Enemy::draw()
@@ -33,7 +32,16 @@ void Enemy::draw()
 
 void Enemy::collide()
 {
-
+    QList<Entity *> players;
+    for (Entity *entity : GameController::getInstance()->getEntities())
+    {
+        if (entity->tag == "player" &&
+                Collision::collide(getCircle(), entity->getRect()))
+        {
+            players.push_back(entity);
+        }
+    }
+    collide(players);
 }
 
 void Enemy::collide(QList<Entity *> players)
@@ -122,6 +130,8 @@ Entity *Enemy::closerPlayer(QList<Entity *> players)
 
 void Enemy::shoot(Entity *entity)
 {
+    if (entity == nullptr &&
+            entity->tag != "player") return;
     canShoot = false;
     shootDelay.restart();
     Spawner::getInstance()->spawnArrow(x, y, entity);

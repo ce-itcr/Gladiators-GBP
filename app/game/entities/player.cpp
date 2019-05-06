@@ -33,7 +33,7 @@ void Player::draw()
 
 void Player::collide()
 {
-    canMove = false;
+    //canMove = false;
 }
 
 void Player::uncollide()
