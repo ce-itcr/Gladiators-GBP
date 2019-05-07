@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Random;
 
 import ce.itcr.gladiators.entities.GladiatorSend;
+import ce.itcr.gladiators.genetic.resources.Chromosome;
 import ce.itcr.gladiators.genetic.resources.Gladiator;
 import ce.itcr.gladiators.genetic.resources.Gladiators;
 
@@ -13,25 +14,33 @@ public class GeneticAlgorithm {
 	
 	public void newGeneration(Collection<GladiatorSend> gladiatorCollection, int numOfGladiatorsToGenerate) {
 		Gladiators.getInstance().population = collectionToGladiatorArray(gladiatorCollection);
+		System.out.println("population[0]: " + Gladiators.getInstance().population[0]);
+		System.out.println("population[58]: " + Gladiators.getInstance().population[58]);
 		Gladiators.getInstance().sortGladiatorPopulation();
-		Gladiator newGladiator;
 		for (int i = 0; i < numOfGladiatorsToGenerate; i++) {
-			newGladiator = Gladiators.getInstance().getFittestGladiator().crossover(Gladiators.getInstance().population[random.nextInt(Gladiators.getInstance().getPopulationSize()-1)]);
+			System.out.println("population size: " + Gladiators.getInstance().getPopulationSize());
+			System.out.println("random: " + Gladiators.getInstance().population[0]);
+			System.out.println("Fittest: " + Gladiators.getInstance().getFittestGladiator());
+			Gladiator newGladiator = Gladiators.getInstance().getFittestGladiator().crossover(Gladiators.getInstance().population[random.nextInt(Gladiators.getInstance().getPopulationSize()-1)]);
 			Gladiators.getInstance().replaceGladiator(newGladiator);
 		}
 	}
 	
-	private Gladiator [] collectionToGladiatorArray(Collection<GladiatorSend> gladiatorCollection) {
+	public Gladiator [] collectionToGladiatorArray(Collection<GladiatorSend> gladiatorCollection) {
 //		GladiatorSend [] gladiatorSendArray = new GladiatorSend [gladiatorCollection.size()];
-		Gladiator [] gladiatorArray = new Gladiator [100];
+		Gladiator [] gladiatorArray = new Gladiator [62];
+		System.out.println("gladiatorArray: " + gladiatorArray.length);
 		int i = 0;
+//		for (int c = 0; c < gladiatorArray.length-1; c++)
 		for (GladiatorSend gladiatorSend : gladiatorCollection) {
+			gladiatorArray[i] = new Gladiator(new Chromosome(0));
 			gladiatorArray[i].getChromosome().setAge(gladiatorSend.getAge());
 			gladiatorArray[i].getChromosome().setHealth(gladiatorSend.getHealth());
 			gladiatorArray[i].getChromosome().setResistanceLowerBody(gladiatorSend.getResistanceLowerBody());
 			gladiatorArray[i].getChromosome().setResistanceUpperBody(gladiatorSend.getResistanceUpperBody());
 			gladiatorArray[i].getChromosome().setDodgeChance(gladiatorSend.getDodgeChance());
 			i++;
+			System.out.println("i" + i);
 		}
 		return gladiatorArray;
 	}

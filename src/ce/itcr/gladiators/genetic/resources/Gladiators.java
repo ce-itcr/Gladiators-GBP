@@ -5,7 +5,7 @@ import ce.itcr.gladiators.genetic.QuickSort;
 
 public class Gladiators {
 	
-	public Gladiator [] population = new Gladiator [100];
+	public Gladiator [] population = new Gladiator [62];
 	Random random = new Random();
 	
 	private static Gladiators gladiators = new Gladiators();
@@ -27,7 +27,8 @@ public class Gladiators {
 	
 	public void sortGladiatorPopulation() {
 		QuickSort quickSort = new QuickSort();
-		quickSort.quickSort(population, 0, population.length-1);
+		System.out.println("population length: " + population.length);
+		quickSort.quickSort(population, 0, population.length-2);
 	}
 	
 	public void printGladiatorPopulation() {
@@ -42,7 +43,8 @@ public class Gladiators {
 	}
 	
 	public Gladiator getFittestGladiator() {
-		Gladiator gladiator = population[population.length - 1];
+		Gladiator gladiator = population[population.length-2];
+		System.out.println("Fittest Gladiator: " + gladiator.getFitness());
 		return gladiator;
 	}
 	

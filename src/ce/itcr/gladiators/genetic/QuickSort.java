@@ -14,6 +14,9 @@ public class QuickSort {
 	}
 	
 	private int partition(Gladiator arr[], int begin, int end) {
+		System.out.println("begin: " + begin);
+		System.out.println("end: " + end);
+		System.out.println("arr[end].getAge" + arr.length);
 	    int pivot = arr[end].getFitness();
 	    int i = (begin-1);
 	 

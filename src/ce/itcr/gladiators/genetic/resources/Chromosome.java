@@ -15,8 +15,10 @@ public class Chromosome {
 		this.resistanceUpperBody = num;
 		this.resistanceLowerBody = num;
 		this.dodgeChance = num;
-		this.age = num;
+		this.age = 0;
 	}
+
+	public Chromosome(){}
 
 	public int[] getChromosomeArray() {
 		this.chromosomeArray = new int[] {health, resistanceLowerBody, resistanceUpperBody, dodgeChance, age};

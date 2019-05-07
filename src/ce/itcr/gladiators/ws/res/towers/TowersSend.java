@@ -1,9 +1,13 @@
 package ce.itcr.gladiators.ws.res.towers;
 
 import ce.itcr.gladiators.entities.TowerSend;
+import ce.itcr.gladiators.genetic.resources.Towers;
+import ce.itcr.gladiators.genetic.resources.Tower;
+import sun.awt.image.ImageWatched;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class TowersSend {
@@ -23,9 +27,24 @@ public class TowersSend {
 
     public void replaceAllTowers(Collection<TowerSend> newTowers) {
         towers = new HashMap<>();
-        for (TowerSend tower : newTowers) {
-            towers.put(tower.getId(), tower);
+        LinkedList<Tower> towerList = new LinkedList<Tower>();
+        for (TowerSend towerSend : newTowers) {
+            int attackSpeed = towerSend.getAttackSpeed();
+            int damagePerShot = towerSend.getDamagePerShot();
+            int level = towerSend.getLevel();
+            int type = towerSend.getType();
+            int xpForLevelUp = towerSend.getXpForLevelUp();
+            int xp = towerSend.getXp();
+            int baseAttackSpeed = towerSend.getBaseAttackSpeed();
+            int baseDamagePerShot = towerSend.getBaseDamagePerShot();
+            int i = towerSend.getI();
+            int j = towerSend.getJ();
+            towerList.add(new Tower(attackSpeed, damagePerShot, level, type, xpForLevelUp, xp, baseAttackSpeed, baseDamagePerShot, i, j));
+            towers.put(towerSend.getId(), towerSend);
         }
+        Towers.getInstance().setTowersList(towerList);
+        Towers.getInstance().levelManager();
+        Towers.getInstance().printTowersList();
     }
 
     public void removeTower(String towerId) {
