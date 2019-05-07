@@ -10,22 +10,24 @@ Tile::Tile(QWidget *parent, int i, int j) : QFrame(parent)
 
 void Tile::setup(QChar qchar)
 {
-    if (qchar == '.'){
+    if (qchar == '.'){  // Walkable and Buildable
         build = true;
         node->setOccupied(false);
         setStyleSheet("background-color:#8B786D;");  // Road
     }
-
-    if (qchar == '0'){
+    if (qchar == '0'){  // Wall
         node->setOccupied(true);
-        setStyleSheet("background-color:#504b58;");  // Wall
+        setStyleSheet("background-color:#504b58;");
     }
-    if (qchar == 'B'){  // Build
-        build = true;
-        setStyleSheet("background-color:#635255;"
-                      "image: url(:img/buildIcon.png)");
+    if (qchar == '-'){  // Walkable
+        node->setOccupied(false);
+        setStyleSheet("background-color:#8B786D;");  // Road
     }
-
+//    if (qchar == 'B'){  // Buildable
+//        build = true;
+//        setStyleSheet("background-color:#635255;"
+//                      "image: url(:img/buildIcon.png)");
+//    }
 }
 
 int Tile::getI() const
