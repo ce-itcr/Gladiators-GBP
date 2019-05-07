@@ -25,7 +25,7 @@ Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
 void Enemy::update()
 {
     this->move(x, y);
-    if (shootDelay.elapsed() >= tower->getFireRate()) canShoot = true;
+    if (shootDelay.elapsed() >= tower->getAttackSpeed()) canShoot = true;
 }
 
 void Enemy::draw()

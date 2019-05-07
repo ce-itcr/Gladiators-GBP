@@ -13,8 +13,10 @@ JsonConverterTest::~JsonConverterTest()
 void JsonConverterTest::test_gladiatorsToJson()
 {
     QList<Gladiator> gladiators;
-    Gladiator g1("1", "Spartacus", "21");
-    Gladiator g2("2", "Aquiles", "23");
+    Gladiator g1;
+    g1.setAge(23);
+    Gladiator g2;
+    g2.setAge(20);
     gladiators.push_back(g1);
     gladiators.push_back(g2);
 
@@ -25,15 +27,17 @@ void JsonConverterTest::test_gladiatorsToJson()
     QList<Gladiator *> *parsedGladiators = JsonConverter::jsonToGladiators(json);
 
     QCOMPARE(parsedGladiators->size(), 2);
-    QCOMPARE(parsedGladiators->value(0)->getName(), g1.getName());
-    QCOMPARE(parsedGladiators->value(1)->getName(), g2.getName());
+    QCOMPARE(parsedGladiators->value(0)->getAge(), g1.getAge());
+    QCOMPARE(parsedGladiators->value(1)->getAge(), g2.getAge());
 }
 
 void JsonConverterTest::test_towersToJson()
 {
     QList<Tower> towers;
-    Tower t1("1", 1000);
-    Tower t2("2", 1000);
+    Tower t1;
+    t1.setId("1");
+    Tower t2;
+    t2.setId("2");
     towers.push_back(t1);
     towers.push_back(t2);
 
