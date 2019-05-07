@@ -25,7 +25,6 @@ void Enemy::update()
 {
     this->move(x, y);
     if (shootDelay.elapsed() >= tower->getFireRate()) canShoot = true;
-    collide();
 }
 
 void Enemy::draw()
@@ -137,5 +136,8 @@ void Enemy::shoot(Entity *entity)
             entity->tag != "player") return;
     canShoot = false;
     shootDelay.restart();
-    Spawner::getInstance()->spawnArrow(x, y, entity);
+
+    int xPoss = x + width / 4;
+    int yPoss = y + width / 4;
+    Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity);
 }
