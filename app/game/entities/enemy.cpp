@@ -2,12 +2,12 @@
 
 #include "game/spawner.h"
 
-Enemy::Enemy(QWidget *parent) : QFrame(parent)
+Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
 {
     tower = nullptr;
     tag = "enemy";
-    x = 0;
-    y = 0;
+    this->x = x;
+    this->y = y;
     width = 50;
     height = 50;
     range = 2;

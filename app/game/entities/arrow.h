@@ -10,7 +10,7 @@ class Arrow : public QFrame, public Entity
 {
     Q_OBJECT
 public:
-    explicit Arrow(QWidget *parent = nullptr);
+    Arrow(QWidget *parent = nullptr, int x = 0, int y = 0);
 
     ~Arrow() = default;
 

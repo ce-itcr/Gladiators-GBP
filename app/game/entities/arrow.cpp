@@ -1,11 +1,11 @@
 #include "arrow.h"
 #include "game/entities/player.h"
 
-Arrow::Arrow(QWidget *parent) : QFrame(parent)
+Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
 {
     tag = "arrow";
-    x = 0;
-    y = 0;
+    this->x = x;
+    this->y = y;
     width = 10;
     height = 10;
     damage = 1;

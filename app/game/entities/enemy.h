@@ -14,7 +14,7 @@ class Enemy : public QFrame, public Entity
 {
     Q_OBJECT
 public:
-    explicit Enemy(QWidget *parent = nullptr);
+    Enemy(QWidget *parent = nullptr, int x = 0, int y = 0);
 
     void update();
 
