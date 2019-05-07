@@ -331,6 +331,26 @@ QPushButton:hover{
     </size>
    </property>
   </widget>
+  <widget class="QFrame" name="geneticProgress">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>560</y>
+     <width>361</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(235, 245, 238, 0.29);
+border-radius: 10px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

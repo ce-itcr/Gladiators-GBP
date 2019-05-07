@@ -18,7 +18,7 @@
     <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="exit_Button">
@@ -107,7 +107,7 @@ background-repeat: none;</string>
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>420</y>
+      <y>400</y>
       <width>250</width>
       <height>120</height>
      </rect>
@@ -122,6 +122,28 @@ background-repeat: none;</string>
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1200</width>
+      <height>800</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>exit_Button</zorder>
+   <zorder>info_Button</zorder>
+   <zorder>achievements_Button</zorder>
+   <zorder>settings_Button</zorder>
+   <zorder>play_Button</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
