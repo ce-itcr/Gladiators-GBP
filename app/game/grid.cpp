@@ -36,11 +36,21 @@ void Grid::resizeEvent(QResizeEvent *)
 
 void Grid::mousePressEvent(QMouseEvent *event)
 {
+    FindPath::instance->pathCost = 10000;
     int x = event->x();
     int y = event->y();
     for (Tile *tile : tiles)
     {
-        if (tile->getRect().contains(x, y)) createEntity(tile);
+        if (tile->getRect().contains(x, y))
+        {
+            tile->getNode()->setOccupied(true);
+            FindPath::instance->shortestPath();
+            if(FindPath::instance->pathCost != 10000){
+                createEntity(tile);
+            }else{
+                tile->getNode()->setOccupied(false);
+            }
+        }
     }
 }
 
@@ -73,8 +83,7 @@ void Grid::loadGrid()
             x = width * j + offset * j + 1;
 
             Node *node = map->nodeAt(i, j);
-            node->setX(x);
-            node->setY(y);
+
 
             Tile *tile = new Tile(this, i, j);
             tile->setNode(node);

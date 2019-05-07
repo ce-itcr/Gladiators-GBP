@@ -12,11 +12,15 @@
 
 #include <QMainWindow>
 #include <QPushButton>
+#include <QMediaPlayer>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 
 #include "game/grid.h"
 #include "game/gamecontroller.h"
 #include "game/populations.h"
 #include "game/spawner.h"
+#include "graph/PathFinding/findpath.h"
 
 namespace Ui {
 class Game;
@@ -27,10 +31,13 @@ class Game : public QMainWindow
     Q_OBJECT
 
 public:
+    FindPath *Path = new FindPath();
     explicit Game(QWidget *parent = nullptr);
     ~Game();
 
     void enableWaveButton();
+
+    QMediaPlayer *music;
 
 public slots:
     void populationReady();

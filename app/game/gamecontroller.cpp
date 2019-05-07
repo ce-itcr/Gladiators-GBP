@@ -10,6 +10,7 @@ GameController *GameController::getInstance()
 void GameController::run()
 {
     update(); // Starts the loop
+
 }
 
 void GameController::addEntity(Entity *entity)

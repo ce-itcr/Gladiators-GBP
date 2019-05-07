@@ -11,6 +11,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
+#include "settings.h"
+#include "achievements.h"
+#include "pregame.h"
+#include "info.h"
 
 namespace Ui {
 class MainWindow;
@@ -24,12 +30,18 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    QMediaPlayer *music;
+
 private slots:
     void on_settings_Button_clicked();
 
     void on_play_Button_clicked();
 
     void on_achievements_Button_clicked();
+
+    void on_exit_Button_clicked();
+
+    void on_info_Button_clicked();
 
 private:
     Ui::MainWindow *ui;

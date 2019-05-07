@@ -10,10 +10,16 @@ Tile::Tile(QWidget *parent, int i, int j) : QFrame(parent)
 
 void Tile::setup(QChar qchar)
 {
-    if (qchar != '.') node->setOccupied(true);
-    else setStyleSheet("background-color:#8B786D;");  // Road
+    if (qchar == '.'){
+        build = true;
+        node->setOccupied(false);
+        setStyleSheet("background-color:#8B786D;");  // Road
+    }
 
-    if (qchar == '0') setStyleSheet("background-color:#504b58;");  // Wall
+    if (qchar == '0'){
+        node->setOccupied(true);
+        setStyleSheet("background-color:#504b58;");  // Wall
+    }
     if (qchar == 'B'){  // Build
         build = true;
         setStyleSheet("background-color:#635255;"

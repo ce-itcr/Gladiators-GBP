@@ -3,7 +3,7 @@
 Populations *PopulationsMock::populations = Populations::getInstance();
 QString *PopulationsMock::gladiators = new QString();
 QString *PopulationsMock::towers = new QString();
-int PopulationsMock::gladiatorsCount = 50;
+int PopulationsMock::gladiatorsCount = 100;
 
 void PopulationsMock::run()
 {

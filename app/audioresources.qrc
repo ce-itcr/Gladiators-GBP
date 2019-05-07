@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>audio/playerLoop.mp3</file>
+        <file>audio/PowerUp01.mp3</file>
+        <file>audio/PowerUp02.mp3</file>
+        <file>audio/Fire01.wav</file>
+    </qresource>
+</RCC>
