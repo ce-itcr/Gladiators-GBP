@@ -22,10 +22,10 @@ void Spawner::spawnTower(Tile *tile, Tower *tower)
 {
     Grid *grid = dynamic_cast<Grid *>(parent);
     int tileSize = grid->getTileSize();
+    int x = tile->x();
+    int y = tile->y();
 
-    Enemy *enemy = new Enemy(grid);
-    enemy->setX(tile->x());
-    enemy->setY(tile->y());
+    Enemy *enemy = new Enemy(grid, x, y);
     enemy->resize(tileSize, tileSize);
     enemy->setTower(tower);
 
@@ -38,10 +38,8 @@ void Spawner::spawnArrow(int x, int y, Entity *target)
 {
     Grid *grid = dynamic_cast<Grid *>(parent);
 
-    Arrow *arrow = new Arrow(grid);
+    Arrow *arrow = new Arrow(grid, x, y);
     arrow->setTarget(target);
-    arrow->setX(x);
-    arrow->setY(y);
 
     Entity *entity = arrow;
     gameController->addEntity(entity);

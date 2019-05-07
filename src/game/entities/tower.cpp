@@ -3,14 +3,61 @@
 Tower::Tower()
 {
     this->id = "";
-}
-
-Tower::Tower(QString id, int fireRate)
-{
-    this->id = id;
-    this->fireRate = fireRate;
+    this->damagePerShoot = 1;
+    this->attackSpeed = 1000;
+    this->xp = 0;
+    this->type = 0;
+    this->level = 0;
+    this->baseAttackSpeed = 0;
+    this->baseDamagePerShoot = 0;
+    this->xpForLevelUp = 0;
     this->i = 0;
     this->j = 0;
+}
+
+Tower::Tower(QString id, int damagePerShoot, int attackSpeed, int xp, int type, int level, int baseAttackSpeed, int baseDamagePerShoot, int xpForLevelUp, int i, int j)
+{
+    this->id = id;
+    this->damagePerShoot = damagePerShoot;
+    this->attackSpeed = attackSpeed;
+    this->xp = xp;
+    this->type = type;
+    this->level = level;
+    this->baseAttackSpeed = baseAttackSpeed;
+    this->baseDamagePerShoot = baseDamagePerShoot;
+    this->xpForLevelUp = xpForLevelUp;
+    this->i = i;
+    this->j = j;
+}
+
+void Tower::write(QJsonObject &jsonObj) const
+{
+    jsonObj["id"] = id;
+    jsonObj["damagePerShoot"] = damagePerShoot;
+    jsonObj["attackSpeed"] = attackSpeed;
+    jsonObj["xp"] = xp;
+    jsonObj["type"] = type;
+    jsonObj["level"] = level;
+    jsonObj["baseAttackSpeed"] = baseAttackSpeed;
+    jsonObj["baseDamagePerShoot"] = baseDamagePerShoot;
+    jsonObj["xpForLevelUp"] = xpForLevelUp;
+    jsonObj["i"] = i;
+    jsonObj["j"] = j;
+}
+
+void Tower::read(const QJsonObject &jsonObj)
+{
+    id = jsonObj["id"].toString();
+    damagePerShoot = jsonObj["damagePerShoot"].toInt();
+    attackSpeed = jsonObj["attackSpeed"].toInt();
+    xp = jsonObj["xp"].toInt();
+    type = jsonObj["type"].toInt();
+    level = jsonObj["level"].toInt();
+    baseAttackSpeed = jsonObj["baseAttackSpeed"].toInt();
+    baseDamagePerShoot = jsonObj["baseDamagePerShoot"].toInt();
+    xpForLevelUp = jsonObj["xpForLevelUp"].toInt();
+    i = jsonObj["i"].toInt();
+    j = jsonObj["j"].toInt();
 }
 
 QString Tower::getId() const
@@ -23,14 +70,24 @@ void Tower::setId(const QString &value)
     id = value;
 }
 
-int Tower::getFireRate() const
+int Tower::getDamagePerShoot() const
 {
-    return fireRate;
+    return damagePerShoot;
 }
 
-void Tower::setFireRate(int value)
+void Tower::setDamagePerShoot(int value)
 {
-    fireRate = value;
+    damagePerShoot = value;
+}
+
+int Tower::getAttackSpeed() const
+{
+    return attackSpeed;
+}
+
+void Tower::setAttackSpeed(int value)
+{
+    attackSpeed = value;
 }
 
 int Tower::getI() const
@@ -51,20 +108,4 @@ int Tower::getJ() const
 void Tower::setJ(int value)
 {
     j = value;
-}
-
-void Tower::write(QJsonObject &jsonObj) const
-{
-    jsonObj["id"] = id;
-    jsonObj["fireRate"] = fireRate;
-    jsonObj["i"] = i;
-    jsonObj["j"] = j;
-}
-
-void Tower::read(const QJsonObject &jsonObj)
-{
-    id = jsonObj["id"].toString();
-    fireRate = jsonObj["fireRate"].toInt();
-    i = jsonObj["i"].toInt();
-    j = jsonObj["j"].toInt();
 }

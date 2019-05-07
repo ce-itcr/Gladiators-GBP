@@ -14,7 +14,7 @@ class Enemy : public QFrame, public Entity
 {
     Q_OBJECT
 public:
-    explicit Enemy(QWidget *parent = nullptr);
+    Enemy(QWidget *parent = nullptr, int x = 0, int y = 0);
 
     void update();
 
@@ -46,6 +46,7 @@ private:
     int width;
     int height;
     Entity *target;
+    int range;
     QTime shootDelay;
     bool canShoot;
 

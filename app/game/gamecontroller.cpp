@@ -10,6 +10,7 @@ GameController *GameController::getInstance()
 void GameController::run()
 {
     update(); // Starts the loop
+
 }
 
 void GameController::addEntity(Entity *entity)
@@ -27,11 +28,16 @@ void GameController::update()
     QTimer::singleShot(cycleTime, this, &GameController::update);
     if (pause) return;
 
-    for (Entity *entity : entities)
+    int size = entities.size();
+    for (int i = 0; i < size; i++)
     {
-        entity->update();
-        entity->draw();
-        //entity->collide();
+        Entity *entity = entities.value(i);
+        if (entity)
+        {
+            entity->update();
+            entity->draw();
+            entity->collide();
+        }
     }
 }
 

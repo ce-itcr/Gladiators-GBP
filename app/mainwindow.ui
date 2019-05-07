@@ -18,111 +18,54 @@
     <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(235, 245, 238);</string>
+   <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="gladiators_imagotipo">
+   <widget class="QPushButton" name="exit_Button">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>230</y>
-      <width>551</width>
-      <height>171</height>
+      <x>750</x>
+      <y>670</y>
+      <width>100</width>
+      <height>75</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/exit_icon.png);
+background: none;
+background-repeat: none;</string>
     </property>
     <property name="text">
      <string/>
     </property>
-    <property name="pixmap">
-     <pixmap resource="imgresources.qrc">:/img/imagotipo.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>true</bool>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
    </widget>
-   <widget class="QPushButton" name="play_Button">
+   <widget class="QPushButton" name="info_Button">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>570</y>
-      <width>221</width>
-      <height>81</height>
+      <x>370</x>
+      <y>670</y>
+      <width>100</width>
+      <height>75</height>
      </rect>
     </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton{
-	border: none;
-	border-radius: 8px;
-	font-size: 50px;
-}
-QPushButton:!hover{
-	background: rgb(136, 13, 30);
-	color: rgb(235, 245, 238);
-}
-QPushButton:hover {
-	color: rgb(136, 13, 30);
-	background: rgb(235, 245, 238);
-}
-
-</string>
+     <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/info_icon.png);
+background: none;
+background-repeat: none;</string>
     </property>
     <property name="text">
-     <string>PLAY</string>
-    </property>
-    <property name="autoDefault">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="settings_Button">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>570</y>
-      <width>101</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-	border: none;
-	border-radius: 8px;
-	font-size: 20px;
-}
-QPushButton:!hover{
-	background-color: rgb(156, 163, 159);
-	color: rgb(235, 245, 238);
-}
-QPushButton:hover{
-	color: rgb(156, 163, 159);
-	background-color: rgb(235, 245, 238);
-}</string>
-    </property>
-    <property name="text">
-     <string notr="true">SETTINGS</string>
+     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="achievements_Button">
     <property name="geometry">
      <rect>
-      <x>770</x>
-      <y>570</y>
-      <width>101</width>
-      <height>81</height>
+      <x>630</x>
+      <y>670</y>
+      <width>100</width>
+      <height>75</height>
      </rect>
     </property>
     <property name="cursor">
@@ -132,22 +75,51 @@ QPushButton:hover{
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton{
-	border: none;
-	border-radius: 8px;
-	font-size: 20px;
-}
-QPushButton:!hover{
-	background-color: rgb(156, 163, 159);
-	color: rgb(235, 245, 238);
-}
-QPushButton:hover{
-	color: rgb(156, 163, 159);
-	background-color: rgb(235, 245, 238);
-}</string>
+     <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/achievements_icon.png);
+background: none;
+background-repeat: none;</string>
     </property>
     <property name="text">
-     <string>ACHIEV</string>
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="settings_Button">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>670</y>
+      <width>100</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/settings_icon.png);
+background: none;
+background-repeat: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="play_Button">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>420</y>
+      <width>250</width>
+      <height>120</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/play_button.png);
+background: none;
+background-repeat: none;</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

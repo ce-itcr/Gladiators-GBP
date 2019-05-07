@@ -1,22 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "settings.h"
-#include "achievements.h"
-#include "pregame.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-
 {
     ui->setupUi(this);
-
-//    QPixmap bkgnd(":/img/welcomeBackground.png");
-//       bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-//       QPalette palette;
-//       palette.setBrush(QPalette::Background, bkgnd);
-//       this->setPalette(palette);
-
 }
 
 MainWindow::~MainWindow()
@@ -43,4 +32,17 @@ void MainWindow::on_achievements_Button_clicked(){
     Achievements achievements;
     achievements.setModal(true);
     achievements.exec();
+}
+
+void MainWindow::on_exit_Button_clicked()
+{
+    close();
+}
+
+void MainWindow::on_info_Button_clicked()
+{
+    close();
+    Info info;
+    info.setModal(true);
+    info.exec();
 }

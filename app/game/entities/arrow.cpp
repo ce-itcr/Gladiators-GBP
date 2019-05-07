@@ -1,20 +1,20 @@
 #include "arrow.h"
 #include "game/entities/player.h"
 
-Arrow::Arrow(QWidget *parent) : QFrame(parent)
+Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
 {
     tag = "arrow";
-    x = 0;
-    y = 0;
+    this->x = x;
+    this->y = y;
     width = 10;
-    height = 2;
+    height = 10;
     damage = 1;
     xSpeed = 0;
     ySpeed = 0;
     xAcc = 1;
     yAcc = 1;
-    maxSpeed = 30;
-    maxAcc = 2;
+    maxSpeed = 60;
+    maxAcc = 10;
     target = nullptr;
 
     this->setStyleSheet("background-color:#EBF5EE;");
@@ -39,8 +39,9 @@ void Arrow::collide()
         if (entity->tag == "player" &&
                 Collision::collide(getRect(), entity->getRect()))
         {
-            //GameController::getInstance()->removeEntity(this);
-            //delete this;
+            GameController::getInstance()->removeEntity(this);
+            delete this;
+            break;
         }
     }
 }
@@ -90,7 +91,7 @@ void Arrow::move()
 {
     if (target->tag != "player") return;
 
-    int offset = 20;
+    int offset = 10;
     Player *targetPlayer = static_cast<Player *>(target);
     xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);
     ySpeed = Math::clamp(0, maxSpeed, ySpeed + yAcc);
