@@ -10,6 +10,7 @@ Enemy::Enemy(QWidget *parent) : QFrame(parent)
     y = 0;
     width = 50;
     height = 50;
+    range = 2;
     target = nullptr;
     shootDelay.start();
     canShoot = false;
@@ -70,10 +71,10 @@ QRect Enemy::getRect()
 
 QRegion Enemy::getCircle()
 {
-    int xPoss = x - width;
-    int yPoss = y - height;
-    int range = width * 3;
-    QRegion circle(xPoss, yPoss, range, range, QRegion::Ellipse);
+    int xPoss = x - width * range;
+    int yPoss = y - height * range;
+    int diameter = width * range * 2 + width;
+    QRegion circle(xPoss, yPoss, diameter, diameter, QRegion::Ellipse);
     return circle;
 }
 

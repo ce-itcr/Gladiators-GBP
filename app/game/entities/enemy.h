@@ -46,6 +46,7 @@ private:
     int width;
     int height;
     Entity *target;
+    int range;
     QTime shootDelay;
     bool canShoot;
 
