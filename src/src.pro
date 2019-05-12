@@ -11,8 +11,6 @@ TARGET = mylib
 TEMPLATE = lib
 
 SOURCES += \
-	client/client.cpp \
-	client/clientinterface.cpp \
 	graph/map.cpp \
 	graph/mapfiles.cpp \
 	graph/node.cpp \
@@ -21,6 +19,8 @@ SOURCES += \
 	game/populations.cpp \
 	game/entities/gladiator.cpp \
 	game/entities/tower.cpp \
+        client/client.cpp \
+        client/clientinterface.cpp \
     util/math.cpp \
     util/collision.cpp \
     game/populationsmock.cpp \

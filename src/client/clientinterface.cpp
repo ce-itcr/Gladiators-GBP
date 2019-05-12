@@ -14,7 +14,7 @@ void ClientInterface::getGladiators()
     QString path = "/populations/gladiators";
     client->GET(path);
 
-    QObject::connect(client, &Client::readyRead, populations, &Populations::updateGladiators);
+    QObject::connect(client, &Client::readyGladiators, populations, &Populations::updateGladiators);
 }
 
 void ClientInterface::postGladiators(QString jsonGladiators)
@@ -28,7 +28,7 @@ void ClientInterface::getTowers()
     QString path = "/populations/towers";
     client->GET(path);
 
-    QObject::connect(client, &Client::readyRead, populations, &Populations::updateTowers);
+    QObject::connect(client, &Client::readyTowers, populations, &Populations::updateTowers);
 }
 
 void ClientInterface::postTowers(QString jsonTowers)

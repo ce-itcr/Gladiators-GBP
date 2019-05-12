@@ -32,8 +32,13 @@ void Client::POST(const QString &path, const QString &data)
 void Client::replyFinished(QNetworkReply *reply)
 {
     QString message = reply->readAll();
+    if (message == "") return;
+
+    QString populationType = reply->rawHeader("population-type");
     qDebug() << "Reply finished : " << message;
-    readyRead(&message);
+
+    if (populationType == "gladiators") readyGladiators(message);
+    else if (populationType == "towers") readyTowers(message);
 }
 
 Client::Client()

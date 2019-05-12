@@ -21,8 +21,8 @@ void PopulationsMock::loadNoadesPath(QList<Node *> nodesPath)
 
 void PopulationsMock::loadPopulations()
 {
-    populations->updateGladiators(gladiators);
-    populations->updateTowers(towers);
+    populations->updateGladiators(*gladiators);
+    populations->updateTowers(*towers);
 }
 
 void PopulationsMock::loadJsons()

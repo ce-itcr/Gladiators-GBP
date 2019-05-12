@@ -29,19 +29,19 @@ void Populations::updatePopulation()
     ClientInterface::getTowers();
 }
 
-void Populations::updateGladiators(QString *jsonGladiators)
+void Populations::updateGladiators(QString jsonGladiators)
 {
-    qDebug() << "Populations::updateGladiators() " << *jsonGladiators;
-    QList<Gladiator *> *newGladiators = JsonConverter::jsonToGladiators(*jsonGladiators);
+    qDebug() << "Populations::updateGladiators()";
+    QList<Gladiator *> *newGladiators = JsonConverter::jsonToGladiators(jsonGladiators);
     gladiatorsReady = true;
     gladiators = newGladiators;
     populationUpdated();
 }
 
-void Populations::updateTowers(QString *jsonTowers)
+void Populations::updateTowers(QString jsonTowers)
 {
-    qDebug() << "Populations::updateTowers() " << *jsonTowers;
-    QList<Tower *> *newTowers = JsonConverter::jsonToTowers(*jsonTowers);
+    qDebug() << "Populations::updateTowers()";
+    QList<Tower *> *newTowers = JsonConverter::jsonToTowers(jsonTowers);
     towerReady = true;
     towers = newTowers;
     populationUpdated();

@@ -30,9 +30,9 @@ signals:
     void readyPopulation();
 
 public slots:
-    void updateGladiators(QString *);
+    void updateGladiators(QString );
 
-    void updateTowers(QString *);
+    void updateTowers(QString );
 
 private:
     static Populations *instance;

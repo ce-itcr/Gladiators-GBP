@@ -20,9 +20,10 @@ Game::Game(QWidget *parent) :
     loadGrid();
     loadButtons();
 
-    // Fake population
-    PopulationsMock::run();
-    //PopulationsMock::loadNoadesPath(Map::getInstance()->getNodes());
+    // Creates Population
+    //PopulationsMock::run();
+    populations->startNewPopulation();
+    QTimer::singleShot(1000, this, &Game::updatePopulations);
 
     QMediaPlaylist *playlist = new QMediaPlaylist();
     playlist->addMedia(QUrl("qrc:/audio/playerLoop.mp3"));
@@ -52,6 +53,11 @@ void Game::populationReady()
         Tile *tile = grid->tileAt(tower->getI(), tower->getJ());
         spawner->spawnTower(tile, tower);
     }
+}
+
+void Game::updatePopulations()
+{
+    populations->updatePopulation();
 }
 
 void Game::loadGrid()

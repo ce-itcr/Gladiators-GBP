@@ -42,6 +42,8 @@ public:
 public slots:
     void populationReady();
 
+    void updatePopulations();
+
     // QWidget interface
 protected:
     void resizeEvent(QResizeEvent *event);
