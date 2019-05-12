@@ -26,7 +26,7 @@ public class Gladiator {
 	}
 	
 	private Chromosome mutate(Chromosome chromosome) {
-		if (Math.random() < 0.2)
+		if (Math.random() < 10)
 			chromosome.mutateGene(random.nextInt(((3 - 0) + 1) + 0));
 		return chromosome;
 	}

@@ -27,7 +27,8 @@ public class TowersSend {
 
     public void replaceAllTowers(Collection<TowerSend> newTowers) {
         towers = new HashMap<>();
-        LinkedList<Tower> towerList = new LinkedList<Tower>();
+//        LinkedList<Tower> towerList = new LinkedList<Tower>();
+        int index = 0;
         for (TowerSend towerSend : newTowers) {
             int attackSpeed = towerSend.getAttackSpeed();
             int damagePerShot = towerSend.getDamagePerShot();
@@ -39,11 +40,33 @@ public class TowersSend {
             int baseDamagePerShot = towerSend.getBaseDamagePerShot();
             int i = towerSend.getI();
             int j = towerSend.getJ();
-            towerList.add(new Tower(attackSpeed, damagePerShot, level, type, xpForLevelUp, xp, baseAttackSpeed, baseDamagePerShot, i, j));
+            if (index < Towers.getInstance().getListSize()) {
+                System.out.println("SET");
+                Towers.getInstance().getTowersList().set(index, new Tower(attackSpeed, damagePerShot, level, type, xpForLevelUp, xp, baseAttackSpeed, baseDamagePerShot, i, j));
+                index++;
+            } else {
+                System.out.println("ADD");
+                Towers.getInstance().getTowersList().add(new Tower(attackSpeed, damagePerShot, level, type, xpForLevelUp, xp, baseAttackSpeed, baseDamagePerShot, i, j));
+            }
             towers.put(towerSend.getId(), towerSend);
         }
-        Towers.getInstance().setTowersList(towerList);
+//        Towers.getInstance().setTowersList(towerList);
         Towers.getInstance().levelManager();
+        towers = new HashMap<>();
+        int i = 0;
+        for (TowerSend towerSend : newTowers){
+            towerSend.setAttackSpeed(Towers.getInstance().getTowersList().get(i).getAttackSpeed());
+            towerSend.setBaseAttackSpeed(Towers.getInstance().getTowersList().get(i).getBaseAttackSpeed());
+            towerSend.setDamagePerShot(Towers.getInstance().getTowersList().get(i).getDamagePerShot());
+            towerSend.setBaseDamagePerShot(Towers.getInstance().getTowersList().get(i).getBaseDamagePerShot());
+            towerSend.setI(Towers.getInstance().getTowersList().get(i).getI());
+            towerSend.setJ(Towers.getInstance().getTowersList().get(i).getJ());
+            towerSend.setLevel(Towers.getInstance().getTowersList().get(i).getLevel());
+            towerSend.setXp(Towers.getInstance().getTowersList().get(i).getXp());
+            towerSend.setType(Towers.getInstance().getTowersList().get(i).getType());
+            towerSend.setXpForLevelUp(Towers.getInstance().getTowersList().get(i).getXpForLevelUp());
+            towers.put(towerSend.getId(), towerSend);
+        }
         Towers.getInstance().printTowersList();
     }
 
