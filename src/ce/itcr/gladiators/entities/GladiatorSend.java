@@ -8,8 +8,26 @@ public class GladiatorSend {
 	private int resistanceUpperBody;
 	private int resistanceLowerBody;
 	private int dodgeChance;
+	private int i;
+	private int j;
 
-    public GladiatorSend() {}
+	public int getI() {
+		return i;
+	}
+
+	public void setI(int i) {
+		this.i = i;
+	}
+
+	public int getJ() {
+		return j;
+	}
+
+	public void setJ(int j) {
+		this.j = j;
+	}
+
+	public GladiatorSend() {}
 
     public GladiatorSend(String id, int age, int health, int resistanceUpperBody, int resistanceLowerBoddy, int dodgeChance) {
         this.id = id;

@@ -12,7 +12,39 @@ public class Tower {
 	private int baseDamagePerShot;
 	private int i;
 	private int j;
-	
+
+	public int getBaseAttackSpeed() {
+		return baseAttackSpeed;
+	}
+
+	public void setBaseAttackSpeed(int baseAttackSpeed) {
+		this.baseAttackSpeed = baseAttackSpeed;
+	}
+
+	public int getBaseDamagePerShot() {
+		return baseDamagePerShot;
+	}
+
+	public void setBaseDamagePerShot(int baseDamagePerShot) {
+		this.baseDamagePerShot = baseDamagePerShot;
+	}
+
+	public int getI() {
+		return i;
+	}
+
+	public void setI(int i) {
+		this.i = i;
+	}
+
+	public int getJ() {
+		return j;
+	}
+
+	public void setJ(int j) {
+		this.j = j;
+	}
+
 	public Tower() {
 		super();
 		this.attackSpeed = 1;

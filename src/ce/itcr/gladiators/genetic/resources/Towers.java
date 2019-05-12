@@ -44,6 +44,8 @@ public class Towers {
 			System.out.println("Level: " + t.getLevel());
 			System.out.println("Attack Speed: " + t.getAttackSpeed());
 			System.out.println("Damage: " + t.getDamagePerShot());
+			System.out.println("xp: " + t.getXp());
+			System.out.println("xp for level up: " + t.getXpForLevelUp());
 			System.out.println("-------------------------------------------------------");
 			i++;
 		}

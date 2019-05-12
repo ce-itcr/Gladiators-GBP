@@ -2,39 +2,48 @@ package ce.itcr.gladiators.genetic;
 
 import ce.itcr.gladiators.genetic.resources.Gladiator;
 
+import java.util.Arrays;
+
 public class QuickSort {
-	
-	public void quickSort(Gladiator arr[], int begin, int end) {
-	    if (begin < end) {
-	        int partitionIndex = partition(arr, begin, end);
-	 
-	        quickSort(arr, begin, partitionIndex-1);
-	        quickSort(arr, partitionIndex+1, end);
-	    }
-	}
-	
-	private int partition(Gladiator arr[], int begin, int end) {
-		System.out.println("begin: " + begin);
-		System.out.println("end: " + end);
-		System.out.println("arr[end].getAge" + arr.length);
-	    int pivot = arr[end].getFitness();
-	    int i = (begin-1);
-	 
-	    for (int j = begin; j < end; j++) {
-	        if (arr[j].getFitness() <= pivot) {
-	            i++;
-	 
-	            Gladiator swapTemp = arr[i];
-	            arr[i] = arr[j];
-	            arr[j] = swapTemp;
-	        }
-	    }
-	 
-	    Gladiator swapTemp = arr[i+1];
-	    arr[i+1] = arr[end];
-	    arr[end] = swapTemp;
-	 
-	    return i+1;
+
+	public static void main(String[] args) {
+//		int[] arr = {4, 5, 1, 2, 3, 3};
+//		quickSort(arr, 0, arr.length-1);
+//		System.out.println(Arrays.toString(arr));
 	}
 
+	public static void quickSort(Gladiator[] arr, int start, int end){
+
+		int partition = partition(arr, start, end);
+
+		if(partition-1>start) {
+			quickSort(arr, start, partition - 1);
+		}
+		if(partition+1<end) {
+			quickSort(arr, partition + 1, end);
+		}
+	}
+
+	public static int partition(Gladiator[] arr, int start, int end){
+		Gladiator pivot = arr[end];
+
+		for(int i=start; i<end; i++){
+//			System.out.println("arr[i]" + arr[i]);
+//			System.out.println(arr[i].getFitness());
+//			System.out.println("arr[end]" + arr[end]);
+//			System.out.println(arr[end].getFitness());
+			if(arr[i].getFitness()<pivot.getFitness()){
+				Gladiator temp= arr[start];
+				arr[start]=arr[i];
+				arr[i]=temp;
+				start++;
+			}
+		}
+
+		Gladiator temp = arr[start];
+		arr[start] = pivot;
+		arr[end] = temp;
+
+		return start;
+	}
 }
