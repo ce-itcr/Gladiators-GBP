@@ -4,6 +4,7 @@ import ce.itcr.gladiators.entities.GladiatorSend;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.Collection;
 
 @Path("/populations/gladiators")
@@ -14,8 +15,11 @@ public class GladiatorsResource {
     private static GladiatorsSend gladiators = GladiatorsSend.getInstance();
 
     @GET
-    public Collection<GladiatorSend> getGladiators() {
-        return gladiators.viewAllGladiators();
+    public Response getGladiators() {
+        Collection<GladiatorSend> gladiatorsResponse = gladiators.viewAllGladiators();
+        Response.ResponseBuilder builder = Response.ok(gladiatorsResponse);
+        builder.header("population-type", "gladiators");
+        return builder.build();
     }
 
     @Path("/stats")

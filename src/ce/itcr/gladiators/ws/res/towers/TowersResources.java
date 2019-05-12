@@ -4,6 +4,7 @@ import ce.itcr.gladiators.entities.TowerSend;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.Collection;
 
 @Path("/populations/towers")
@@ -14,8 +15,11 @@ public class TowersResources {
     private static TowersSend towers = TowersSend.getInstance();
 
     @GET
-    public Collection<TowerSend> getTowers() {
-        return towers.viewAllTowers();
+    public Response getTowers() {
+        Collection<TowerSend> towersResponse = towers.viewAllTowers();
+        Response.ResponseBuilder builder = Response.ok(towersResponse);
+        builder.header("population-type", "towers");
+        return builder.build();
     }
 
     @Path("/stats")
