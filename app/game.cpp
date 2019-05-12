@@ -1,6 +1,7 @@
 #include "game.h"
 #include "ui_game.h"
 #include <QLabel>
+#include <QMovie>
 #include "game/populationsmock.h"
 
 Game::Game(QWidget *parent) :
@@ -30,6 +31,7 @@ Game::Game(QWidget *parent) :
     music = new QMediaPlayer();
     music->setPlaylist(playlist);
     music->play();
+    music->setVolume(50);
 }
 
 Game::~Game()

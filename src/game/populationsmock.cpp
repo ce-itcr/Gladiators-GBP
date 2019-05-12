@@ -33,10 +33,6 @@ void PopulationsMock::loadJsons()
         newGladitors.push_back(gladiator);
     }
     QList<Tower> newTowers;
-//    Tower tower("1", 1000);
-//    tower.setI(14);
-//    tower.setJ(14);
-//    newTowers.push_back(tower);
 
     gladiators = new QString(JsonConverter::gladiatorsToJson(newGladitors));
     towers = new QString(JsonConverter::towersToJson(newTowers));

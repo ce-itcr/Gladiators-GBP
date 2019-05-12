@@ -1,4 +1,6 @@
 #include "player.h"
+#include <QMovie>
+#include <QLabel>
 
 Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(parent))
 {
@@ -15,6 +17,7 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     canMove = true;
     target = nullptr;
     nodeIndex = 0;
+//    setStyleSheet("image: url(:img/gladiatorRun.gif)");
 
     this->setStyleSheet("background-color:green;");
     this->setGeometry(x, y, width, height);
