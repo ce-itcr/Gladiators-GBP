@@ -18,55 +18,66 @@
     <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(235, 245, 238);</string>
+   <string notr="true"/>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QPushButton" name="toMainWIndow">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>30</y>
-     <width>341</width>
-     <height>131</height>
+     <x>30</x>
+     <y>55</y>
+     <width>125</width>
+     <height>75</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/back_button.png);
+background: none;
+background-repeat: none;</string>
    </property>
    <property name="text">
     <string/>
    </property>
-   <property name="pixmap">
-    <pixmap resource="imgresources.qrc">:/img/achievementsTitle.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
   </widget>
-  <widget class="QPushButton" name="toMainWIndow">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>80</y>
-     <width>88</width>
-     <height>33</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>800</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton{
-	border: none;
-	border-radius: 8px;
-	font-size: 20px;
-}
-QPushButton:!hover{
-	background-color: rgb(156, 163, 159);
-	color: rgb(235, 245, 238);
-}
-QPushButton:hover{
-	color: rgb(156, 163, 159);
-	background-color: rgb(235, 245, 238);
-}</string>
+    <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
    </property>
    <property name="text">
-    <string>Atrás</string>
+    <string/>
    </property>
   </widget>
+  <widget class="QFrame" name="achievements_Frame">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>170</y>
+     <width>861</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(235, 245, 238, 0.29);
+border-radius: 10px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>toMainWIndow</zorder>
+  <zorder>achievements_Frame</zorder>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

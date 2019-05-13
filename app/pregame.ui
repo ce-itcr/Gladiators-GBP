@@ -18,36 +18,45 @@
     <normaloff>:/img/isotipo.png</normaloff>:/img/isotipo.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(235, 245, 238);</string>
+   <string notr="true"/>
   </property>
   <widget class="QPushButton" name="playGame">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>88</width>
-     <height>33</height>
+     <x>540</x>
+     <y>410</y>
+     <width>125</width>
+     <height>75</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton{
-	border: none;
-	border-radius: 8px;
-	font-size: 18px;
-}
-QPushButton:!hover{
-	background-color: rgb(156, 163, 159);
-	color: rgb(235, 245, 238);
-}
-QPushButton:hover{
-	color: rgb(156, 163, 159);
-	background-color: rgb(235, 245, 238);
-}</string>
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/continue_button.png);
+background: none;
+background-repeat: none;</string>
    </property>
    <property name="text">
-    <string>Continuar</string>
+    <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>800</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>playGame</zorder>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>
