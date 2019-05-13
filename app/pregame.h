@@ -11,6 +11,7 @@
 #define PREGAME_H
 
 #include <QDialog>
+#include <QMediaPlayer>
 
 namespace Ui {
 class PreGame;

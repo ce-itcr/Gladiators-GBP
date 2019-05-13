@@ -11,6 +11,7 @@
 #define SETTINGS_H
 
 #include <QDialog>
+#include "util.h"
 
 namespace Ui {
 class Settings;
@@ -26,6 +27,8 @@ public:
 
 private slots:
     void on_toMainWindow_clicked();
+
+    void on_checkBox_stateChanged(int arg1);
 
 private:
     Ui::Settings *ui;

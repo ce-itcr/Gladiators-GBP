@@ -47,6 +47,12 @@ void Grid::mousePressEvent(QMouseEvent *event)
             FindPath::instance->shortestPath();
             if(FindPath::instance->pathCost != 10000){
                 createEntity(tile);
+
+                QMediaPlayer* genWave = new QMediaPlayer;
+                genWave->setMedia(QUrl("qrc:/audio/hammering.wav"));
+                genWave->setVolume(100);
+                genWave->play();
+
             }else{
                 tile->getNode()->setOccupied(false);
             }

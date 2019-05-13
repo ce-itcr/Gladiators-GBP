@@ -20,3 +20,8 @@ void Settings::on_toMainWindow_clicked(){
     MainWindow *w = new MainWindow();
     w->show();
 }
+
+void Settings::on_checkBox_stateChanged(int arg1)
+{
+
+}

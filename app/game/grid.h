@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include <QPainter>
+#include <QMediaPlayer>
 
 #include "tile.h"
 #include "graph/map.h"

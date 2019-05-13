@@ -4,5 +4,6 @@
         <file>audio/PowerUp01.mp3</file>
         <file>audio/PowerUp02.mp3</file>
         <file>audio/Fire01.wav</file>
+        <file>audio/hammering.wav</file>
     </qresource>
 </RCC>

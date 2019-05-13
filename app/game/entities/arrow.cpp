@@ -6,8 +6,8 @@ Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
     tag = "arrow";
     this->x = x;
     this->y = y;
-    width = 10;
-    height = 10;
+    width = 13;
+    height = 13;
     damage = 1;
     xSpeed = 0;
     ySpeed = 0;
@@ -17,7 +17,10 @@ Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
     maxAcc = 10;
     target = nullptr;
 
-    this->setStyleSheet("background-color:#EBF5EE;");
+//    this->setStyleSheet("background-color:#EBF5EE;");
+
+    setStyleSheet("background-color:#635255;"
+                  "image: url(:/img/fire/00fire.png)");
     this->setGeometry(x, y, width, height);
     this->show();
 }

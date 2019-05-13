@@ -1,39 +1,94 @@
 <RCC>
     <qresource prefix="/">
-        <file>img/imagotipo.png</file>
-        <file>img/isotipo.png</file>
-        <file>img/achievementsTitle.png</file>
-        <file>img/settingsTitle.png</file>
-        <file>img/background.jpg</file>
-        <file>img/color_palette.png</file>
-        <file>img/icon.png</file>
-        <file>img/waveIcon.png</file>
-        <file>img/fast.png</file>
-        <file>img/pauseIcon.png</file>
-        <file>img/slow.png</file>
-        <file>img/normal.png</file>
-        <file>img/playIcon.png</file>
-        <file>img/buildIcon.png</file>
-        <file>img/spriteDead.png</file>
         <file>img/spriteRun.png</file>
         <file>img/tower1.png</file>
         <file>img/tower2.png</file>
-        <file>img/buttons/achievements_button.png</file>
-        <file>img/buttons/exit_button.png</file>
-        <file>img/buttons/info_button.png</file>
-        <file>img/buttons/play_button.png</file>
-        <file>img/buttons/settings_button.png</file>
-        <file>img/buttons/back_button.png</file>
+        <file>img/waveIcon.png</file>
+        <file>img/achievementsTitle.png</file>
+        <file>img/arrow.png</file>
+        <file>img/background.jpg</file>
+        <file>img/buildIcon.png</file>
+        <file>img/color_palette.png</file>
+        <file>img/fast.png</file>
+        <file>img/icon.png</file>
+        <file>img/imagotipo.png</file>
         <file>img/infoTitle.png</file>
-        <file>img/buttons/continue_button.png</file>
-        <file>img/buttons/achievements_icon.png</file>
-        <file>img/buttons/exit_icon.png</file>
-        <file>img/buttons/info_icon.png</file>
-        <file>img/buttons/settings_icon.png</file>
+        <file>img/isotipo.png</file>
+        <file>img/normal.png</file>
+        <file>img/pauseIcon.png</file>
+        <file>img/playIcon.png</file>
+        <file>img/settingsTitle.png</file>
+        <file>img/slow.png</file>
+        <file>img/smoke_fire.png</file>
         <file>img/backgrounds/1.jpg</file>
         <file>img/backgrounds/2.jpg</file>
-        <file>img/backgrounds/4.jpg</file>
         <file>img/backgrounds/3.jpg</file>
+        <file>img/backgrounds/4.jpg</file>
         <file>img/backgrounds/5.jpg</file>
+        <file>img/buttons/achievements_button.png</file>
+        <file>img/buttons/achievements_icon.png</file>
+        <file>img/buttons/back_button.png</file>
+        <file>img/buttons/continue_button.png</file>
+        <file>img/buttons/exit_button.png</file>
+        <file>img/buttons/exit_icon.png</file>
+        <file>img/buttons/info_button.png</file>
+        <file>img/buttons/info_icon.png</file>
+        <file>img/buttons/play_button.png</file>
+        <file>img/buttons/settings_button.png</file>
+        <file>img/buttons/settings_icon.png</file>
+        <file>img/fire/00fire.png</file>
+        <file>img/fire/efecto_fuego_00000.png</file>
+        <file>img/fire/efecto_fuego_00001.png</file>
+        <file>img/fire/efecto_fuego_00002.png</file>
+        <file>img/fire/efecto_fuego_00003.png</file>
+        <file>img/fire/efecto_fuego_00004.png</file>
+        <file>img/fire/efecto_fuego_00005.png</file>
+        <file>img/fire/efecto_fuego_00006.png</file>
+        <file>img/fire/efecto_fuego_00007.png</file>
+        <file>img/fire/efecto_fuego_00008.png</file>
+        <file>img/fire/efecto_fuego_00009.png</file>
+        <file>img/fire/efecto_fuego_00010.png</file>
+        <file>img/fire/efecto_fuego_00011.png</file>
+        <file>img/fire/efecto_fuego_00012.png</file>
+        <file>img/fire/efecto_fuego_00013.png</file>
+        <file>img/fire/efecto_fuego_00014.png</file>
+        <file>img/fire/efecto_fuego_00015.png</file>
+        <file>img/fire/efecto_fuego_00016.png</file>
+        <file>img/fire/efecto_fuego_00017.png</file>
+        <file>img/fire/efecto_fuego_00018.png</file>
+        <file>img/fire/efecto_fuego_00019.png</file>
+        <file>img/fire/efecto_fuego_00020.png</file>
+        <file>img/fire/efecto_fuego_00021.png</file>
+        <file>img/fire/efecto_fuego_00022.png</file>
+        <file>img/fire/efecto_fuego_00023.png</file>
+        <file>img/fire/efecto_fuego_00024.png</file>
+        <file>img/fire/efecto_fuego_00025.png</file>
+        <file>img/fire/efecto_fuego_00026.png</file>
+        <file>img/fire/efecto_fuego_00027.png</file>
+        <file>img/fire/efecto_fuego_00028.png</file>
+        <file>img/fire/efecto_fuego_00029.png</file>
+        <file>img/fire/efecto_fuego_00030.png</file>
+        <file>img/fire/efecto_fuego_00031.png</file>
+        <file>img/fire/efecto_fuego_00032.png</file>
+        <file>img/fire/efecto_fuego_00033.png</file>
+        <file>img/fire/efecto_fuego_00034.png</file>
+        <file>img/fire/efecto_fuego_00035.png</file>
+        <file>img/fire/efecto_fuego_00036.png</file>
+        <file>img/fire/efecto_fuego_00037.png</file>
+        <file>img/fire/efecto_fuego_00038.png</file>
+        <file>img/fire/efecto_fuego_00039.png</file>
+        <file>img/fire/efecto_fuego_00040.png</file>
+        <file>img/fire/efecto_fuego_00041.png</file>
+        <file>img/fire/efecto_fuego_00042.png</file>
+        <file>img/fire/efecto_fuego_00043.png</file>
+        <file>img/fire/efecto_fuego_00044.png</file>
+        <file>img/fire/efecto_fuego_00045.png</file>
+        <file>img/fire/efecto_fuego_00046.png</file>
+        <file>img/fire/efecto_fuego_00047.png</file>
+        <file>img/fire/efecto_fuego_00048.png</file>
+        <file>img/fire/efecto_fuego_00049.png</file>
+        <file>img/spriteDead.png</file>
+        <file>img/backgrounds/6.jpg</file>
+        <file>img/backgrounds/7.jpg</file>
     </qresource>
 </RCC>

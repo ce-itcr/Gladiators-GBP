@@ -22,14 +22,6 @@ Game::Game(QWidget *parent) :
     // Fake population
     PopulationsMock::run();
     //PopulationsMock::loadNoadesPath(Map::getInstance()->getNodes());
-
-    QMediaPlaylist *playlist = new QMediaPlaylist();
-    playlist->addMedia(QUrl("qrc:/audio/playerLoop.mp3"));
-    playlist->setPlaybackMode(QMediaPlaylist::Loop);
-
-    music = new QMediaPlayer();
-    music->setPlaylist(playlist);
-    music->play();
 }
 
 Game::~Game()
@@ -112,13 +104,22 @@ void Game::on_fastButton_clicked()
     fastPowerUp->play();
 }
 
+Util* util = new Util();
 void Game::on_pauseButton_clicked()
 {
     bool pause = gameController->isPause();
     gameController->setPause(!pause);
 
-    if(!pause) music->pause();
-    else music->play();
+
+
+    if(pause){
+        util->changeMusic = true;
+        cout << "changeM Despues " << util->changeMusic << endl;
+
+    } else {
+        util->changeMusic = false;
+        cout << "aqauel" << endl;
+    }
 
     QIcon icon;
     if (pause) icon.addFile(":img/pauseIcon.png");

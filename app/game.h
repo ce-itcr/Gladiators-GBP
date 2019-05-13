@@ -21,6 +21,8 @@
 #include "game/populations.h"
 #include "game/spawner.h"
 #include "graph/PathFinding/findpath.h"
+#include "pregame.h"
+#include "util.h"
 
 namespace Ui {
 class Game;
@@ -37,7 +39,7 @@ public:
 
     void enableWaveButton();
 
-    QMediaPlayer *music;
+//    QMediaPlayer *music;
 
 public slots:
     void populationReady();

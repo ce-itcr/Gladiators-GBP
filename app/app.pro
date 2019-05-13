@@ -40,7 +40,8 @@ SOURCES += \
     game/entities/player.cpp \
     game/gamecontroller.cpp \
     game/entities/enemy.cpp \
-    info.cpp
+    info.cpp \
+    util.cpp
 
 HEADERS += \
 	game/entities/arrow.h \
@@ -56,7 +57,8 @@ HEADERS += \
     game/gamecontroller.h \
     game.h \
     game/entities/enemy.h \
-    info.h
+    info.h \
+    util.h
 
 FORMS += \
         mainwindow.ui \
@@ -74,7 +76,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    imgresources.qrc \
     mapresources.qrc \
-    audioresources.qrc
+    audioresources.qrc \
+    imgresources.qrc
+
 
