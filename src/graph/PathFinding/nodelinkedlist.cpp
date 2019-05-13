@@ -10,6 +10,8 @@ NodeLinkedList::NodeLinkedList(Vector *element) {
 void NodeLinkedList::delete_all(){
     if (next)
         next->delete_all();
+    element = NULL;
+    delete element;
     delete this;
 }
 

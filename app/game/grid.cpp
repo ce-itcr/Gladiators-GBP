@@ -37,6 +37,8 @@ void Grid::resizeEvent(QResizeEvent *)
 void Grid::mousePressEvent(QMouseEvent *event)
 {
     FindPath::instance->pathCost = 10000;
+//    FindPath::instance->counter = 0;
+    cout << FindPath::instance->counter << endl;
     int x = event->x();
     int y = event->y();
     for (Tile *tile : tiles)
@@ -52,6 +54,7 @@ void Grid::mousePressEvent(QMouseEvent *event)
             }
         }
     }
+
 }
 
 int Grid::getTileSize() const

@@ -5,6 +5,7 @@ Gladiator::Gladiator()
     this->id = "";
     this->name = "";
     this->age = "";
+    this->i = this->j = 0;
 }
 
 Gladiator::Gladiator(QString id, QString name, QString age)
@@ -66,4 +67,24 @@ QList<Node *> Gladiator::getNodePath() const
 void Gladiator::setNodePath(const QList<Node *> &value)
 {
     nodePath = value;
+}
+
+int Gladiator::getI() const
+{
+    return i;
+}
+
+void Gladiator::setI(int value)
+{
+    i = value;
+}
+
+int Gladiator::getJ() const
+{
+    return j;
+}
+
+void Gladiator::setJ(int value)
+{
+    j = value;
 }

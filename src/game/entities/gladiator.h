@@ -29,7 +29,14 @@ public:
     QList<Node *> getNodePath() const;
     void setNodePath(const QList<Node *> &value);
 
+    int getI() const;
+    void setI(int value);
+
+    int getJ() const;
+    void setJ(int value);
+
 private:
+    int i, j;
     QString id;
     QString name;
     QString age;

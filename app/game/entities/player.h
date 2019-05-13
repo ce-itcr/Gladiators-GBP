@@ -39,6 +39,9 @@ public:
     Gladiator *getGladiator() const;
     void setGladiator(Gladiator *value);
 
+    int getNodeIndex() const;
+    void setNodeIndex(int value);
+
 private:
     Grid *grid;
     Gladiator *gladiator;
