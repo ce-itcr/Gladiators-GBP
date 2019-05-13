@@ -40,7 +40,7 @@ private slots:
 
     void on_exit_Button_clicked();
 
-    void on_info_Button_clicked();
+//    void on_info_Button_clicked();
 
 private:
     Ui::MainWindow *ui;

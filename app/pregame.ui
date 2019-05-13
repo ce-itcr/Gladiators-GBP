@@ -23,8 +23,8 @@
   <widget class="QPushButton" name="playGame">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>410</y>
+     <x>630</x>
+     <y>650</y>
      <width>125</width>
      <height>75</height>
     </rect>
@@ -49,7 +49,45 @@ background-repeat: none;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
+    <string notr="true">background-image: url(:/img/backgrounds/2.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>50</y>
+     <width>431</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imgresources.qrc">:/img/imagotipo.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>650</y>
+     <width>125</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/back_button.png);
+background: none;
+background-repeat: none;</string>
    </property>
    <property name="text">
     <string/>
@@ -57,6 +95,8 @@ background-repeat: none;</string>
   </widget>
   <zorder>label</zorder>
   <zorder>playGame</zorder>
+  <zorder>label_2</zorder>
+  <zorder>backButton</zorder>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

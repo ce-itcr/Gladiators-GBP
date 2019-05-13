@@ -49,31 +49,49 @@ background-repeat: none;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
+    <string notr="true">background-image: url(:/img/backgrounds/2.jpg);</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>140</y>
-     <width>800</width>
-     <height>591</height>
+     <x>400</x>
+     <y>20</y>
+     <width>431</width>
+     <height>121</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+   <property name="text">
+    <string/>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+   <property name="pixmap">
+    <pixmap resource="imgresources.qrc">:/img/imagotipo.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>150</y>
+     <width>851</width>
+     <height>581</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(235, 245, 238, 0.29);
+border-radius: 10px;</string>
    </property>
   </widget>
   <zorder>label</zorder>
   <zorder>toMainWIndow</zorder>
-  <zorder>frame</zorder>
+  <zorder>label_2</zorder>
+  <zorder>listWidget</zorder>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

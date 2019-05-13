@@ -38,7 +38,7 @@ background-image: url(:/img/background.jpg);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
+    <string notr="true">background-image: url(:/img/background.jpg);</string>
    </property>
    <property name="text">
     <string/>

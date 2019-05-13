@@ -32,7 +32,8 @@ SOURCES += \
     graph/PathFinding/nodelinkedlist.cpp \
     graph/PathFinding/point.cpp \
     graph/PathFinding/vector.cpp \
-    graph/PathFinding/findpath.cpp
+    graph/PathFinding/findpath.cpp \
+    game/rankalgorithm.cpp
 
 HEADERS += \
 	client/client.h \
@@ -58,4 +59,5 @@ HEADERS += \
     graph/PathFinding/nodelinkedlist.h \
     graph/PathFinding/point.h \
     graph/PathFinding/vector.h \
-    graph/PathFinding/findpath.h
+    graph/PathFinding/findpath.h \
+    game/rankalgorithm.h

@@ -24,8 +24,8 @@
    <widget class="QPushButton" name="exit_Button">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>670</y>
+      <x>740</x>
+      <y>540</y>
       <width>100</width>
       <height>75</height>
      </rect>
@@ -40,30 +40,11 @@ background-repeat: none;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="info_Button">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>670</y>
-      <width>100</width>
-      <height>75</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-border-image: url(:/img/buttons/info_icon.png);
-background: none;
-background-repeat: none;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QPushButton" name="achievements_Button">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>670</y>
+      <x>350</x>
+      <y>540</y>
       <width>100</width>
       <height>75</height>
      </rect>
@@ -87,7 +68,7 @@ background-repeat: none;</string>
    <widget class="QPushButton" name="play_Button">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>470</x>
       <y>520</y>
       <width>250</width>
       <height>120</height>
@@ -95,7 +76,7 @@ background-repeat: none;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: transparent;
-border-image: url(:/img/buttons/play_button.png);
+border-image: url(:/img/buttons/play_button2.png);
 background: none;
 background-repeat: none;</string>
     </property>
@@ -113,17 +94,36 @@ background-repeat: none;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
+     <string notr="true">background-image: url(:/img/backgrounds/2.jpg);</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>30</y>
+      <width>441</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="imgresources.qrc">:/img/imagotipo.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>label</zorder>
    <zorder>exit_Button</zorder>
-   <zorder>info_Button</zorder>
    <zorder>achievements_Button</zorder>
    <zorder>play_Button</zorder>
+   <zorder>label_2</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

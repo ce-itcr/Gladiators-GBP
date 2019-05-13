@@ -90,5 +90,6 @@
         <file>img/spriteDead.png</file>
         <file>img/backgrounds/6.jpg</file>
         <file>img/backgrounds/7.jpg</file>
+        <file>img/buttons/play_button2.png</file>
     </qresource>
 </RCC>
