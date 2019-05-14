@@ -13,7 +13,7 @@ Spawner *Spawner::getInstance(QObject *parent)
 
 void Spawner::spawnGladiators(QList<Gladiator *> *value)
 {
-    gladiators = value;
+    gladiators = new QList<Gladiator *>(*value);
     gameController->setWaveActive(true);
     spawn();
 }
