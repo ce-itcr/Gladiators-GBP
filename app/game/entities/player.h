@@ -39,8 +39,11 @@ public:
     Gladiator *getGladiator() const;
     void setGladiator(Gladiator *value);
 
-    int getNodeIndex() const;
-    void setNodeIndex(int value);
+signals:
+    void gladiatorPressed(Gladiator *);
+
+protected:
+    void mousePressEvent(QMouseEvent *);
 
 private:
     Grid *grid;
@@ -59,6 +62,7 @@ private:
     QList<Node *> nodePath;
     int nodeIndex;
     Tile *target;
+
     void move();
 
     void nextTarget();

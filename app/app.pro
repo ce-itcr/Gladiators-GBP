@@ -80,3 +80,5 @@ RESOURCES += \
     mapresources.qrc \
     audioresources.qrc
 
+DISTFILES +=
+

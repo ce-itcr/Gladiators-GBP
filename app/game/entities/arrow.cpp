@@ -94,12 +94,12 @@ void Arrow::move()
 {
     if (target->tag != "player") return;
 
-        int offset = 10;
-        Player *targetPlayer = static_cast<Player *>(target);
-        xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);
-        ySpeed = Math::clamp(0, maxSpeed, ySpeed + yAcc);
-        x = Math::approach(x, targetPlayer->getX() + offset, xSpeed);
-        y = Math::approach(y, targetPlayer->getY() + offset, ySpeed);;
+    int offset = 10;
+    Player *targetPlayer = static_cast<Player *>(target);
+    xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);
+    ySpeed = Math::clamp(0, maxSpeed, ySpeed + yAcc);
+    x = Math::approach(x, targetPlayer->getX() + offset, xSpeed);
+    y = Math::approach(y, targetPlayer->getY() + offset, ySpeed);;
 
-        QFrame::move(x, y);
+    QFrame::move(x, y);
 }

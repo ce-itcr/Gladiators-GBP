@@ -11,6 +11,7 @@
 #define ACHIEVEMENTS_H
 
 #include <QDialog>
+#include <QMovie>
 
 namespace Ui {
 class Achievements;
@@ -23,6 +24,8 @@ class Achievements : public QDialog
 public:
     explicit Achievements(QWidget *parent = 0);
     ~Achievements();
+    void tableMethod();
+    void celebrateGif();
 
 private slots:
     void on_toMainWIndow_clicked();

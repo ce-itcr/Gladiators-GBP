@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     Util* util = new Util();
-//    util->playMusic();
+    util->playMusic();
 
 }
 

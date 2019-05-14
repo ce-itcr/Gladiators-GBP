@@ -11,6 +11,7 @@
 #define PREGAME_H
 
 #include <QDialog>
+#include <QMovie>
 
 namespace Ui {
 class PreGame;
@@ -23,6 +24,7 @@ class PreGame : public QDialog
 public:
     explicit PreGame(QWidget *parent = 0);
     ~PreGame();
+    void progressBar();
 
 private slots:
     void on_playGame_clicked();

@@ -3,5 +3,6 @@
         <file>maps/map1</file>
         <file>maps/map_donut</file>
         <file>maps/map_test</file>
+        <file>maps/map2</file>
     </qresource>
 </RCC>

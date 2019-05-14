@@ -22,27 +22,27 @@ void Spawner::spawnTower(Tile *tile, Tower *tower)
 {
     Grid *grid = dynamic_cast<Grid *>(parent);
     int tileSize = grid->getTileSize();
+    int x = tile->x();
+    int y = tile->y();
 
-    Enemy *enemy = new Enemy(grid);
-    enemy->setX(tile->x());
-    enemy->setY(tile->y());
+    Enemy *enemy = new Enemy(grid, x, y);
     enemy->resize(tileSize, tileSize);
     enemy->setTower(tower);
 
-    gameController->addEntity(enemy);
-    tile->getNode()->setEntity(enemy);
+    Entity *entity = enemy;
+    gameController->addEntity(entity);
+    tile->getNode()->setEntity(entity);
 }
 
 void Spawner::spawnArrow(int x, int y, Entity *target)
 {
     Grid *grid = dynamic_cast<Grid *>(parent);
 
-    Arrow *arrow = new Arrow(grid);
+    Arrow *arrow = new Arrow(grid, x, y);
     arrow->setTarget(target);
-    arrow->setX(x);
-    arrow->setY(y);
 
-    gameController->addEntity(arrow);
+    Entity *entity = arrow;
+    gameController->addEntity(entity);
 }
 
 bool Spawner::isWaveFinished()
@@ -53,18 +53,22 @@ bool Spawner::isWaveFinished()
 void Spawner::spawn()
 {
     if (gladiators->isEmpty()) return;
+    if (gameController->isPause()) {
+            QTimer::singleShot(spawnDelay, this, &Spawner::spawn);
+            return;
+        }
 
     // Generates the player
     Grid *grid = dynamic_cast<Grid *>(parent);
-    Entity *entity = new Player(grid);
-    Gladiator *gladiator = gladiators->first();
-    Player *player = dynamic_cast<Player *>(entity);
+    Player *player = new Player(grid);
+    Gladiator *gladiator = gladiators->takeFirst();
     player->setGladiator(gladiator);
     player->setNodePath(gladiator->getNodePath());
-    gameController->addEntity(player);
-
     int size = grid->getTileSize();
     player->resize(size, size);
+
+    Entity *entity = player;
+    gameController->addEntity(entity);
 
     // Recursive call
     QTimer::singleShot(spawnDelay, this, &Spawner::spawn);

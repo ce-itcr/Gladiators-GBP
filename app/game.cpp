@@ -16,7 +16,7 @@ Game::Game(QWidget *parent) :
     gameController->run();
     populations = Populations::getInstance();
     QObject::connect(populations, &Populations::readyPopulation,
-                     this, &Game::populationReady);
+                         this, &Game::populationReady);
     loadGrid();
     loadButtons();
 
@@ -44,6 +44,7 @@ void Game::populationReady()
         spawner->spawnTower(tile, tower);
     }
 }
+
 
 void Game::loadGrid()
 {

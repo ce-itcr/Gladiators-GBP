@@ -18,7 +18,7 @@ class Grid : public QFrame
 {
     Q_OBJECT
 public:
-    Grid(QWidget *parent = nullptr, QString mapFilePath = "://maps/map1");
+    Grid(QWidget *parent = nullptr, QString mapFilePath = "://maps/map2");
 
     void load();
 

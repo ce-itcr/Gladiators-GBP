@@ -16,6 +16,7 @@ void GameController::run()
 void GameController::addEntity(Entity *entity)
 {
     entities.push_back(entity);
+    addedEntity(entity);
 }
 
 void GameController::removeEntity(Entity *entity)
@@ -28,11 +29,16 @@ void GameController::update()
     QTimer::singleShot(cycleTime, this, &GameController::update);
     if (pause) return;
 
-    for (Entity *entity : entities)
+    int size = entities.size();
+    for (int i = 0; i < size; i++)
     {
-        //collision(entity);
-        entity->update();
-        entity->draw();
+        Entity *entity = entities.value(i);
+        if (entity)
+        {
+            entity->update();
+            entity->draw();
+            entity->collide();
+        }
     }
 }
 

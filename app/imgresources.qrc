@@ -88,5 +88,6 @@
         <file>img/fire/efecto_fuego_00048.png</file>
         <file>img/fire/efecto_fuego_00049.png</file>
         <file>img/buttons/play_button2.png</file>
+        <file>img/gladiatorAttack.gif</file>
     </qresource>
 </RCC>

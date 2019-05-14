@@ -36,7 +36,7 @@ void Player::draw()
 
 void Player::collide()
 {
-    canMove = false;
+    //canMove = false;
 }
 
 void Player::uncollide()
@@ -90,14 +90,9 @@ void Player::setGladiator(Gladiator *value)
     gladiator = value;
 }
 
-int Player::getNodeIndex() const
+void Player::mousePressEvent(QMouseEvent *)
 {
-    return nodeIndex;
-}
-
-void Player::setNodeIndex(int value)
-{
-    nodeIndex = value;
+    gladiatorPressed(gladiator);
 }
 
 void Player::move()
@@ -105,12 +100,7 @@ void Player::move()
     xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);
     ySpeed = Math::clamp(0, maxSpeed, ySpeed + yAcc);
     x = Math::approach(x, target->x(), xSpeed);
-    y = Math::approach(y, target->y(), ySpeed);
-    gladiator->setI(target->getI());
-    gladiator->setJ(target->getJ());
-
-
-    cout << "(" << target->getI() << ", " << target->getJ() << ") *" << endl;
+    y = Math::approach(y, target->y(), ySpeed);;
 
     QFrame::move(x, y);
     if (x == target->x() && y == target->y()) target = nullptr;
