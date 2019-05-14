@@ -53,6 +53,10 @@ bool Spawner::isWaveFinished()
 void Spawner::spawn()
 {
     if (gladiators->isEmpty()) return;
+    if (gameController->isPause()) {
+        QTimer::singleShot(spawnDelay, this, &Spawner::spawn);
+        return;
+    }
 
     // Generates the player
     Grid *grid = dynamic_cast<Grid *>(parent);
