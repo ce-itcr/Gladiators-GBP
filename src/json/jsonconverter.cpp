@@ -34,7 +34,9 @@ QList<Gladiator*> *JsonConverter::jsonToGladiators(QString jsonGladiators)
     for(QJsonValue jsonValue : jsonArray)
     {
         Gladiator *gladiator = new Gladiator();
-        JsonSerializer::parse(jsonValue.toString(), *gladiator);
+        QJsonDocument doc(jsonValue.toObject());
+        QString strJson(doc.toJson(QJsonDocument::Compact));
+        JsonSerializer::parse(strJson, *gladiator);
         gladiators->push_back(gladiator);
     }
     return gladiators;
@@ -47,7 +49,9 @@ QList<Tower *> *JsonConverter::jsonToTowers(QString jsonTowers)
     for(QJsonValue jsonValue : jsonArray)
     {
         Tower *tower = new Tower();
-        JsonSerializer::parse(jsonValue.toString(), *tower);
+        QJsonDocument doc(jsonValue.toObject());
+        QString strJson(doc.toJson(QJsonDocument::Compact));
+        JsonSerializer::parse(strJson, *tower);
         towers->push_back(tower);
     }
     return towers;

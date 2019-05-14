@@ -15,6 +15,7 @@ void JsonConverterTest::test_gladiatorsToJson()
     QList<Gladiator> gladiators;
     Gladiator g1;
     g1.setAge(23);
+    g1.setHealth(5);
     Gladiator g2;
     g2.setAge(20);
     gladiators.push_back(g1);
@@ -28,6 +29,7 @@ void JsonConverterTest::test_gladiatorsToJson()
 
     QCOMPARE(parsedGladiators->size(), 2);
     QCOMPARE(parsedGladiators->value(0)->getAge(), g1.getAge());
+    QCOMPARE(parsedGladiators->value(0)->getHealth(), g1.getHealth());
     QCOMPARE(parsedGladiators->value(1)->getAge(), g2.getAge());
 }
 

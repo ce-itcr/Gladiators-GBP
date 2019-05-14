@@ -74,7 +74,7 @@ void Game::addedEntity(Entity *entity)
 
 void Game::loadGladiatorLabel(Gladiator *gladiator)
 {
-    ui->ageIN->setNum(1);
+    ui->ageIN->setNum(gladiator->getAge());
     ui->healthIN->setNum(gladiator->getHealth());
     ui->resUPIN->setNum(gladiator->getResistanceUpperBody());
     ui->resLBIN->setNum(gladiator->getResistanceLowerBody());
