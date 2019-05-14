@@ -5,14 +5,27 @@ Gladiators GBP corresponde al _Proyecto II_ para el curso de _Algoritmos y Estru
 ## Pre Requisitos. 
 
 ```
+Qt5::Widgets Qt5::Core
 ```
 
 
 ## Instalación.
 
+Prerequisitos: Debe tener instalado [Git](https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git) en su consola.
 
-```
-```
+1. En GitHub, vaya a la página principal del [repositorio del Proyecto](https://github.com/ce-itcr/Gladiators-GBP).
+2. Debajo del nombre del repositorio, haga clic en Clonar o descargar.
+3. En la sección Clonar con HTTPs, haga clic para copiar la URL de clonación del repositorio.
+4. Abre Git Bash.
+5. Cambie el directorio de trabajo actual a la ubicación donde desea que se realice el directorio clonado.
+6. Escriba 'git clone', y luego pegue la URL que copió en el Paso 2.
+
+
+    ```$ git clone https://github.com/ce-itcr/Gladiators-GBP.git```
+
+
+7. Presione Enter. Se creará su clon local para [Gladiator-GBP](https://github.com/ce-itcr/Gladiators-GBP).
+8. Seleccione el branch 'master' para obtener el código del cliente, y 'GladiatorsServer' para obtener el código del servidor.
 
 
 ## Autores.
