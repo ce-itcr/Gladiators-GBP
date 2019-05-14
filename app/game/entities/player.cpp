@@ -90,6 +90,11 @@ void Player::setGladiator(Gladiator *value)
     gladiator = value;
 }
 
+void Player::mousePressEvent(QMouseEvent *)
+{
+    gladiatorPressed(gladiator);
+}
+
 void Player::move()
 {
     xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);

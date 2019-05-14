@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QMovie>
 #include "game/populationsmock.h"
+#include "game/entities/player.h"
 
 Game::Game(QWidget *parent) :
     QMainWindow(parent),
@@ -17,6 +18,8 @@ Game::Game(QWidget *parent) :
     populations = Populations::getInstance();
     QObject::connect(populations, &Populations::readyPopulation,
                      this, &Game::populationReady);
+    QObject::connect(gameController, &GameController::addedEntity,
+                     this, &Game::addedEntity);
     loadGrid();
     loadButtons();
 
@@ -58,6 +61,24 @@ void Game::populationReady()
 void Game::updatePopulations()
 {
     populations->updatePopulation();
+}
+
+void Game::addedEntity(Entity *entity)
+{
+    if (entity->tag == "player")
+    {
+        Player *player = dynamic_cast<Player *>(entity);
+        QObject::connect(player, &Player::gladiatorPressed, this, &Game::loadGladiatorLabel);
+    }
+}
+
+void Game::loadGladiatorLabel(Gladiator *gladiator)
+{
+    ui->ageIN->setNum(1);
+    ui->healthIN->setNum(gladiator->getHealth());
+    ui->resUPIN->setNum(gladiator->getResistanceUpperBody());
+    ui->resLBIN->setNum(gladiator->getResistanceLowerBody());
+    ui->dodgeIN->setNum(gladiator->getDodgeChance());
 }
 
 void Game::loadGrid()

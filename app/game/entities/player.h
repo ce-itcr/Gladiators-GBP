@@ -39,6 +39,12 @@ public:
     Gladiator *getGladiator() const;
     void setGladiator(Gladiator *value);
 
+signals:
+    void gladiatorPressed(Gladiator *);
+
+protected:
+    void mousePressEvent(QMouseEvent *);
+
 private:
     Grid *grid;
     Gladiator *gladiator;

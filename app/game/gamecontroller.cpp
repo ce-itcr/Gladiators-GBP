@@ -16,6 +16,7 @@ void GameController::run()
 void GameController::addEntity(Entity *entity)
 {
     entities.push_back(entity);
+    addedEntity(entity);
 }
 
 void GameController::removeEntity(Entity *entity)

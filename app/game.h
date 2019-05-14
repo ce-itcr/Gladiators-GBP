@@ -44,6 +44,10 @@ public slots:
 
     void updatePopulations();
 
+    void addedEntity(Entity *entity);
+
+    void loadGladiatorLabel(Gladiator *gladiator);
+
     // QWidget interface
 protected:
     void resizeEvent(QResizeEvent *event);

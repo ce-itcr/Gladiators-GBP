@@ -35,6 +35,7 @@ public:
     void setEntities(const QList<Entity *> &value);
 
 signals:
+    void addedEntity(Entity *entity);
 
 public slots:
     void update();
