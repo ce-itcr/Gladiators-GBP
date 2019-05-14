@@ -37,8 +37,6 @@ void Grid::resizeEvent(QResizeEvent *)
 void Grid::mousePressEvent(QMouseEvent *event)
 {
     FindPath::instance->pathCost = 10000;
-//    FindPath::instance->counter = 0;
-    cout << FindPath::instance->counter << endl;
     int x = event->x();
     int y = event->y();
     for (Tile *tile : tiles)
@@ -47,7 +45,6 @@ void Grid::mousePressEvent(QMouseEvent *event)
         {
             tile->getNode()->setOccupied(true);
             FindPath::instance->shortestPath();
-
             if(FindPath::instance->pathCost != 10000){
                 createEntity(tile);
 
@@ -61,7 +58,6 @@ void Grid::mousePressEvent(QMouseEvent *event)
             }
         }
     }
-
 }
 
 int Grid::getTileSize() const
@@ -137,7 +133,8 @@ void Grid::createEntity(Tile *tile)
     {
         QList<Tower *> *towers = populations->getTowers();
         QString id = QString::number(towers->size());
-        Tower *tower = new Tower(id, 1000);
+        Tower *tower = new Tower();
+        tower->setId(id);
         tower->setI(tile->getI());
         tower->setJ(tile->getJ());
         spawner->spawnTower(tile, tower);

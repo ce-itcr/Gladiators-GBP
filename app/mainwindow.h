@@ -17,6 +17,7 @@
 #include "achievements.h"
 #include "pregame.h"
 #include "info.h"
+#include "util.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,10 +31,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    QMediaPlayer *music;
-
 private slots:
-    void on_settings_Button_clicked();
+//    void on_settings_Button_clicked();
 
     void on_play_Button_clicked();
 
@@ -41,10 +40,11 @@ private slots:
 
     void on_exit_Button_clicked();
 
-    void on_info_Button_clicked();
+//    void on_info_Button_clicked();
 
 private:
     Ui::MainWindow *ui;
 };
+
 
 #endif // MAINWINDOW_H

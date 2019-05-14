@@ -11,13 +11,44 @@ class Tower : public JsonSerializable
 public:
     Tower();
 
-    Tower(QString id, int fireRate);
+    Tower(QString id,
+    int damagePerShoot,
+    int attackSpeed,
+    int xp,
+    int type,
+    int level,
+    int baseAttackSpeed,
+    int baseDamagePerShoot,
+    int xpForLevelUp,
+    int i,
+    int j);
+
+    void write(QJsonObject &jsonObj) const;
+    void read(const QJsonObject &jsonObj);
 
     QString getId() const;
     void setId(const QString &value);
 
-    int getFireRate() const;
-    void setFireRate(int value);
+    int getDamagePerShoot() const;
+    void setDamagePerShoot(int value);
+
+    int getAttackSpeed() const;
+    void setAttackSpeed(int value);
+
+    int getXp() const;
+    void setXp(int value);
+
+    int getType() const;
+    void setType(int value);
+
+    int getLevel() const;
+    void setLevel(int value);
+
+    int getBaseAttackSpeed() const;
+    void setBaseAttackSpeed(int value);
+
+    int getXpForLevelUp() const;
+    void setXpForLevelUp(int value);
 
     int getI() const;
     void setI(int value);
@@ -25,12 +56,16 @@ public:
     int getJ() const;
     void setJ(int value);
 
-    void write(QJsonObject &jsonObj) const;
-    void read(const QJsonObject &jsonObj);
-
 private:
     QString id;
-    int fireRate;
+    int damagePerShoot;
+    int attackSpeed;
+    int xp;
+    int type;
+    int level;
+    int baseAttackSpeed;
+    int baseDamagePerShoot;
+    int xpForLevelUp;
     int i;
     int j;
 };

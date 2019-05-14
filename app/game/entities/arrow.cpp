@@ -1,23 +1,26 @@
 #include "arrow.h"
 #include "game/entities/player.h"
 
-Arrow::Arrow(QWidget *parent) : QFrame(parent)
+Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
 {
     tag = "arrow";
-    x = 0;
-    y = 0;
-    width = 10;
-    height = 2;
+    this->x = x;
+    this->y = y;
+    width = 13;
+    height = 13;
     damage = 1;
     xSpeed = 0;
     ySpeed = 0;
     xAcc = 1;
     yAcc = 1;
-    maxSpeed = 30;
-    maxAcc = 2;
+    maxSpeed = 60;
+    maxAcc = 10;
     target = nullptr;
 
-    this->setStyleSheet("background-color:#EBF5EE;");
+//    this->setStyleSheet("background-color:#EBF5EE;");
+
+    setStyleSheet("background-color:#635255;"
+                  "image: url(:/img/fire/00fire.png)");
     this->setGeometry(x, y, width, height);
     this->show();
 }
@@ -34,8 +37,16 @@ void Arrow::draw()
 
 void Arrow::collide()
 {
-    qDebug() << "HIT";
-    delete this;
+    for (Entity *entity : GameController::getInstance()->getEntities())
+    {
+        if (entity->tag == "player" &&
+                Collision::collide(getRect(), entity->getRect()))
+        {
+            GameController::getInstance()->removeEntity(this);
+            delete this;
+            break;
+        }
+    }
 }
 
 void Arrow::uncollide()
@@ -81,11 +92,14 @@ void Arrow::setTarget(Entity *value)
 
 void Arrow::move()
 {
-    Player *targetPlayer = static_cast<Player *>(target);
-    xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);
-    ySpeed = Math::clamp(0, maxSpeed, ySpeed + yAcc);
-    x = Math::approach(x, targetPlayer->getX(), xSpeed);
-    y = Math::approach(y, targetPlayer->getY(), ySpeed);;
+    if (target->tag != "player") return;
 
-    QFrame::move(x, y);
+        int offset = 10;
+        Player *targetPlayer = static_cast<Player *>(target);
+        xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);
+        ySpeed = Math::clamp(0, maxSpeed, ySpeed + yAcc);
+        x = Math::approach(x, targetPlayer->getX() + offset, xSpeed);
+        y = Math::approach(y, targetPlayer->getY() + offset, ySpeed);;
+
+        QFrame::move(x, y);
 }

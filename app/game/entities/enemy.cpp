@@ -2,14 +2,15 @@
 
 #include "game/spawner.h"
 
-Enemy::Enemy(QWidget *parent) : QFrame(parent)
+Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
 {
     tower = nullptr;
     tag = "enemy";
-    x = 0;
-    y = 0;
+    this->x = x;
+    this->y = y;
     width = 50;
     height = 50;
+    range = 2;
     target = nullptr;
     shootDelay.start();
     canShoot = false;
@@ -24,8 +25,7 @@ Enemy::Enemy(QWidget *parent) : QFrame(parent)
 void Enemy::update()
 {
     this->move(x, y);
-    if (shootDelay.elapsed() >= tower->getFireRate()) canShoot = true;
-
+    if (shootDelay.elapsed() >= tower->getAttackSpeed()) canShoot = true;
 }
 
 void Enemy::draw()
@@ -35,7 +35,16 @@ void Enemy::draw()
 
 void Enemy::collide()
 {
-
+    QList<Entity *> players;
+    for (Entity *entity : GameController::getInstance()->getEntities())
+    {
+        if (entity->tag == "player" &&
+                Collision::collide(getCircle(), entity->getRect()))
+        {
+            players.push_back(entity);
+        }
+    }
+    collide(players);
 }
 
 void Enemy::collide(QList<Entity *> players)
@@ -62,10 +71,10 @@ QRect Enemy::getRect()
 
 QRegion Enemy::getCircle()
 {
-    int xPoss = x - width;
-    int yPoss = y - height;
-    int range = width * 3;
-    QRegion circle(xPoss, yPoss, range, range, QRegion::Ellipse);
+    int xPoss = x - width * range;
+    int yPoss = y - height * range;
+    int diameter = width * range * 2 + width;
+    QRegion circle(xPoss, yPoss, diameter, diameter, QRegion::Ellipse);
     return circle;
 }
 
@@ -124,7 +133,12 @@ Entity *Enemy::closerPlayer(QList<Entity *> players)
 
 void Enemy::shoot(Entity *entity)
 {
+    if (entity == nullptr &&
+            entity->tag != "player") return;
     canShoot = false;
     shootDelay.restart();
-    Spawner::getInstance()->spawnArrow(x, y, entity);
+
+    int xPoss = x + width / 4;
+    int yPoss = y + width / 4;
+    Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity);
 }

@@ -1,7 +1,7 @@
+
 #include "game.h"
 #include "ui_game.h"
 #include <QLabel>
-#include <QMovie>
 #include "game/populationsmock.h"
 
 Game::Game(QWidget *parent) :
@@ -23,15 +23,6 @@ Game::Game(QWidget *parent) :
     // Fake population
     PopulationsMock::run();
     //PopulationsMock::loadNoadesPath(Map::getInstance()->getNodes());
-
-    QMediaPlaylist *playlist = new QMediaPlaylist();
-    playlist->addMedia(QUrl("qrc:/audio/playerLoop.mp3"));
-    playlist->setPlaybackMode(QMediaPlaylist::Loop);
-
-    music = new QMediaPlayer();
-    music->setPlaylist(playlist);
-    music->play();
-    music->setVolume(50);
 }
 
 Game::~Game()
@@ -119,8 +110,6 @@ void Game::on_pauseButton_clicked()
     bool pause = gameController->isPause();
     gameController->setPause(!pause);
 
-    if(!pause) music->pause();
-    else music->play();
 
     QIcon icon;
     if (pause) icon.addFile(":img/pauseIcon.png");
