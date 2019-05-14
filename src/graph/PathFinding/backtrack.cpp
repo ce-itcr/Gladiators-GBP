@@ -52,7 +52,6 @@ void Backtrack::PathfindingBackTrack(int x, int y, int value, List *list){
             list->add_head(newVector);
             if(finalValue > value){
                 finalValue = value;
-                list->print();
                 NodeLinkedList *temp = list->getM_head();
                 while(temp){
                     Path->add_head(temp->element);

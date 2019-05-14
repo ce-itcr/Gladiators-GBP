@@ -35,6 +35,7 @@ public:
     int getJ() const;
     void setJ(int value);
 
+
 private:
     int i, j;
     QString id;

@@ -21,7 +21,7 @@ void FindPath::shortestPath(){
     }else{
         pathCost = 10000;
     }
-
+    int lineas = 0;
     if(pathCost != 10000){
         if(!counter){
             for(Gladiator *gladiator:*Populations::getInstance()->getGladiators()){
@@ -38,6 +38,7 @@ void FindPath::shortestPath(){
             counter++;
         }else{
             for (Gladiator *gladiator:*Populations::getInstance()->getGladiators()) {
+                cout << "(" << gladiator->getI() << ", " << gladiator->getJ() << ")" << endl;
                 List *listTemp = new List();
                 QList<Node *> listQ;
                 backTrackPathFinding.PathfindingBackTrack(gladiator->getI(),gladiator->getJ(), 0, listTemp);
@@ -45,8 +46,10 @@ void FindPath::shortestPath(){
                 gladiator->setNodePath(listQ);
                 listQ.clear();
                 delete listTemp;
+                lineas++;
             }
             counter--;
+            cout << lineas << endl;
         }
     }
 }

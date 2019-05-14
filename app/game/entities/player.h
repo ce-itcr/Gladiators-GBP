@@ -59,7 +59,6 @@ private:
     QList<Node *> nodePath;
     int nodeIndex;
     Tile *target;
-
     void move();
 
     void nextTarget();

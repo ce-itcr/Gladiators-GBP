@@ -57,7 +57,7 @@ void Spawner::spawn()
     // Generates the player
     Grid *grid = dynamic_cast<Grid *>(parent);
     Entity *entity = new Player(grid);
-    Gladiator *gladiator = gladiators->takeFirst();
+    Gladiator *gladiator = gladiators->first();
     Player *player = dynamic_cast<Player *>(entity);
     player->setGladiator(gladiator);
     player->setNodePath(gladiator->getNodePath());
