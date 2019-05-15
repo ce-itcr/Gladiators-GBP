@@ -16,6 +16,8 @@ public:
 
     void POST(const QString &path, const QString &data);
 
+    void loadHost(QString ip, QString port);
+
 signals:
     void readyGladiators(QString );
 
@@ -27,6 +29,9 @@ public slots:
 private:
     static Client *instance;
     QNetworkAccessManager *manager;
+    QString ip;
+    QString port;
+    QString path;
     QString defaultPath;
 
     Client();

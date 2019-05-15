@@ -9,7 +9,7 @@ Client *Client::getInstance()
 
 void Client::GET(const QString &path)
 {
-    QUrl url(defaultPath + path);
+    QUrl url(Client::path + path);
     QNetworkRequest request(url);
 
     qDebug() << "Client GET request to: " << url.toString();
@@ -20,13 +20,18 @@ void Client::GET(const QString &path)
 
 void Client::POST(const QString &path, const QString &data)
 {
-    QUrl url(defaultPath + path);
+    QUrl url(Client::path + path);
     QNetworkRequest request(url);
 
     qDebug() << "Client POST request to: " << url.toString();
     manager->post(request,  data.toUtf8());
 
     QObject::connect(manager, &QNetworkAccessManager::finished, this, &Client::replyFinished);
+}
+
+void Client::loadHost(QString ip, QString port)
+{
+    path = "http://" + ip + ":" + port + defaultPath;
 }
 
 void Client::replyFinished(QNetworkReply *reply)
@@ -44,5 +49,8 @@ void Client::replyFinished(QNetworkReply *reply)
 Client::Client()
 {
     manager = new QNetworkAccessManager();
-    defaultPath = "http://localhost:9080/Gladiators_Server_war_exploded";
+    ip = "localhost";
+    port = "9080";
+    defaultPath = "/Gladiators_Server_war_exploded";
+    path = "http://localhost:9080/Gladiators_Server_war_exploded";
 }
