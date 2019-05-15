@@ -24,6 +24,11 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     this->show();
 }
 
+Player::~Player()
+{
+
+}
+
 void Player::update()
 {
     if (target == nullptr) nextTarget();
@@ -42,6 +47,11 @@ void Player::collide()
 void Player::uncollide()
 {
     canMove = true;
+}
+
+void Player::kill()
+{
+    GameController::getInstance()->removeEntity(this);
 }
 
 QRect Player::getRect()
@@ -103,7 +113,11 @@ void Player::move()
     y = Math::approach(y, target->y(), ySpeed);;
     
     QFrame::move(x, y);
-    if (x == target->x() && y == target->y()) target = nullptr;
+    if (x == target->x() && y == target->y())
+    {
+        target = nullptr;
+        if (nodeIndex == nodePath.size()) kill();  // Reaches final Node
+    }
 }
 
 void Player::nextTarget()

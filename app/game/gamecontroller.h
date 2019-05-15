@@ -9,6 +9,7 @@
 #include "util/collision.h"
 #include "game/entities/enemy.h"
 #include "game/entities/arrow.h"
+#include "game/populations.h"
 
 class GameController : public QObject
 {
@@ -23,6 +24,8 @@ public:
     void addEntity(Entity *entity);
 
     void removeEntity(Entity *entity);
+
+    void callWave();
 
     bool isWaveActive() const;
     void setWaveActive(bool value);
@@ -44,7 +47,9 @@ public slots:
 
 private:
     static GameController *instance;
+    Populations *populations;
     QList<Entity *> entities;
+    QList<Entity *> toDeleteEntities;
     int cycleTime;
     bool waveActive;
     bool pause;
@@ -52,6 +57,10 @@ private:
     GameController();
 
     void collision(Entity *entity);
+
+    void checkWave();
+
+    void deleteEntities();
 
     QList<Entity *> playersInRangeOfTower(QRegion region);
 

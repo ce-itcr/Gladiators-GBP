@@ -20,6 +20,10 @@ public:
 
     void updatePopulation();
 
+    QList<Gladiator> getGladiatorsValues();
+
+    QList<Tower> getTowersValues();
+
     QList<Gladiator *> *getGladiators() const;
     void setGladiators(QList<Gladiator *> *value);
 

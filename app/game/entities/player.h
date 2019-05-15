@@ -17,6 +17,8 @@ class Player : public QFrame, public Entity
 public:
     Player(QWidget *grid = nullptr);
 
+    ~Player();
+
     void update();
 
     void draw();
@@ -24,6 +26,8 @@ public:
     void collide();
 
     void uncollide();
+
+    void kill();
 
     QRect getRect();
 

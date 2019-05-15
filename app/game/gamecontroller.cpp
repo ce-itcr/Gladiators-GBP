@@ -29,13 +29,23 @@ void GameController::addEntity(Entity *entity)
 
 void GameController::removeEntity(Entity *entity)
 {
-    entities.removeOne(entity);
+    toDeleteEntities.push_back(entity);
+}
+
+void GameController::callWave()
+{
+    QList<Gladiator> gladiators = populations->getGladiatorsValues();
+    QList<Tower> towers = populations->getTowersValues();
+    populations->sendPopulation(gladiators, towers);
+    QTimer::singleShot(2000, populations, &Populations::updatePopulation);
 }
 
 void GameController::update()
 {
     QTimer::singleShot(cycleTime, this, &GameController::update);
     if (pause) return;
+
+    deleteEntities();
 
     int size = entities.size();
     for (int i = 0; i < size; i++)
@@ -46,6 +56,8 @@ void GameController::update()
             entity->update();
             entity->draw();
             entity->collide();
+            checkWave();
+            if (!waveActive) callWave();
         }
     }
 }
@@ -92,6 +104,7 @@ void GameController::setWaveActive(bool value)
 
 GameController::GameController()
 {
+    populations = Populations::getInstance();
     cycleTime = 25;
     waveActive = false;
     pause = false;
@@ -108,6 +121,31 @@ void GameController::collision(Entity *entity)
         bool hit = playerHit(entity->getRect());
         if (hit) entity->collide();
     }
+}
+
+void GameController::checkWave()
+{
+    bool hasPlayers = false;
+    for (Entity *player : entities)
+    {
+        if (player->tag == "player")
+        {
+            hasPlayers = true;
+            break;
+        }
+    }
+    if (hasPlayers) waveActive = true;
+    else waveActive = false;
+}
+
+void GameController::deleteEntities()
+{
+    for (Entity *entity : toDeleteEntities)
+    {
+        entities.removeOne(entity);
+        delete entity;
+    }
+    toDeleteEntities.clear();
 }
 
 QList<Entity *> GameController::playersInRangeOfTower(QRegion region)

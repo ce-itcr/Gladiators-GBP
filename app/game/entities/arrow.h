@@ -12,7 +12,7 @@ class Arrow : public QFrame, public Entity
 public:
     Arrow(QWidget *parent = nullptr, int x = 0, int y = 0);
 
-    ~Arrow() = default;
+    ~Arrow();
 
     // Entity interface
     void update();

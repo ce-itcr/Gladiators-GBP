@@ -22,6 +22,11 @@ Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
     this->show();
 }
 
+Enemy::~Enemy()
+{
+
+}
+
 void Enemy::update()
 {
     this->move(x, y);

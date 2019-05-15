@@ -22,6 +22,11 @@ Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
     this->show();
 }
 
+Arrow::~Arrow()
+{
+
+}
+
 void Arrow::update()
 {
     if (target != nullptr) move();
@@ -40,7 +45,6 @@ void Arrow::collide()
                 Collision::collide(getRect(), entity->getRect()))
         {
             GameController::getInstance()->removeEntity(this);
-            delete this;
             break;
         }
     }

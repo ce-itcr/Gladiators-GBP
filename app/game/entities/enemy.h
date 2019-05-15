@@ -16,6 +16,8 @@ class Enemy : public QFrame, public Entity
 public:
     Enemy(QWidget *parent = nullptr, int x = 0, int y = 0);
 
+    ~Enemy();
+
     void update();
 
     void draw();

@@ -29,6 +29,26 @@ void Populations::updatePopulation()
     ClientInterface::getTowers();
 }
 
+QList<Gladiator> Populations::getGladiatorsValues()
+{
+    QList<Gladiator> newGladiators;
+    for (Gladiator *gladiator : *gladiators)
+    {
+        newGladiators.push_back(*gladiator);
+    }
+    return newGladiators;
+}
+
+QList<Tower> Populations::getTowersValues()
+{
+    QList<Tower> newTowers;
+    for (Tower *tower : *towers)
+    {
+        newTowers.push_back(*tower);
+    }
+    return newTowers;
+}
+
 void Populations::updateGladiators(QString jsonGladiators)
 {
     qDebug() << "Populations::updateGladiators()";
