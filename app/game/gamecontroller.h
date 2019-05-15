@@ -18,6 +18,8 @@ public:
 
     void run();
 
+    void stop();
+
     void addEntity(Entity *entity);
 
     void removeEntity(Entity *entity);

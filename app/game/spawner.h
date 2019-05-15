@@ -18,6 +18,8 @@ class Spawner : public QObject
 public:
     static Spawner *getInstance(QObject *parent = nullptr);
 
+    void stop();
+
     void spawnGladiators(QList<Gladiator *> *value);
 
     void spawnTower(Tile *tile, Tower *tower);

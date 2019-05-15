@@ -11,6 +11,11 @@ Spawner *Spawner::getInstance(QObject *parent)
     return instance;
 }
 
+void Spawner::stop()
+{
+    gladiators->clear();
+}
+
 void Spawner::spawnGladiators(QList<Gladiator *> *value)
 {
     gladiators = new QList<Gladiator *>(*value);
@@ -82,5 +87,6 @@ void Spawner::setParent(QObject *value)
 Spawner::Spawner(QObject *parent) : QObject (parent), parent(parent)
 {
     gameController = GameController::getInstance();
-    spawnDelay = 1000;
+    spawnDelay = 500;
+    gladiators = new QList<Gladiator *>();
 }

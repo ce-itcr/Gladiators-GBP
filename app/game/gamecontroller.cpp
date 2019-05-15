@@ -13,6 +13,14 @@ void GameController::run()
 
 }
 
+void GameController::stop()
+{
+    cycleTime = 25;
+    waveActive = false;
+    pause = false;
+    entities.clear();
+}
+
 void GameController::addEntity(Entity *entity)
 {
     entities.push_back(entity);

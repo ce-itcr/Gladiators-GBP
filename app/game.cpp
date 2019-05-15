@@ -1,4 +1,5 @@
 #include "game.h"
+#include "mainwindow.h"
 #include "ui_game.h"
 #include <QLabel>
 #include <QMovie>
@@ -158,6 +159,13 @@ void Game::on_pauseButton_clicked()
     pausesrc->setMedia(QUrl("qrc:/audio/Fire01.wav"));
     pausesrc->setVolume(50);
     pausesrc->play();
+}
 
-
+void Game::on_exitButton_clicked()
+{
+    gameController->stop();
+    spawner->stop();
+    close();
+    MainWindow *w = new MainWindow();
+    w->show();
 }

@@ -68,6 +68,7 @@ private slots:
     void on_waveButton_clicked();
     void on_fastButton_clicked();
     void on_pauseButton_clicked();
+    void on_exitButton_clicked();
 };
 
 #endif // GAME_H
