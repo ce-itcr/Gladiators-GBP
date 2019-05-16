@@ -50,6 +50,8 @@ void Enemy::collide()
         }
     }
     collide(players);
+
+
 }
 
 void Enemy::collide(QList<Entity *> players)
@@ -145,5 +147,5 @@ void Enemy::shoot(Entity *entity)
 
     int xPoss = x + width / 4;
     int yPoss = y + width / 4;
-    Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity);
+    Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity, this->tower->damagePerShoot);
 }

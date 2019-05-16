@@ -8,7 +8,7 @@ Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
     this->y = y;
     width = 10;
     height = 10;
-    damage = 1;
+    damage = 10;
     xSpeed = 0;
     ySpeed = 0;
     xAcc = 1;
@@ -20,6 +20,14 @@ Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
     this->setStyleSheet("background-color:#EBF5EE;");
     this->setGeometry(x, y, width, height);
     this->show();
+}
+
+void Arrow::setDamage(int Damage){
+    this->damage = Damage;
+}
+
+int Arrow::getDamage(){
+    return this->damage;
 }
 
 Arrow::~Arrow()
@@ -42,11 +50,21 @@ void Arrow::collide()
     for (Entity *entity : GameController::getInstance()->getEntities())
     {
         if (entity->tag == "player" &&
-                Collision::collide(getRect(), entity->getRect()))
+                Collision::collide(this->getRect(), entity->getRect()))
         {
             GameController::getInstance()->removeEntity(this);
-            break;
-        }
+            Player *player = dynamic_cast<Player *>(entity);
+            cout<<player->getGladiator()->getHealth()<<endl;
+            if(player->getGladiator()->getHealth()>0){
+                int gladiatorLifePoints = player->getGladiator()->getHealth();
+                int arrowDamage = this->getDamage();
+                player->getGladiator()->setHealth(gladiatorLifePoints-arrowDamage);
+                cout<<player->getGladiator()->getHealth()<<endl;
+            }
+            if(player->getGladiator()->getHealth()<=0){
+                player->kill();
+            }
+         }
     }
 }
 

@@ -26,7 +26,8 @@ public:
 
     int getY() const;
     void setY(int value);
-
+    void setDamage(int Damage);
+    int getDamage();
     Entity *getTarget() const;
     void setTarget(Entity *value);
 
