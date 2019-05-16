@@ -25,6 +25,7 @@ public:
     int pathCost = 10000;
     void shortestPath();
     FindPath();
+    int counter = 1;
 private:
 
 };

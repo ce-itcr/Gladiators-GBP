@@ -43,6 +43,9 @@ public:
     Gladiator *getGladiator() const;
     void setGladiator(Gladiator *value);
 
+    int getNodeIndex() const;
+    void setNodeIndex(int value);
+
 signals:
     void gladiatorPressed(Gladiator *);
 

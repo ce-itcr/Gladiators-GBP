@@ -105,6 +105,16 @@ void Player::mousePressEvent(QMouseEvent *)
     gladiatorPressed(gladiator);
 }
 
+int Player::getNodeIndex() const
+{
+    return nodeIndex;
+}
+
+void Player::setNodeIndex(int value)
+{
+    nodeIndex = value;
+}
+
 void Player::move()
 {
     xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);

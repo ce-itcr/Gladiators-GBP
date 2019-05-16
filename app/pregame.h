@@ -11,6 +11,7 @@
 #define PREGAME_H
 
 #include <QDialog>
+#include "mainwindow.h"
 
 namespace Ui {
 class PreGame;
@@ -26,6 +27,8 @@ public:
 
 private slots:
     void on_playGame_clicked();
+
+    void on_backButton_clicked();
 
 private:
     Ui::PreGame *ui;

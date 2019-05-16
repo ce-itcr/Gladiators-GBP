@@ -15,59 +15,70 @@ Backtrack::Backtrack(int endY,int endX,int finalValue,Vector start,Vector finish
     }
 }
 
-void Backtrack::NodeToArray(const QList<Node *> nodeList, int row, int column){
-    QList<Node *>::const_iterator i;
-    for(i = nodeList.begin(); i < nodeList.end(); i++){
-        if(column > h){
-            column = 0;
-            row++;
-        }else{
-            map[row][column] = (*i)->isOccupied() ? 1 : 0;
-        }
-    }
-//    for (int i = 0; i < row; ++i) {
-//        for (int j = 0; j < column; ++j) {
-//            map[i][j] = matrixList.front()->front()->isOccupied() ? 1 : 0;
-//            matrixList.front()->erase(0);
-//        }
-//        matrixList.erase(0);
-//    }
-}
+
 
 void Backtrack::PathfindingBackTrack(int x, int y, int value, List *list){
-
     Vector *newVector = new Vector(x, y);
-    bool exist = list->search(newVector);
-
-
-    if(y + 1 < 15 && map[x][y + 1] != 1 &&
-    ((x == endX && y != endY) || (x != endX && y != endY) || (x != endX && y == endY)) && !exist && value < finalValue) {
-        list->add_head(newVector);
-        PathfindingBackTrack(x, y + 1, finalValue + 1, list);
-        list->del_by_data(newVector);
-    }
-    if (x - 1 >= 0 && map[x - 1][y] != 1 &&
-    ((x == endX && y != endY) || (x != endX && y != endY) || (x != endX && y == endY)) && !exist && value < finalValue) {
-        list->add_head(newVector);
-        PathfindingBackTrack(x - 1, y, finalValue + 1, list);
-        list->del_by_data(newVector);
-    }
-    if (x + 1 < 15 && map[x + 1][y] != 1 &&
-    ((x == endX && y != endY) || (x != endX && y != endY) || (x != endX && y == endY)) && !exist && value < finalValue) {
-        list->add_head(newVector);
-        PathfindingBackTrack(x + 1, y, finalValue + 1, list);
-        list->del_by_data(newVector);
-    }
-    if(x == endX && y == endY){
-        list->add_head(newVector);
-        if(finalValue > value){
-            finalValue = value;
-            while(list->m_head){
-                Path.add_end(list->m_head->element);
-                list->del_by_data(0);
-            }
-            Path.print();
+    if(!list->search(newVector) && Path->m_head == NULL){
+        //abajo
+        if (x + 1 < 15 && map[x + 1][y] != 1 &&
+                ((x == endX && y != endY) || (x != endX && y != endY) || (x != endX && y == endY)) && value < finalValue) {
+            list->add_head(newVector);
+            PathfindingBackTrack(x + 1, y, value + 1, list);
+            list->del_by_data(newVector);
         }
-        list->del_by_data(newVector);
+        //derecha
+        if(y + 1 < 15 && map[x][y + 1] != 1 &&
+                ((x == endX && y != endY) || (x != endX && y != endY) || (x != endX && y == endY)) && value < finalValue) {
+            list->add_head(newVector);
+            PathfindingBackTrack(x, y + 1, value + 1, list);
+            list->del_by_data(newVector);
+        }
+        //izquierda
+        if (y - 1 >= 0 && map[x][y - 1] != 1 &&
+                ((x == endX && y != endY) || (x != endX && y != endY) || (x != endX && y == endY)) && value < finalValue) {
+            list->add_head(newVector);
+            PathfindingBackTrack(x, y - 1, value + 1, list);
+            list->del_by_data(newVector);
+        }
+        //arriba
+        if (x - 1 >= 0 && map[x - 1][y] != 1 &&
+                ((x == endX && y != endY) || (x != endX && y != endY) || (x != endX && y == endY)) && value < finalValue) {
+            list->add_head(newVector);
+            PathfindingBackTrack(x - 1, y, value + 1, list);
+            list->del_by_data(newVector);
+        }
+        if(x == endX && y == endY){
+            list->add_head(newVector);
+            if(finalValue > value){
+                finalValue = value;
+                NodeLinkedList *temp = list->getM_head();
+                while(temp){
+                    Path->add_head(temp->element);
+                    temp = temp->next;
+                }
+            }
+            list->del_by_data(newVector);
+        }
+    }
+}
+
+void Backtrack::vectorListToQList(const QList<Node *> &QListGame,QList<Node *> &QListBackTrack)
+{
+    while(this->Path->m_head != NULL){
+        int x =this->Path->m_head->element->getX();
+        int y =this->Path->m_head->element->getY();
+        findNode(QListGame, QListBackTrack, this->Path->m_head->element);
+        Path->del_by_data(Path->m_head->element);
+    }
+    finalValue = 10000;
+}
+
+void Backtrack::findNode(const QList<Node *> &nodeList,QList<Node *> &pathList, Vector *vectorToFind){
+    QList<Node *>::const_iterator i;
+    for(i = nodeList.begin(); i != nodeList.end(); i++){
+        if((*i)->getX() == vectorToFind->getX() && (*i)->getY() == vectorToFind->getY()){
+            pathList.push_back(*i);
+        }
     }
 }

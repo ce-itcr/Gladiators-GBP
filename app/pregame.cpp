@@ -19,3 +19,10 @@ void PreGame::on_playGame_clicked(){
     Game *game = new Game();
     game->show();
 }
+
+void PreGame::on_backButton_clicked()
+{
+    close();
+    MainWindow *w = new MainWindow();
+    w->show();
+}

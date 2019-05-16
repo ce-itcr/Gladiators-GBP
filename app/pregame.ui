@@ -23,8 +23,8 @@
   <widget class="QPushButton" name="playGame">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>410</y>
+     <x>630</x>
+     <y>670</y>
      <width>125</width>
      <height>75</height>
     </rect>
@@ -49,7 +49,26 @@ background-repeat: none;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
+    <string notr="true">background-image: url(:/img/backgrounds/2.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>670</y>
+     <width>125</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/back_button.png);
+background: none;
+background-repeat: none;</string>
    </property>
    <property name="text">
     <string/>
@@ -57,6 +76,7 @@ background-repeat: none;</string>
   </widget>
   <zorder>label</zorder>
   <zorder>playGame</zorder>
+  <zorder>backButton</zorder>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

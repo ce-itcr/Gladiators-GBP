@@ -36,5 +36,6 @@
         <file>img/backgrounds/3.jpg</file>
         <file>img/backgrounds/5.jpg</file>
         <file>img/gladiatorRun.gif</file>
+        <file>img/buttons/play_button2.png</file>
     </qresource>
 </RCC>

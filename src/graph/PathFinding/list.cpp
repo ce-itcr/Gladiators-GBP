@@ -62,7 +62,6 @@ void List::del_by_data(Vector *element)
             if (temp1->element->getX() == element->getX() && temp1->element->getY() == element->getY()) {
                 NodeLinkedList *aux_node = temp1;
                 temp->next = temp1->next;
-
                 cout << "Deleted Node: (" << aux_node->element->getX() << ", " << aux_node->element->getY() << ")" << endl;
                 delete aux_node;
                 cont++;
@@ -98,6 +97,10 @@ bool List::search(Vector *element){
     int elementY = element->getY();
 
     while (temp) {
+
+//        cout << "(" << elementX << ", " << elementY << ")" << " -> ";
+//        cout << "(" << temp->element->getX() << ", " << temp->element->getY() << ")" << endl;
+
         if (temp->element->getX() == elementX && temp->element->getY() == elementY) {
             return true;
         }
