@@ -1,4 +1,5 @@
 #include "gamecontroller.h"
+#include "spawner.h"
 
 GameController *GameController::instance = new GameController();
 
@@ -34,6 +35,10 @@ void GameController::removeEntity(Entity *entity)
 
 void GameController::callWave()
 {
+    for (Entity *entity : entities)
+    {
+        if (entity->tag == "enemy") removeEntity(entity);
+    }
     QList<Gladiator> gladiators = populations->getGladiatorsValues();
     QList<Tower> towers = populations->getTowersValues();
     populations->sendPopulation(gladiators, towers);
@@ -155,6 +160,7 @@ void GameController::collision(Entity *entity)
 void GameController::checkWave()
 {
     bool hasPlayers = false;
+    if (!Spawner::getInstance()->isWaveFinished()) hasPlayers = true;
     for (Entity *player : entities)
     {
         if (player->tag == "player")
