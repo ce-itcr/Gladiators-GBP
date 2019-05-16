@@ -111,6 +111,12 @@ void Game::resizeEvent(QResizeEvent *)
     grid->resize(width, height);
 }
 
+void Game::paintEvent(QPaintEvent *)
+{
+    int count = spawner->waveSize();
+    ui->waveCount->setNum(count);
+}
+
 void Game::on_waveButton_clicked()
 {
     if (gameController->isWaveActive()) return;

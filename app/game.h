@@ -52,6 +52,8 @@ public slots:
 protected:
     void resizeEvent(QResizeEvent *event);
 
+    void paintEvent(QPaintEvent *);
+
 private:
     Ui::Game *ui;
     Grid *grid;

@@ -594,6 +594,29 @@ color: #EBF5EE;
     <string>Exit</string>
    </property>
   </widget>
+  <widget class="QLabel" name="waveCount">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>20</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size:32px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

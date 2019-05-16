@@ -50,6 +50,11 @@ void Spawner::spawnArrow(int x, int y, Entity *target)
     gameController->addEntity(entity);
 }
 
+int Spawner::waveSize()
+{
+    return gladiators->size();
+}
+
 bool Spawner::isWaveFinished()
 {
     return gladiators->isEmpty();

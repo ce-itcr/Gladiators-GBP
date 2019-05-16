@@ -26,6 +26,8 @@ public:
 
     void spawnArrow(int x, int y, Entity *target);
 
+    int waveSize();
+
     bool isWaveFinished();
 
     void setParent(QObject *value);
