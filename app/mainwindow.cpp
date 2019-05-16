@@ -39,10 +39,3 @@ void MainWindow::on_exit_Button_clicked()
     close();
 }
 
-void MainWindow::on_info_Button_clicked()
-{
-    close();
-    Info info;
-    info.setModal(true);
-    info.exec();
-}

@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Scrabble GBP</string>
+   <string>Gladiators GBP</string>
   </property>
   <property name="windowIcon">
    <iconset resource="imgresources.qrc">
@@ -38,7 +38,7 @@ background-image: url(:/img/background.jpg);
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
+    <string notr="true">background-image: url(:/img/backgrounds/2.jpg);</string>
    </property>
    <property name="text">
     <string/>
@@ -610,8 +610,7 @@ font-weight: 500;
 font-size:32px;
 line-height: 22px;
 
-color: #EBF5EE;
-</string>
+color: rgb(46, 52, 54);</string>
    </property>
    <property name="text">
     <string>0</string>

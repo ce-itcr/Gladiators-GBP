@@ -1,6 +1,7 @@
 #include "pregame.h"
 #include "ui_pregame.h"
 #include "game.h"
+#include "mainwindow.h"
 
 PreGame::PreGame(QWidget *parent) :
     QDialog(parent),
@@ -58,4 +59,11 @@ void PreGame::mapButtonClicked()
     QString path = "://maps/" + button->text();
     loadGrid(path);
     GameController::getInstance()->setMap(path);
+}
+
+void PreGame::on_backButton_clicked()
+{
+    close();
+    MainWindow *w = new MainWindow();
+    w->show();
 }

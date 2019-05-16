@@ -30,6 +30,8 @@ public:
 private slots:
     void on_playGame_clicked();
 
+    void on_backButton_clicked();
+
 private:
     Ui::PreGame *ui;
     Grid *grid;

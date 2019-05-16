@@ -49,35 +49,29 @@ background-repeat: none;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/img/backgrounds/5.jpg);</string>
+    <string notr="true">background-image: url(:/img/backgrounds/2.jpg);</string>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
-  <widget class="QFrame" name="achievements_Frame">
+  <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>170</y>
-     <width>861</width>
-     <height>571</height>
+     <x>80</x>
+     <y>190</y>
+     <width>1021</width>
+     <height>481</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(235, 245, 238, 0.29);
 border-radius: 10px;</string>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
   </widget>
   <zorder>label</zorder>
   <zorder>toMainWIndow</zorder>
-  <zorder>achievements_Frame</zorder>
+  <zorder>tableWidget</zorder>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

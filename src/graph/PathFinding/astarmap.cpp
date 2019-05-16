@@ -26,11 +26,8 @@ void AStarMap::updateMap(int row, int column){
         for (int j = 0; j < column; ++j) {
             Node *node = Map::getInstance()->nodeAt(i,j);
             map[i][j] = node->isOccupied() ? 1 : 0;
-            cout << node->isOccupied();
         }
-        cout << endl;
     }
-    cout<<endl<<endl;
 };
 
 int AStarMap::operator() (int x, int y){
