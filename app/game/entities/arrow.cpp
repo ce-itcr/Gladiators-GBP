@@ -17,7 +17,10 @@ Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
     maxAcc = 10;
     target = nullptr;
 
-    this->setStyleSheet("background-color:#EBF5EE;");
+    setStyleSheet("background-color:#635255;"
+                  "image: url(:/img/fire/00fire.png)");
+
+//    this->setStyleSheet("background-color:#EBF5EE;");
     this->setGeometry(x, y, width, height);
     this->show();
 }

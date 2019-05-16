@@ -11,6 +11,7 @@
 #define SETTINGS_H
 
 #include <QDialog>
+#include "pregame.h"
 
 namespace Ui {
 class Settings;

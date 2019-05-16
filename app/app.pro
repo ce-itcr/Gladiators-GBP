@@ -39,7 +39,8 @@ SOURCES += \
     game.cpp \
     game/entities/player.cpp \
     game/gamecontroller.cpp \
-    game/entities/enemy.cpp
+    game/entities/enemy.cpp \
+    util.cpp
 
 HEADERS += \
 	game/entities/arrow.h \
@@ -54,7 +55,8 @@ HEADERS += \
     game/entities/entity.h \
     game/gamecontroller.h \
     game.h \
-    game/entities/enemy.h
+    game/entities/enemy.h \
+    util.h
 
 FORMS += \
         mainwindow.ui \

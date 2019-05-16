@@ -58,8 +58,8 @@ background-repeat: none;</string>
   <widget class="QLabel" name="ipLabel">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>340</y>
+     <x>450</x>
+     <y>280</y>
      <width>71</width>
      <height>51</height>
     </rect>
@@ -81,8 +81,8 @@ color: #EBF5EE;</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>400</y>
+     <x>450</x>
+     <y>340</y>
      <width>71</width>
      <height>41</height>
     </rect>
@@ -104,8 +104,8 @@ color: #EBF5EE;</string>
   <widget class="QTextEdit" name="ipEdit">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>350</y>
+     <x>550</x>
+     <y>290</y>
      <width>104</width>
      <height>31</height>
     </rect>
@@ -121,8 +121,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QTextEdit" name="portEdit">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>400</y>
+     <x>550</x>
+     <y>340</y>
      <width>104</width>
      <height>31</height>
     </rect>
@@ -138,14 +138,39 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>460</y>
-     <width>89</width>
-     <height>25</height>
+     <x>680</x>
+     <y>300</y>
+     <width>81</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/OK_button.png);
+background: none;
+background-repeat: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>110</y>
+     <width>441</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="text">
-    <string>OK</string>
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imgresources.qrc">:/img/settingsTitle.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <zorder>label</zorder>
@@ -155,6 +180,7 @@ p, li { white-space: pre-wrap; }
   <zorder>ipEdit</zorder>
   <zorder>portEdit</zorder>
   <zorder>pushButton</zorder>
+  <zorder>label_2</zorder>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

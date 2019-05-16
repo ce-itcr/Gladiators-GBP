@@ -20,6 +20,10 @@ PreGame::~PreGame()
 }
 
 void PreGame::on_playGame_clicked(){
+    QMediaPlayer* playGAME = new QMediaPlayer;
+    playGAME->setMedia(QUrl("qrc:/audio/PowerUp03.wav"));
+    playGAME->setVolume(50);
+    playGAME->play();
     close();
     Game *game = new Game();
     game->show();
@@ -59,6 +63,7 @@ void PreGame::mapButtonClicked()
     QString path = "://maps/" + button->text();
     loadGrid(path);
     GameController::getInstance()->setMap(path);
+
 }
 
 void PreGame::on_backButton_clicked()

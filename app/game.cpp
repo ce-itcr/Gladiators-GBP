@@ -26,18 +26,11 @@ Game::Game(QWidget *parent) :
     loadButtons();
 
     // Creates Population
-    //PopulationsMock::run();
+    PopulationsMock::run();
     populations->startNewPopulation();
     QTimer::singleShot(1000, this, &Game::updatePopulations);
 
-    QMediaPlaylist *playlist = new QMediaPlaylist();
-    playlist->addMedia(QUrl("qrc:/audio/playerLoop.mp3"));
-    playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
-    music = new QMediaPlayer();
-    music->setPlaylist(playlist);
-    music->play();
-    music->setVolume(50);
 }
 
 Game::~Game()
@@ -155,8 +148,8 @@ void Game::on_pauseButton_clicked()
     bool pause = gameController->isPause();
     gameController->setPause(!pause);
 
-    if(!pause) music->pause();
-    else music->play();
+//    if(!pause) music->pause();
+//    else music->play();
 
     QIcon icon;
     if (pause) icon.addFile(":img/pauseIcon.png");
@@ -173,7 +166,15 @@ void Game::on_exitButton_clicked()
 {
     gameController->stop();
     spawner->stop();
+
+    QMediaPlayer* exit = new QMediaPlayer;
+    exit->setMedia(QUrl("qrc:/audio/Death02.wav"));
+    exit->setVolume(100);
+    exit->play();
+
     close();
     MainWindow *w = new MainWindow();
     w->show();
+
+
 }

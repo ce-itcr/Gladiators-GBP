@@ -24,8 +24,8 @@
    <widget class="QPushButton" name="exit_Button">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>660</y>
+      <x>780</x>
+      <y>580</y>
       <width>100</width>
       <height>75</height>
      </rect>
@@ -40,36 +40,11 @@ background-repeat: none;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="achievements_Button">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>660</y>
-      <width>100</width>
-      <height>75</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: transparent;
-border-image: url(:/img/buttons/achievements_icon.png);
-background: none;
-background-repeat: none;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QPushButton" name="settings_Button">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>660</y>
+      <x>340</x>
+      <y>580</y>
       <width>100</width>
       <height>75</height>
      </rect>
@@ -87,10 +62,10 @@ background-repeat: none;</string>
    <widget class="QPushButton" name="play_Button">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>490</y>
-      <width>250</width>
-      <height>120</height>
+      <x>490</x>
+      <y>560</y>
+      <width>241</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -122,10 +97,10 @@ background-repeat: none;</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>360</x>
       <y>40</y>
-      <width>511</width>
-      <height>151</height>
+      <width>531</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="text">
@@ -140,7 +115,6 @@ background-repeat: none;</string>
    </widget>
    <zorder>label</zorder>
    <zorder>exit_Button</zorder>
-   <zorder>achievements_Button</zorder>
    <zorder>settings_Button</zorder>
    <zorder>play_Button</zorder>
    <zorder>label_2</zorder>

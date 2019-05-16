@@ -8,5 +8,6 @@
         <file>audio/Death02.wav</file>
         <file>audio/playerLoop2.wav</file>
         <file>audio/hammering.wav</file>
+        <file>audio/PowerUp03.wav</file>
     </qresource>
 </RCC>
