@@ -42,6 +42,9 @@ public:
     bool getWaveWaiting() const;
     void setWaveWaiting(bool value);
 
+    QString getMap() const;
+    void setMap(const QString &value);
+
 signals:
     void addedEntity(Entity *entity);
 
@@ -59,6 +62,7 @@ private:
     bool waveActive;
     bool waveWaiting;
     bool pause;
+    QString map;
 
     GameController();
 

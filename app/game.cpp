@@ -85,7 +85,7 @@ void Game::loadGladiatorLabel(Gladiator *gladiator)
 
 void Game::loadGrid()
 {
-    grid = new Grid(this);
+    grid = new Grid(this, gameController->getMap());
 
     int xOffset = 16, yOffset = 82;
     int x = xOffset, y = yOffset;

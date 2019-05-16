@@ -8,7 +8,8 @@ PreGame::PreGame(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    loadGrid("://maps/map1");
+    QString map = GameController::getInstance()->getMap();
+    loadGrid(map);
     loadMaps();
 }
 
@@ -55,4 +56,5 @@ void PreGame::mapButtonClicked()
     QPushButton *button = qobject_cast<QPushButton *>(sender());
     QString path = "://maps/" + button->text();
     loadGrid(path);
+    GameController::getInstance()->setMap(path);
 }

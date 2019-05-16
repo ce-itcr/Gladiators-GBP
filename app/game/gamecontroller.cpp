@@ -66,6 +66,16 @@ void GameController::populationReady()
     waveWaiting = false;
 }
 
+QString GameController::getMap() const
+{
+    return map;
+}
+
+void GameController::setMap(const QString &value)
+{
+    map = value;
+}
+
 bool GameController::getWaveWaiting() const
 {
     return waveWaiting;
@@ -123,6 +133,7 @@ GameController::GameController()
     waveActive = false;
     waveWaiting = false;
     pause = false;
+    map = "://maps/snake";
 
     QObject::connect(populations, &Populations::readyPopulation,
                      this, &GameController::populationReady);
