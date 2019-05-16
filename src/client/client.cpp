@@ -41,7 +41,7 @@ void Client::replyFinished(QNetworkReply *reply)
     if (message == "") return;
 
     QString populationType = reply->rawHeader("population-type");
-    qDebug() << "Reply finished : " << message;
+    qDebug().noquote() << "Reply finished : " << message;
 
     if (populationType == "gladiators") readyGladiators(message);
     else if (populationType == "towers") readyTowers(message);

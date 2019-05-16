@@ -24,7 +24,7 @@
    <property name="geometry">
     <rect>
      <x>540</x>
-     <y>410</y>
+     <y>680</y>
      <width>125</width>
      <height>75</height>
     </rect>
@@ -55,8 +55,20 @@ background-repeat: none;</string>
     <string/>
    </property>
   </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>80</y>
+     <width>160</width>
+     <height>431</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="mapsLayout"/>
+  </widget>
   <zorder>label</zorder>
   <zorder>playGame</zorder>
+  <zorder>verticalLayoutWidget</zorder>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

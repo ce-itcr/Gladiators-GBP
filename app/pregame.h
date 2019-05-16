@@ -11,6 +11,9 @@
 #define PREGAME_H
 
 #include <QDialog>
+#include <QDir>
+
+#include "game/grid.h"
 
 namespace Ui {
 class PreGame;
@@ -29,6 +32,13 @@ private slots:
 
 private:
     Ui::PreGame *ui;
+    Grid *grid;
+
+    void loadGrid(QString map);
+
+    void loadMaps();
+
+    void mapButtonClicked();
 };
 
 #endif // PREGAME_H
