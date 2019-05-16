@@ -33,13 +33,13 @@ Tower::Tower(QString id, int damagePerShoot, int attackSpeed, int xp, int type, 
 void Tower::write(QJsonObject &jsonObj) const
 {
     jsonObj["id"] = id;
-    jsonObj["damagePerShoot"] = damagePerShoot;
+    jsonObj["damagePerShot"] = damagePerShoot;
     jsonObj["attackSpeed"] = attackSpeed;
     jsonObj["xp"] = xp;
     jsonObj["type"] = type;
     jsonObj["level"] = level;
     jsonObj["baseAttackSpeed"] = baseAttackSpeed;
-    jsonObj["baseDamagePerShoot"] = baseDamagePerShoot;
+    jsonObj["baseDamagePerShot"] = baseDamagePerShoot;
     jsonObj["xpForLevelUp"] = xpForLevelUp;
     jsonObj["i"] = i;
     jsonObj["j"] = j;
@@ -48,13 +48,13 @@ void Tower::write(QJsonObject &jsonObj) const
 void Tower::read(const QJsonObject &jsonObj)
 {
     id = jsonObj["id"].toString();
-    damagePerShoot = jsonObj["damagePerShoot"].toInt();
+    damagePerShoot = jsonObj["damagePerShot"].toInt();
     attackSpeed = jsonObj["attackSpeed"].toInt();
     xp = jsonObj["xp"].toInt();
     type = jsonObj["type"].toInt();
     level = jsonObj["level"].toInt();
     baseAttackSpeed = jsonObj["baseAttackSpeed"].toInt();
-    baseDamagePerShoot = jsonObj["baseDamagePerShoot"].toInt();
+    baseDamagePerShoot = jsonObj["baseDamagePerShot"].toInt();
     xpForLevelUp = jsonObj["xpForLevelUp"].toInt();
     i = jsonObj["i"].toInt();
     j = jsonObj["j"].toInt();
