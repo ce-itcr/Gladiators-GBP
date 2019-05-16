@@ -17,7 +17,6 @@ public class FirstPopulation {
 			int dodgeChance = Gladiators.getInstance().population[i].getChromosome().getDodgeChance();
 			GladiatorSend g = new GladiatorSend(Integer.toString(i), age, health, resistanceUpperBody, resistanceLowerBody, dodgeChance);
 			gladiatorsSend.putGladiator(g);
-			System.out.println("i" + i);
 		}
 		TowersSend.getInstance().clearAllTowers();
 	}

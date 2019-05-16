@@ -43,7 +43,6 @@ public class GeneticAlgorithm {
 			gladiatorArray[i].getChromosome().setDodgeChance(gladiatorSend.getDodgeChance());
 			gladiatorArray[i].setFitness();
 			i++;
-			System.out.println("i" + i);
 		}
 		return gladiatorArray;
 	}

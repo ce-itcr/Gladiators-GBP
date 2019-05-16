@@ -58,7 +58,10 @@ public class TowersSend {
         Towers.getInstance().levelManager();
         towers = new HashMap<>();
         int i = 0;
+        System.out.println(Towers.getInstance().getListSize());
         for (TowerSend towerSend : newTowers){
+            System.out.println("i" + i);
+            System.out.println("newTowers size: " + newTowers.size());
             towerSend.setAttackSpeed(Towers.getInstance().getTowersList().get(i).getAttackSpeed());
             towerSend.setBaseAttackSpeed(Towers.getInstance().getTowersList().get(i).getBaseAttackSpeed());
             towerSend.setDamagePerShot(Towers.getInstance().getTowersList().get(i).getDamagePerShot());
@@ -70,6 +73,7 @@ public class TowersSend {
             towerSend.setType(Towers.getInstance().getTowersList().get(i).getType());
             towerSend.setXpForLevelUp(Towers.getInstance().getTowersList().get(i).getXpForLevelUp());
             towers.put(towerSend.getId(), towerSend);
+            i++;
         }
         Towers.getInstance().printTowersList();
     }
