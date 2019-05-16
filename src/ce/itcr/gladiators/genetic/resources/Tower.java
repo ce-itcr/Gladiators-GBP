@@ -73,18 +73,19 @@ public class Tower {
 	}
 
 	public void levelUp() {
-		if (this.level == 10 && this.type < 3) {
+		if (this.level == 4 && this.type < 3) {
 			this.type++;
 			this.level = 1;
 			this.xp -= xpForLevelUp;
-			this.xpForLevelUp += 10;
+			this.xpForLevelUp += 5;
 			upgradeRNG();
 		}
-		this.attackSpeed++;
-		this.damagePerShot++;
+		if (this.attackSpeed > 500);
+			this.attackSpeed -= 10;
+		this.damagePerShot += 5;
 		this.level++;
 		this.xp -= this.xpForLevelUp;
-		this.xpForLevelUp += 10;
+		this.xpForLevelUp += 5;
 	}
 	
 	private void upgradeRNG() {

@@ -34,6 +34,7 @@ public class TowersSend {
 //        LinkedList<Tower> towerList = new LinkedList<Tower>();
         int index = 0;
         for (TowerSend towerSend : newTowers) {
+            System.out.println("newTowers size 1: " + newTowers.size());
             int attackSpeed = towerSend.getAttackSpeed();
             int damagePerShot = towerSend.getDamagePerShot();
             int level = towerSend.getLevel();
@@ -51,6 +52,7 @@ public class TowersSend {
             } else {
                 System.out.println("ADD");
                 Towers.getInstance().getTowersList().add(new Tower(attackSpeed, damagePerShot, level, type, xpForLevelUp, xp, baseAttackSpeed, baseDamagePerShot, i, j));
+                index++;
             }
             towers.put(towerSend.getId(), towerSend);
         }
@@ -62,6 +64,7 @@ public class TowersSend {
         for (TowerSend towerSend : newTowers){
             System.out.println("i" + i);
             System.out.println("newTowers size: " + newTowers.size());
+            System.out.println("towerList size: " + Towers.getInstance().getListSize());
             towerSend.setAttackSpeed(Towers.getInstance().getTowersList().get(i).getAttackSpeed());
             towerSend.setBaseAttackSpeed(Towers.getInstance().getTowersList().get(i).getBaseAttackSpeed());
             towerSend.setDamagePerShot(Towers.getInstance().getTowersList().get(i).getDamagePerShot());

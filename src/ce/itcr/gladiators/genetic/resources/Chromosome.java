@@ -26,7 +26,7 @@ public class Chromosome {
 	}
 	
 	public void mutateGene(int i) {
-		getChromosomeArray()[i] ++;
+		getChromosomeArray()[i] += 10;
 		setHealth(chromosomeArray[0]);
 		setResistanceLowerBody(chromosomeArray[1]);
 		setResistanceUpperBody(chromosomeArray[2]);

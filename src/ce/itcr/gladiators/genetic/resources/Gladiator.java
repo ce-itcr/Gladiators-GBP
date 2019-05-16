@@ -26,23 +26,9 @@ public class Gladiator {
 	}
 	
 	private Chromosome mutate(Chromosome chromosome) {
-		if (Math.random() < 10)
+		if (Math.random() < 0.3)
 			chromosome.mutateGene(random.nextInt(((3 - 0) + 1) + 0));
 		return chromosome;
-	}
-	
-	public int getSpeed() {
-		int speed = 0;
-		speed += chromosome.getResistanceLowerBody();
-		speed -= chromosome.getResistanceUpperBody()/2;
-		return speed;
-	}
-	
-	public int getThoughness() {
-		int thoughness = 0;
-		thoughness += chromosome.getResistanceUpperBody();
-		thoughness -= chromosome.getResistanceLowerBody()/2;
-		return thoughness;
 	}
 	
 	public Chromosome getChromosome() {
