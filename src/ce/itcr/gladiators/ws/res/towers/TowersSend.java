@@ -25,6 +25,10 @@ public class TowersSend {
         return towers.values();
     }
 
+    public void clearAllTowers() {
+        towers = new HashMap<>();
+    }
+
     public void replaceAllTowers(Collection<TowerSend> newTowers) {
         towers = new HashMap<>();
 //        LinkedList<Tower> towerList = new LinkedList<Tower>();

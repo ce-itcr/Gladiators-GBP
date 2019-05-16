@@ -3,6 +3,7 @@ package ce.itcr.gladiators.ws.res;
 import ce.itcr.gladiators.entities.GladiatorSend;
 import ce.itcr.gladiators.genetic.resources.Gladiators;
 import ce.itcr.gladiators.ws.res.gladiators.GladiatorsSend;
+import ce.itcr.gladiators.ws.res.towers.TowersSend;
 
 public class FirstPopulation {
 	
@@ -18,6 +19,7 @@ public class FirstPopulation {
 			gladiatorsSend.putGladiator(g);
 			System.out.println("i" + i);
 		}
+		TowersSend.getInstance().clearAllTowers();
 	}
 
 }
