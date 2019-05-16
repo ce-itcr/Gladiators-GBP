@@ -3,6 +3,7 @@
 #include "ui_game.h"
 #include <QLabel>
 #include "game/populationsmock.h"
+#include "game/entities/player.h"
 
 Game::Game(QWidget *parent) :
     QMainWindow(parent),
@@ -43,6 +44,24 @@ void Game::populationReady()
         Tile *tile = grid->tileAt(tower->getI(), tower->getJ());
         spawner->spawnTower(tile, tower);
     }
+}
+
+void Game::addedEntity(Entity *entity)
+{
+    if (entity->tag == "player")
+    {
+        Player *player = dynamic_cast<Player *>(entity);
+        QObject::connect(player, &Player::gladiatorPressed, this, &Game::loadGladiatorLabel);
+    }
+}
+
+void Game::loadGladiatorLabel(Gladiator *gladiator)
+{
+    ui->ageIN->setNum(1);
+    ui->healthIN->setNum(gladiator->getHealth());
+    ui->resUPIN->setNum(gladiator->getResistanceUpperBody());
+    ui->resLBIN->setNum(gladiator->getResistanceLowerBody());
+    ui->dodgeIN->setNum(gladiator->getDodgeChance());
 }
 
 
@@ -123,4 +142,13 @@ void Game::on_pauseButton_clicked()
     pausesrc->play();
 
 
+}
+
+void Game::on_exitButton_clicked()
+{
+//    gameController->stop();
+//    spawner->stop();
+    close();
+    MainWindow *w = new MainWindow();
+    w->show();
 }

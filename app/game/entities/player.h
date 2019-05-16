@@ -38,6 +38,7 @@ public:
 
     Gladiator *getGladiator() const;
     void setGladiator(Gladiator *value);
+    void kill();
 
 signals:
     void gladiatorPressed(Gladiator *);

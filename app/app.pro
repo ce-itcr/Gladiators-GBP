@@ -33,14 +33,12 @@ SOURCES += \
 	game/tile.cpp \
         main.cpp \
         mainwindow.cpp \
-    settings.cpp \
     achievements.cpp \
     pregame.cpp \
     game.cpp \
     game/entities/player.cpp \
     game/gamecontroller.cpp \
     game/entities/enemy.cpp \
-    info.cpp \
     util.cpp
 
 HEADERS += \
@@ -49,7 +47,6 @@ HEADERS += \
 	game/spawner.h \
 	game/tile.h \
         mainwindow.h \
-    settings.h \
     achievements.h \
     pregame.h \
     game/entities/player.h \
@@ -57,16 +54,13 @@ HEADERS += \
     game/gamecontroller.h \
     game.h \
     game/entities/enemy.h \
-    info.h \
     util.h
 
 FORMS += \
         mainwindow.ui \
-    settings.ui \
     achievements.ui \
     pregame.ui \
-    game.ui \
-    info.ui
+    game.ui
 
 LIBS += -L../src -lmylib
 

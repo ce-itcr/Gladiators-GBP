@@ -2,71 +2,100 @@
 
 Gladiator::Gladiator()
 {
-    this->id = "";
-    this->name = "";
-    this->age = "";
-    this->i = this->j = 0;
+    id = "";
+    age = 0;
+    health = 0;
+    resistanceUpperBody = 0;
+    resistanceLowerBody = 0;
+    dodgeChance = 0;
+    i = 0;
+    j = 0;
 }
 
-Gladiator::Gladiator(QString id, QString name, QString age)
+Gladiator::Gladiator(QString id, int age, int health, int resistanceUpperBody, int resistanceLowerBody, int dodgeChance, int i, int j)
 {
     this->id = id;
-    this->name = name;
     this->age = age;
-}
-
-QString Gladiator::getId() const
-{
-    return id;
-}
-
-void Gladiator::setId(const QString &value)
-{
-    id = value;
-}
-
-QString Gladiator::getName() const
-{
-    return name;
-}
-
-void Gladiator::setName(const QString &value)
-{
-    name = value;
-}
-
-QString Gladiator::getAge() const
-{
-    return age;
-}
-
-void Gladiator::setAge(const QString &value)
-{
-    age = value;
+    this->health = health;
+    this->resistanceUpperBody = resistanceUpperBody;
+    this->resistanceLowerBody = resistanceLowerBody;
+    this->dodgeChance = dodgeChance;
+    this->i= i;
+    this->j = j;
 }
 
 void Gladiator::write(QJsonObject &jsonObj) const
 {
     jsonObj["id"] = id;
-    jsonObj["name"] = name;
     jsonObj["age"] = age;
+    jsonObj["health"] = health;
+    jsonObj["resistanceUpperBody"] = resistanceUpperBody;
+    jsonObj["resistanceLowerBody"] = resistanceLowerBody;
+    jsonObj["dodgeChance"] = dodgeChance;
+    jsonObj["i"] = i;
+    jsonObj["j"] = j;
 }
 
 void Gladiator::read(const QJsonObject &jsonObj)
 {
     id = jsonObj["id"].toString();
-    name = jsonObj["name"].toString();
-    age = jsonObj["age"].toString();
+    age = jsonObj["age"].toInt();
+    health = jsonObj["health"].toInt();
+    resistanceUpperBody = jsonObj["resistanceUpperBody"].toInt();
+    resistanceLowerBody = jsonObj["resistanceLowerBody"].toInt();
+    dodgeChance = jsonObj["dodgeChance"].toInt();
+    i = jsonObj["i"].toInt();
+    j = jsonObj["j"].toInt();
 }
 
-QList<Node *> Gladiator::getNodePath() const
+int Gladiator::getAge() const
 {
-    return nodePath;
+    return age;
 }
 
-void Gladiator::setNodePath(const QList<Node *> &value)
+void Gladiator::setAge(int value)
 {
-    nodePath = value;
+    age = value;
+}
+
+int Gladiator::getHealth() const
+{
+    return health;
+}
+
+void Gladiator::setHealth(int value)
+{
+    health = value;
+}
+
+int Gladiator::getResistanceUpperBody() const
+{
+    return resistanceUpperBody;
+}
+
+void Gladiator::setResistanceUpperBody(int value)
+{
+    resistanceUpperBody = value;
+}
+
+int Gladiator::getResistanceLowerBody() const
+{
+    return resistanceLowerBody;
+}
+
+void Gladiator::setResistanceLowerBody(int value)
+{
+    resistanceLowerBody = value;
+}
+
+int Gladiator::getDodgeChance() const
+{
+    return dodgeChance;
+}
+
+void Gladiator::setDodgeChance(int value)
+{
+    dodgeChance = value;
 }
 
 int Gladiator::getI() const
@@ -87,4 +116,14 @@ int Gladiator::getJ() const
 void Gladiator::setJ(int value)
 {
     j = value;
+}
+
+QList<Node *> Gladiator::getNodePath() const
+{
+    return nodePath;
+}
+
+void Gladiator::setNodePath(const QList<Node *> &value)
+{
+    nodePath = value;
 }

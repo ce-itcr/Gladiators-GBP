@@ -13,10 +13,8 @@
 #include <QMainWindow>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
-#include "settings.h"
 #include "achievements.h"
 #include "pregame.h"
-#include "info.h"
 #include "util.h"
 
 namespace Ui {

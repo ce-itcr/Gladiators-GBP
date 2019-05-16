@@ -11,6 +11,11 @@ Spawner *Spawner::getInstance(QObject *parent)
     return instance;
 }
 
+void Spawner::stop()
+{
+    gladiators->clear();
+}
+
 void Spawner::spawnGladiators(QList<Gladiator *> *value)
 {
     gladiators = value;

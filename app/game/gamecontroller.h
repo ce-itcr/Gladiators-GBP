@@ -34,6 +34,8 @@ public:
     QList<Entity *> getEntities() const;
     void setEntities(const QList<Entity *> &value);
 
+    void stop();
+
 signals:
     void addedEntity(Entity *entity);
 

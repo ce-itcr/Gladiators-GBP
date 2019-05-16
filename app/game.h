@@ -21,6 +21,7 @@
 #include "game/populations.h"
 #include "game/spawner.h"
 #include "graph/PathFinding/findpath.h"
+#include "mainwindow.h"
 
 namespace Ui {
 class Game;
@@ -42,6 +43,10 @@ public:
 public slots:
     void populationReady();
 
+    void addedEntity(Entity *entity);
+
+    void loadGladiatorLabel(Gladiator *gladiator);
+
     // QWidget interface
 protected:
     void resizeEvent(QResizeEvent *event);
@@ -62,6 +67,7 @@ private slots:
     void on_waveButton_clicked();
     void on_fastButton_clicked();
     void on_pauseButton_clicked();
+    void on_exitButton_clicked();
 };
 
 #endif // GAME_H

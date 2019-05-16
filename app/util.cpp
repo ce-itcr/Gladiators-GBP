@@ -14,8 +14,6 @@ Util::Util()
 }
 
 void Util::playMusic(){
-    cout << "changeM util " << changeMusic << endl;
-
     if((changeMusic == true) && (music_Counter == 0)){
         music->play();
     } else{

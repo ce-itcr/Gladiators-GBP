@@ -24,13 +24,6 @@ void MainWindow::on_play_Button_clicked(){
     pregame.exec();
 }
 
-//void MainWindow::on_settings_Button_clicked(){
-//    close();
-//    Settings settings;
-//    settings.setModal(true);
-//    settings.exec();
-//}
-
 void MainWindow::on_achievements_Button_clicked(){
     close();
     Achievements achievements;
@@ -42,11 +35,3 @@ void MainWindow::on_exit_Button_clicked()
 {
     close();
 }
-
-//void MainWindow::on_info_Button_clicked()
-//{
-//    close();
-//    Info info;
-//    info.setModal(true);
-//    info.exec();
-//}

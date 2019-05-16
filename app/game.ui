@@ -67,54 +67,13 @@ border-radius: 10px</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="iconLabel">
-   <property name="geometry">
-    <rect>
-     <x>830</x>
-     <y>30</y>
-     <width>115</width>
-     <height>120</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true"/>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="imgresources.qrc">:/img/icon.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="Line" name="line">
-   <property name="geometry">
-    <rect>
-     <x>933</x>
-     <y>30</y>
-     <width>20</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">gridline-color: rgb(235, 245, 238);
-border-color: rgb(235, 245, 238);
-color: rgb(235, 245, 238);
-</string>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-  </widget>
   <widget class="QTableWidget" name="timesTable">
    <property name="geometry">
     <rect>
      <x>820</x>
      <y>191</y>
      <width>360</width>
-     <height>355</height>
+     <height>561</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -331,24 +290,288 @@ QPushButton:hover{
     </size>
    </property>
   </widget>
-  <widget class="QFrame" name="geneticProgress">
+  <widget class="QLabel" name="resUPIN">
    <property name="geometry">
     <rect>
-     <x>820</x>
-     <y>560</y>
-     <width>361</width>
-     <height>221</height>
+     <x>1120</x>
+     <y>85</y>
+     <width>31</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(235, 245, 238, 0.29);
-border-radius: 10px;</string>
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+   <property name="text">
+    <string>0</string>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
+  </widget>
+  <widget class="QLabel" name="resLBIN">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>113</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="healthIN">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>58</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="resistanceLBLabel">
+   <property name="geometry">
+    <rect>
+     <x>970</x>
+     <y>113</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
+   </property>
+   <property name="text">
+    <string>Resistance LB</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dodgeIN">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>140</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="iconLabel">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>30</y>
+     <width>115</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imgresources.qrc">:/img/icon.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dodgeLabel">
+   <property name="geometry">
+    <rect>
+     <x>970</x>
+     <y>140</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
+   </property>
+   <property name="text">
+    <string>Dodge Chance</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>933</x>
+     <y>30</y>
+     <width>20</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">gridline-color: rgb(235, 245, 238);
+border-color: rgb(235, 245, 238);
+color: rgb(235, 245, 238);
+</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ageLabel">
+   <property name="geometry">
+    <rect>
+     <x>970</x>
+     <y>30</y>
+     <width>67</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
+   </property>
+   <property name="text">
+    <string>Age</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ageIN">
+   <property name="geometry">
+    <rect>
+     <x>1120</x>
+     <y>30</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="healthLabel">
+   <property name="geometry">
+    <rect>
+     <x>970</x>
+     <y>58</y>
+     <width>67</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
+   </property>
+   <property name="text">
+    <string>Health</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="resistanceUPLabel">
+   <property name="geometry">
+    <rect>
+     <x>970</x>
+     <y>85</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+
+color: #EBF5EE;
+</string>
+   </property>
+   <property name="text">
+    <string>Resistance UB</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exitButton">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>770</y>
+     <width>89</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Exit</string>
    </property>
   </widget>
  </widget>

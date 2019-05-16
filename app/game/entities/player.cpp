@@ -30,6 +30,12 @@ void Player::update()
     if (canMove && target != nullptr) move();
 }
 
+void Player::kill()
+{
+    GameController::getInstance()->removeEntity(this);
+}
+
+
 void Player::draw()
 {
 }
@@ -48,6 +54,7 @@ QRect Player::getRect()
 {
     QRect rect(x, y, width, height);
     return rect;
+
 }
 
 int Player::getX() const

@@ -28,6 +28,8 @@ public:
 
     void setParent(QObject *value);
 
+    void stop();
+
 public slots:
     void spawn();
 

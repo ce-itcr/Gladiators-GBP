@@ -100,6 +100,9 @@ void GameController::collision(Entity *entity)
         bool hit = playerHit(entity->getRect());
         if (hit) entity->collide();
     }
+    if(entity->tag == "player"){
+//        Player::kill();
+    }
 }
 
 QList<Entity *> GameController::playersInRangeOfTower(QRegion region)
