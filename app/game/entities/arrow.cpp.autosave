@@ -48,6 +48,7 @@ void Arrow::collide()
         if (entity->tag == "player" &&
                 Collision::collide(getRect(), entity->getRect()))
         {
+            
             Player *player = dynamic_cast<Player *>(entity);
             tower->setXp(tower->getXp() + 1);
             player->kill();

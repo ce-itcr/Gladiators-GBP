@@ -6,11 +6,11 @@ Tower::Tower()
     this->damagePerShoot = 1;
     this->attackSpeed = 1000;
     this->xp = 0;
-    this->type = 0;
-    this->level = 0;
-    this->baseAttackSpeed = 0;
-    this->baseDamagePerShoot = 0;
-    this->xpForLevelUp = 0;
+    this->type = 1;
+    this->level = 1;
+    this->baseAttackSpeed = 1000;
+    this->baseDamagePerShoot = 1;
+    this->xpForLevelUp = 20;
     this->i = 0;
     this->j = 0;
 }
