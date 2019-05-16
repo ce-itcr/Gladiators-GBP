@@ -14,6 +14,20 @@ public class TowerSend {
     private int baseDamagePerShot;
     private int xpForLevelUp;
 
+    public TowerSend(String id, int i, int j, int damagePerShot, int attackSpeed, int xp, int type, int level, int baseAttackSpeed, int baseDamagePerShot, int xpForLevelUp) {
+        this.id = id;
+        this.i = i;
+        this.j = j;
+        this.damagePerShot = damagePerShot;
+        this.attackSpeed = attackSpeed;
+        this.xp = xp;
+        this.type = type;
+        this.level = level;
+        this.baseAttackSpeed = baseAttackSpeed;
+        this.baseDamagePerShot = baseDamagePerShot;
+        this.xpForLevelUp = xpForLevelUp;
+    }
+
     public int getBaseAttackSpeed() {
         return baseAttackSpeed;
     }
