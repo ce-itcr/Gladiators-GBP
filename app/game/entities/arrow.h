@@ -21,6 +21,8 @@ public:
     void uncollide();
     QRect getRect();
 
+    void kill();
+
     int getX() const;
     void setX(int value);
 

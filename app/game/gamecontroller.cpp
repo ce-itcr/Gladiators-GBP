@@ -45,8 +45,7 @@ void GameController::update()
     QTimer::singleShot(cycleTime, this, &GameController::update);
     if (pause) return;
 
-    deleteEntities();
-     if (waveActive )checkWave();
+    if (waveActive) checkWave();
 
     int size = entities.size();
     for (int i = 0; i < size; i++)
@@ -59,6 +58,7 @@ void GameController::update()
             entity->collide();
         }
     }
+    deleteEntities();
 }
 
 void GameController::populationReady()
@@ -175,7 +175,10 @@ void GameController::deleteEntities()
     for (Entity *entity : toDeleteEntities)
     {
         entities.removeOne(entity);
-        delete entity;
+        try {
+            delete entity;
+            entity = nullptr;
+        } catch (...) { }
     }
     toDeleteEntities.clear();
 }

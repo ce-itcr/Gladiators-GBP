@@ -30,6 +30,7 @@ Arrow::~Arrow()
 void Arrow::update()
 {
     if (target != nullptr) move();
+    else GameController::getInstance()->removeEntity(this);
 }
 
 void Arrow::draw()
@@ -44,7 +45,9 @@ void Arrow::collide()
         if (entity->tag == "player" &&
                 Collision::collide(getRect(), entity->getRect()))
         {
-            GameController::getInstance()->removeEntity(this);
+            Player *player = dynamic_cast<Player *>(entity);
+            player->kill();
+            kill();
             break;
         }
     }
@@ -59,6 +62,21 @@ QRect Arrow::getRect()
 {
     QRect rect(x, y, width, height);
     return rect;
+}
+
+void Arrow::kill()
+{
+    for (Entity *entity : GameController::getInstance()->getEntities())
+    {
+        if (entity->tag == "arrow")
+        {
+            Arrow *arrow = dynamic_cast<Arrow *>(entity);
+            if (arrow != this && arrow->target == target) arrow->target = nullptr;
+        }
+    }
+
+    target = nullptr;
+    GameController::getInstance()->removeEntity(this);
 }
 
 int Arrow::getX() const
@@ -93,7 +111,7 @@ void Arrow::setTarget(Entity *value)
 
 void Arrow::move()
 {
-    if (target->tag != "player") return;
+    if (target == nullptr || target->tag != "player") return;
 
     int offset = 10;
     Player *targetPlayer = static_cast<Player *>(target);
