@@ -1,8 +1,10 @@
 #include "collision.h"
+#include <iostream>
+using namespace std;
 
 bool Collision::collide(QRect rect1, QRect rect2)
 {
-    return rect1.contains(rect2);
+    return rect1.intersects(rect2);
 }
 
 bool Collision::collide(QRect rect, QList<QRect> rects)

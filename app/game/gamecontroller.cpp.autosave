@@ -24,7 +24,6 @@ void GameController::addEntity(Entity *entity)
 void GameController::removeEntity(Entity *entity)
 {
     entities.removeOne(entity);
-    delete entity;
 }
 
 void GameController::update()
