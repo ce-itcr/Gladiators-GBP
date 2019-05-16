@@ -7,7 +7,7 @@
 class JsonSerializer
 {
 public:
-    static QString serialize(const JsonSerializable &obj);
+    static QJsonObject serialize(const JsonSerializable &obj);
 
     static void parse(const QString &json, JsonSerializable &jsonSerializable);
 };

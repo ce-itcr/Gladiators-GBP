@@ -6,7 +6,7 @@ QString JsonConverter::gladiatorsToJson(QList<Gladiator> gladiators)
     QJsonArray jsonArray;
     for(Gladiator gladiator : gladiators)
     {
-        QJsonValue value = JsonSerializer::serialize(gladiator);
+        QJsonObject value = JsonSerializer::serialize(gladiator);
         jsonArray.push_back(value);
     }
     QJsonDocument doc(jsonArray);
@@ -19,7 +19,7 @@ QString JsonConverter::towersToJson(QList<Tower> towers)
     QJsonArray jsonArray;
     for(Tower tower : towers)
     {
-        QJsonValue value = JsonSerializer::serialize(tower);
+        QJsonObject value = JsonSerializer::serialize(tower);
         jsonArray.push_back(value);
     }
     QJsonDocument doc(jsonArray);

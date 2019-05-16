@@ -32,8 +32,6 @@ void Gladiator::write(QJsonObject &jsonObj) const
     jsonObj["resistanceUpperBody"] = resistanceUpperBody;
     jsonObj["resistanceLowerBody"] = resistanceLowerBody;
     jsonObj["dodgeChance"] = dodgeChance;
-    jsonObj["i"] = i;
-    jsonObj["j"] = j;
 }
 
 void Gladiator::read(const QJsonObject &jsonObj)
@@ -44,8 +42,6 @@ void Gladiator::read(const QJsonObject &jsonObj)
     resistanceUpperBody = jsonObj["resistanceUpperBody"].toInt();
     resistanceLowerBody = jsonObj["resistanceLowerBody"].toInt();
     dodgeChance = jsonObj["dodgeChance"].toInt();
-    i = jsonObj["i"].toInt();
-    j = jsonObj["j"].toInt();
 }
 
 int Gladiator::getAge() const

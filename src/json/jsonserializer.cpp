@@ -1,12 +1,10 @@
 #include "jsonserializer.h"
 
-QString JsonSerializer::serialize(const JsonSerializable &obj)
+QJsonObject JsonSerializer::serialize(const JsonSerializable &obj)
 {
     QJsonObject jsonObj;
     obj.write(jsonObj);
-    QJsonDocument doc(jsonObj);
-    QString result(doc.toJson(QJsonDocument::Indented));
-    return result;
+    return jsonObj;
 }
 
 void JsonSerializer::parse(const QString &json, JsonSerializable &jsonSerializable)

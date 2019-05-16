@@ -14,7 +14,8 @@ Game::Game(QWidget *parent) :
     gameSpeed = 2;
 
     spawner = Spawner::getInstance();
-    gameController = GameController::getInstance();
+    gameController = GameController::getInstance();    
+    gameController->setWaveWaiting(true);
     gameController->run();
     populations = Populations::getInstance();
     QObject::connect(populations, &Populations::readyPopulation,
@@ -113,6 +114,7 @@ void Game::resizeEvent(QResizeEvent *)
 void Game::on_waveButton_clicked()
 {
     if (gameController->isWaveActive()) return;
+    gameController->setWaveActive(true);
     FindPath::instance->shortestPath();
     ui->waveButton->setEnabled(false);
     spawner->spawnGladiators(populations->getGladiators());
@@ -129,9 +131,9 @@ void Game::on_fastButton_clicked()
     gameSpeed = gameSpeed % 3 + 1;
 
     QIcon icon;
-    if (gameSpeed == 1) { cycles = 50; icon.addFile(":img/slow.png"); }
-    if (gameSpeed == 2) { cycles = 25; icon.addFile(":img/normal.png"); }
-    if (gameSpeed == 3) { cycles = 10; icon.addFile(":img/fast.png"); }
+    if (gameSpeed == 1) { cycles = 50; icon.addFile(":img/slow.png"); spawner->setSpawnDelay(1000); }
+    if (gameSpeed == 2) { cycles = 25; icon.addFile(":img/normal.png"); spawner->setSpawnDelay(500); }
+    if (gameSpeed == 3) { cycles = 10; icon.addFile(":img/fast.png"); spawner->setSpawnDelay(250); }
     ui->fastButton->setIcon(icon);
 
     gameController->setCycleTime(cycles);

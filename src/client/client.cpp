@@ -22,9 +22,10 @@ void Client::POST(const QString &path, const QString &data)
 {
     QUrl url(Client::path + path);
     QNetworkRequest request(url);
+    request.setRawHeader("Content-Type", "application/json");
 
     qDebug() << "Client POST request to: " << url.toString();
-    manager->post(request,  data.toUtf8());
+    manager->post(request, data.toUtf8());
 
     QObject::connect(manager, &QNetworkAccessManager::finished, this, &Client::replyFinished);
 }

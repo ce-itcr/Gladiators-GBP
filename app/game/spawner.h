@@ -30,6 +30,9 @@ public:
 
     void setParent(QObject *value);
 
+    int getSpawnDelay() const;
+    void setSpawnDelay(int value);
+
 public slots:
     void spawn();
 

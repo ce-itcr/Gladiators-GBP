@@ -46,6 +46,7 @@ void GameController::update()
     if (pause) return;
 
     deleteEntities();
+     if (waveActive )checkWave();
 
     int size = entities.size();
     for (int i = 0; i < size; i++)
@@ -56,10 +57,23 @@ void GameController::update()
             entity->update();
             entity->draw();
             entity->collide();
-            checkWave();
-            if (!waveActive) callWave();
         }
     }
+}
+
+void GameController::populationReady()
+{
+    waveWaiting = false;
+}
+
+bool GameController::getWaveWaiting() const
+{
+    return waveWaiting;
+}
+
+void GameController::setWaveWaiting(bool value)
+{
+    waveWaiting = value;
 }
 
 QList<Entity *> GameController::getEntities() const
@@ -107,7 +121,11 @@ GameController::GameController()
     populations = Populations::getInstance();
     cycleTime = 25;
     waveActive = false;
+    waveWaiting = false;
     pause = false;
+
+    QObject::connect(populations, &Populations::readyPopulation,
+                     this, &GameController::populationReady);
 }
 
 void GameController::collision(Entity *entity)
@@ -134,8 +152,11 @@ void GameController::checkWave()
             break;
         }
     }
-    if (hasPlayers) waveActive = true;
-    else waveActive = false;
+    if (!waveWaiting && !hasPlayers) {
+        callWave();
+        waveWaiting = true;
+        waveActive = false;
+    }
 }
 
 void GameController::deleteEntities()

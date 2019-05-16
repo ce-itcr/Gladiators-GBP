@@ -79,6 +79,16 @@ void Spawner::spawn()
     QTimer::singleShot(spawnDelay, this, &Spawner::spawn);
 }
 
+int Spawner::getSpawnDelay() const
+{
+    return spawnDelay;
+}
+
+void Spawner::setSpawnDelay(int value)
+{
+    spawnDelay = value;
+}
+
 void Spawner::setParent(QObject *value)
 {
     parent = value;
