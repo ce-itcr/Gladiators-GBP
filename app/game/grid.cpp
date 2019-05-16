@@ -9,6 +9,7 @@ Grid::Grid(QWidget *parent, QString mapFilePath) : QFrame(parent)
     spawner->setParent(this);
     rows = map->getRows();
     columns = map->getColumns();
+    focusable = true;
     mapFile = MapFiles::read(mapFilePath);
 
     this->setStyleSheet("background-color: #EBF5EE;");
@@ -36,6 +37,7 @@ void Grid::resizeEvent(QResizeEvent *)
 
 void Grid::mousePressEvent(QMouseEvent *event)
 {
+    if (!focusable) return;
     FindPath::instance->pathCost = 10000;
     int x = event->x();
     int y = event->y();
@@ -59,6 +61,16 @@ void Grid::mousePressEvent(QMouseEvent *event)
             }
         }
     }
+}
+
+bool Grid::isFocusable() const
+{
+    return focusable;
+}
+
+void Grid::setFocusable(bool value)
+{
+    focusable = value;
 }
 
 int Grid::getTileSize() const

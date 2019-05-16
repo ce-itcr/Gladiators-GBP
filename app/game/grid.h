@@ -29,11 +29,14 @@ public:
 
     int getTileSize() const;
 
+    bool isFocusable() const;
+    void setFocusable(bool value);
+
 signals:
 
 public slots:
 
-// QWidget interface
+    // QWidget interface
 protected:
     void resizeEvent(QResizeEvent *);
 
@@ -50,6 +53,7 @@ private:
     int columns;
     int offset = 1;
     int tileSize;
+    bool focusable;
 
     void loadGrid();
 

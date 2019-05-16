@@ -34,6 +34,7 @@ void PreGame::loadGrid(QString map)
     width = height = this->height() * 0.6;
 
     grid->setGeometry(x, y, width, height);
+    grid->setFocusable(false);
     grid->load();
     grid->show();
 }
