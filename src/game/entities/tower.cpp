@@ -109,3 +109,19 @@ void Tower::setJ(int value)
 {
     j = value;
 }
+
+int Tower::getXp() const{
+    return xp;
+}
+
+void Tower::setXp(int value){
+    xp = value;
+}
+
+int Tower::getXpForLevelUp() const{
+    return xpForLevelUp;
+}
+
+void Tower::setXpForLevelUp(int value){
+    xpForLevelUp = value;
+}

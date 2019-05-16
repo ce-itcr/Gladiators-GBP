@@ -49,6 +49,8 @@ void Arrow::collide()
                 Collision::collide(getRect(), entity->getRect()))
         {
             Player *player = dynamic_cast<Player *>(entity);
+            tower->setXp(tower->getXp() + 1);
+            cout << tower->getXp() << endl;
             player->kill();
             kill();
             break;
@@ -110,6 +112,11 @@ Entity *Arrow::getTarget() const
 void Arrow::setTarget(Entity *value)
 {
     target = value;
+}
+
+void Arrow::setTower(Tower *value)
+{
+    tower = value;
 }
 
 void Arrow::move()

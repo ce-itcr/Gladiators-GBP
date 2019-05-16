@@ -145,5 +145,5 @@ void Enemy::shoot(Entity *entity)
 
     int xPoss = x + width / 4;
     int yPoss = y + width / 4;
-    Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity);
+    Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity, tower);
 }

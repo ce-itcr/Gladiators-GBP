@@ -3,6 +3,7 @@
 
 #include "entity.h"
 #include "util/math.h"
+#include "game/entities/tower.h"
 
 #include <QFrame>
 
@@ -32,6 +33,8 @@ public:
     Entity *getTarget() const;
     void setTarget(Entity *value);
 
+    void setTower(Tower *value);
+
 private:
     int x;
     int y;
@@ -45,6 +48,7 @@ private:
     int maxSpeed;
     int maxAcc;
     Entity *target;
+    Tower *tower;
 
     void move();
 };
