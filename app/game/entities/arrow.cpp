@@ -70,15 +70,6 @@ QRect Arrow::getRect()
 
 void Arrow::kill()
 {
-    for (Entity *entity : GameController::getInstance()->getEntities())
-    {
-        if (entity->tag == "arrow")
-        {
-            Arrow *arrow = dynamic_cast<Arrow *>(entity);
-            if (arrow != this && arrow->target == target) arrow->target = nullptr;
-        }
-    }
-
     target = nullptr;
     GameController::getInstance()->removeEntity(this);
 }

@@ -51,7 +51,6 @@ void Player::uncollide()
 
 void Player::kill()
 {
-    tag = "";
     GameController::getInstance()->removeEntity(this);
 }
 

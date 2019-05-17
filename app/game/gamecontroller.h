@@ -75,6 +75,8 @@ private:
     QList<Entity *> playersInRangeOfTower(QRegion region);
 
     bool playerHit(QRect arrowRect);
+
+    void alertArrows(Entity *entity);
 };
 
 #endif // GAMECONTROLLER_H
