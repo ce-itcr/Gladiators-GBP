@@ -28,7 +28,7 @@ Game::Game(QWidget *parent) :
     // Creates Population
     PopulationsMock::run();
     populations->startNewPopulation();
-    QTimer::singleShot(1000, this, &Game::updatePopulations);
+    QTimer::singleShot(2000, this, &Game::updatePopulations);
 
 
 }

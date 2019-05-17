@@ -53,7 +53,6 @@ void Arrow::draw()
 
 void Arrow::collide()
 {
-    tower->setType(3);
     for (Entity *entity : GameController::getInstance()->getEntities())
     {
         if (entity->tag == "player" &&
@@ -81,12 +80,9 @@ void Arrow::collide()
                     if(tempPlayer->getGladiator()->getHealth() <= 0){
                         tower->setXp(tower->getXp() + 1);
                         tempPlayer->kill();
-
-                        cout << "h" << endl;
                     }
                 }
                 playersHit.clear();
-                cout << "hh" << endl;
                 kill();
 
                 Grid *grid = dynamic_cast<Grid *>(parent());
@@ -98,7 +94,7 @@ void Arrow::collide()
                 qFrame->setGeometry(xPoss,yPoss,diameter,diameter);
                 qFrame->show();
 
-                QTimer::singleShot(1000, qFrame, &QFrame::close);
+                QTimer::singleShot(200, qFrame, &QFrame::close);
             }
             break;
         }
