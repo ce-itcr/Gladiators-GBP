@@ -70,7 +70,6 @@ QRect Arrow::getRect()
 
 void Arrow::kill()
 {
-    target = nullptr;
     GameController::getInstance()->removeEntity(this);
 }
 

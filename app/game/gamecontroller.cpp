@@ -227,10 +227,7 @@ void GameController::alertArrows(Entity *player)
         {
             Arrow *arrow = dynamic_cast<Arrow *>(entity);
             if (arrow->getTarget() == player)
-            {
                 arrow->setTarget(nullptr);
-                arrow->kill();
-            }
         }
     }
 }
