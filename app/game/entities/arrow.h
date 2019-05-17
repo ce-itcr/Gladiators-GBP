@@ -11,7 +11,7 @@ class Arrow : public QFrame, public Entity
 {
     Q_OBJECT
 public:
-    Arrow(QWidget *parent = nullptr, int x = 0, int y = 0);
+    Arrow(QWidget *parentEnemy = nullptr, int x = 0, int y = 0);
 
     ~Arrow();
 
@@ -38,6 +38,9 @@ public:
 
     void setTower(Tower *value);
 
+    Entity *getParent() const;
+    void setParent(Entity *value);
+
 private:
     int x;
     int y;
@@ -52,8 +55,11 @@ private:
     int maxAcc;
     Entity *target;
     Tower *tower;
+    Entity *parentEnemy;
 
     void move();
+
+    void playerKill();
 };
 
 #endif // ARROW_H

@@ -7,6 +7,7 @@
 #include "game/entities/entity.h"
 #include "game/gamecontroller.h"
 #include "game/entities/gladiator.h"
+#include "game/entities/enemy.h"
 #include "game/entities/tower.h"
 #include "game/entities/arrow.h"
 #include "game/tile.h"
@@ -24,7 +25,7 @@ public:
 
     void spawnTower(Tile *tile, Tower *tower);
 
-    void spawnArrow(int x, int y, Entity *target, int towerDamage, Tower *tower);
+    void spawnArrow(int x, int y, Entity *target, int towerDamage, Enemy *tower);
 
     int waveSize();
 

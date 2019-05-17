@@ -68,6 +68,7 @@ void Arrow::collide()
                 if(player->getGladiator()->getHealth() <= 0){
                     tower->setXp(tower->getXp() + 1);
                     player->kill();
+                    playerKill();
                     kill();
                 }
             }
@@ -80,6 +81,7 @@ void Arrow::collide()
                     if(tempPlayer->getGladiator()->getHealth() <= 0){
                         tower->setXp(tower->getXp() + 1);
                         tempPlayer->kill();
+                        playerKill();
                     }
                 }
                 playersHit.clear();
@@ -152,6 +154,16 @@ void Arrow::setTower(Tower *value)
     tower = value;
 }
 
+Entity *Arrow::getParent() const
+{
+    return parentEnemy;
+}
+
+void Arrow::setParent(Entity *value)
+{
+    parentEnemy = value;
+}
+
 void Arrow::move()
 {
     if (target == nullptr || target->tag != "player") return;
@@ -164,6 +176,12 @@ void Arrow::move()
     y = Math::approach(y, targetPlayer->getY() + offset, ySpeed);;
 
     QFrame::move(x, y);
+}
+
+void Arrow::playerKill()
+{
+    Enemy *enemy = dynamic_cast<Enemy *>(parentEnemy);
+    enemy->playerKill();
 }
 
 QRegion Arrow::getCircle()

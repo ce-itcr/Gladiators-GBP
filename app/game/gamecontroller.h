@@ -23,6 +23,10 @@ public:
 
     void addEntity(Entity *entity);
 
+    void addMoney(int extra);
+
+    void decreaseMoney(int expended);
+
     void removeEntity(Entity *entity);
 
     void callWave();
@@ -45,6 +49,9 @@ public:
     QString getMap() const;
     void setMap(const QString &value);
 
+    int getMoney() const;
+    void setMoney(int value);
+
 signals:
     void addedEntity(Entity *entity);
 
@@ -63,6 +70,8 @@ private:
     bool waveWaiting;
     bool pause;
     QString map;
+    int money;
+    int startingMoney;
 
     GameController();
 

@@ -2,6 +2,9 @@
 
 #include "game/spawner.h"
 
+int Enemy::buildCost = 200;
+int Enemy::onKillMoney = 5;
+
 Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
 {
     tower = nullptr;
@@ -14,7 +17,6 @@ Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
     target = nullptr;
     shootDelay.start();
     canShoot = false;
-
 
     setStyleSheet("background-color:#635255;"
                   "image: url(:img/tower1.png)");
@@ -77,6 +79,11 @@ QRect Enemy::getRect()
     return rect;
 }
 
+void Enemy::playerKill()
+{
+    GameController::getInstance()->addMoney(onKillMoney);
+}
+
 QRegion Enemy::getCircle()
 {
     int xPoss = x - width * range;
@@ -117,6 +124,26 @@ void Enemy::setTower(Tower *value)
     deltaTime = tower->getAttackSpeed() / 15;
 }
 
+int Enemy::getBuildCost()
+{
+    return buildCost;
+}
+
+void Enemy::setBuildCost(int value)
+{
+    buildCost = value;
+}
+
+int Enemy::getOnKillMoney()
+{
+    return onKillMoney;
+}
+
+void Enemy::setOnKillMoney(int value)
+{
+    onKillMoney = value;
+}
+
 Entity *Enemy::closerPlayer(QList<Entity *> players)
 {
     Entity *closer = nullptr;
@@ -149,7 +176,7 @@ void Enemy::shoot(Entity *entity)
 
     int xPoss = x + width / 4;
     int yPoss = y + width / 4;
-    Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity, this->tower->damagePerShoot, tower);
+    Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity, this->tower->damagePerShoot, this);
 }
 
 void Enemy::updateShootDelay()

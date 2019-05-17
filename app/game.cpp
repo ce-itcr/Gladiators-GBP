@@ -106,8 +106,11 @@ void Game::resizeEvent(QResizeEvent *)
 
 void Game::paintEvent(QPaintEvent *)
 {
-    int count = spawner->waveSize();
-    ui->waveCount->setNum(count);
+    int waveCount = spawner->waveSize();
+    ui->waveCount->setNum(waveCount);
+
+    int money = gameController->getMoney();
+    ui->moneyCount->setNum(money);
 }
 
 void Game::on_waveButton_clicked()

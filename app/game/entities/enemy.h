@@ -30,6 +30,8 @@ public:
 
     QRect getRect();
 
+    void playerKill();
+
     QRegion getCircle();
 
     int getX() const;
@@ -40,6 +42,12 @@ public:
 
     Tower *getTower() const;
     void setTower(Tower *value);
+
+    static int getBuildCost();
+    static void setBuildCost(int value);
+
+    static int getOnKillMoney();
+    static void setOnKillMoney(int value);
 
 private:
     Tower *tower;
@@ -53,6 +61,8 @@ private:
     int fireRate;
     float deltaTime = 66;
     bool canShoot;
+    static int buildCost;
+    static int onKillMoney;
 
     Entity *closerPlayer(QList<Entity *> players);
 

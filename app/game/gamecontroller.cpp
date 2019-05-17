@@ -16,6 +16,7 @@ void GameController::run()
 
 void GameController::stop()
 {
+    money = startingMoney;
     cycleTime = 25;
     waveActive = false;
     pause = false;
@@ -26,6 +27,17 @@ void GameController::addEntity(Entity *entity)
 {
     entities.push_back(entity);
     addedEntity(entity);
+}
+
+void GameController::addMoney(int extra)
+{
+    money += extra;
+}
+
+void GameController::decreaseMoney(int expended)
+{
+    money -= expended;
+    if (money < 0) money = 0;
 }
 
 void GameController::removeEntity(Entity *entity)
@@ -70,6 +82,16 @@ void GameController::update()
 void GameController::populationReady()
 {
     waveWaiting = false;
+}
+
+int GameController::getMoney() const
+{
+    return money;
+}
+
+void GameController::setMoney(int value)
+{
+    money = value;
 }
 
 QString GameController::getMap() const
@@ -139,6 +161,8 @@ GameController::GameController()
     waveActive = false;
     waveWaiting = false;
     pause = false;
+    startingMoney = 600;
+    money = startingMoney;
     map = "://maps/snake";
 
     QObject::connect(populations, &Populations::readyPopulation,

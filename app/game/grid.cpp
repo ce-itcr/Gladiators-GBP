@@ -142,7 +142,9 @@ void Grid::updateGrid()
 
 void Grid::createEntity(Tile *tile)
 {
-    if (tile->canBuild())
+    int buildCost = Enemy::getBuildCost();
+    int money = gameController->getMoney();
+    if (tile->canBuild() && money >= buildCost)
     {
         QList<Tower *> *towers = populations->getTowers();
         QString id = QString::number(towers->size());
@@ -152,5 +154,6 @@ void Grid::createEntity(Tile *tile)
         tower->setJ(tile->getJ());
         spawner->spawnTower(tile, tower);
         towers->push_back(tower);
+        gameController->decreaseMoney(buildCost);
     }
 }
