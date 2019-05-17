@@ -125,3 +125,11 @@ int Tower::getXpForLevelUp() const{
 void Tower::setXpForLevelUp(int value){
     xpForLevelUp = value;
 }
+
+int Tower::getType() const{
+    return type;
+}
+
+void Tower::setType(int value){
+    type = value;
+}

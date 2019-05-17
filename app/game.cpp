@@ -131,8 +131,8 @@ void Game::on_fastButton_clicked()
 
     QIcon icon;
     if (gameSpeed == 1) { cycles = 50; icon.addFile(":img/slow.png"); spawner->setSpawnDelay(1000); }
-    if (gameSpeed == 2) { cycles = 15; icon.addFile(":img/normal.png"); spawner->setSpawnDelay(500); }
-    if (gameSpeed == 3) { cycles = 5; icon.addFile(":img/fast.png"); spawner->setSpawnDelay(250); }
+    if (gameSpeed == 2) { cycles = 25; icon.addFile(":img/normal.png"); spawner->setSpawnDelay(500); }
+    if (gameSpeed == 3) { cycles = 10; icon.addFile(":img/fast.png"); spawner->setSpawnDelay(250); }
     ui->fastButton->setIcon(icon);
 
     gameController->setCycleTime(cycles);

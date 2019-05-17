@@ -21,6 +21,8 @@ public:
     void collide();
     void uncollide();
     QRect getRect();
+    QList<Entity *> AOECollide();
+    QRegion getCircle();
 
     void kill();
 
