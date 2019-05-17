@@ -50,11 +50,15 @@ private:
     Entity *target;
     int range;
     QTime shootDelay;
+    int fireRate;
+    float deltaTime = 66;
     bool canShoot;
 
     Entity *closerPlayer(QList<Entity *> players);
 
     void shoot(Entity *entity);
+
+    void updateShootDelay();
 };
 
 #endif // ENEMY_H

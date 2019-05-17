@@ -30,7 +30,8 @@ Enemy::~Enemy()
 void Enemy::update()
 {
     this->move(x, y);
-    if (shootDelay.elapsed() >= tower->getAttackSpeed()) canShoot = true;
+    updateShootDelay();
+    if (shootDelay.elapsed() >= fireRate) canShoot = true;
 }
 
 void Enemy::draw()
@@ -111,6 +112,7 @@ Tower *Enemy::getTower() const
 void Enemy::setTower(Tower *value)
 {
     tower = value;
+    deltaTime = tower->getAttackSpeed() / 15;
 }
 
 Entity *Enemy::closerPlayer(QList<Entity *> players)
@@ -146,4 +148,10 @@ void Enemy::shoot(Entity *entity)
     int xPoss = x + width / 4;
     int yPoss = y + width / 4;
     Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity, tower);
+}
+
+void Enemy::updateShootDelay()
+{
+    int cycleSpeed = GameController::getInstance()->getCycleTime();
+    fireRate = cycleSpeed * deltaTime;
 }
