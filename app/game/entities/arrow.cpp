@@ -69,6 +69,7 @@ void Arrow::collide()
             if(player->getGladiator()->getHealth()<=0){
                 player->kill();
             }
+            break;
          }
     }
 }
