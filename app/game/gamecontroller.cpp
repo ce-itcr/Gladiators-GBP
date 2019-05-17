@@ -183,7 +183,8 @@ void GameController::deleteEntities()
     {
         entities.removeOne(entity);
         try {
-            delete entity;
+            QWidget *QW = dynamic_cast<QWidget *>(entity);
+            QW->close();
             entity = nullptr;
         } catch (...) { }
     }
