@@ -24,7 +24,7 @@ public:
 
     void spawnTower(Tile *tile, Tower *tower);
 
-    void spawnArrow(int x, int y, Entity *target, Tower *tower);
+    void spawnArrow(int x, int y, Entity *target, int towerDamage);
 
     int waveSize();
 

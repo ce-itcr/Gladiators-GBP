@@ -23,6 +23,7 @@ public:
     int i,
     int j);
 
+    int damagePerShoot;
     void write(QJsonObject &jsonObj) const;
     void read(const QJsonObject &jsonObj);
 
@@ -58,7 +59,6 @@ public:
 
 private:
     QString id;
-    int damagePerShoot;
     int attackSpeed;
     int xp;
     int type;

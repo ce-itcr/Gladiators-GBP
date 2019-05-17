@@ -12,7 +12,6 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     height = 50;
     xAcc = 1;
     yAcc = 1;
-    maxSpeed = 10;
     maxAcc = 2;
     canMove = true;
     target = nullptr;
@@ -33,6 +32,11 @@ void Player::update()
 {
     if (target == nullptr) nextTarget();
     if (canMove && target != nullptr) move();
+}
+
+int Player::getMaxSpeed(){
+    int gladiatorSpeed = this->gladiator->getSpeed();
+    return gladiatorSpeed;
 }
 
 void Player::draw()
@@ -98,6 +102,10 @@ Gladiator *Player::getGladiator() const
 void Player::setGladiator(Gladiator *value)
 {
     gladiator = value;
+    maxSpeed = this->getMaxSpeed();
+    if(maxSpeed<=0){
+        maxSpeed=1;
+    }
 }
 
 void Player::mousePressEvent(QMouseEvent *)

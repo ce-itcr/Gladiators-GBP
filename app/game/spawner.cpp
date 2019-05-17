@@ -39,13 +39,14 @@ void Spawner::spawnTower(Tile *tile, Tower *tower)
     tile->getNode()->setEntity(entity);
 }
 
-void Spawner::spawnArrow(int x, int y, Entity *target, Tower *tower)
+void Spawner::spawnArrow(int x, int y, Entity *target, int towerDamage)
 {
     Grid *grid = dynamic_cast<Grid *>(parent);
 
     Arrow *arrow = new Arrow(grid, x, y);
     arrow->setTower(tower);
     arrow->setTarget(target);
+    arrow->setDamage(towerDamage);
 
 
     Entity *entity = arrow;
