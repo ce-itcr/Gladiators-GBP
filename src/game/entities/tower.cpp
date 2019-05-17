@@ -3,7 +3,7 @@
 Tower::Tower()
 {
     this->id = "";
-    this->damagePerShoot = 1000;
+    this->damagePerShoot = 10;
     this->attackSpeed = 1000;
     this->xp = 0;
     this->type = 0;

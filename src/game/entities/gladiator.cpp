@@ -24,6 +24,13 @@ Gladiator::Gladiator(QString id, int age, int health, int resistanceUpperBody, i
     this->j = j;
 }
 
+int Gladiator::getSpeed(){
+    int speed = 0;
+    speed += this->getResistanceLowerBody();
+    speed -= this->getResistanceUpperBody()/2;
+    return speed;
+}
+
 void Gladiator::write(QJsonObject &jsonObj) const
 {
     jsonObj["id"] = id;
@@ -122,4 +129,12 @@ QList<Node *> Gladiator::getNodePath() const
 void Gladiator::setNodePath(const QList<Node *> &value)
 {
     nodePath = value;
+}
+
+int Gladiator::getThoughness(){
+        int thoughness = 0;
+        thoughness += this->getResistanceUpperBody();
+        thoughness -= this->getResistanceLowerBody()/2;
+        return thoughness;
+
 }

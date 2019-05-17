@@ -70,6 +70,8 @@ private:
     int nodeIndex;
     Tile *target;
 
+    int getMaxSpeed();
+
     void move();
 
     void nextTarget();

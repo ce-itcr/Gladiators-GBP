@@ -54,12 +54,13 @@ void Arrow::collide()
         {
             GameController::getInstance()->removeEntity(this);
             Player *player = dynamic_cast<Player *>(entity);
-            cout<<player->getGladiator()->getHealth()<<endl;
             if(player->getGladiator()->getHealth()>0){
                 int gladiatorLifePoints = player->getGladiator()->getHealth();
-                int arrowDamage = this->getDamage();
+                int arrowDamage = this->getDamage()-player->getGladiator()->getThoughness();
+                if(arrowDamage<=0){
+                    arrowDamage=1;
+                }
                 player->getGladiator()->setHealth(gladiatorLifePoints-arrowDamage);
-                cout<<player->getGladiator()->getHealth()<<endl;
             }
             if(player->getGladiator()->getHealth()<=0){
                 player->kill();
