@@ -15,7 +15,7 @@ Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
     shootDelay.start();
     canShoot = false;
 
-//    this->setStyleSheet("background-color:blue;");
+
     setStyleSheet("background-color:#635255;"
                   "image: url(:img/tower1.png)");
     this->setGeometry(x, y, width, height);
@@ -30,7 +30,8 @@ Enemy::~Enemy()
 void Enemy::update()
 {
     this->move(x, y);
-    if (shootDelay.elapsed() >= tower->getAttackSpeed()) canShoot = true;
+    updateShootDelay();
+    if (shootDelay.elapsed() >= fireRate) canShoot = true;
 }
 
 void Enemy::draw()
@@ -50,6 +51,8 @@ void Enemy::collide()
         }
     }
     collide(players);
+
+
 }
 
 void Enemy::collide(QList<Entity *> players)
@@ -111,6 +114,7 @@ Tower *Enemy::getTower() const
 void Enemy::setTower(Tower *value)
 {
     tower = value;
+    deltaTime = tower->getAttackSpeed() / 15;
 }
 
 Entity *Enemy::closerPlayer(QList<Entity *> players)
@@ -145,5 +149,11 @@ void Enemy::shoot(Entity *entity)
 
     int xPoss = x + width / 4;
     int yPoss = y + width / 4;
-    Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity, tower);
+    Spawner::getInstance()->spawnArrow(xPoss, yPoss, entity, this->tower->damagePerShoot, tower);
+}
+
+void Enemy::updateShootDelay()
+{
+    int cycleSpeed = GameController::getInstance()->getCycleTime();
+    fireRate = cycleSpeed * deltaTime;
 }

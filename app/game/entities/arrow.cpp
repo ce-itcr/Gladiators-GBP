@@ -10,7 +10,7 @@ Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
     this->y = y;
     width = 10;
     height = 10;
-    damage = 1;
+    damage = 10;
     xSpeed = 0;
     ySpeed = 0;
     xAcc = 1;
@@ -25,6 +25,14 @@ Arrow::Arrow(QWidget *parent, int x, int y) : QFrame(parent)
     //    this->setStyleSheet("background-color:#EBF5EE;");
     this->setGeometry(x, y, width, height);
     this->show();
+}
+
+void Arrow::setDamage(int Damage){
+    this->damage = Damage;
+}
+
+int Arrow::getDamage(){
+    return this->damage;
 }
 
 Arrow::~Arrow()
@@ -110,16 +118,6 @@ QRect Arrow::getRect()
 
 void Arrow::kill()
 {
-    for (Entity *entity : GameController::getInstance()->getEntities())
-    {
-        if (entity->tag == "arrow")
-        {
-            Arrow *arrow = dynamic_cast<Arrow *>(entity);
-            if (arrow != this && arrow->target == target) arrow->target = nullptr;
-        }
-    }
-
-    target = nullptr;
     GameController::getInstance()->removeEntity(this);
 }
 

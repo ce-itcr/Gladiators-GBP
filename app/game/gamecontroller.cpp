@@ -31,6 +31,7 @@ void GameController::addEntity(Entity *entity)
 void GameController::removeEntity(Entity *entity)
 {
     toDeleteEntities.push_back(entity);
+    if (entity->tag == "player") alertArrows(entity);
 }
 
 void GameController::callWave()
@@ -182,7 +183,8 @@ void GameController::deleteEntities()
     {
         entities.removeOne(entity);
         try {
-            delete entity;
+            QWidget *QW = dynamic_cast<QWidget *>(entity);
+            QW->close();
             entity = nullptr;
         } catch (...) { }
     }
@@ -216,4 +218,17 @@ bool GameController::playerHit(QRect arrowRect)
         }
     }
     return collision;
+}
+
+void GameController::alertArrows(Entity *player)
+{
+    for (Entity *entity : entities)
+    {
+        if (entity->tag == "arrow")
+        {
+            Arrow *arrow = dynamic_cast<Arrow *>(entity);
+            if (arrow->getTarget() == player)
+                arrow->setTarget(nullptr);
+        }
+    }
 }
