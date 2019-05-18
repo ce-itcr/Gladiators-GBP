@@ -30,7 +30,11 @@ Player::~Player()
 void Player::update()
 {
     if (target == nullptr) nextTarget();
-    if (canMove && target != nullptr) move();
+    if (canMove && target != nullptr) {
+        gladiator->setI(target->getI());
+        gladiator->setJ(target->getJ());
+        move();
+    }
 }
 
 int Player::getMaxSpeed(){
@@ -119,6 +123,7 @@ void Player::mousePressEvent(QMouseEvent *)
 
 void Player::move()
 {
+    //setNodePath(gladiator->getNodePath());
     xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);
     ySpeed = Math::clamp(0, maxSpeed, ySpeed + yAcc);
     x = Math::approach(x, target->x(), xSpeed);

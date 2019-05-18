@@ -20,7 +20,7 @@ public:
     Backtrack backTrackPathFinding = *new Backtrack((Map::getInstance()->getRows())-1,(Map::getInstance()->getRows())-1,10000,*new Vector(0,0),
                                                   *new Vector((Map::getInstance()->getRows())-1,(Map::getInstance()->getRows())-1),
                                                   Map::getInstance()->getRows());
-    point *start = new point(0,0);
+    point *start;
     point *end = new point ((Map::getInstance()->getRows())-1,(Map::getInstance()->getRows())-1);
     int pathCost = 10000;
     void shortestPath();
