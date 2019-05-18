@@ -63,6 +63,8 @@ private:
 
     void createEntity(Tile *tile);
 
+    void updatePaths();
+
     void drawCircle(Entity *entity);
 };
 

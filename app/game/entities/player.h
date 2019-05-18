@@ -31,6 +31,8 @@ public:
 
     QRect getRect();
 
+    void updatePath();
+
     int getX() const;
     void setX(int value);
 
@@ -42,9 +44,6 @@ public:
 
     Gladiator *getGladiator() const;
     void setGladiator(Gladiator *value);
-
-    int getNodeIndex() const;
-    void setNodeIndex(int value);
 
 signals:
     void gladiatorPressed(Gladiator *);
@@ -67,7 +66,6 @@ private:
     int maxAcc;
     bool canMove;
     QList<Node *> nodePath;
-    int nodeIndex;
     Tile *target;
 
     int getMaxSpeed();

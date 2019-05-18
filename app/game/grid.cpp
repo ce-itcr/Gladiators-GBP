@@ -1,5 +1,7 @@
 #include "grid.h"
 
+#include "game/entities/player.h"
+
 Grid::Grid(QWidget *parent, QString mapFilePath) : QFrame(parent)
 {
     map = Map::getInstance();
@@ -155,5 +157,18 @@ void Grid::createEntity(Tile *tile)
         spawner->spawnTower(tile, tower);
         towers->push_back(tower);
         gameController->decreaseMoney(buildCost);
+    }
+    updatePaths();
+}
+
+void Grid::updatePaths()
+{
+    for (Entity *entity : gameController->getEntities())
+    {
+        if (entity->tag == "player")
+        {
+            Player *player = dynamic_cast<Player *>(entity);
+            player->updatePath();
+        }
     }
 }

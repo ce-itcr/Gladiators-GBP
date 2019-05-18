@@ -15,7 +15,6 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     maxAcc = 2;
     canMove = true;
     target = nullptr;
-    nodeIndex = 0;
 //    setStyleSheet("image: url(:img/gladiatorRun.gif)");
 
     this->setStyleSheet("background-color:green;");
@@ -62,6 +61,11 @@ QRect Player::getRect()
 {
     QRect rect(x, y, width, height);
     return rect;
+}
+
+void Player::updatePath()
+{
+    nodePath = gladiator->getNodePath();
 }
 
 int Player::getX() const
@@ -113,16 +117,6 @@ void Player::mousePressEvent(QMouseEvent *)
     gladiatorPressed(gladiator);
 }
 
-int Player::getNodeIndex() const
-{
-    return nodeIndex;
-}
-
-void Player::setNodeIndex(int value)
-{
-    nodeIndex = value;
-}
-
 void Player::move()
 {
     xSpeed = Math::clamp(0, maxSpeed, xSpeed + xAcc);
@@ -134,19 +128,18 @@ void Player::move()
     if (x == target->x() && y == target->y())
     {
         target = nullptr;
-        if (nodeIndex == nodePath.size()) kill();  // Reaches final Node
+        if (nodePath.isEmpty()) kill();  // Reaches final Node
     }
 }
 
 void Player::nextTarget()
 {
-    Node *node = nodePath.value(nodeIndex);
+    Node *node = nodePath.takeFirst();
     QList<Tile *> tiles = grid->getTiles();
     for (Tile *tile : tiles)
     {
         if (tile->getNode() == node)
         {
-            nodeIndex++;
             target = tile;
             break;
         }
