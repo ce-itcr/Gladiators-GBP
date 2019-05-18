@@ -144,6 +144,25 @@ void Enemy::setOnKillMoney(int value)
     onKillMoney = value;
 }
 
+void Enemy::mousePressEvent(QMouseEvent *)
+{
+    int offset = 5;
+    int size = width - offset * 2;
+
+    QPushButton *upgrade = new QPushButton(this);
+    upgrade->setGeometry(offset, offset, size, size);
+    upgrade->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
+    upgrade->show();
+
+    QTimer::singleShot(3000, upgrade, &QPushButton::close);
+}
+
+void Enemy::resizeEvent(QResizeEvent *)
+{
+    width = QWidget::width();
+    height = QWidget::height();
+}
+
 Entity *Enemy::closerPlayer(QList<Entity *> players)
 {
     Entity *closer = nullptr;

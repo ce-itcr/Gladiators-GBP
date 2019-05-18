@@ -95,5 +95,6 @@
         <file>img/fire/efecto_fuego_00049.png</file>
         <file>img/buttons/OK_button.png</file>
         <file>img/logotipo.png</file>
+        <file>img/magic_circle.png</file>
     </qresource>
 </RCC>

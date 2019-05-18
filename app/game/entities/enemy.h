@@ -4,6 +4,7 @@
 #include <QFrame>
 #include <QDebug>
 #include <QTime>
+#include <QPushButton>
 
 #include "entity.h"
 #include "game/entities/tower.h"
@@ -48,6 +49,12 @@ public:
 
     static int getOnKillMoney();
     static void setOnKillMoney(int value);
+
+    // QWidget interface
+protected:
+    void mousePressEvent(QMouseEvent *);
+
+    void resizeEvent(QResizeEvent *);
 
 private:
     Tower *tower;
