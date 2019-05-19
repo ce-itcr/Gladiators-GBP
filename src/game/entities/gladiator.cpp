@@ -73,6 +73,7 @@ int Gladiator::getHealth() const
 void Gladiator::setHealth(int value)
 {
     health = value;
+    startHealth = health;
 }
 
 int Gladiator::getResistanceUpperBody() const

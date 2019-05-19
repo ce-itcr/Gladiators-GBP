@@ -20,23 +20,25 @@ void FindPath::shortestPath(){
         list.clear();
     }else{
         pathCost = 10000;
+        return;
     }
-    if(pathCost != 10000){
-        if(!counter){
-            for(Gladiator *gladiator:*Populations::getInstance()->getGladiators()){
-                start = new point(gladiator->getI(),gladiator->getJ());
-                if(aStarPathFinding.search(*start,*end,aStarPathFinding.m)){
-                    list<point> path;
-                    QList<Node *> list;
-                    pathCost = aStarPathFinding.path(path,Map::getInstance()->getNodes(),list);
-                    gladiator->setNodePath(list);
-                    path.clear();
-                    list.clear();
-                }
+
+    if(!counter){
+        for(Gladiator *gladiator:*Populations::getInstance()->getGladiators()){
+            start = new point(gladiator->getI(),gladiator->getJ());
+            if(gladiator->isAlive() && aStarPathFinding.search(*start,*end,aStarPathFinding.m)){
+                list<point> path;
+                QList<Node *> list;
+                pathCost = aStarPathFinding.path(path,Map::getInstance()->getNodes(),list);
+                gladiator->setNodePath(list);
+                path.clear();
+                list.clear();
             }
-            counter++;
-        }else{
-            for (Gladiator *gladiator:*Populations::getInstance()->getGladiators()) {
+        }
+        counter++;
+    }else{
+        for (Gladiator *gladiator:*Populations::getInstance()->getGladiators()) {
+                if (gladiator->isAlive()) {
                 List *listTemp = new List();
                 QList<Node *> listQ;
                 backTrackPathFinding.PathfindingBackTrack(gladiator->getI(),gladiator->getJ(), 0, listTemp);
@@ -45,7 +47,7 @@ void FindPath::shortestPath(){
                 listQ.clear();
                 delete listTemp;
             }
-            counter--;
         }
+        counter--;
     }
 }
