@@ -52,7 +52,10 @@ void GameController::callWave()
 {
     for (Entity *entity : entities)
     {
-        if (entity->tag == "enemy") removeEntity(entity);
+        if (entity->tag == "enemy") {
+            dynamic_cast<Enemy*>(entity)->kill();
+            removeEntity(entity);
+        }
     }
     QList<Gladiator> gladiators = populations->getGladiatorsValues();
     QList<Tower> towers = populations->getTowersValues();

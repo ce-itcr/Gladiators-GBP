@@ -21,6 +21,7 @@ Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
     target = nullptr;
     shootDelay.start();
     canShoot = false;
+    boosted = false;
 
     setStyleSheet("background-color:#635255;"
                   "image: url(:img/tower1.png)");
@@ -87,6 +88,11 @@ QRect Enemy::getRect()
 {
     QRect rect(x, y, width, height);
     return rect;
+}
+
+void Enemy::kill()
+{
+    if (boosted) endBoost();
 }
 
 void Enemy::playerKill()
@@ -178,6 +184,7 @@ void Enemy::boost()
     int money = GameController::getInstance()->getMoney();
     if (money < boostCost) return;
 
+    boosted = true;
     attackSpeedSaved = tower->getAttackSpeed();
     damageSaved = tower->getDamagePerShoot();
     int attackSpeed = attackSpeedSaved / boostRate;
@@ -195,6 +202,7 @@ void Enemy::boost()
 
 void Enemy::endBoost()
 {
+    boosted = false;
     endBoostAnimation();
     tower->setAttackSpeed(attackSpeedSaved);
     tower->setDamagePerShoot(damageSaved);
@@ -216,7 +224,7 @@ void Enemy::boostAnimation()
     animation->show();
 
     QMovie *movie = new QMovie(animation);
-    movie->setFileName("://img/TowerBoost.gif");
+    movie->setFileName("://img/spells/TowerBoost.gif");
     movie->setScaledSize(animation->size());
     animation->setMovie(movie);
     movie->start();

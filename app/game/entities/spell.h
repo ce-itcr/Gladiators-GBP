@@ -48,12 +48,15 @@ private:
     bool active;
     QString type;
     QString animation;
+    QString iconAnimation;
     int xStart;
     int yStart;
     int duration;
     QRect gridRect;
 
     void activate();
+
+    void loadIconAnimation();
 
     void loadAnimation();
 

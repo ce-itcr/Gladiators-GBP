@@ -4,18 +4,18 @@
 
 #include <game.h>
 
-Spell::Spell(QWidget *parent, QString _type, QString animation_) : QLabel(parent)
+Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
 {
     canMove = true;
     active = false;
     type = _type;
-    animation = animation_;
+    iconAnimation = animation;
     duration = 5000;
 
     int size =  50;
     resize(size, size);
-    setStyleSheet("background-color:rgba(255, 255, 255, 0);"
-                  "border-image:url(" + animation + ")");
+    loadIconAnimation();
+    setStyleSheet("background-color:rgba(255, 255, 255, 0);");
 }
 
 Spell::~Spell()
@@ -126,10 +126,18 @@ void Spell::activate()
     QTimer::singleShot(duration, this, &Spell::deactivate);
 }
 
+void Spell::loadIconAnimation()
+{
+    QMovie *movie = new QMovie(this);
+    movie->setFileName(iconAnimation);
+    movie->setScaledSize(this->size());
+    this->setMovie(movie);
+    movie->start();
+}
+
 void Spell::loadAnimation()
 {
-    setStyleSheet("border-image:0");
-
+    this->movie()->stop();
     QMovie *movie = new QMovie(this);
     movie->setFileName(animation);
     movie->setScaledSize(this->size());
@@ -142,7 +150,7 @@ void Spell::loadNewSpell()
     int x = xStart;
     int y = yStart;
 
-    Spell *spell = new Spell(parentWidget(), type, animation);
+    Spell *spell = new Spell(parentWidget(), type, iconAnimation);
     spell->setAnimation(animation);
     spell->move(x, y);
     spell->setStartPoss(x, y);

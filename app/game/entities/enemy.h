@@ -35,6 +35,8 @@ public:
 
     QRect getRect();
 
+    void kill();
+
     void playerKill();
 
     QRegion getCircle();
@@ -84,6 +86,7 @@ private:
     float deltaTime = 66;
     bool canShoot;
     QLabel *animation;
+    bool boosted;
     static int buildCost;
     static int onKillMoney;
     static int boostCost;

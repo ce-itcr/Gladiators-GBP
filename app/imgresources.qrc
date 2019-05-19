@@ -95,8 +95,11 @@
         <file>img/fire/efecto_fuego_00049.png</file>
         <file>img/buttons/OK_button.png</file>
         <file>img/logotipo.png</file>
-        <file>img/magic_circle.png</file>
-        <file>img/TowerBoost.gif</file>
-        <file>img/fire_circle.gif</file>
+        <file>img/spells/TowerBoost.gif</file>
+        <file>img/spells/magic_circle.png</file>
+        <file>img/spells/ice_flame.gif</file>
+        <file>img/spells/fire_flame.gif</file>
+        <file>img/spells/fire_circle.gif</file>
+        <file>img/spells/dark_flame.gif</file>
     </qresource>
 </RCC>
