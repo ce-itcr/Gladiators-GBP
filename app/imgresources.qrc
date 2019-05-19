@@ -96,5 +96,6 @@
         <file>img/buttons/OK_button.png</file>
         <file>img/logotipo.png</file>
         <file>img/magic_circle.png</file>
+        <file>img/TowerBoost.gif</file>
     </qresource>
 </RCC>

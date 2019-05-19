@@ -1,6 +1,7 @@
 ﻿#include "enemy.h"
 
 #include "game/spawner.h"
+#include "game/grid.h"
 
 int Enemy::buildCost = 200;
 int Enemy::onKillMoney = 5;
@@ -184,16 +185,48 @@ void Enemy::boost()
     tower->setAttackSpeed(attackSpeed);
     tower->setDamagePerShoot(damage);
 
+    boostAnimation();
     updateDelta();
     GameController::getInstance()->spendMoney(boostCost);
     QTimer::singleShot(boostTime, this, &Enemy::endBoost);
+    QPushButton *button = qobject_cast<QPushButton *>(sender());
+    button->close();
 }
 
 void Enemy::endBoost()
 {
+    endBoostAnimation();
     tower->setAttackSpeed(attackSpeedSaved);
     tower->setDamagePerShoot(damageSaved);
     updateDelta();
+}
+
+void Enemy::boostAnimation()
+{
+    int offset = 30;
+    int xPoss = x - offset;
+    int yPoss = y - offset;
+    int w = width + offset * 2;
+    int h = height + offset * 2;
+
+    Grid *grid = dynamic_cast<Grid *>(parent());
+    animation = new QLabel(grid);
+    animation->setGeometry(xPoss, yPoss, w, h);
+    animation->setStyleSheet("background-color:rgba(255, 255, 255, 0);");
+    animation->show();
+
+    QMovie *movie = new QMovie(animation);
+    movie->setFileName("://img/TowerBoost.gif");
+    movie->setScaledSize(animation->size());
+    animation->setMovie(movie);
+    movie->start();
+}
+
+void Enemy::endBoostAnimation()
+{
+    animation->movie()->stop();
+    animation->close();
+    delete animation;
 }
 
 Entity *Enemy::closerPlayer(QList<Entity *> players)

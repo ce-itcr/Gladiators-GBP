@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QTime>
 #include <QPushButton>
+#include <QMovie>
+#include <QLabel>
 
 #include "entity.h"
 #include "game/entities/tower.h"
@@ -63,6 +65,10 @@ private slots:
 
     void endBoost();
 
+    void boostAnimation();
+
+    void endBoostAnimation();
+
 private:
     Tower *tower;
     int x;
@@ -77,6 +83,7 @@ private:
     int attackSpeedSaved;
     float deltaTime = 66;
     bool canShoot;
+    QLabel *animation;
     static int buildCost;
     static int onKillMoney;
     static int boostCost;
