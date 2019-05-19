@@ -6,7 +6,7 @@
 int Enemy::buildCost = 200;
 int Enemy::onKillMoney = 5;
 int Enemy::boostCost = 100;
-int Enemy::boostTime = 4000;
+int Enemy::boostTime = 5000;
 int Enemy::boostRate = 3;
 
 Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)

@@ -25,6 +25,7 @@ Game::Game(QWidget *parent) :
                      this, &Game::addedEntity);
     loadGrid();
     loadButtons();
+    loadSpells();
 
     // Creates Population
     //PopulationsMock::run();
@@ -99,11 +100,30 @@ void Game::loadButtons()
     ui->pauseButton->raise();
 }
 
+void Game::loadSpells()
+{
+    int yOffset = 70;
+    int x = ui->pauseButton->x() + ui->pauseButton->width() + 20;
+    int y = height() / 2 - yOffset;
+
+    Spell *spell = new Spell(this, "fire", "://img/TowerBoost.gif");
+    spell->move(x, y);
+    spell->setStartPoss(x, y);
+    spell->show();
+    spells.push_back(spell);
+}
+
 void Game::resizeEvent(QResizeEvent *)
 {
     int width, height;
     width = height = this->height() - 94;
     grid->resize(width, height);
+
+    for (Spell * spell : spells)
+    {
+        int size = grid->getTileSize();
+        spell->resize(size, size);
+    }
 }
 
 void Game::paintEvent(QPaintEvent *)
@@ -115,6 +135,11 @@ void Game::paintEvent(QPaintEvent *)
 
     int money = gameController->getMoney();
     ui->moneyCount->setNum(money);
+}
+
+Grid *Game::getGrid() const
+{
+    return grid;
 }
 
 void Game::on_waveButton_clicked()
@@ -182,6 +207,4 @@ void Game::on_exitButton_clicked()
     close();
     MainWindow *w = new MainWindow();
     w->show();
-
-
 }

@@ -20,6 +20,7 @@
 #include "game/gamecontroller.h"
 #include "game/populations.h"
 #include "game/spawner.h"
+#include "game/entities/spell.h"
 #include "graph/PathFinding/findpath.h"
 
 namespace Ui {
@@ -38,6 +39,8 @@ public:
     void enableWaveButton();
 
     QMediaPlayer *music;
+
+    Grid *getGrid() const;
 
 public slots:
     void populationReady();
@@ -62,10 +65,13 @@ private:
     Spawner *spawner;
     int gameSpeed;
     Gladiator *gladiatorLabel;
+    QList<Spell *> spells;
 
     void loadGrid();
 
     void loadButtons();
+
+    void loadSpells();
 
 private slots:
     void on_waveButton_clicked();

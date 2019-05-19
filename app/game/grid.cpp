@@ -2,6 +2,8 @@
 
 #include "game/entities/player.h"
 
+int Grid::tileSize = 50;
+
 Grid::Grid(QWidget *parent, QString mapFilePath) : QFrame(parent)
 {
     map = Map::getInstance();
@@ -56,7 +58,7 @@ void Grid::setFocusable(bool value)
     focusable = value;
 }
 
-int Grid::getTileSize() const
+int Grid::getTileSize()
 {
     return tileSize;
 }

@@ -27,7 +27,7 @@ public:
     QList<Tile *> getTiles() const;
     void setTiles(const QList<Tile *> &value);
 
-    int getTileSize() const;
+    static int getTileSize();
 
     bool isFocusable() const;
     void setFocusable(bool value);
@@ -52,8 +52,8 @@ private:
     int rows;
     int columns;
     int offset = 1;
-    int tileSize;
     bool focusable;
+    static int tileSize;
 
     void loadGrid();
 

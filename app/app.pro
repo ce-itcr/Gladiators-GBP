@@ -40,7 +40,8 @@ SOURCES += \
     game/entities/player.cpp \
     game/gamecontroller.cpp \
     game/entities/enemy.cpp \
-    util.cpp
+    util.cpp \
+    game/entities/spell.cpp
 
 HEADERS += \
 	game/entities/arrow.h \
@@ -56,7 +57,8 @@ HEADERS += \
     game/gamecontroller.h \
     game.h \
     game/entities/enemy.h \
-    util.h
+    util.h \
+    game/entities/spell.h
 
 FORMS += \
         mainwindow.ui \
