@@ -106,7 +106,8 @@ void Game::loadSpells()
     int x = ui->pauseButton->x() + ui->pauseButton->width() + 20;
     int y = height() / 2 - yOffset;
 
-    Spell *spell = new Spell(this, "fire", "://img/TowerBoost.gif");
+    Spell *spell = new Spell(this, "fire", "://img/fire_circle.gif");
+    spell->setAnimation("://img/fire_circle.gif");
     spell->move(x, y);
     spell->setStartPoss(x, y);
     spell->show();

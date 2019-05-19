@@ -97,5 +97,6 @@
         <file>img/logotipo.png</file>
         <file>img/magic_circle.png</file>
         <file>img/TowerBoost.gif</file>
+        <file>img/fire_circle.gif</file>
     </qresource>
 </RCC>
