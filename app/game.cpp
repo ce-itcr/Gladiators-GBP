@@ -110,13 +110,21 @@ void Game::loadSpells()
     int yOffset = 70;
     int x = ui->pauseButton->x() + ui->pauseButton->width() + 20;
     int y = height() / 2 - yOffset;
+    QStringList spellsType = {"fire", "ice", "dark"};
 
-    Spell *spell = new Spell(this, "fire", "://img/spells/fire_flame.gif");
-    spell->setAnimation("://img/spells/fire_circle.gif");
-    spell->move(x, y);
-    spell->setStartPoss(x, y);
-    spell->show();
-    spells.push_back(spell);
+    for (QString type : spellsType)
+    {
+        QString flame = "://img/spells/" + type + "_flame.gif";
+        QString circle = "://img/spells/" + type + "_circle.gif";
+
+        Spell *spell = new Spell(this, type, flame);
+        spell->setAnimation(circle);
+        spell->move(x, y);
+        spell->setStartPoss(x, y);
+        spell->show();
+        spells.push_back(spell);
+        y += yOffset;
+    }
 }
 
 void Game::resizeEvent(QResizeEvent *)

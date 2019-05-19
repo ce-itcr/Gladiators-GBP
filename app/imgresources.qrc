@@ -101,5 +101,7 @@
         <file>img/spells/fire_flame.gif</file>
         <file>img/spells/fire_circle.gif</file>
         <file>img/spells/dark_flame.gif</file>
+        <file>img/spells/ice_circle.gif</file>
+        <file>img/spells/dark_circle.gif</file>
     </qresource>
 </RCC>

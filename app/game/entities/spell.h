@@ -32,13 +32,14 @@ public:
 signals:
 
 public slots:
-
+    void load();
 
     // QWidget interface
 protected:
     void mousePressEvent(QMouseEvent *);
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *);
+    void resizeEvent(QResizeEvent *);
 
 private slots:
     void deactivate();

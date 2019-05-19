@@ -12,10 +12,10 @@ Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
     iconAnimation = animation;
     duration = 5000;
 
-    int size =  50;
+    int size = 50;
     resize(size, size);
-    loadIconAnimation();
-    setStyleSheet("background-color:rgba(255, 255, 255, 0);");
+    setStyleSheet("background-color:rgba(255, 255, 255, 100);"
+                  "border-radius:20px;");
 }
 
 Spell::~Spell()
@@ -75,6 +75,11 @@ void Spell::mouseMoveEvent(QMouseEvent *event)
     move(x, y);
 }
 
+void Spell::resizeEvent(QResizeEvent *)
+{
+    loadIconAnimation();
+}
+
 QString Spell::getType() const
 {
     return type;
@@ -111,8 +116,14 @@ void Spell::setAnimation(const QString &value)
     animation = value;
 }
 
+void Spell::load()
+{
+    loadIconAnimation();
+}
+
 void Spell::activate()
 {
+    setStyleSheet("background-color:rgba(255, 255, 255, 0);");
     active = true;
 
     int size = width() * 3;
