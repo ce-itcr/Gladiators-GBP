@@ -64,6 +64,7 @@ private:
     static GameController *instance;
     Populations *populations;
     QList<Entity *> entities;
+    QList<Entity *> entitiesStack;
     QList<Entity *> toDeleteEntities;
     int cycleTime;
     bool waveActive;
@@ -86,6 +87,8 @@ private:
     bool playerHit(QRect arrowRect);
 
     void alertArrows(Entity *entity);
+
+    void clearEntitiesStack();
 };
 
 #endif // GAMECONTROLLER_H

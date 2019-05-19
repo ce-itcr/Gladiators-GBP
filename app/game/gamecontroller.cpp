@@ -21,11 +21,13 @@ void GameController::stop()
     waveActive = false;
     pause = false;
     entities.clear();
+    clearEntitiesStack();
 }
 
 void GameController::addEntity(Entity *entity)
 {
     entities.push_back(entity);
+    entitiesStack.push_back(entity);
     addedEntity(entity);
 }
 
@@ -56,6 +58,7 @@ void GameController::callWave()
     QList<Tower> towers = populations->getTowersValues();
     populations->sendPopulation(gladiators, towers);
     QTimer::singleShot(2000, populations, &Populations::updatePopulation);
+    QTimer::singleShot(2000, this, &GameController::clearEntitiesStack);
 }
 
 void GameController::update()
@@ -255,4 +258,13 @@ void GameController::alertArrows(Entity *player)
                 arrow->setTarget(nullptr);
         }
     }
+}
+
+void GameController::clearEntitiesStack()
+{
+    for (Entity *entity : entitiesStack)
+    {
+        delete entity;
+    }
+    entitiesStack.clear();
 }
