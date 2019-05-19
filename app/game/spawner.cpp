@@ -33,6 +33,7 @@ void Spawner::spawnTower(Tile *tile, Tower *tower)
     Enemy *enemy = new Enemy(grid, x, y);
     enemy->resize(tileSize, tileSize);
     enemy->setTower(tower);
+    enemy->updateDelta();
 
     Entity *entity = enemy;
     gameController->addEntity(entity);

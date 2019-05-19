@@ -164,7 +164,7 @@ void Grid::createEntity(Tile *tile)
     tower->setJ(tile->getJ());
     spawner->spawnTower(tile, tower);
     towers->push_back(tower);
-    gameController->decreaseMoney(buildCost);
+    gameController->spendMoney(buildCost);
 
     updatePaths();
 }

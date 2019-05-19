@@ -25,7 +25,7 @@ public:
 
     void addMoney(int extra);
 
-    void decreaseMoney(int expended);
+    void spendMoney(int expended);
 
     void removeEntity(Entity *entity);
 

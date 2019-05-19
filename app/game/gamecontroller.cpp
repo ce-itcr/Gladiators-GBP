@@ -36,7 +36,7 @@ void GameController::addMoney(int extra)
     money += extra;
 }
 
-void GameController::decreaseMoney(int expended)
+void GameController::spendMoney(int expended)
 {
     money -= expended;
     if (money < 0) money = 0;

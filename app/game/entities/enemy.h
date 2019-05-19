@@ -1,4 +1,4 @@
-#ifndef ENEMY_H
+﻿#ifndef ENEMY_H
 #define ENEMY_H
 
 #include <QFrame>
@@ -29,6 +29,8 @@ public:
 
     void uncollide();
 
+    void updateDelta();
+
     QRect getRect();
 
     void playerKill();
@@ -56,6 +58,11 @@ protected:
 
     void resizeEvent(QResizeEvent *);
 
+private slots:
+    void boost();
+
+    void endBoost();
+
 private:
     Tower *tower;
     int x;
@@ -66,10 +73,15 @@ private:
     int range;
     QTime shootDelay;
     int fireRate;
+    int damageSaved;
+    int attackSpeedSaved;
     float deltaTime = 66;
     bool canShoot;
     static int buildCost;
     static int onKillMoney;
+    static int boostCost;
+    static int boostTime;
+    static int boostRate;
 
     Entity *closerPlayer(QList<Entity *> players);
 

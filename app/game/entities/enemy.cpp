@@ -4,6 +4,9 @@
 
 int Enemy::buildCost = 200;
 int Enemy::onKillMoney = 5;
+int Enemy::boostCost = 100;
+int Enemy::boostTime = 4000;
+int Enemy::boostRate = 3;
 
 Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
 {
@@ -73,6 +76,12 @@ void Enemy::uncollide()
 
 }
 
+void Enemy::updateDelta()
+{
+    int cycleSpeed = GameController::getInstance()->getCycleTime();
+    deltaTime = tower->getAttackSpeed() / cycleSpeed;
+}
+
 QRect Enemy::getRect()
 {
     QRect rect(x, y, width, height);
@@ -121,7 +130,6 @@ Tower *Enemy::getTower() const
 void Enemy::setTower(Tower *value)
 {
     tower = value;
-    deltaTime = tower->getAttackSpeed() / 15;
 }
 
 int Enemy::getBuildCost()
@@ -151,9 +159,10 @@ void Enemy::mousePressEvent(QMouseEvent *)
 
     QPushButton *upgrade = new QPushButton(this);
     upgrade->setGeometry(offset, offset, size, size);
-    upgrade->setStyleSheet("background-color: rgba(255, 255, 255, 0);");
+    upgrade->setStyleSheet("background-color:rgba(150, 150, 255, 100);");
     upgrade->show();
 
+    QObject::connect(upgrade, &QPushButton::clicked, this, &Enemy::boost);
     QTimer::singleShot(3000, upgrade, &QPushButton::close);
 }
 
@@ -161,6 +170,30 @@ void Enemy::resizeEvent(QResizeEvent *)
 {
     width = QWidget::width();
     height = QWidget::height();
+}
+
+void Enemy::boost()
+{
+    int money = GameController::getInstance()->getMoney();
+    if (money < boostCost) return;
+
+    attackSpeedSaved = tower->getAttackSpeed();
+    damageSaved = tower->getDamagePerShoot();
+    int attackSpeed = attackSpeedSaved / boostRate;
+    int damage = damageSaved * boostRate;
+    tower->setAttackSpeed(attackSpeed);
+    tower->setDamagePerShoot(damage);
+
+    updateDelta();
+    GameController::getInstance()->spendMoney(boostCost);
+    QTimer::singleShot(boostTime, this, &Enemy::endBoost);
+}
+
+void Enemy::endBoost()
+{
+    tower->setAttackSpeed(attackSpeedSaved);
+    tower->setDamagePerShoot(damageSaved);
+    updateDelta();
 }
 
 Entity *Enemy::closerPlayer(QList<Entity *> players)
