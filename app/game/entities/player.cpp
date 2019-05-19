@@ -58,6 +58,8 @@ void Player::uncollide()
 
 void Player::kill()
 {
+    gladiator->setHealth(gladiator->getStartHealth());
+    gladiator->setAlive(false);
     GameController::getInstance()->removeEntity(this);
 }
 

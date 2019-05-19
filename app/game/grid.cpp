@@ -40,29 +40,10 @@ void Grid::resizeEvent(QResizeEvent *)
 void Grid::mousePressEvent(QMouseEvent *event)
 {
     if (!focusable) return;
-    FindPath::instance->pathCost = 10000;
     int x = event->x();
     int y = event->y();
-    for (Tile *tile : tiles)
-    {
-        if (tile->getRect().contains(x, y))
-        {
-            tile->getNode()->setOccupied(true);
-            FindPath::instance->shortestPath();
 
-            if(FindPath::instance->pathCost != 10000){
-                createEntity(tile);
-
-                QMediaPlayer* genWave = new QMediaPlayer;
-                genWave->setMedia(QUrl("qrc:/audio/hammering.wav"));
-                genWave->setVolume(100);
-                genWave->play();
-
-            }else{
-                tile->getNode()->setOccupied(false);
-            }
-        }
-    }
+    buildTower(x, y);
 }
 
 bool Grid::isFocusable() const
@@ -142,22 +123,49 @@ void Grid::updateGrid()
     }
 }
 
-void Grid::createEntity(Tile *tile)
+void Grid::buildTower(int x, int y)
 {
     int buildCost = Enemy::getBuildCost();
     int money = gameController->getMoney();
-    if (tile->canBuild() && money >= buildCost)
+    if (money < buildCost) return;
+
+    FindPath::instance->pathCost = 10000;
+    for (Tile *tile : tiles)
     {
-        QList<Tower *> *towers = populations->getTowers();
-        QString id = QString::number(towers->size());
-        Tower *tower = new Tower();
-        tower->setId(id);
-        tower->setI(tile->getI());
-        tower->setJ(tile->getJ());
-        spawner->spawnTower(tile, tower);
-        towers->push_back(tower);
-        gameController->decreaseMoney(buildCost);
+        // Buildable tile
+        if (tile->getRect().contains(x, y) && tile->canBuild())
+        {
+            tile->getNode()->setOccupied(true);
+            FindPath::instance->shortestPath();
+
+            // Pathfinder check for another path
+            if(FindPath::instance->pathCost != 10000)
+            {
+                createEntity(tile);
+
+                QMediaPlayer* genWave = new QMediaPlayer;
+                genWave->setMedia(QUrl("qrc:/audio/hammering.wav"));
+                genWave->setVolume(100);
+                genWave->play();
+
+            } else tile->getNode()->setOccupied(false);
+        }
     }
+}
+
+void Grid::createEntity(Tile *tile)
+{
+    int buildCost = Enemy::getBuildCost();
+    QList<Tower *> *towers = populations->getTowers();
+    QString id = QString::number(towers->size());
+    Tower *tower = new Tower();
+    tower->setId(id);
+    tower->setI(tile->getI());
+    tower->setJ(tile->getJ());
+    spawner->spawnTower(tile, tower);
+    towers->push_back(tower);
+    gameController->decreaseMoney(buildCost);
+
     updatePaths();
 }
 

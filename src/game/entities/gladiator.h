@@ -53,6 +53,12 @@ public:
     QList<Node *> getNodePath() const;
     void setNodePath(const QList<Node *> &value);
 
+    int getStartHealth() const;
+    void setStartHealth(int value);
+
+    bool isAlive() const;
+    void setAlive(bool value);
+
 private:
     QString id;
     int age;
@@ -63,6 +69,8 @@ private:
     int i;
     int j;
     QList<Node *> nodePath;
+    int startHealth;
+    bool alive;
 };
 
 #endif // GLADIATOR_H

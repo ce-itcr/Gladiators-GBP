@@ -61,6 +61,8 @@ private:
 
     void updateGrid();
 
+    void buildTower(int x, int y);
+
     void createEntity(Tile *tile);
 
     void updatePaths();

@@ -10,6 +10,8 @@ Gladiator::Gladiator()
     dodgeChance = 0;
     i = 0;
     j = 0;
+    startHealth = 0;
+    alive = true;
 }
 
 Gladiator::Gladiator(QString id, int age, int health, int resistanceUpperBody, int resistanceLowerBody, int dodgeChance, int i, int j)
@@ -22,6 +24,8 @@ Gladiator::Gladiator(QString id, int age, int health, int resistanceUpperBody, i
     this->dodgeChance = dodgeChance;
     this->i= i;
     this->j = j;
+    startHealth = health;
+    alive = true;
 }
 
 int Gladiator::getSpeed(){
@@ -131,10 +135,30 @@ void Gladiator::setNodePath(const QList<Node *> &value)
     nodePath = value;
 }
 
+int Gladiator::getStartHealth() const
+{
+    return startHealth;
+}
+
+void Gladiator::setStartHealth(int value)
+{
+    startHealth = value;
+}
+
+bool Gladiator::isAlive() const
+{
+    return alive;
+}
+
+void Gladiator::setAlive(bool value)
+{
+    alive = value;
+}
+
 int Gladiator::getThoughness(){
-        int thoughness = 0;
-        thoughness += this->getResistanceUpperBody();
-        thoughness -= this->getResistanceLowerBody()/2;
+    int thoughness = 0;
+    thoughness += this->getResistanceUpperBody();
+    thoughness -= this->getResistanceLowerBody()/2;
         return thoughness;
 
 }
