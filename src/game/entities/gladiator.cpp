@@ -39,7 +39,7 @@ void Gladiator::write(QJsonObject &jsonObj) const
 {
     jsonObj["id"] = id;
     jsonObj["age"] = age;
-    jsonObj["health"] = health;
+    jsonObj["health"] = startHealth;
     jsonObj["resistanceUpperBody"] = resistanceUpperBody;
     jsonObj["resistanceLowerBody"] = resistanceLowerBody;
     jsonObj["dodgeChance"] = dodgeChance;
