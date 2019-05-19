@@ -56,6 +56,8 @@ private:
     void activate();
 
     void loadAnimation();
+
+    void loadNewSpell();
 };
 
 #endif // SPELL_H

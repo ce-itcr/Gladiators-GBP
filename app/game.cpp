@@ -45,6 +45,11 @@ void Game::enableWaveButton()
     ui->waveButton->setEnabled(true);
 }
 
+void Game::addSpell(Spell *spell)
+{
+    spells.push_back(spell);
+}
+
 void Game::populationReady()
 {
     ui->waveButton->setEnabled(true);

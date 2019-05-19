@@ -38,6 +38,8 @@ public:
 
     void enableWaveButton();
 
+    void addSpell(Spell *spell);
+
     QMediaPlayer *music;
 
     Grid *getGrid() const;

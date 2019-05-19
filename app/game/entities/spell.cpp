@@ -97,6 +97,7 @@ void Spell::setDuration(int value)
 
 void Spell::deactivate()
 {
+    loadNewSpell();
     this->close();
 }
 
@@ -134,4 +135,18 @@ void Spell::loadAnimation()
     movie->setScaledSize(this->size());
     this->setMovie(movie);
     movie->start();
+}
+
+void Spell::loadNewSpell()
+{
+    int x = xStart;
+    int y = yStart;
+
+    Spell *spell = new Spell(parentWidget(), type, animation);
+    spell->setAnimation(animation);
+    spell->move(x, y);
+    spell->setStartPoss(x, y);
+    spell->show();
+
+    dynamic_cast<Game *>(parent())->addSpell(spell);
 }
