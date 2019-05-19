@@ -3,7 +3,8 @@
 
 #include <QString>
 
-#include <json/jsonserializable.h>
+#include "json/jsonserializable.h"
+#include "util/math.h"
 
 
 class Tower : public JsonSerializable

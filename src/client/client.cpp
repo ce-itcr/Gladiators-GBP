@@ -25,7 +25,7 @@ void Client::POST(const QString &path, const QString &data)
     request.setRawHeader("Content-Type", "application/json");
 
     qDebug() << "Client POST request to: " << url.toString();
-    qDebug().noquote() << data;
+    qDebug() << data;
     manager->post(request, data.toUtf8());
 
     QObject::connect(manager, &QNetworkAccessManager::finished, this, &Client::replyFinished);
@@ -42,7 +42,7 @@ void Client::replyFinished(QNetworkReply *reply)
     if (message == "") return;
 
     QString populationType = reply->rawHeader("population-type");
-    qDebug().noquote() << "Reply finished : " << message;
+    qDebug() << "Reply finished : " << message;
 
     if (populationType == "gladiators") readyGladiators(message);
     else if (populationType == "towers") readyTowers(message);

@@ -3,13 +3,13 @@
 Tower::Tower()
 {
     this->id = "";
-    this->damagePerShoot = 1;
+    this->damagePerShoot = Math::random(1, 5);
     this->attackSpeed = 1000;
     this->xp = 0;
     this->type = 1;
     this->level = 1;
     this->baseAttackSpeed = 1000;
-    this->baseDamagePerShoot = 1;
+    this->baseDamagePerShoot = damagePerShoot;
     this->xpForLevelUp = 20;
     this->i = 0;
     this->j = 0;

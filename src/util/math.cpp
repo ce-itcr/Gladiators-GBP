@@ -32,3 +32,13 @@ int Math::distance(int x1, int y1, int x2, int y2)
     int distance = sqrt(pow(x, 2) + pow(y, 2));
     return distance;
 }
+
+int Math::random(int range)
+{
+    return rand() % range;
+}
+
+int Math::random(int min, int max)
+{
+    return rand() % max + min;
+}
