@@ -12,6 +12,7 @@ Game::Game(QWidget *parent) :
 {
     ui->setupUi(this);
     gameSpeed = 2;
+    gladiatorLabel = nullptr;
 
     spawner = Spawner::getInstance();
     gameController = GameController::getInstance();    
@@ -69,6 +70,7 @@ void Game::addedEntity(Entity *entity)
 
 void Game::loadGladiatorLabel(Gladiator *gladiator)
 {
+    if (gladiator != gladiatorLabel) gladiatorLabel = gladiator;
     ui->ageIN->setNum(gladiator->getAge());
     ui->healthIN->setNum(gladiator->getHealth());
     ui->resUPIN->setNum(gladiator->getResistanceUpperBody());
@@ -106,6 +108,8 @@ void Game::resizeEvent(QResizeEvent *)
 
 void Game::paintEvent(QPaintEvent *)
 {
+    if (gladiatorLabel != nullptr) loadGladiatorLabel(gladiatorLabel);
+
     int waveCount = spawner->waveSize();
     ui->waveCount->setNum(waveCount);
 

@@ -41,6 +41,7 @@ public:
 
     int getDodgeChance() const;
     void setDodgeChance(int value);
+
     int getThoughness();
     int getSpeed();
 

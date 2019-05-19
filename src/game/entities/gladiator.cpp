@@ -53,6 +53,7 @@ void Gladiator::read(const QJsonObject &jsonObj)
     resistanceUpperBody = jsonObj["resistanceUpperBody"].toInt();
     resistanceLowerBody = jsonObj["resistanceLowerBody"].toInt();
     dodgeChance = jsonObj["dodgeChance"].toInt();
+    startHealth = health;
 }
 
 int Gladiator::getAge() const
@@ -73,7 +74,6 @@ int Gladiator::getHealth() const
 void Gladiator::setHealth(int value)
 {
     health = value;
-    startHealth = health;
 }
 
 int Gladiator::getResistanceUpperBody() const
@@ -159,7 +159,7 @@ void Gladiator::setAlive(bool value)
 int Gladiator::getThoughness(){
     int thoughness = 0;
     thoughness += this->getResistanceUpperBody();
-    thoughness -= this->getResistanceLowerBody()/2;
-        return thoughness;
-
+    thoughness -= this->getResistanceLowerBody() / 2;
+    if (thoughness < 0) thoughness = 0;
+    return thoughness;
 }

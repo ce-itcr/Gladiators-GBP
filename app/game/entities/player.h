@@ -29,6 +29,8 @@ public:
 
     void kill();
 
+    void hit(int damage);
+
     QRect getRect();
 
     void updatePath();

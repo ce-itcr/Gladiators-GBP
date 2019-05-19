@@ -60,6 +60,8 @@ private:
     void move();
 
     void playerKill();
+
+    void areaDamageEffect();
 };
 
 #endif // ARROW_H

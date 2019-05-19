@@ -29,6 +29,7 @@ Player::~Player()
 
 void Player::update()
 {
+    if (gladiator->getHealth() <= 0) kill();
     if (target == nullptr) nextTarget();
     if (canMove && target != nullptr) {
         gladiator->setI(target->getI());
@@ -61,6 +62,14 @@ void Player::kill()
     gladiator->setHealth(gladiator->getStartHealth());
     gladiator->setAlive(false);
     GameController::getInstance()->removeEntity(this);
+}
+
+void Player::hit(int damage)
+{
+    int damageDone = damage - gladiator->getThoughness();
+    if (damageDone < 0) damageDone = 1;
+    int health = gladiator->getHealth() - damageDone;
+    gladiator->setHealth(health);
 }
 
 QRect Player::getRect()

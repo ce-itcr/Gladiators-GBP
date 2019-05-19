@@ -53,51 +53,32 @@ void Arrow::draw()
 
 void Arrow::collide()
 {
+    int damageDone = tower->getDamagePerShoot();
     for (Entity *entity : GameController::getInstance()->getEntities())
     {
         if (entity->tag == "player" &&
                 Collision::collide(getRect(), entity->getRect()))
         {
-            Player *player = dynamic_cast<Player *>(entity);
-            int damageDone = tower->getDamagePerShoot() - player->getGladiator()->getThoughness();
-            if(damageDone < 1){
-                damageDone = 1;
+            if (tower->getType() != 3)
+            {
+                Player *player = dynamic_cast<Player *>(entity);
+                player->hit(damageDone);
+                int health = player->getGladiator()->getHealth();
+                if (health <= 0) playerKill();
             }
-            if(tower->getType() != 3){
-                player->getGladiator()->setHealth(player->getGladiator()->getHealth() - damageDone);
-                if(player->getGladiator()->getHealth() <= 0){
-                    tower->setXp(tower->getXp() + 1);
-                    player->kill();
-                    playerKill();
-                    kill();
-                }
-            }
-            else{
+            else
+            {
                 QList<Entity *> playersHit = AOECollide();
-                QList<Entity *>::iterator i;
-                for(i = playersHit.begin(); i != playersHit.end(); i++){
-                    Player *tempPlayer = dynamic_cast<Player *>(*i);
-                    tempPlayer->getGladiator()->setHealth(player->getGladiator()->getHealth() - damageDone);
-                    if(tempPlayer->getGladiator()->getHealth() <= 0){
-                        tower->setXp(tower->getXp() + 1);
-                        tempPlayer->kill();
-                        playerKill();
-                    }
+                for (Entity *entity : playersHit) {
+                    Player *tempPlayer = dynamic_cast<Player *>(entity);
+                    tempPlayer->hit(damageDone);
+                    int health = tempPlayer->getGladiator()->getHealth();
+                    if (health <= 0) playerKill();
                 }
                 playersHit.clear();
-                kill();
-
-                Grid *grid = dynamic_cast<Grid *>(parent());
-                QFrame *qFrame = new QFrame(grid);
-                qFrame->setStyleSheet("background-color:#635255;");
-                int xPoss = x - grid->getTileSize();
-                int yPoss = y - grid->getTileSize();
-                int diameter = grid->getTileSize() * 3;
-                qFrame->setGeometry(xPoss,yPoss,diameter,diameter);
-                qFrame->show();
-
-                QTimer::singleShot(200, qFrame, &QFrame::close);
-            }
+                areaDamageEffect();
+            }  
+            kill();
             break;
         }
     }
@@ -180,8 +161,23 @@ void Arrow::move()
 
 void Arrow::playerKill()
 {
+    tower->setXp(tower->getXp() + 1);
     Enemy *enemy = dynamic_cast<Enemy *>(parentEnemy);
     enemy->playerKill();
+}
+
+void Arrow::areaDamageEffect()
+{
+    Grid *grid = dynamic_cast<Grid *>(parent());
+    QFrame *qFrame = new QFrame(grid);
+    qFrame->setStyleSheet("background-color:#635255;");
+    int xPoss = x - grid->getTileSize();
+    int yPoss = y - grid->getTileSize();
+    int diameter = grid->getTileSize() * 3;
+    qFrame->setGeometry(xPoss,yPoss,diameter,diameter);
+    qFrame->show();
+
+    QTimer::singleShot(200, qFrame, &QFrame::close);
 }
 
 QRegion Arrow::getCircle()

@@ -61,6 +61,7 @@ private:
     Populations *populations;
     Spawner *spawner;
     int gameSpeed;
+    Gladiator *gladiatorLabel;
 
     void loadGrid();
 
