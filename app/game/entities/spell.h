@@ -14,6 +14,8 @@ public:
 
     ~Spell();
 
+    void update();
+
     QList<Entity *> playersIn(QList<Entity *> entities);
 
     QRect getRect();
@@ -28,6 +30,9 @@ public:
 
     QString getAnimation() const;
     void setAnimation(const QString &value);
+
+    int getCastCost() const;
+    void setCastCost(int value);
 
 signals:
 
@@ -53,7 +58,9 @@ private:
     int xStart;
     int yStart;
     int duration;
+    int updateDelay;
     QRect gridRect;
+    int castCost;
 
     void activate();
 

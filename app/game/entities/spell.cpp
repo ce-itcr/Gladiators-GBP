@@ -1,8 +1,8 @@
 #include "spell.h"
 
-#include <game/grid.h>
-
-#include <game.h>
+#include "game/grid.h"
+#include "game/gamecontroller.h"
+#include "game.h"
 
 Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
 {
@@ -11,6 +11,8 @@ Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
     type = _type;
     iconAnimation = animation;
     duration = 5000;
+    updateDelay = 900;
+    castCost = 200;
 
     int size = 50;
     resize(size, size);
@@ -21,6 +23,12 @@ Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
 Spell::~Spell()
 {
 
+}
+
+void Spell::update()
+{
+    QTimer::singleShot(updateDelay, this, &Spell::update);
+    if (!active) return;
 }
 
 QList<Entity *> Spell::playersIn(QList<Entity *> entities)
@@ -60,9 +68,11 @@ void Spell::mousePressEvent(QMouseEvent *)
 void Spell::mouseReleaseEvent(QMouseEvent *)
 {
     if (active) return;
+
     canMove = false;
     bool contains = gridRect.contains(getRect());
-    if (contains) activate();
+    int money = GameController::getInstance()->getMoney();
+    if (contains && money >= castCost) activate();
     else move(xStart, yStart);
 }
 
@@ -106,6 +116,16 @@ void Spell::deactivate()
     this->close();
 }
 
+int Spell::getCastCost() const
+{
+    return castCost;
+}
+
+void Spell::setCastCost(int value)
+{
+    castCost = value;
+}
+
 QString Spell::getAnimation() const
 {
     return animation;
@@ -124,6 +144,7 @@ void Spell::load()
 void Spell::activate()
 {
     setStyleSheet("background-color:rgba(255, 255, 255, 0);");
+    GameController::getInstance()->spendMoney(castCost);
     active = true;
 
     int size = width() * 3;
