@@ -56,9 +56,36 @@ void Game::removeSpell(Spell *spell)
     delete spell;
 }
 
+void Game::addPlayerToTable(QString id, int distance)
+{
+    QTableWidget *table = ui->timesTable;
+    QTableWidgetItem *idItem = new QTableWidgetItem("ID : " + id);
+    QTableWidgetItem *distanceItem = new QTableWidgetItem();
+    idItem->setTextAlignment(Qt::AlignCenter);
+    distanceItem->setData(Qt::EditRole, distance);
+    distanceItem->setTextAlignment(Qt::AlignCenter);
+
+    int index = table->rowCount();
+    table->insertRow(index);
+    table->setItem(index, 0, idItem);
+    table->setItem(index, 1, distanceItem);
+    table->sortItems(1, Qt::DescendingOrder);
+}
+
+void Game::cleanTable()
+{
+    QTableWidget *table = ui->timesTable;
+    table->clear();
+    for (int i = 0; i < table->rowCount(); i ++)
+    {
+        table->removeRow(i);
+    }
+}
+
 void Game::populationReady()
 {
     ui->waveButton->setEnabled(true);
+    cleanTable();
     for (Tower *tower : *populations->getTowers())
     {
         Tile *tile = grid->tileAt(tower->getI(), tower->getJ());

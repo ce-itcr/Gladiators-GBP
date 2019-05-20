@@ -1,6 +1,8 @@
 #include "player.h"
+
 #include <QMovie>
 #include <QLabel>
+#include "game.h"
 
 Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(parent))
 {
@@ -13,6 +15,7 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     xAcc = 1;
     yAcc = 1;
     maxAcc = 2;
+    timeAlive.start();
     canMove = true;
     target = nullptr;
     freezed = false;
@@ -67,6 +70,11 @@ void Player::kill()
 {
     gladiator->setAlive(false);
     GameController::getInstance()->removeEntity(this);
+
+    int elapsedSec = timeAlive.elapsed() / 1000;
+    int distance = maxSpeed * elapsedSec;
+    Game * game = dynamic_cast<Game *>(parent()->parent());
+    game->addPlayerToTable(gladiator->getId(), distance);
 }
 
 void Player::hit(int damage)

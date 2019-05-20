@@ -75,6 +75,7 @@ private:
     int maxSpeed;
     int maxAcc;
     bool canMove;
+    QTime timeAlive;
     QList<Node *> nodePath;
     QList<Tile *> visitedPath;
     Tile *target;
