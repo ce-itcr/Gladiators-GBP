@@ -16,7 +16,7 @@ Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
     updateDelay = 900;
     castCost = 200;
     burnDamage = 1;
-    confuseTime = 2000;
+    confuseTime = 3000;
     freezeTime = 2000;
 
     int size = 50;
@@ -239,5 +239,8 @@ void Spell::freeze(QList<Player *> players)
 
 void Spell::confuse(QList<Player *> players)
 {
-
+    for (Player *player : players)
+    {
+        player->confuse(confuseTime);
+    }
 }
