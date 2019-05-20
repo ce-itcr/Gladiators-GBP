@@ -47,12 +47,17 @@ protected:
     void mousePressEvent(QMouseEvent *);
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *);
+    void moveEvent(QMoveEvent *event);
     void resizeEvent(QResizeEvent *);
 
 private slots:
     void deactivate();
 
 private:
+    int x;
+    int y;
+    int width;
+    int height;
     bool canMove;
     bool active;
     QString type;

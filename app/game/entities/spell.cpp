@@ -8,6 +8,8 @@ int Spell::onKillMoney = 15;
 
 Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
 {
+    x = 0;
+    y = 0;
     canMove = true;
     active = false;
     type = _type;
@@ -20,6 +22,7 @@ Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
     freezeTime = 2000;
 
     int size = 50;
+    width = height = size;
     resize(size, size);
     setStyleSheet("background-color:rgba(255, 255, 255, 100);"
                   "border-radius:20px;");
@@ -58,12 +61,17 @@ QList<Player *> Spell::playersIn(QList<Entity *> entities)
 
 QRect Spell::getRect()
 {
-    return QRect(x(), y(), width(), height());
+    return QRect(x, y, width, height);
 }
 
 QRegion Spell::getRegion()
 {
-    return QRegion(x(), y(), width(), height(), QRegion::Ellipse);
+    int offset = 10;
+    int xPoss = x + offset;
+    int yPoss = y + offset;
+    int w = width - offset * 2;
+    int h = height - offset * 2;
+    return QRegion(xPoss, yPoss, w, h, QRegion::Ellipse);
 }
 
 void Spell::setStartPoss(int x, int y)
@@ -94,14 +102,22 @@ void Spell::mouseReleaseEvent(QMouseEvent *)
 void Spell::mouseMoveEvent(QMouseEvent *event)
 {
     if (!canMove) return;
-    int offset = this->width() / 2;
-    int x = this->x() + event->x() - offset;
-    int y = this->y() + event->y() - offset;
+    int offset = width / 2;
+    int x = this->x + event->x() - offset;
+    int y = this->y + event->y() - offset;
     move(x, y);
 }
 
-void Spell::resizeEvent(QResizeEvent *)
+void Spell::moveEvent(QMoveEvent *event)
 {
+    x = event->pos().x();
+    y = event->pos().y();
+}
+
+void Spell::resizeEvent(QResizeEvent *event)
+{
+    width = event->size().width();
+    height = event->size().height();
     loadIconAnimation();
 }
 
@@ -164,10 +180,10 @@ void Spell::activate()
     GameController::getInstance()->spendMoney(castCost);
     active = true;
 
-    int size = width() * 3;
-    int offset = width();
-    int x = this->x() - offset;
-    int y = this->y() - offset;
+    int size = width * 3;
+    int offset = width;
+    int x = this->x - offset;
+    int y = this->y - offset;
 
     move(x, y);
     resize(size, size);
