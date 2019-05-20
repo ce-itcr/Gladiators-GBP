@@ -23,7 +23,7 @@ public class Gladiators {
 	
 	public void generateRandomPopulation() {
 		for (int i = 0; i < population.length; i++)
-			population[i] = new Gladiator(new Chromosome(random.nextInt(10)));
+			population[i] = new Gladiator(new Chromosome(random.nextInt(3)));
 	}
 	
 	public void sortGladiatorPopulation() {

@@ -28,9 +28,9 @@ public class GladiatorsSend {
     public void replaceAllGladiators(Collection<GladiatorSend> newGladiators) {
         GeneticAlgorithm geneticAlgorithm = new GeneticAlgorithm();
         Gladiators.getInstance().population = geneticAlgorithm.collectionToGladiatorArray(newGladiators);
-    	Gladiator [] gladiatorArray = Gladiators.getInstance().population;
         gladiators = new HashMap<>();
         geneticAlgorithm.newGeneration(newGladiators, 10);
+        Gladiator [] gladiatorArray = Gladiators.getInstance().population;
         int i = 0;
         for (GladiatorSend gladiator : newGladiators) {
         	int age = gladiatorArray[i].getChromosome().getAge();

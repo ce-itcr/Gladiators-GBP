@@ -3,7 +3,7 @@ package ce.itcr.gladiators.genetic.resources;
 public class Chromosome {
 	
 	private int [] chromosomeArray;
-	private int health;
+    private int health;
 	private int resistanceUpperBody;
 	private int resistanceLowerBody;
 	private int dodgeChance;
@@ -11,6 +11,8 @@ public class Chromosome {
 	
 	public Chromosome(int num) {
 		super();
+		if (num < 1)
+		    num = 1;
 		this.health = num;
 		this.resistanceUpperBody = num;
 		this.resistanceLowerBody = num;
@@ -24,15 +26,33 @@ public class Chromosome {
 		this.chromosomeArray = new int[] {health, resistanceLowerBody, resistanceUpperBody, dodgeChance, age};
 		return this.chromosomeArray;
 	}
+
+    public void setChromosomeArray(int[] chromosomeArray) {
+        this.chromosomeArray = chromosomeArray;
+        this.health = chromosomeArray[0];
+        this.resistanceLowerBody = chromosomeArray[1];
+        this.resistanceUpperBody = chromosomeArray[2];
+        this.dodgeChance = chromosomeArray[3];
+    }
 	
-	public void mutateGene(int i) {
-		getChromosomeArray()[i] += 10;
-		setHealth(chromosomeArray[0]);
-		setResistanceLowerBody(chromosomeArray[1]);
-		setResistanceUpperBody(chromosomeArray[2]);
-		setDodgeChance(chromosomeArray[3]);
-		setAge(chromosomeArray[4]++);
+	public void mutateGene() {
+	    int [] newChromosomeArray = getChromosomeArray();
+	    int strongestGene = getStrongestGene();
+		newChromosomeArray[strongestGene] = getChromosomeArray()[strongestGene] + 2;
+		if (Math.random() < 0.5)
+            newChromosomeArray[strongestGene] = getChromosomeArray()[strongestGene] + 8;
+		newChromosomeArray[0] += 5;
+		if (Math.random() < 0.5)
+		    newChromosomeArray[3]++;
+		setChromosomeArray(newChromosomeArray);
 	}
+
+	private int getStrongestGene(){
+	    if (getChromosomeArray()[1] < getChromosomeArray()[2])
+	        return 1;
+	    else
+	        return 2;
+    }
 
 	public int getHealth() {
 		return health;

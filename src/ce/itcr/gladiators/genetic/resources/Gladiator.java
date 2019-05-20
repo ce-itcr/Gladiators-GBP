@@ -16,18 +16,25 @@ public class Gladiator {
 
 	public Gladiator crossover(Gladiator gladiator) {
 		Chromosome finalChromosome = new Chromosome(0);
-		finalChromosome.setAge(0);
-		finalChromosome.setHealth(this.chromosome.getHealth());
-		finalChromosome.setResistanceLowerBody(this.chromosome.getResistanceLowerBody());
-		finalChromosome.setResistanceUpperBody(gladiator.getChromosome().getResistanceUpperBody());
-		finalChromosome.setDodgeChance(gladiator.getChromosome().getDodgeChance());
-		Gladiator finalGladiator = new Gladiator(mutate(finalChromosome));
-		return finalGladiator;
+		if (Math.random() < 0.5){
+			finalChromosome.setHealth(this.chromosome.getHealth());
+			finalChromosome.setResistanceLowerBody(this.chromosome.getResistanceLowerBody());
+			finalChromosome.setResistanceUpperBody(gladiator.getChromosome().getResistanceUpperBody());
+			finalChromosome.setDodgeChance(gladiator.getChromosome().getDodgeChance());
+			Gladiator finalGladiator = new Gladiator(mutate(finalChromosome));
+		} else {
+			finalChromosome.setHealth(gladiator.chromosome.getHealth());
+			finalChromosome.setResistanceLowerBody(gladiator.chromosome.getResistanceLowerBody());
+			finalChromosome.setResistanceUpperBody(this.getChromosome().getResistanceUpperBody());
+			finalChromosome.setDodgeChance(this.getChromosome().getDodgeChance());
+			Gladiator finalGladiator = new Gladiator(mutate(finalChromosome));
+		}
+		return new Gladiator(mutate(finalChromosome));
 	}
 	
 	private Chromosome mutate(Chromosome chromosome) {
-		if (Math.random() < 0.3)
-			chromosome.mutateGene(random.nextInt(((3 - 0) + 1) + 0));
+		if (Math.random() < 0.5)
+			chromosome.mutateGene();
 		return chromosome;
 	}
 	
@@ -38,13 +45,10 @@ public class Gladiator {
 		this.chromosome = chromosome;
 	}
 	public void setFitness() {
-		fitness += chromosome.getHealth() + chromosome.getDodgeChance() + chromosome.getResistanceLowerBody() + chromosome.getResistanceUpperBody();
+		fitness += chromosome.getResistanceLowerBody() + chromosome.getResistanceUpperBody();
 	}
 	public int getFitness() {
 		return fitness;
-	}
-	public void setFitness(int fitness) {
-		this.fitness = fitness;
 	}
 
 }

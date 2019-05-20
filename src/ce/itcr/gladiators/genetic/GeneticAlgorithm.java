@@ -22,7 +22,7 @@ public class GeneticAlgorithm {
 //			System.out.println("population size: " + Gladiators.getInstance().getPopulationSize());
 //			System.out.println("random: " + Gladiators.getInstance().population[0]);
 //			System.out.println("Fittest: " + Gladiators.getInstance().getFittestGladiator());
-			Gladiator newGladiator = Gladiators.getInstance().getFittestGladiator().crossover(Gladiators.getInstance().population[random.nextInt(Gladiators.getInstance().getPopulationSize())]);
+			Gladiator newGladiator = Gladiators.getInstance().getFittestGladiator().crossover(Gladiators.getInstance().population[random.nextInt(Gladiators.getInstance().getPopulationSize()/3)]);
 			Gladiators.getInstance().replaceGladiator(newGladiator);
 		}
 		Gladiators.getInstance().printGladiatorPopulation();

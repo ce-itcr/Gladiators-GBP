@@ -77,7 +77,7 @@ public class Tower {
 			this.type++;
 			this.level = 1;
 			this.xp -= xpForLevelUp;
-			this.xpForLevelUp += 5;
+			this.xpForLevelUp += 10;
 			upgradeRNG();
 		}
 		if (this.attackSpeed > 500);
@@ -85,11 +85,11 @@ public class Tower {
 		this.damagePerShot += 5;
 		this.level++;
 		this.xp -= this.xpForLevelUp;
-		this.xpForLevelUp += 5;
+		this.xpForLevelUp += 10;
 	}
 	
 	private void upgradeRNG() {
-		if (Math.random() < 0.3) {
+		if (Math.random() < 0.1) {
 			this.baseDamagePerShot = this.damagePerShot;
 			this.baseAttackSpeed = this.attackSpeed;
 			return;
