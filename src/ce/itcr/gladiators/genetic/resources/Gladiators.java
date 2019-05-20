@@ -34,14 +34,19 @@ public class Gladiators {
 	}
 	
 	public void printGladiatorPopulation() {
-//		int count = 0;
-//		for (Gladiator g : population) {
-//			System.out.println("-----------------------------");
-//			System.out.println("Gladiator: " + count);
-//			System.out.println("Fitness: " + g.getFitness());
-//			System.out.println();
-//			count++;
-//		}
+		int count = 1;
+		sortGladiatorPopulation();
+		for (Gladiator g : population) {
+			int probabilityOfSurvival = (int)(((double)(count)/(double)(population.length))*100);
+			int expectedNumberOfGenerations = count/10;
+			System.out.println("-----------------------------");
+			System.out.println("Gladiator: " + count);
+			System.out.println("Fitness: " + g.getFitness());
+			System.out.println("Probability of surviving next generation: " + probabilityOfSurvival + "%");
+			System.out.println("Expected number of generations: " + expectedNumberOfGenerations);
+			System.out.println();
+			count++;
+		}
 	}
 	
 	public Gladiator getFittestGladiator() {

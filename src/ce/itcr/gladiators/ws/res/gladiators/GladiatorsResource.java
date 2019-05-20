@@ -1,6 +1,7 @@
 package ce.itcr.gladiators.ws.res.gladiators;
 
 import ce.itcr.gladiators.entities.GladiatorSend;
+import ce.itcr.gladiators.genetic.resources.Gladiators;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -26,6 +27,7 @@ public class GladiatorsResource {
     @POST
     public void postGladiator(Collection<GladiatorSend> newGladiators) {
         gladiators.replaceAllGladiators(newGladiators);
+        Gladiators.getInstance().printGladiatorPopulation();
     }
 
 }
