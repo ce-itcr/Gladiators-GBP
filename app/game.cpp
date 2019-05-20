@@ -50,6 +50,12 @@ void Game::addSpell(Spell *spell)
     spells.push_back(spell);
 }
 
+void Game::removeSpell(Spell *spell)
+{
+    spells.removeOne(spell);
+    delete spell;
+}
+
 void Game::populationReady()
 {
     ui->waveButton->setEnabled(true);

@@ -31,6 +31,10 @@ public:
 
     void hit(int damage);
 
+    void freeze(int time);
+
+    void unFreeze();
+
     QRect getRect();
 
     void updatePath();
@@ -69,6 +73,7 @@ private:
     bool canMove;
     QList<Node *> nodePath;
     Tile *target;
+    bool freezed;
 
     int getMaxSpeed();
 

@@ -5,6 +5,7 @@
 
 #include "util/collision.h"
 #include "entity.h"
+#include "game/entities/player.h"
 
 class Spell : public QLabel
 {
@@ -16,9 +17,11 @@ public:
 
     void update();
 
-    QList<Entity *> playersIn(QList<Entity *> entities);
+    QList<Player *> playersIn(QList<Entity *> entities);
 
     QRect getRect();
+
+    QRegion getRegion();
 
     void setStartPoss(int x, int y);
 
@@ -61,6 +64,10 @@ private:
     int updateDelay;
     QRect gridRect;
     int castCost;
+    int burnDamage;
+    int freezeTime;
+    int confuseTime;
+    static int onKillMoney;
 
     void activate();
 
@@ -69,6 +76,14 @@ private:
     void loadAnimation();
 
     void loadNewSpell();
+
+    void setUpdateDelay();
+
+    void burn(QList<Player *> players);
+
+    void freeze(QList<Player *> players);
+
+    void confuse(QList<Player *> players);
 };
 
 #endif // SPELL_H

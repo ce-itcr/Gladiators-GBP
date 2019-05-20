@@ -15,6 +15,7 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     maxAcc = 2;
     canMove = true;
     target = nullptr;
+    freezed = false;
 //    setStyleSheet("image: url(:img/gladiatorRun.gif)");
 
     this->setStyleSheet("background-color:green;");
@@ -31,7 +32,7 @@ void Player::update()
 {
     if (gladiator->getHealth() <= 0) kill();
     if (target == nullptr) nextTarget();
-    if (canMove && target != nullptr) {
+    if (canMove && target != nullptr && !freezed) {
         gladiator->setI(target->getI());
         gladiator->setJ(target->getJ());
         move();
@@ -69,6 +70,17 @@ void Player::hit(int damage)
     if (damageDone < 0) damageDone = 1;
     int health = gladiator->getHealth() - damageDone;
     gladiator->setHealth(health);
+}
+
+void Player::freeze(int time)
+{
+    freezed = true;
+    QTimer::singleShot(time, this, &Player::unFreeze);
+}
+
+void Player::unFreeze()
+{
+    freezed = false;
 }
 
 QRect Player::getRect()

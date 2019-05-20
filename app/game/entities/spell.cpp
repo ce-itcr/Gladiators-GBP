@@ -4,6 +4,8 @@
 #include "game/gamecontroller.h"
 #include "game.h"
 
+int Spell::onKillMoney = 15;
+
 Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
 {
     canMove = true;
@@ -13,6 +15,9 @@ Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
     duration = 5000;
     updateDelay = 900;
     castCost = 200;
+    burnDamage = 1;
+    confuseTime = 2000;
+    freezeTime = 2000;
 
     int size = 50;
     resize(size, size);
@@ -29,17 +34,23 @@ void Spell::update()
 {
     QTimer::singleShot(updateDelay, this, &Spell::update);
     if (!active) return;
+
+    QList<Player *> players = playersIn(GameController::getInstance()->getEntities());
+    if (type == "fire") burn(players);
+    else if (type == "ice") freeze(players);
+    else if (type == "dark") confuse(players);
 }
 
-QList<Entity *> Spell::playersIn(QList<Entity *> entities)
+QList<Player *> Spell::playersIn(QList<Entity *> entities)
 {
-    QList<Entity *> collisions;
+    QList<Player *> collisions;
     for (Entity *entity : entities)
     {
-        if (entity->tag == "")
+        if (entity->tag == "player")
         {
-            bool collide = Collision::collide(entity->getRect(), getRect());
-            if (collide) collisions.push_front(entity);
+            bool collide = Collision::collide(getRegion(), entity->getRect());
+            Player *player = dynamic_cast<Player *>(entity);
+            if (collide) collisions.push_front(player);
         }
     }
     return collisions;
@@ -47,8 +58,12 @@ QList<Entity *> Spell::playersIn(QList<Entity *> entities)
 
 QRect Spell::getRect()
 {
-    QRect rect(x(), y(), width(), height());
-    return rect;
+    return QRect(x(), y(), width(), height());
+}
+
+QRegion Spell::getRegion()
+{
+    return QRegion(x(), y(), width(), height(), QRegion::Ellipse);
 }
 
 void Spell::setStartPoss(int x, int y)
@@ -112,8 +127,10 @@ void Spell::setDuration(int value)
 
 void Spell::deactivate()
 {
+    active = false;
     loadNewSpell();
     this->close();
+    dynamic_cast<Game *>(parent())->removeSpell(this);
 }
 
 int Spell::getCastCost() const
@@ -155,6 +172,8 @@ void Spell::activate()
     move(x, y);
     resize(size, size);
     loadAnimation();
+    setUpdateDelay();
+    update();
     QTimer::singleShot(duration, this, &Spell::deactivate);
 }
 
@@ -189,4 +208,36 @@ void Spell::loadNewSpell()
     spell->show();
 
     dynamic_cast<Game *>(parent())->addSpell(spell);
+}
+
+void Spell::setUpdateDelay()
+{
+    if (type == "fire") updateDelay = 500;
+    if (type == "ice") updateDelay = 50;
+    if (type == "dark") updateDelay = 50;
+}
+
+void Spell::burn(QList<Player *> players)
+{
+    for (Player *player : players)
+    {
+        player->hit(burnDamage);
+        if (player->getGladiator()->getHealth() <= 0)
+        {
+            GameController::getInstance()->addMoney(onKillMoney);
+        }
+    }
+}
+
+void Spell::freeze(QList<Player *> players)
+{
+    for (Player *player : players)
+    {
+        player->freeze(freezeTime);
+    }
+}
+
+void Spell::confuse(QList<Player *> players)
+{
+
 }

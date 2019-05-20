@@ -40,6 +40,8 @@ public:
 
     void addSpell(Spell *spell);
 
+    void removeSpell(Spell *spell);
+
     QMediaPlayer *music;
 
     Grid *getGrid() const;
