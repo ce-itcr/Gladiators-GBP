@@ -5,6 +5,7 @@
 
 #include "util/collision.h"
 #include "entity.h"
+#include "game/entities/player.h"
 
 class Spell : public QLabel
 {
@@ -14,9 +15,13 @@ public:
 
     ~Spell();
 
-    QList<Entity *> playersIn(QList<Entity *> entities);
+    void update();
+
+    QList<Player *> playersIn(QList<Entity *> entities);
 
     QRect getRect();
+
+    QRegion getRegion();
 
     void setStartPoss(int x, int y);
 
@@ -29,6 +34,9 @@ public:
     QString getAnimation() const;
     void setAnimation(const QString &value);
 
+    int getCastCost() const;
+    void setCastCost(int value);
+
 signals:
 
 public slots:
@@ -39,12 +47,17 @@ protected:
     void mousePressEvent(QMouseEvent *);
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *);
+    void moveEvent(QMoveEvent *event);
     void resizeEvent(QResizeEvent *);
 
 private slots:
     void deactivate();
 
 private:
+    int x;
+    int y;
+    int width;
+    int height;
     bool canMove;
     bool active;
     QString type;
@@ -53,7 +66,13 @@ private:
     int xStart;
     int yStart;
     int duration;
+    int updateDelay;
     QRect gridRect;
+    int castCost;
+    int burnDamage;
+    int freezeTime;
+    int confuseTime;
+    static int onKillMoney;
 
     void activate();
 
@@ -62,6 +81,14 @@ private:
     void loadAnimation();
 
     void loadNewSpell();
+
+    void setUpdateDelay();
+
+    void burn(QList<Player *> players);
+
+    void freeze(QList<Player *> players);
+
+    void confuse(QList<Player *> players);
 };
 
 #endif // SPELL_H

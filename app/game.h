@@ -40,6 +40,12 @@ public:
 
     void addSpell(Spell *spell);
 
+    void removeSpell(Spell *spell);
+
+    void addPlayerToTable(QString id, int distance);
+
+    void cleanTable();
+
     QMediaPlayer *music;
 
     Grid *getGrid() const;

@@ -1,6 +1,8 @@
 #include "player.h"
+
 #include <QMovie>
 #include <QLabel>
+#include "game.h"
 
 Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(parent))
 {
@@ -13,8 +15,11 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     xAcc = 1;
     yAcc = 1;
     maxAcc = 2;
+    timeAlive.start();
     canMove = true;
     target = nullptr;
+    freezed = false;
+    confused = false;
 //    setStyleSheet("image: url(:img/gladiatorRun.gif)");
 
     this->setStyleSheet("background-color:green;");
@@ -30,8 +35,12 @@ Player::~Player()
 void Player::update()
 {
     if (gladiator->getHealth() <= 0) kill();
-    if (target == nullptr) nextTarget();
-    if (canMove && target != nullptr) {
+    if (target == nullptr)
+    {
+        if (!confused) nextTarget();
+        else nextVisitedTarget();
+    }
+    if (canMove && target != nullptr && !freezed) {
         gladiator->setI(target->getI());
         gladiator->setJ(target->getJ());
         move();
@@ -61,6 +70,11 @@ void Player::kill()
 {
     gladiator->setAlive(false);
     GameController::getInstance()->removeEntity(this);
+
+    int elapsedSec = timeAlive.elapsed() / 1000;
+    int distance = maxSpeed * elapsedSec;
+    Game * game = dynamic_cast<Game *>(parent()->parent());
+    game->addPlayerToTable(gladiator->getId(), distance);
 }
 
 void Player::hit(int damage)
@@ -69,6 +83,28 @@ void Player::hit(int damage)
     if (damageDone < 0) damageDone = 1;
     int health = gladiator->getHealth() - damageDone;
     gladiator->setHealth(health);
+}
+
+void Player::freeze(int time)
+{
+    freezed = true;
+    QTimer::singleShot(time, this, &Player::unFreeze);
+}
+
+void Player::unFreeze()
+{
+    freezed = false;
+}
+
+void Player::confuse(int time)
+{
+    confused = true;
+    QTimer::singleShot(time, this, &Player::unConfuse);
+}
+
+void Player::unConfuse()
+{
+    confused = false;
 }
 
 QRect Player::getRect()
@@ -156,7 +192,15 @@ void Player::nextTarget()
         if (tile->getNode() == node)
         {
             target = tile;
+            visitedPath.push_front(tile);
             break;
         }
     }
+}
+
+void Player::nextVisitedTarget()
+{
+    if (visitedPath.isEmpty()) return;
+    target = visitedPath.takeFirst();
+    nodePath.push_front(target->getNode());
 }

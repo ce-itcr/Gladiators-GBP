@@ -111,10 +111,10 @@ color: rgb(235, 245, 238);
   <widget class="QTableWidget" name="timesTable">
    <property name="geometry">
     <rect>
-     <x>820</x>
+     <x>840</x>
      <y>180</y>
-     <width>360</width>
-     <height>501</height>
+     <width>324</width>
+     <height>301</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -142,6 +142,9 @@ timesTable::section {
    <property name="cornerButtonEnabled">
     <bool>false</bool>
    </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
    <attribute name="horizontalHeaderVisible">
     <bool>false</bool>
    </attribute>
@@ -149,7 +152,7 @@ timesTable::section {
     <bool>false</bool>
    </attribute>
    <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>180</number>
+    <number>155</number>
    </attribute>
    <attribute name="horizontalHeaderHighlightSections">
     <bool>false</bool>

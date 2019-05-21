@@ -58,7 +58,19 @@ void Gladiator::read(const QJsonObject &jsonObj)
     resistanceUpperBody = jsonObj["resistanceUpperBody"].toInt();
     resistanceLowerBody = jsonObj["resistanceLowerBody"].toInt();
     dodgeChance = jsonObj["dodgeChance"].toInt();
+
+    if (health <= 0) health = 1;
     startHealth = health;
+}
+
+QString Gladiator::getId() const
+{
+    return id;
+}
+
+void Gladiator::setId(const QString &value)
+{
+    id = value;
 }
 
 int Gladiator::getAge() const

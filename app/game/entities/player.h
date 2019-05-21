@@ -31,6 +31,14 @@ public:
 
     void hit(int damage);
 
+    void freeze(int time);
+
+    void unFreeze();
+
+    void confuse(int time);
+
+    void unConfuse();
+
     QRect getRect();
 
     void updatePath();
@@ -67,14 +75,20 @@ private:
     int maxSpeed;
     int maxAcc;
     bool canMove;
+    QTime timeAlive;
     QList<Node *> nodePath;
+    QList<Tile *> visitedPath;
     Tile *target;
+    bool freezed;
+    bool confused;
 
     int getMaxSpeed();
 
     void move();
 
     void nextTarget();
+
+    void nextVisitedTarget();
 };
 
 #endif // PLAYER_H
