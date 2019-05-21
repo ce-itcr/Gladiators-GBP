@@ -167,7 +167,7 @@ GameController::GameController()
     waveActive = false;
     waveWaiting = false;
     pause = false;
-    startingMoney = 600;
+    startingMoney = 1200;
     money = startingMoney;
     map = "://maps/snake";
 

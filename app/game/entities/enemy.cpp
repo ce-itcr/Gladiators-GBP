@@ -4,7 +4,7 @@
 #include "game/grid.h"
 
 int Enemy::buildCost = 200;
-int Enemy::onKillMoney = 5;
+int Enemy::onKillMoney = 1;
 int Enemy::boostCost = 100;
 int Enemy::boostTime = 5000;
 int Enemy::boostRate = 3;

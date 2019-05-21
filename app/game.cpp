@@ -222,3 +222,8 @@ void Game::on_exitButton_clicked()
     MainWindow *w = new MainWindow();
     w->show();
 }
+
+void Game::on_spawnBoss_clicked()
+{
+    Spawner::getInstance()->setBossON(!Spawner::getInstance()->getBossON());
+}

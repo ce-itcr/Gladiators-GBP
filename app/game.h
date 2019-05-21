@@ -80,6 +80,7 @@ private slots:
     void on_fastButton_clicked();
     void on_pauseButton_clicked();
     void on_exitButton_clicked();
+    void on_spawnBoss_clicked();
 };
 
 #endif // GAME_H

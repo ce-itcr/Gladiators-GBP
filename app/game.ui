@@ -936,6 +936,19 @@ color: rgb(46, 52, 54);</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="spawnBoss">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>580</y>
+     <width>80</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Boss</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

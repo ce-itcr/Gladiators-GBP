@@ -51,6 +51,28 @@ void Arrow::draw()
 
 }
 
+void createBoss(Player *player){
+    Gladiator *tempGladiator = new Gladiator();
+    tempGladiator->setDodgeChance(player->getGladiator()->getDodgeChance());
+    tempGladiator->setResistanceLowerBody(player->getGladiator()->getResistanceLowerBody());
+    tempGladiator->setResistanceUpperBody(player->getGladiator()->getResistanceUpperBody());
+    Spawner::getInstance()->setTempGladiator(tempGladiator);
+    player->getGladiator()->setHealth(floor(50 * Spawner::getInstance()->getBossHealthIncrease()));
+    player->getGladiator()->setDodgeChance(0);
+    player->getGladiator()->setBoss(true);
+    player->getGladiator()->setResistanceLowerBody(00);
+    player->getGladiator()->setResistanceUpperBody(00);
+    Spawner::getInstance()->setBossHealthIncrease(Spawner::getInstance()->getBossHealthIncrease() + 0.2);
+}
+
+void killBoss(Player *player){
+    player->getGladiator()->setHealth(0);
+    player->getGladiator()->setResistanceUpperBody(Spawner::getInstance()->getTempGladiator()->getResistanceUpperBody());
+    player->getGladiator()->setResistanceLowerBody(Spawner::getInstance()->getTempGladiator()->getResistanceLowerBody());
+    player->getGladiator()->setDodgeChance(Spawner::getInstance()->getTempGladiator()->getDodgeChance());
+    player->getGladiator()->setBoss(false);
+}
+
 void Arrow::collide()
 {
     int damageDone = tower->getDamagePerShoot();
@@ -64,7 +86,15 @@ void Arrow::collide()
                 Player *player = dynamic_cast<Player *>(entity);
                 player->hit(damageDone);
                 int health = player->getGladiator()->getHealth();
-                if (health <= 0) playerKill();
+                if (health <= 0 && !(Spawner::getInstance()->getBossON()) && !(player->getGladiator()->getBoss())) playerKill();
+                else if(health <= 0 && Spawner::getInstance()->getBossON()){
+                    Spawner::getInstance()->setBossON(false);
+                    player->setStyleSheet("background-color:red;");
+                    createBoss(player);
+                }else if(health <= 0){
+                    killBoss(player);
+                    playerKill();
+                }
             }
             else
             {
@@ -74,6 +104,15 @@ void Arrow::collide()
                     tempPlayer->hit(damageDone);
                     int health = tempPlayer->getGladiator()->getHealth();
                     if (health <= 0) playerKill();
+                    if (health <= 0 && !(Spawner::getInstance()->getBossON()) && !(tempPlayer->getGladiator()->getBoss())) playerKill();
+                    else if(health <= 0 && Spawner::getInstance()->getBossON()){
+                        Spawner::getInstance()->setBossON(false);
+                        tempPlayer->setStyleSheet("background-color:red;");
+                        createBoss(tempPlayer);
+                    }else if(health <= 0){
+                        killBoss(tempPlayer);
+                        playerKill();
+                    }
                 }
                 playersHit.clear();
                 areaDamageEffect();
@@ -202,3 +241,4 @@ QList<Entity *> Arrow::AOECollide(){
     }
     return players;
 }
+
