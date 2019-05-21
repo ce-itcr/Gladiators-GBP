@@ -28,10 +28,9 @@ Game::Game(QWidget *parent) :
     loadSpells();
 
     // Creates Population
-    //PopulationsMock::run();
-    populations->startNewPopulation();
-    QTimer::singleShot(2000, this, &Game::updatePopulations);
-
+    PopulationsMock::run();
+//    populations->startNewPopulation();
+//    QTimer::singleShot(2000, this, &Game::updatePopulations);
 
 }
 
@@ -182,6 +181,21 @@ void Game::paintEvent(QPaintEvent *)
 
     int money = gameController->getMoney();
     ui->moneyCount->setNum(money);
+    moneyManager();
+
+}
+
+void Game::moneyManager(){
+    int amount = gameController->getMoney();
+
+    if(amount >= 400 &&  amount < 600){
+
+    } else if(amount >= 200 && amount < 400){
+
+    } else if(amount < 200){
+
+    }
+
 }
 
 Grid *Game::getGrid() const
@@ -226,9 +240,6 @@ void Game::on_pauseButton_clicked()
 {
     bool pause = gameController->isPause();
     gameController->setPause(!pause);
-
-//    if(!pause) music->pause();
-//    else music->play();
 
     QIcon icon;
     if (pause) icon.addFile(":img/pauseIcon.png");

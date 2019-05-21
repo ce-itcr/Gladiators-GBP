@@ -14,7 +14,8 @@ public:
     Util();
     QMediaPlayer * music;
     void playMusic();
-    void pauseMusic();
+    void playSpell();
+    void playClick();
     bool changeMusic = true;
 
 };

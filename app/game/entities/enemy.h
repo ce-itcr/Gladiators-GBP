@@ -13,7 +13,7 @@
 #include "game/entities/arrow.h"
 #include "util/math.h"
 
-class Enemy : public QFrame, public Entity
+class Enemy : public QLabel, public Entity
 {
     Q_OBJECT
 public:

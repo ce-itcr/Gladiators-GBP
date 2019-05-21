@@ -114,7 +114,7 @@ color: rgb(235, 245, 238);
      <x>840</x>
      <y>180</y>
      <width>324</width>
-     <height>301</height>
+     <height>491</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -297,8 +297,8 @@ QPushButton:hover{
   <widget class="QPushButton" name="pauseButton">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>20</y>
+     <x>720</x>
+     <y>16</y>
      <width>50</width>
      <height>50</height>
     </rect>
@@ -586,7 +586,7 @@ background-repeat: none;</string>
   <widget class="QLabel" name="waveCount">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>150</x>
      <y>20</y>
      <width>51</width>
      <height>41</height>
@@ -631,15 +631,6 @@ background-repeat: none;</string>
         </color>
        </brush>
       </colorrole>
-      <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
-        <color alpha="128">
-         <red>164</red>
-         <green>164</green>
-         <blue>164</blue>
-        </color>
-       </brush>
-      </colorrole>
      </active>
      <inactive>
       <colorrole role="WindowText">
@@ -672,15 +663,6 @@ background-repeat: none;</string>
       <colorrole role="ToolTipText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>164</red>
-         <green>164</green>
-         <blue>164</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
-        <color alpha="128">
          <red>164</red>
          <green>164</green>
          <blue>164</blue>
@@ -725,15 +707,6 @@ background-repeat: none;</string>
         </color>
        </brush>
       </colorrole>
-      <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
-        <color alpha="128">
-         <red>46</red>
-         <green>52</green>
-         <blue>54</blue>
-        </color>
-       </brush>
-      </colorrole>
      </disabled>
     </palette>
    </property>
@@ -753,10 +726,10 @@ color: rgb(46, 52, 54);</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>220</x>
      <y>10</y>
-     <width>311</width>
-     <height>51</height>
+     <width>251</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="text">
@@ -772,7 +745,7 @@ color: rgb(46, 52, 54);</string>
   <widget class="QLabel" name="moneyCount">
    <property name="geometry">
     <rect>
-     <x>570</x>
+     <x>630</x>
      <y>20</y>
      <width>91</width>
      <height>41</height>
@@ -817,15 +790,6 @@ color: rgb(46, 52, 54);</string>
         </color>
        </brush>
       </colorrole>
-      <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
-        <color alpha="128">
-         <red>164</red>
-         <green>164</green>
-         <blue>164</blue>
-        </color>
-       </brush>
-      </colorrole>
      </active>
      <inactive>
       <colorrole role="WindowText">
@@ -858,15 +822,6 @@ color: rgb(46, 52, 54);</string>
       <colorrole role="ToolTipText">
        <brush brushstyle="SolidPattern">
         <color alpha="255">
-         <red>164</red>
-         <green>164</green>
-         <blue>164</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
-        <color alpha="128">
          <red>164</red>
          <green>164</green>
          <blue>164</blue>
@@ -908,15 +863,6 @@ color: rgb(46, 52, 54);</string>
          <red>164</red>
          <green>164</green>
          <blue>164</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
-        <color alpha="128">
-         <red>46</red>
-         <green>52</green>
-         <blue>54</blue>
         </color>
        </brush>
       </colorrole>

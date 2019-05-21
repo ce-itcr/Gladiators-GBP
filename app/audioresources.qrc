@@ -9,5 +9,10 @@
         <file>audio/playerLoop2.wav</file>
         <file>audio/hammering.wav</file>
         <file>audio/PowerUp03.wav</file>
+        <file>audio/magic.wav</file>
+        <file>audio/theme.mp3</file>
+        <file>audio/magic2.flac</file>
+        <file>audio/continue.wav</file>
+        <file>audio/click.mp3</file>
     </qresource>
 </RCC>

@@ -12,8 +12,11 @@
 
 #include <QDialog>
 #include <QDir>
+#include <iostream>
 
 #include "game/grid.h"
+
+using namespace std;
 
 namespace Ui {
 class PreGame;
@@ -32,15 +35,21 @@ private slots:
 
     void on_backButton_clicked();
 
+    void on_circle_clicked();
+
+    void on_donut_clicked();
+
+    void on_open_clicked();
+
+    void on_snake_clicked();
+
+    void on_race_clicked();
+
 private:
     Ui::PreGame *ui;
     Grid *grid;
 
     void loadGrid(QString map);
-
-    void loadMaps();
-
-    void mapButtonClicked();
 };
 
 #endif // PREGAME_H

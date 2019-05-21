@@ -103,5 +103,28 @@
         <file>img/spells/dark_flame.gif</file>
         <file>img/spells/ice_circle.gif</file>
         <file>img/spells/dark_circle.gif</file>
+        <file>img/gameTiles/sand.png</file>
+        <file>img/gameTiles/sandDown.png</file>
+        <file>img/gameTiles/sandLeft.png</file>
+        <file>img/gameTiles/sandRight.png</file>
+        <file>img/gameTiles/sandUp.png</file>
+        <file>img/gameTiles/wall.png</file>
+        <file>img/fire/towerDefenseFire0.png</file>
+        <file>img/fire/towerDefenseFire1.png</file>
+        <file>img/fire/towerDefenseFire2.png</file>
+        <file>img/fire/towerDefenseFire3.png</file>
+        <file>img/gameTiles/grass.png</file>
+        <file>img/gameTiles/grassDown.png</file>
+        <file>img/gameTiles/grassLeft.png</file>
+        <file>img/gameTiles/grassRight.png</file>
+        <file>img/gameTiles/grassUp.png</file>
+        <file>img/gameTiles/ground.png</file>
+        <file>img/gameTiles/wall2.png</file>
+        <file>img/gameTiles/ground2.png</file>
+        <file>img/chooseMap.png</file>
+        <file>img/buttons/race_button.png</file>
+        <file>img/gameTiles/stone00.png</file>
+        <file>img/gameTiles/ground00.png</file>
+        <file>img/coin.gif</file>
     </qresource>
 </RCC>

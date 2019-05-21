@@ -1,5 +1,4 @@
 #include "player.h"
-
 #include <QMovie>
 #include <QLabel>
 #include "game.h"
@@ -10,8 +9,8 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     tag = "player";
     x = 0;
     y = 0;
-    width = 50;
-    height = 50;
+    width = 80;
+    height = 80;
     xAcc = 1;
     yAcc = 1;
     maxAcc = 2;
@@ -20,9 +19,10 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     target = nullptr;
     freezed = false;
     confused = false;
-//    setStyleSheet("image: url(:img/gladiatorRun.gif)");
+    setStyleSheet("background-color:255,255,255,0;"
+                  "image: url(:/img/gladiatorRun.gif)");
 
-    this->setStyleSheet("background-color:green;");
+//    this->setStyleSheet("background-color:green;");
     this->setGeometry(x, y, width, height);
     this->show();
 }

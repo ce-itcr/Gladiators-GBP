@@ -11,7 +11,6 @@ PreGame::PreGame(QWidget *parent) :
 
     QString map = GameController::getInstance()->getMap();
     loadGrid(map);
-    loadMaps();
 }
 
 PreGame::~PreGame()
@@ -20,10 +19,11 @@ PreGame::~PreGame()
 }
 
 void PreGame::on_playGame_clicked(){
-    QMediaPlayer* playGAME = new QMediaPlayer;
-    playGAME->setMedia(QUrl("qrc:/audio/PowerUp03.wav"));
-    playGAME->setVolume(50);
-    playGAME->play();
+    QMediaPlayer* continueB = new QMediaPlayer;
+    continueB->setMedia(QUrl("qrc:/audio/click.mp3"));
+    continueB->setVolume(50);
+    continueB->play();
+
     close();
     Game *game = new Game();
     game->show();
@@ -33,7 +33,7 @@ void PreGame::loadGrid(QString map)
 {
     grid = new Grid(this, map);
 
-    int xOffset = 100, yOffset = 82;
+    int xOffset = 150, yOffset = 125;
     int x = xOffset, y = yOffset;
     int width, height;
     width = height = this->height() * 0.6;
@@ -44,31 +44,69 @@ void PreGame::loadGrid(QString map)
     grid->show();
 }
 
-void PreGame::loadMaps()
-{
-    QDir directory("://maps");
-    QStringList maps = directory.entryList(QStringList(), QDir::Files);
-    QLayout *layout = ui->mapsLayout;
-    foreach(QString filename, maps) {
-        QPushButton *button = new QPushButton(filename);
-        layout->addWidget(button);
-        button->show();
-        QObject::connect(button, &QPushButton::clicked, this, &PreGame::mapButtonClicked);
-    }
-}
-
-void PreGame::mapButtonClicked()
-{
-    QPushButton *button = qobject_cast<QPushButton *>(sender());
-    QString path = "://maps/" + button->text();
-    loadGrid(path);
-    GameController::getInstance()->setMap(path);
-
-}
-
 void PreGame::on_backButton_clicked()
 {
+    QMediaPlayer* back = new QMediaPlayer;
+    back->setMedia(QUrl("qrc:/audio/click.mp3"));
+    back->setVolume(50);
+    back->play();
     close();
     MainWindow *w = new MainWindow();
     w->show();
+}
+
+
+void PreGame::on_circle_clicked()
+{
+    Util* util = new Util();
+    util->playClick();
+    QPushButton *button = qobject_cast<QPushButton *>(sender());
+    QString path = "://maps/" + button->objectName();
+    loadGrid(path);
+
+    GameController::getInstance()->setMap(path);
+}
+
+void PreGame::on_donut_clicked()
+{
+    Util* util = new Util();
+    util->playClick();
+    QPushButton *button = qobject_cast<QPushButton *>(sender());
+    QString path = "://maps/" + button->objectName();
+    loadGrid(path);
+
+    GameController::getInstance()->setMap(path);
+}
+
+void PreGame::on_open_clicked()
+{
+    Util* util = new Util();
+    util->playClick();
+    QPushButton *button = qobject_cast<QPushButton *>(sender());
+    QString path = "://maps/" + button->objectName();
+    loadGrid(path);
+
+    GameController::getInstance()->setMap(path);
+}
+
+void PreGame::on_snake_clicked()
+{
+    Util* util = new Util();
+    util->playClick();
+    QPushButton *button = qobject_cast<QPushButton *>(sender());
+    QString path = "://maps/" + button->objectName();
+    loadGrid(path);
+
+    GameController::getInstance()->setMap(path);
+}
+
+void PreGame::on_race_clicked()
+{
+    Util* util = new Util();
+    util->playClick();
+    QPushButton *button = qobject_cast<QPushButton *>(sender());
+    QString path = "://maps/" + button->objectName();
+    loadGrid(path);
+
+    GameController::getInstance()->setMap(path);
 }

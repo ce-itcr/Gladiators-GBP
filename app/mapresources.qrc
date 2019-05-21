@@ -4,5 +4,6 @@
         <file>maps/open</file>
         <file>maps/donut</file>
         <file>maps/circle</file>
+        <file>maps/race</file>
     </qresource>
 </RCC>

@@ -6,6 +6,7 @@
 #include "util/collision.h"
 #include "entity.h"
 #include "game/entities/player.h"
+#include "util.h"
 
 class Spell : public QLabel
 {
