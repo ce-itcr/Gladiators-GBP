@@ -1,9 +1,9 @@
 package ce.itcr.gladiators.ws.res.gladiators;
 
 import ce.itcr.gladiators.entities.GladiatorSend;
+import ce.itcr.gladiators.genetic.GeneticAlgorithm;
 import ce.itcr.gladiators.genetic.resources.Gladiator;
 import ce.itcr.gladiators.genetic.resources.Gladiators;
-import ce.itcr.gladiators.genetic.GeneticAlgorithm;
 
 import java.util.Collection;
 import java.util.HashMap;

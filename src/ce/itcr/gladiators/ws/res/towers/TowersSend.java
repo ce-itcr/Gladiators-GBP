@@ -1,13 +1,11 @@
 package ce.itcr.gladiators.ws.res.towers;
 
 import ce.itcr.gladiators.entities.TowerSend;
-import ce.itcr.gladiators.genetic.resources.Towers;
 import ce.itcr.gladiators.genetic.resources.Tower;
-import sun.awt.image.ImageWatched;
+import ce.itcr.gladiators.genetic.resources.Towers;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 
 public class TowersSend {

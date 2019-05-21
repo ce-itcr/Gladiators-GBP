@@ -1,7 +1,6 @@
 package ce.itcr.gladiators.ws.res;
 
 import ce.itcr.gladiators.genetic.resources.Gladiators;
-import ce.itcr.gladiators.ws.res.gladiators.GladiatorsResource;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;

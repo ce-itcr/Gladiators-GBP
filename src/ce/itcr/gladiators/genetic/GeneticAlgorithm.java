@@ -1,12 +1,12 @@
 package ce.itcr.gladiators.genetic;
 
-import java.util.Collection;
-import java.util.Random;
-
 import ce.itcr.gladiators.entities.GladiatorSend;
 import ce.itcr.gladiators.genetic.resources.Chromosome;
 import ce.itcr.gladiators.genetic.resources.Gladiator;
 import ce.itcr.gladiators.genetic.resources.Gladiators;
+
+import java.util.Collection;
+import java.util.Random;
 
 public class GeneticAlgorithm {
 

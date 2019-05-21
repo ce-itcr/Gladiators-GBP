@@ -1,8 +1,9 @@
 package ce.itcr.gladiators.genetic.resources;
-import java.util.Random;
 
 import ce.itcr.gladiators.genetic.QuickSort;
 import ce.itcr.gladiators.ws.res.gladiators.GladiatorsSend;
+
+import java.util.Random;
 
 public class Gladiators {
 	

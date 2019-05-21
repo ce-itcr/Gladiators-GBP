@@ -1,10 +1,5 @@
 package ce.itcr.gladiators.ws.res;
 
-import ce.itcr.gladiators.entities.GladiatorSend;
-import ce.itcr.gladiators.entities.TowerSend;
-import ce.itcr.gladiators.ws.res.gladiators.GladiatorsSend;
-import ce.itcr.gladiators.ws.res.towers.TowersSend;
-
 class MockPopulation {
 
 //    static void startNewPopulation() {

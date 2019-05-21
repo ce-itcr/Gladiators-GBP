@@ -2,8 +2,6 @@ package ce.itcr.gladiators.genetic;
 
 import ce.itcr.gladiators.genetic.resources.Gladiator;
 
-import java.util.Arrays;
-
 public class QuickSort {
 
 	public static void quickSort(Gladiator[] arr, int start, int end){
