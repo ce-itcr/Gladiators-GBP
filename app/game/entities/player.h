@@ -92,6 +92,10 @@ private:
     void nextVisitedTarget();
 
     void miss();
+
+    // QWidget interface
+protected:
+    void resizeEvent(QResizeEvent *event);
 };
 
 #endif // PLAYER_H

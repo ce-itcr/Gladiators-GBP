@@ -20,8 +20,8 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     freezed = false;
     confused = false;
     Spawner::getInstance()->setEnemiesOver(0);
-    setStyleSheet("background-color: rgba(255,255,255,0);"
-                  "image: url(:/img/gladiatorRun.gif)");
+    //setStyleSheet("background-color: rgba(255,255,255,0);"
+                  //"image: url(:/img/gladiatorRun.gif)");
 
 //    this->setStyleSheet("background-color:green;");
     this->setGeometry(x, y, width, height);
@@ -127,7 +127,8 @@ void Player::unConfuse()
 
 QRect Player::getRect()
 {
-    QRect rect(x, y, width, height);
+    int offset = 10;
+    QRect rect(x, y, width - offset, height- offset);
     return rect;
 }
 
@@ -237,4 +238,10 @@ void Player::miss()
                        "background-color: rgba(255, 255, 255, 0);");
 
     QTimer::singleShot(500, miss, &QLabel::close);
+}
+
+void Player::resizeEvent(QResizeEvent *event)
+{
+    width = event->size().width();
+    height = event->size().height();
 }
