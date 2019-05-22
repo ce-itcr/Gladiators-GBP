@@ -5,6 +5,7 @@
 #include <QMovie>
 #include "game/populationsmock.h"
 #include "game/entities/player.h"
+#include "gameover.h"
 
 Game::Game(QWidget *parent) :
     QMainWindow(parent),
@@ -183,7 +184,7 @@ void Game::paintEvent(QPaintEvent *)
     int money = gameController->getMoney();
     ui->moneyCount->setNum(money);
     moneyManager();
-    GameOver();
+    gameOver();
 }
 
 void Game::moneyManager(){
@@ -199,7 +200,7 @@ void Game::moneyManager(){
 
 }
 
-void Game::GameOver(){
+void Game::gameOver(){
     if(Spawner::getInstance()->getEnemiesOver() >= 15){
         gameController->stop();
         spawner->stop();
@@ -211,7 +212,7 @@ void Game::GameOver(){
         exit->play();
 
         close();
-        MainWindow *w = new MainWindow();
+        GameOver *w = new GameOver();
         w->show();
     }
 }

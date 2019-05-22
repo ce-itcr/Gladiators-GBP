@@ -48,7 +48,7 @@ public:
 
     void moneyManager();
 
-    void GameOver();
+    void gameOver();
 
     QMediaPlayer *music;
 

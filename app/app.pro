@@ -40,7 +40,8 @@ SOURCES += \
     game/gamecontroller.cpp \
     game/entities/enemy.cpp \
     util.cpp \
-    game/entities/spell.cpp
+    game/entities/spell.cpp \
+    gameover.cpp
 
 HEADERS += \
 	game/entities/arrow.h \
@@ -56,13 +57,15 @@ HEADERS += \
     game.h \
     game/entities/enemy.h \
     util.h \
-    game/entities/spell.h
+    game/entities/spell.h \
+    gameover.h
 
 FORMS += \
         mainwindow.ui \
     settings.ui \
     pregame.ui \
-    game.ui
+    game.ui \
+    gameover.ui
 
 LIBS += -L../src -lmylib
 

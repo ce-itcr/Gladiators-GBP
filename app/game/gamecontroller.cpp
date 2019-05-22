@@ -62,6 +62,7 @@ void GameController::callWave()
     populations->sendPopulation(gladiators, towers);
     QTimer::singleShot(2000, populations, &Populations::updatePopulation);
     QTimer::singleShot(2000, this, &GameController::clearEntitiesStack);
+    Spawner::getInstance()->setEnemiesOver(0);
 }
 
 void GameController::update()

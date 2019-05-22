@@ -130,5 +130,7 @@
         <file>img/buttons/minotaur_button.png</file>
         <file>img/MinotaurRun.gif</file>
         <file>img/implosion.gif</file>
+        <file>img/gameOver_title.png</file>
+        <file>img/gameOver_title2.png</file>
     </qresource>
 </RCC>
