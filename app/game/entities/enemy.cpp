@@ -171,8 +171,12 @@ void Enemy::mousePressEvent(QMouseEvent *)
 
     QPushButton *upgrade = new QPushButton(this);
     upgrade->setGeometry(offset, offset, size, size);
-    upgrade->setStyleSheet("background-color:rgba(150, 150, 255, 100);");
+    upgrade->setStyleSheet("background-color:rgb(0, 0, 0);"
+                           "border-radius:12px;");
+    upgrade->setIcon(QIcon(":img/tower boost.png"));
+    upgrade->setIconSize(upgrade->size());
     upgrade->show();
+    upgrade->raise();
 
     QObject::connect(upgrade, &QPushButton::clicked, this, &Enemy::boost);
     QTimer::singleShot(3000, upgrade, &QPushButton::close);
