@@ -130,5 +130,8 @@
         <file>img/buttons/minotaur_button.png</file>
         <file>img/MinotaurRun.gif</file>
         <file>img/implosion.gif</file>
+        <file>img/heart.png</file>
+        <file>img/tower boost.png</file>
+        <file>img/skull.png</file>
     </qresource>
 </RCC>
