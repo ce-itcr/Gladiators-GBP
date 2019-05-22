@@ -202,7 +202,7 @@ GameController::GameController()
     waveWaiting = false;
     pause = false;
     startingMoney = 1200;
-    startingLife = 30;
+    startingLife = 15;
     life = startingLife;
     wave = 0;
     money = startingMoney;

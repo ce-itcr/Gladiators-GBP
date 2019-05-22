@@ -204,6 +204,8 @@ void Player::move()
         target = nullptr;
         if (nodePath.isEmpty()){
             Spawner::getInstance()->setEnemiesOver(Spawner::getInstance()->getEnemiesOver() + 1);
+            int life = GameController::getInstance()->getLife();
+            GameController::getInstance()->setLife(life - 1);
             kill();  // Reaches final Node
         }
     }
