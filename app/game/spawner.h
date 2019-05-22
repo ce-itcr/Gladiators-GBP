@@ -45,6 +45,9 @@ public:
     float getBossHealthIncrease() const;
     void setBossHealthIncrease(float value);
 
+    int getEnemiesOver() const;
+    void setEnemiesOver(int value);
+
 public slots:
     void spawn();
 
@@ -57,6 +60,7 @@ private:
     bool bossON;
     float bossHealthIncrease;
     Gladiator *tempGladiator;
+    int enemiesOver;
 
     Spawner(QObject *parent);
 };

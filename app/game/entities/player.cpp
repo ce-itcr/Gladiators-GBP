@@ -1,5 +1,4 @@
 #include "player.h"
-
 #include <QMovie>
 #include <QLabel>
 #include "game.h"
@@ -10,8 +9,8 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     tag = "player";
     x = 0;
     y = 0;
-    width = 50;
-    height = 50;
+    width = 80;
+    height = 80;
     xAcc = 1;
     yAcc = 1;
     maxAcc = 2;
@@ -20,9 +19,11 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     target = nullptr;
     freezed = false;
     confused = false;
-//    setStyleSheet("image: url(:img/gladiatorRun.gif)");
+    Spawner::getInstance()->setEnemiesOver(0);
+    setStyleSheet("background-color: rgba(255,255,255,0);"
+                  "image: url(:/img/gladiatorRun.gif)");
 
-    this->setStyleSheet("background-color:green;");
+//    this->setStyleSheet("background-color:green;");
     this->setGeometry(x, y, width, height);
     this->show();
 }
@@ -66,8 +67,19 @@ void Player::uncollide()
     canMove = true;
 }
 
+void killBoss(Gladiator *gladiator){
+    gladiator->setHealth(0);
+    gladiator->setResistanceUpperBody(Spawner::getInstance()->getTempGladiator()->getResistanceUpperBody());
+    gladiator->setResistanceLowerBody(Spawner::getInstance()->getTempGladiator()->getResistanceLowerBody());
+    gladiator->setDodgeChance(Spawner::getInstance()->getTempGladiator()->getDodgeChance());
+    gladiator->setBoss(false);
+}
+
 void Player::kill()
 {
+    if(gladiator->getBoss()){
+        killBoss(gladiator);
+    }
     gladiator->setAlive(false);
     GameController::getInstance()->removeEntity(this);
 
@@ -79,6 +91,12 @@ void Player::kill()
 
 void Player::hit(int damage)
 {
+    if (gladiator->getDodgeChance() > Math::random(1, 100))
+    {
+        miss();
+        return;
+    }
+
     int damageDone = damage - gladiator->getThoughness();
     if (damageDone < 0) damageDone = 1;
     int health = gladiator->getHealth() - damageDone;
@@ -179,7 +197,10 @@ void Player::move()
     if (x == target->x() && y == target->y())
     {
         target = nullptr;
-        if (nodePath.isEmpty()) kill();  // Reaches final Node
+        if (nodePath.isEmpty()){
+            Spawner::getInstance()->setEnemiesOver(Spawner::getInstance()->getEnemiesOver() + 1);
+            kill();  // Reaches final Node
+        }
     }
 }
 
@@ -203,4 +224,17 @@ void Player::nextVisitedTarget()
     if (visitedPath.isEmpty()) return;
     target = visitedPath.takeFirst();
     nodePath.push_front(target->getNode());
+}
+
+void Player::miss()
+{
+    QLabel *miss = new QLabel("Misss", parentWidget());
+    miss->move(x, y);
+    miss->show();
+
+    miss->setStyleSheet("font-size: 16px; "
+                       "color: #FFC300;"
+                       "background-color: rgba(255, 255, 255, 0);");
+
+    QTimer::singleShot(500, miss, &QLabel::close);
 }

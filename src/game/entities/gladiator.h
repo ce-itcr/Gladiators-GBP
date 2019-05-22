@@ -63,6 +63,7 @@ public:
     bool getBoss() const;
     void setBoss(bool value);
 
+
 private:
     QString id;
     int age;

@@ -89,6 +89,16 @@ void Spawner::spawn()
     QTimer::singleShot(spawnDelay, this, &Spawner::spawn);
 }
 
+int Spawner::getEnemiesOver() const
+{
+    return enemiesOver;
+}
+
+void Spawner::setEnemiesOver(int value)
+{
+    enemiesOver = value;
+}
+
 float Spawner::getBossHealthIncrease() const
 {
     return bossHealthIncrease;

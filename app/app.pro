@@ -34,7 +34,6 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     settings.cpp \
-    achievements.cpp \
     pregame.cpp \
     game.cpp \
     game/entities/player.cpp \
@@ -50,7 +49,6 @@ HEADERS += \
 	game/tile.h \
         mainwindow.h \
     settings.h \
-    achievements.h \
     pregame.h \
     game/entities/player.h \
     game/entities/entity.h \
@@ -63,7 +61,6 @@ HEADERS += \
 FORMS += \
         mainwindow.ui \
     settings.ui \
-    achievements.ui \
     pregame.ui \
     game.ui
 

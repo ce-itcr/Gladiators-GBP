@@ -5,6 +5,7 @@
 #include "game.h"
 
 int Spell::onKillMoney = 15;
+Util* util = new Util();
 
 Spell::Spell(QWidget *parent, QString _type, QString animation) : QLabel(parent)
 {
@@ -42,6 +43,7 @@ void Spell::update()
     if (type == "fire") burn(players);
     else if (type == "ice") freeze(players);
     else if (type == "dark") confuse(players);
+
 }
 
 QList<Player *> Spell::playersIn(QList<Entity *> entities)
@@ -210,6 +212,8 @@ void Spell::loadAnimation()
     movie->setScaledSize(this->size());
     this->setMovie(movie);
     movie->start();
+    util->playSpell();
+
 }
 
 void Spell::loadNewSpell()
@@ -222,6 +226,8 @@ void Spell::loadNewSpell()
     spell->move(x, y);
     spell->setStartPoss(x, y);
     spell->show();
+
+    util->playSpell();
 
     dynamic_cast<Game *>(parent())->addSpell(spell);
 }

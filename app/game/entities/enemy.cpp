@@ -9,7 +9,7 @@ int Enemy::boostCost = 100;
 int Enemy::boostTime = 5000;
 int Enemy::boostRate = 3;
 
-Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
+Enemy::Enemy(QWidget *parent, int x, int y) : QLabel(parent)
 {
     tower = nullptr;
     tag = "enemy";
@@ -23,7 +23,7 @@ Enemy::Enemy(QWidget *parent, int x, int y) : QFrame(parent)
     canShoot = false;
     boosted = false;
 
-    setStyleSheet("background-color:#635255;"
+    setStyleSheet("background-color:255,255,255,0;"
                   "image: url(:img/tower1.png)");
     this->setGeometry(x, y, width, height);
     this->show();

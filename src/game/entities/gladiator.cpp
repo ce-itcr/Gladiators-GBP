@@ -12,6 +12,7 @@ Gladiator::Gladiator()
     j = 0;
     startHealth = 0;
     alive = true;
+    Boss = false;
 }
 
 Gladiator::Gladiator(QString id, int age, int health, int resistanceUpperBody, int resistanceLowerBody, int dodgeChance, int i, int j)
@@ -163,16 +164,6 @@ void Gladiator::setStartHealth(int value)
     startHealth = value;
 }
 
-bool Gladiator::isAlive() const
-{
-    return alive;
-}
-
-void Gladiator::setAlive(bool value)
-{
-    alive = value;
-}
-
 bool Gladiator::getBoss() const
 {
     return Boss;
@@ -181,6 +172,17 @@ bool Gladiator::getBoss() const
 void Gladiator::setBoss(bool value)
 {
     Boss = value;
+}
+
+
+bool Gladiator::isAlive() const
+{
+    return alive;
+}
+
+void Gladiator::setAlive(bool value)
+{
+    alive = value;
 }
 
 int Gladiator::getThoughness(){

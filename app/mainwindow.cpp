@@ -16,6 +16,11 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::on_play_Button_clicked(){
+
+    QMediaPlayer* continueB = new QMediaPlayer;
+    continueB->setMedia(QUrl("qrc:/audio/click.mp3"));
+    continueB->setVolume(50);
+    continueB->play();
     close();
     PreGame pregame;
     pregame.setModal(true);
@@ -23,18 +28,15 @@ void MainWindow::on_play_Button_clicked(){
 }
 
 void MainWindow::on_settings_Button_clicked(){
+    QMediaPlayer* continueB = new QMediaPlayer;
+    continueB->setMedia(QUrl("qrc:/audio/click.mp3"));
+    continueB->setVolume(50);
+    continueB->play();
     close();
     Settings settings;
     settings.setModal(true);
     settings.exec();
 }
-
-//void MainWindow::on_achievements_Button_clicked(){
-//    close();
-//    Achievements achievements;
-//    achievements.setModal(true);
-//    achievements.exec();
-//}
 
 void MainWindow::on_exit_Button_clicked()
 {

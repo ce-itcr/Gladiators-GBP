@@ -46,6 +46,10 @@ public:
 
     void cleanTable();
 
+    void moneyManager();
+
+    void GameOver();
+
     QMediaPlayer *music;
 
     Grid *getGrid() const;

@@ -114,7 +114,7 @@ color: rgb(235, 245, 238);
      <x>840</x>
      <y>180</y>
      <width>324</width>
-     <height>301</height>
+     <height>491</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -297,8 +297,8 @@ QPushButton:hover{
   <widget class="QPushButton" name="pauseButton">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>20</y>
+     <x>720</x>
+     <y>16</y>
      <width>50</width>
      <height>50</height>
     </rect>
@@ -586,7 +586,7 @@ background-repeat: none;</string>
   <widget class="QLabel" name="waveCount">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>150</x>
      <y>20</y>
      <width>51</width>
      <height>41</height>
@@ -632,11 +632,11 @@ background-repeat: none;</string>
        </brush>
       </colorrole>
       <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
+       <brush brushstyle="NoBrush">
         <color alpha="128">
-         <red>164</red>
-         <green>164</green>
-         <blue>164</blue>
+         <red>46</red>
+         <green>52</green>
+         <blue>54</blue>
         </color>
        </brush>
       </colorrole>
@@ -679,11 +679,11 @@ background-repeat: none;</string>
        </brush>
       </colorrole>
       <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
+       <brush brushstyle="NoBrush">
         <color alpha="128">
-         <red>164</red>
-         <green>164</green>
-         <blue>164</blue>
+         <red>46</red>
+         <green>52</green>
+         <blue>54</blue>
         </color>
        </brush>
       </colorrole>
@@ -726,7 +726,7 @@ background-repeat: none;</string>
        </brush>
       </colorrole>
       <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
+       <brush brushstyle="NoBrush">
         <color alpha="128">
          <red>46</red>
          <green>52</green>
@@ -753,10 +753,10 @@ color: rgb(46, 52, 54);</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>220</x>
      <y>10</y>
-     <width>311</width>
-     <height>51</height>
+     <width>251</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="text">
@@ -772,7 +772,7 @@ color: rgb(46, 52, 54);</string>
   <widget class="QLabel" name="moneyCount">
    <property name="geometry">
     <rect>
-     <x>570</x>
+     <x>630</x>
      <y>20</y>
      <width>91</width>
      <height>41</height>
@@ -818,11 +818,11 @@ color: rgb(46, 52, 54);</string>
        </brush>
       </colorrole>
       <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
+       <brush brushstyle="NoBrush">
         <color alpha="128">
-         <red>164</red>
-         <green>164</green>
-         <blue>164</blue>
+         <red>46</red>
+         <green>52</green>
+         <blue>54</blue>
         </color>
        </brush>
       </colorrole>
@@ -865,11 +865,11 @@ color: rgb(46, 52, 54);</string>
        </brush>
       </colorrole>
       <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
+       <brush brushstyle="NoBrush">
         <color alpha="128">
-         <red>164</red>
-         <green>164</green>
-         <blue>164</blue>
+         <red>46</red>
+         <green>52</green>
+         <blue>54</blue>
         </color>
        </brush>
       </colorrole>
@@ -912,7 +912,7 @@ color: rgb(46, 52, 54);</string>
        </brush>
       </colorrole>
       <colorrole role="PlaceholderText">
-       <brush brushstyle="SolidPattern">
+       <brush brushstyle="NoBrush">
         <color alpha="128">
          <red>46</red>
          <green>52</green>
@@ -942,14 +942,20 @@ color: rgb(46, 52, 54);</string>
   <widget class="QPushButton" name="spawnBoss">
    <property name="geometry">
     <rect>
-     <x>720</x>
-     <y>580</y>
-     <width>80</width>
-     <height>25</height>
+     <x>650</x>
+     <y>80</y>
+     <width>121</width>
+     <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/minotaur_button.png);
+background: none;
+background-repeat: none;</string>
+   </property>
    <property name="text">
-    <string>Boss</string>
+    <string/>
    </property>
   </widget>
  </widget>

@@ -12,6 +12,7 @@
 
 #include <QDialog>
 #include "pregame.h"
+#include "util.h"
 
 namespace Ui {
 class Settings;
@@ -32,6 +33,7 @@ private slots:
 
 private:
     Ui::Settings *ui;
+
 };
 
 #endif // SETTINGS_H
