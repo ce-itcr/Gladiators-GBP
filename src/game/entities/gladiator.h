@@ -60,6 +60,10 @@ public:
     bool isAlive() const;
     void setAlive(bool value);
 
+    bool getBoss() const;
+    void setBoss(bool value);
+
+
 private:
     QString id;
     int age;
@@ -72,6 +76,7 @@ private:
     QList<Node *> nodePath;
     int startHealth;
     bool alive;
+    bool Boss;
 };
 
 #endif // GLADIATOR_H

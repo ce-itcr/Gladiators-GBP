@@ -15,7 +15,7 @@ Game::Game(QWidget *parent) :
     gladiatorLabel = nullptr;
 
     spawner = Spawner::getInstance();
-    gameController = GameController::getInstance();    
+    gameController = GameController::getInstance();
     gameController->setWaveWaiting(true);
     gameController->run();
     populations = Populations::getInstance();
@@ -28,9 +28,9 @@ Game::Game(QWidget *parent) :
     loadSpells();
 
     // Creates Population
-    PopulationsMock::run();
-//    populations->startNewPopulation();
-//    QTimer::singleShot(2000, this, &Game::updatePopulations);
+   // PopulationsMock::run();
+    populations->startNewPopulation();
+    QTimer::singleShot(2000, this, &Game::updatePopulations);
 
 }
 
@@ -265,4 +265,10 @@ void Game::on_exitButton_clicked()
     close();
     MainWindow *w = new MainWindow();
     w->show();
+}
+
+
+void Game::on_spawnBoss_clicked()
+{
+    Spawner::getInstance()->setBossON(!Spawner::getInstance()->getBossON());
 }

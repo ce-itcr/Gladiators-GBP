@@ -14,5 +14,6 @@
         <file>audio/magic2.flac</file>
         <file>audio/continue.wav</file>
         <file>audio/click.mp3</file>
+        <file>audio/minotaur.mp3</file>
     </qresource>
 </RCC>

@@ -126,5 +126,9 @@
         <file>img/gameTiles/stone00.png</file>
         <file>img/gameTiles/ground00.png</file>
         <file>img/coin.gif</file>
+        <file>img/spriteBoss.png</file>
+        <file>img/buttons/minotaur_button.png</file>
+        <file>img/MinotaurRun.gif</file>
+        <file>img/implosion.gif</file>
     </qresource>
 </RCC>

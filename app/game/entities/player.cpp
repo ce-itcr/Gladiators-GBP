@@ -19,7 +19,7 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     target = nullptr;
     freezed = false;
     confused = false;
-    setStyleSheet("background-color:255,255,255,0;"
+    setStyleSheet("background-color: rgba(255,255,255,0);"
                   "image: url(:/img/gladiatorRun.gif)");
 
 //    this->setStyleSheet("background-color:green;");

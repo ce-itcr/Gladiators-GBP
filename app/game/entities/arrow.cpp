@@ -51,6 +51,28 @@ void Arrow::draw()
 
 }
 
+void createBoss(Player *player){
+    Gladiator *tempGladiator = new Gladiator();
+    tempGladiator->setDodgeChance(player->getGladiator()->getDodgeChance());
+    tempGladiator->setResistanceLowerBody(player->getGladiator()->getResistanceLowerBody());
+    tempGladiator->setResistanceUpperBody(player->getGladiator()->getResistanceUpperBody());
+    Spawner::getInstance()->setTempGladiator(tempGladiator);
+    player->getGladiator()->setHealth(floor(50 * Spawner::getInstance()->getBossHealthIncrease()));
+    player->getGladiator()->setDodgeChance(0);
+    player->getGladiator()->setBoss(true);
+    player->getGladiator()->setResistanceLowerBody(00);
+    player->getGladiator()->setResistanceUpperBody(00);
+    Spawner::getInstance()->setBossHealthIncrease(Spawner::getInstance()->getBossHealthIncrease() + 0.2);
+}
+
+void killBoss(Player *player){
+    player->getGladiator()->setHealth(0);
+    player->getGladiator()->setResistanceUpperBody(Spawner::getInstance()->getTempGladiator()->getResistanceUpperBody());
+    player->getGladiator()->setResistanceLowerBody(Spawner::getInstance()->getTempGladiator()->getResistanceLowerBody());
+    player->getGladiator()->setDodgeChance(Spawner::getInstance()->getTempGladiator()->getDodgeChance());
+    player->getGladiator()->setBoss(false);
+}
+
 void Arrow::collide()
 {
     int damageDone = tower->getDamagePerShoot();
@@ -64,7 +86,21 @@ void Arrow::collide()
                 Player *player = dynamic_cast<Player *>(entity);
                 player->hit(damageDone);
                 int health = player->getGladiator()->getHealth();
-                if (health <= 0) playerKill();
+                if (health <= 0 && !(Spawner::getInstance()->getBossON()) && !(player->getGladiator()->getBoss())) playerKill();
+                else if(health <= 0 && Spawner::getInstance()->getBossON()){
+                    Spawner::getInstance()->setBossON(false);
+                    player->setStyleSheet("background-color:255,255,255,0;"
+                                          "image: url(:/img/MinotaurRun.gif)");
+                    createBoss(player);
+                    QMediaPlayer* exit = new QMediaPlayer;
+                    exit->setMedia(QUrl("qrc:/audio/minotaur.mp3"));
+                    exit->setVolume(100);
+                    exit->play();
+
+                }else if(health <= 0){
+                    killBoss(player);
+                    playerKill();
+                }
             }
             else
             {
@@ -74,10 +110,24 @@ void Arrow::collide()
                     tempPlayer->hit(damageDone);
                     int health = tempPlayer->getGladiator()->getHealth();
                     if (health <= 0) playerKill();
+                    if (health <= 0 && !(Spawner::getInstance()->getBossON()) && !(tempPlayer->getGladiator()->getBoss())) playerKill();
+                    else if(health <= 0 && Spawner::getInstance()->getBossON()){
+                        Spawner::getInstance()->setBossON(false);
+                        tempPlayer->setStyleSheet("background-color:255,255,255,0;"
+                                              "image: url(:/img/MinotaurRun.gif)");
+                        createBoss(tempPlayer);
+                        QMediaPlayer* exit = new QMediaPlayer;
+                        exit->setMedia(QUrl("qrc:/audio/minotaur.mp3"));
+                        exit->setVolume(100);
+                        exit->play();
+                    }else if(health <= 0){
+                        killBoss(tempPlayer);
+                        playerKill();
+                    }
                 }
                 playersHit.clear();
                 areaDamageEffect();
-            }  
+            }
             kill();
             break;
         }
@@ -169,15 +219,24 @@ void Arrow::playerKill()
 void Arrow::areaDamageEffect()
 {
     Grid *grid = dynamic_cast<Grid *>(parent());
-    QFrame *qFrame = new QFrame(grid);
-    qFrame->setStyleSheet("background-color:#635255;");
-    int xPoss = x - grid->getTileSize();
+//    QFrame *qFrame = new QFrame(grid);
+//    qFrame->setStyleSheet("background-color:#635255;");
+    int xPoss = x - grid->getTileSize() - 100;
     int yPoss = y - grid->getTileSize();
     int diameter = grid->getTileSize() * 3;
-    qFrame->setGeometry(xPoss,yPoss,diameter,diameter);
-    qFrame->show();
+//    qFrame->setGeometry(xPoss,yPoss,diameter,diameter);
+//    qFrame->show();
 
-    QTimer::singleShot(200, qFrame, &QFrame::close);
+    QMovie *movie = new QMovie(":/img/implosion.gif");
+    QLabel *processLabel = new QLabel(grid);
+    processLabel->setMovie(movie);
+    processLabel->setStyleSheet("background-color: rgba(255,255,255,0);");
+    processLabel->setGeometry(xPoss, yPoss, diameter,diameter);
+    movie->setScaledSize(processLabel->size());
+    movie->start();
+    processLabel->show();
+
+    QTimer::singleShot(200, processLabel, &QFrame::close);
 }
 
 QRegion Arrow::getCircle()

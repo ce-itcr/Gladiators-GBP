@@ -89,6 +89,36 @@ void Spawner::spawn()
     QTimer::singleShot(spawnDelay, this, &Spawner::spawn);
 }
 
+float Spawner::getBossHealthIncrease() const
+{
+    return bossHealthIncrease;
+}
+
+void Spawner::setBossHealthIncrease(float value)
+{
+    bossHealthIncrease = value;
+}
+
+Gladiator *Spawner::getTempGladiator() const
+{
+    return tempGladiator;
+}
+
+void Spawner::setTempGladiator(Gladiator *value)
+{
+    tempGladiator = value;
+}
+
+bool Spawner::getBossON() const
+{
+    return bossON;
+}
+
+void Spawner::setBossON(bool value)
+{
+    bossON = value;
+}
+
 int Spawner::getSpawnDelay() const
 {
     return spawnDelay;
@@ -109,4 +139,7 @@ Spawner::Spawner(QObject *parent) : QObject (parent), parent(parent)
     gameController = GameController::getInstance();
     spawnDelay = 500;
     gladiators = new QList<Gladiator *>();
+    tempGladiator = nullptr;
+    bossON = false;
+    bossHealthIncrease = 1.0;
 }
