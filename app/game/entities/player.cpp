@@ -79,6 +79,12 @@ void Player::kill()
 
 void Player::hit(int damage)
 {
+    if (gladiator->getDodgeChance() > Math::random(1, 100))
+    {
+        miss();
+        return;
+    }
+
     int damageDone = damage - gladiator->getThoughness();
     if (damageDone < 0) damageDone = 1;
     int health = gladiator->getHealth() - damageDone;
@@ -203,4 +209,17 @@ void Player::nextVisitedTarget()
     if (visitedPath.isEmpty()) return;
     target = visitedPath.takeFirst();
     nodePath.push_front(target->getNode());
+}
+
+void Player::miss()
+{
+    QLabel *miss = new QLabel("Miss", parentWidget());
+    miss->move(x, y);
+    miss->show();
+
+    miss->setStyleSheet("font-size: 16px; "
+                       "color: #FFC300;"
+                       "background-color: rgba(255, 255, 255, 0);");
+
+    QTimer::singleShot(500, miss, &QLabel::close);
 }

@@ -10,6 +10,7 @@
 
 #include <QFrame>
 #include <QDebug>
+#include <util/math.h>
 
 class Player : public QFrame, public Entity
 {
@@ -89,6 +90,8 @@ private:
     void nextTarget();
 
     void nextVisitedTarget();
+
+    void miss();
 };
 
 #endif // PLAYER_H
