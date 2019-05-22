@@ -36,6 +36,15 @@ public:
     int getSpawnDelay() const;
     void setSpawnDelay(int value);
 
+    bool getBossON() const;
+    void setBossON(bool value);
+
+    Gladiator *getTempGladiator() const;
+    void setTempGladiator(Gladiator *value);
+
+    float getBossHealthIncrease() const;
+    void setBossHealthIncrease(float value);
+
 public slots:
     void spawn();
 
@@ -45,6 +54,9 @@ private:
     GameController *gameController;
     QList<Gladiator *> *gladiators;
     int spawnDelay;
+    bool bossON;
+    float bossHealthIncrease;
+    Gladiator *tempGladiator;
 
     Spawner(QObject *parent);
 };

@@ -12,6 +12,7 @@ Gladiator::Gladiator()
     j = 0;
     startHealth = 0;
     alive = true;
+    Boss = false;
 }
 
 Gladiator::Gladiator(QString id, int age, int health, int resistanceUpperBody, int resistanceLowerBody, int dodgeChance, int i, int j)
@@ -29,10 +30,14 @@ Gladiator::Gladiator(QString id, int age, int health, int resistanceUpperBody, i
 }
 
 int Gladiator::getSpeed(){
-    int speed = 0;
-    speed += this->getResistanceLowerBody();
-    speed -= this->getResistanceUpperBody()/2;
-    return speed;
+    if(Boss){
+        return 5;
+    }else{
+        int speed = 0;
+        speed += this->getResistanceLowerBody();
+        speed -= this->getResistanceUpperBody()/2;
+        return speed;
+    }
 }
 
 void Gladiator::write(QJsonObject &jsonObj) const
@@ -158,6 +163,17 @@ void Gladiator::setStartHealth(int value)
     startHealth = value;
 }
 
+bool Gladiator::getBoss() const
+{
+    return Boss;
+}
+
+void Gladiator::setBoss(bool value)
+{
+    Boss = value;
+}
+
+
 bool Gladiator::isAlive() const
 {
     return alive;
@@ -169,9 +185,13 @@ void Gladiator::setAlive(bool value)
 }
 
 int Gladiator::getThoughness(){
-    int thoughness = 0;
-    thoughness += this->getResistanceUpperBody();
-    thoughness -= this->getResistanceLowerBody() / 2;
-    if (thoughness < 0) thoughness = 0;
-    return thoughness;
+    if(Boss){
+        return 5000;
+    }else{
+        int thoughness = 0;
+        thoughness += this->getResistanceUpperBody();
+        thoughness -= this->getResistanceLowerBody() / 2;
+        if (thoughness < 0) thoughness = 0;
+        return thoughness;
+    }
 }

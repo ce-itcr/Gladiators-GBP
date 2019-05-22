@@ -13,20 +13,19 @@ void Tile::setup(QChar qchar)
     if (qchar == '.'){  // Walkable and Buildable
         build = true;
         node->setOccupied(false);
-        setStyleSheet("background-color:#8B786D;");  // Road
+        setStyleSheet("image: url(:/img/gameTiles/sand.png)");
     }
     if (qchar == '0'){  // Wall
         node->setOccupied(true);
-        setStyleSheet("background-color:#504b58;");
+        setStyleSheet("image: url(:/img/gameTiles/wall.png)");
     }
     if (qchar == '-'){  // Walkable
         node->setOccupied(false);
-        setStyleSheet("background-color:#8B786D;");  // Road
+        setStyleSheet("image: url(:/img/gameTiles/sand.png)");
     }
-//    if (qchar == 'B'){  // Buildable
-//        build = true;
-//        setStyleSheet("background-color:#635255;"
-//                      "image: url(:img/buildIcon.png)");
+//    if (qchar == 'B'){  //Wall
+//        node->setOccupied(true);
+//        setStyleSheet("image: url(:/img/gameTiles/stone00.png)");
 //    }
 }
 

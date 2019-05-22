@@ -74,21 +74,129 @@ background-repeat: none;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>780</x>
-     <y>80</y>
-     <width>160</width>
-     <height>431</height>
+     <x>440</x>
+     <y>30</y>
+     <width>361</width>
+     <height>61</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="mapsLayout"/>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="imgresources.qrc">:/img/chooseMap.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="circle">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>130</y>
+     <width>125</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/circle_button.png);
+background: none;
+background-repeat: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="donut">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>230</y>
+     <width>125</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/donut_button.png);
+background: none;
+background-repeat: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="open">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>330</y>
+     <width>125</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/open_button.png);
+background: none;
+background-repeat: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="snake">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>430</y>
+     <width>125</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/snake_button.png);
+background: none;
+background-repeat: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="race">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>530</y>
+     <width>125</width>
+     <height>75</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;
+border-image: url(:/img/buttons/race_button.png);
+background: none;
+background-repeat: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
   <zorder>label</zorder>
   <zorder>playGame</zorder>
-  <zorder>verticalLayoutWidget</zorder>
   <zorder>backButton</zorder>
+  <zorder>label_2</zorder>
+  <zorder>circle</zorder>
+  <zorder>donut</zorder>
+  <zorder>open</zorder>
+  <zorder>snake</zorder>
+  <zorder>race</zorder>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>
