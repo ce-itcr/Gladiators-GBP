@@ -21,19 +21,17 @@ public class Gladiator {
 			finalChromosome.setResistanceLowerBody(this.chromosome.getResistanceLowerBody());
 			finalChromosome.setResistanceUpperBody(gladiator.getChromosome().getResistanceUpperBody());
 			finalChromosome.setDodgeChance(gladiator.getChromosome().getDodgeChance());
-			Gladiator finalGladiator = new Gladiator(mutate(finalChromosome));
 		} else {
 			finalChromosome.setHealth(gladiator.chromosome.getHealth());
 			finalChromosome.setResistanceLowerBody(gladiator.chromosome.getResistanceLowerBody());
 			finalChromosome.setResistanceUpperBody(this.getChromosome().getResistanceUpperBody());
 			finalChromosome.setDodgeChance(this.getChromosome().getDodgeChance());
-			Gladiator finalGladiator = new Gladiator(mutate(finalChromosome));
 		}
 		return new Gladiator(mutate(finalChromosome));
 	}
 	
 	private Chromosome mutate(Chromosome chromosome) {
-		if (Math.random() < 0.5)
+		if (Math.random() < 0.8)
 			chromosome.mutateGene();
 		return chromosome;
 	}
@@ -45,7 +43,7 @@ public class Gladiator {
 		this.chromosome = chromosome;
 	}
 	public void setFitness() {
-		fitness += chromosome.getResistanceLowerBody() + chromosome.getResistanceUpperBody();
+		fitness += chromosome.getHealth() + chromosome.getResistanceLowerBody() + chromosome.getResistanceUpperBody() + chromosome.getDodgeChance();
 	}
 	public int getFitness() {
 		return fitness;

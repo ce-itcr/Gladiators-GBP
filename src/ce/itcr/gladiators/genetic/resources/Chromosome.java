@@ -35,20 +35,22 @@ public class Chromosome {
         this.dodgeChance = chromosomeArray[3];
     }
 	
-	public void mutateGene() {
+	public void mutateGene() { //0 = health, 1 = resistanceLowerBody, 2 = resistanceUpperBody, 3 = dodgeChance, 4 = age
 	    int [] newChromosomeArray = getChromosomeArray();
-	    int strongestGene = getStrongestGene();
-		newChromosomeArray[strongestGene] = getChromosomeArray()[strongestGene] + 2;
+//	    int strongestGene = getStrongestGene();
+//		newChromosomeArray[strongestGene] = getChromosomeArray()[strongestGene] + 2;
 		if (Math.random() < 0.5)
-            newChromosomeArray[strongestGene] = getChromosomeArray()[strongestGene] + 8;
+            newChromosomeArray[1] = getChromosomeArray()[1] + 8;
+		else
+			newChromosomeArray[2] = getChromosomeArray()[2] + 8;
 		newChromosomeArray[0] += 5;
-		if (Math.random() < 0.5)
-		    newChromosomeArray[3]++;
+		if (newChromosomeArray[3] <= 50 && Math.random() < 0.5)
+		    newChromosomeArray[3] ++;
 		setChromosomeArray(newChromosomeArray);
 	}
 
 	private int getStrongestGene(){
-	    if (getChromosomeArray()[1] < getChromosomeArray()[2])
+	    if (getChromosomeArray()[1] > getChromosomeArray()[2])
 	        return 1;
 	    else
 	        return 2;
