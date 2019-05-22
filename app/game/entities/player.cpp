@@ -19,7 +19,6 @@ Player::Player(QWidget *parent) : QLabel (parent), grid(static_cast<Grid *>(pare
     target = nullptr;
     freezed = false;
     confused = false;
-    Spawner::getInstance()->setEnemiesOver(0);
     setStyleSheet("background-color: rgba(255,255,255,0);");
 
     QMovie *movie = new QMovie(this);

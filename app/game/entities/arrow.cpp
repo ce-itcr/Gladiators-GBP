@@ -81,8 +81,18 @@ void Arrow::collide()
                 if (health <= 0 && !(Spawner::getInstance()->getBossON()) && !(player->getGladiator()->getBoss())) playerKill();
                 else if(health <= 0 && Spawner::getInstance()->getBossON()){
                     Spawner::getInstance()->setBossON(false);
-                    player->setStyleSheet("background-color:255,255,255,0;"
-                                          "image: url(:/img/MinotaurRun.gif)");
+
+                    setStyleSheet("background-color: rgba(255,255,255,0);");
+                    player->movie()->stop();
+                    QMovie *movie = new QMovie(player);
+                    delete player->movie();
+                    movie->setFileName(":/img/MinotaurRun.gif");
+                    movie->setScaledSize(player->size());
+                    player->setMovie(movie);
+                    movie->start();
+
+//                    player->setStyleSheet("background-color:255,255,255,0;"
+//                                          "image: url(:/img/MinotaurRun.gif)");
                     createBoss(player);
                     QMediaPlayer* exit = new QMediaPlayer;
                     exit->setMedia(QUrl("qrc:/audio/minotaur.mp3"));
