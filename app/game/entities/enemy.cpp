@@ -102,6 +102,11 @@ void Enemy::playerKill()
 
 QRegion Enemy::getCircle()
 {
+    if(tower->getType() == 1){
+        range = 1;
+    }else{
+        range = 2;
+    }
     int xPoss = x - width * range;
     int yPoss = y - height * range;
     int diameter = width * range * 2 + width;
