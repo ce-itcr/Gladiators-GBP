@@ -3,7 +3,7 @@
 #include <QLabel>
 #include "game.h"
 
-Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(parent))
+Player::Player(QWidget *parent) : QLabel (parent), grid(static_cast<Grid *>(parent))
 {
     gladiator = nullptr;
     tag = "player";
@@ -20,8 +20,13 @@ Player::Player(QWidget *parent) : QFrame (parent), grid(static_cast<Grid *>(pare
     freezed = false;
     confused = false;
     Spawner::getInstance()->setEnemiesOver(0);
-    //setStyleSheet("background-color: rgba(255,255,255,0);"
-                  //"image: url(:/img/gladiatorRun.gif)");
+    setStyleSheet("background-color: rgba(255,255,255,0);");
+
+    QMovie *movie = new QMovie(this);
+    movie->setFileName(":/img/gladiatorRun.gif");
+    //movie->setScaledSize(this->size());
+    this->setMovie(movie);
+    movie->start();
 
 //    this->setStyleSheet("background-color:green;");
     this->setGeometry(x, y, width, height);

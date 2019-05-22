@@ -8,11 +8,11 @@
 #include "graph/node.h"
 #include "game/entities/gladiator.h"
 
-#include <QFrame>
+#include <QLabel>
 #include <QDebug>
 #include <util/math.h>
 
-class Player : public QFrame, public Entity
+class Player : public QLabel, public Entity
 {
     Q_OBJECT
 public:
