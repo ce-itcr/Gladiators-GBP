@@ -211,7 +211,7 @@ void Arrow::areaDamageEffect()
     Grid *grid = dynamic_cast<Grid *>(parent());
 //    QFrame *qFrame = new QFrame(grid);
 //    qFrame->setStyleSheet("background-color:#635255;");
-    int xPoss = x - grid->getTileSize() - 100;
+    int xPoss = x - grid->getTileSize();
     int yPoss = y - grid->getTileSize();
     int diameter = grid->getTileSize() * 3;
 //    qFrame->setGeometry(xPoss,yPoss,diameter,diameter);
