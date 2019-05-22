@@ -183,6 +183,13 @@ void Game::paintEvent(QPaintEvent *)
 
     int money = gameController->getMoney();
     ui->moneyCount->setNum(money);
+
+    int life = gameController->getLife();
+    ui->lifesCount->setNum(life);
+
+    int wave = gameController->getWave();
+    ui->wavesWon->setNum(wave);
+
     moneyManager();
     gameOver();
 }

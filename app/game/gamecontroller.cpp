@@ -18,6 +18,8 @@ void GameController::stop()
 {
     money = startingMoney;
     cycleTime = 25;
+    life = startingLife;
+    wave = 0;
     waveActive = false;
     pause = false;
     entities.clear();
@@ -50,6 +52,7 @@ void GameController::removeEntity(Entity *entity)
 
 void GameController::callWave()
 {
+    wave++;
     for (Entity *entity : entities)
     {
         if (entity->tag == "enemy") {
@@ -89,6 +92,36 @@ void GameController::update()
 void GameController::populationReady()
 {
     waveWaiting = false;
+}
+
+int GameController::getStartingLife() const
+{
+    return startingLife;
+}
+
+void GameController::setStartingLife(int value)
+{
+    startingLife = value;
+}
+
+int GameController::getWave() const
+{
+    return wave;
+}
+
+void GameController::setWave(int value)
+{
+    wave = value;
+}
+
+int GameController::getLife() const
+{
+    return life;
+}
+
+void GameController::setLife(int value)
+{
+    life = value;
 }
 
 int GameController::getMoney() const
@@ -169,6 +202,9 @@ GameController::GameController()
     waveWaiting = false;
     pause = false;
     startingMoney = 1200;
+    startingLife = 30;
+    life = startingLife;
+    wave = 0;
     money = startingMoney;
     map = "://maps/snake";
 
