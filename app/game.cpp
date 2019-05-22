@@ -128,6 +128,7 @@ void Game::loadGrid()
 
     grid->setGeometry(x, y, width, height);
     grid->load();
+    grid->loadColliseumLabel(ui->colliseumLabel);
     grid->show();
 }
 

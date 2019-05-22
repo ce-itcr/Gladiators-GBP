@@ -133,5 +133,8 @@
         <file>img/heart.png</file>
         <file>img/tower boost.png</file>
         <file>img/skull.png</file>
+        <file>img/towerType3.png</file>
+        <file>img/towerType2.png</file>
+        <file>img/colliseum.png</file>
     </qresource>
 </RCC>

@@ -24,6 +24,8 @@ public:
 
     Tile *tileAt(int i, int j);
 
+    void loadColliseumLabel(QLabel *colliseum);
+
     QList<Tile *> getTiles() const;
     void setTiles(const QList<Tile *> &value);
 
@@ -49,6 +51,7 @@ private:
     Spawner *spawner;
     QList<Tile *> tiles;
     QList<QList<QChar>> mapFile;
+    QLabel *colliseum;
     int rows;
     int columns;
     int offset = 1;

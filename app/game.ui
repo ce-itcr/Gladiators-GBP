@@ -1337,6 +1337,22 @@ color: rgb(46, 52, 54);</string>
     <string>0</string>
    </property>
   </widget>
+  <widget class="QLabel" name="colliseumLabel">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>510</y>
+     <width>211</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image:url(:/img/colliseum.png)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="imgresources.qrc"/>

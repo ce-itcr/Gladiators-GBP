@@ -142,6 +142,7 @@ Tower *Enemy::getTower() const
 void Enemy::setTower(Tower *value)
 {
     tower = value;
+    loadTowerSprite();
 }
 
 int Enemy::getBuildCost()
@@ -285,4 +286,11 @@ void Enemy::updateShootDelay()
 {
     int cycleSpeed = GameController::getInstance()->getCycleTime();
     fireRate = cycleSpeed * deltaTime;
+}
+
+void Enemy::loadTowerSprite()
+{
+    if (tower->getType() == 1) setStyleSheet("image: url(:img/tower1.png); background-color:255,255,255,0;");
+    else if (tower->getType() == 2) setStyleSheet("image: url(:img/towerType2.png); background-color:255,255,255,0;");
+    else if (tower->getType() == 3) setStyleSheet("image: url(:img/towerType3.png); background-color:255,255,255,0;");
 }

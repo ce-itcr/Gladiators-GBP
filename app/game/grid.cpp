@@ -14,6 +14,7 @@ Grid::Grid(QWidget *parent, QString mapFilePath) : QFrame(parent)
     rows = map->getRows();
     columns = map->getColumns();
     focusable = true;
+    colliseum = nullptr;
     mapFile = MapFiles::read(mapFilePath);
 
     this->setStyleSheet("background-color: #EBF5EE;");
@@ -34,9 +35,23 @@ Tile *Grid::tileAt(int i, int j)
     return result;
 }
 
+void Grid::loadColliseumLabel(QLabel *colliseum)
+{
+    this->colliseum = colliseum;
+    if (colliseum == nullptr) return;
+
+    int offset = 10;
+    int y = height() - colliseum->size().height() / 2 + offset;
+    int x = width();
+
+    colliseum->move(x, y);
+    colliseum->raise();
+}
+
 void Grid::resizeEvent(QResizeEvent *)
 {
     updateGrid();
+    loadColliseumLabel(colliseum);
 }
 
 void Grid::mousePressEvent(QMouseEvent *event)
