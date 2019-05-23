@@ -52,6 +52,15 @@ public:
     int getMoney() const;
     void setMoney(int value);
 
+    int getLife() const;
+    void setLife(int value);
+
+    int getWave() const;
+    void setWave(int value);
+
+    int getStartingLife() const;
+    void setStartingLife(int value);
+
 signals:
     void addedEntity(Entity *entity);
 
@@ -72,6 +81,9 @@ private:
     bool pause;
     QString map;
     int money;
+    int startingLife;
+    int life;
+    int wave;
     int startingMoney;
 
     GameController();

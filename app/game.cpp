@@ -5,6 +5,7 @@
 #include <QMovie>
 #include "game/populationsmock.h"
 #include "game/entities/player.h"
+#include "gameover.h"
 
 Game::Game(QWidget *parent) :
     QMainWindow(parent),
@@ -128,6 +129,7 @@ void Game::loadGrid()
 
     grid->setGeometry(x, y, width, height);
     grid->load();
+    grid->loadColliseumLabel(ui->colliseumLabel);
     grid->show();
 }
 
@@ -182,8 +184,15 @@ void Game::paintEvent(QPaintEvent *)
 
     int money = gameController->getMoney();
     ui->moneyCount->setNum(money);
+
+    int life = gameController->getLife();
+    ui->lifesCount->setNum(life);
+
+    int wave = gameController->getWave();
+    ui->wavesWon->setNum(wave);
+
     moneyManager();
-    GameOver();
+    gameOver();
 }
 
 void Game::moneyManager(){
@@ -199,7 +208,7 @@ void Game::moneyManager(){
 
 }
 
-void Game::GameOver(){
+void Game::gameOver(){
     if(Spawner::getInstance()->getEnemiesOver() >= 15){
         gameController->stop();
         spawner->stop();
@@ -211,7 +220,7 @@ void Game::GameOver(){
         exit->play();
 
         close();
-        MainWindow *w = new MainWindow();
+        GameOver *w = new GameOver();
         w->show();
     }
 }

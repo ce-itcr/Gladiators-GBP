@@ -81,8 +81,18 @@ void Arrow::collide()
                 if (health <= 0 && !(Spawner::getInstance()->getBossON()) && !(player->getGladiator()->getBoss())) playerKill();
                 else if(health <= 0 && Spawner::getInstance()->getBossON()){
                     Spawner::getInstance()->setBossON(false);
-                    player->setStyleSheet("background-color:255,255,255,0;"
-                                          "image: url(:/img/MinotaurRun.gif)");
+
+                    setStyleSheet("background-color: rgba(255,255,255,0);");
+                    player->movie()->stop();
+                    QMovie *movie = new QMovie(player);
+                    delete player->movie();
+                    movie->setFileName(":/img/MinotaurRun.gif");
+                    movie->setScaledSize(player->size());
+                    player->setMovie(movie);
+                    movie->start();
+
+//                    player->setStyleSheet("background-color:255,255,255,0;"
+//                                          "image: url(:/img/MinotaurRun.gif)");
                     createBoss(player);
                     QMediaPlayer* exit = new QMediaPlayer;
                     exit->setMedia(QUrl("qrc:/audio/minotaur.mp3"));
@@ -211,7 +221,7 @@ void Arrow::areaDamageEffect()
     Grid *grid = dynamic_cast<Grid *>(parent());
 //    QFrame *qFrame = new QFrame(grid);
 //    qFrame->setStyleSheet("background-color:#635255;");
-    int xPoss = x - grid->getTileSize() - 100;
+    int xPoss = x - grid->getTileSize();
     int yPoss = y - grid->getTileSize();
     int diameter = grid->getTileSize() * 3;
 //    qFrame->setGeometry(xPoss,yPoss,diameter,diameter);

@@ -142,6 +142,7 @@ Tower *Enemy::getTower() const
 void Enemy::setTower(Tower *value)
 {
     tower = value;
+    loadTowerSprite();
 }
 
 int Enemy::getBuildCost()
@@ -171,8 +172,12 @@ void Enemy::mousePressEvent(QMouseEvent *)
 
     QPushButton *upgrade = new QPushButton(this);
     upgrade->setGeometry(offset, offset, size, size);
-    upgrade->setStyleSheet("background-color:rgba(150, 150, 255, 100);");
+    upgrade->setStyleSheet("background-color:rgb(0, 0, 0);"
+                           "border-radius:12px;");
+    upgrade->setIcon(QIcon(":img/tower boost.png"));
+    upgrade->setIconSize(upgrade->size());
     upgrade->show();
+    upgrade->raise();
 
     QObject::connect(upgrade, &QPushButton::clicked, this, &Enemy::boost);
     QTimer::singleShot(3000, upgrade, &QPushButton::close);
@@ -281,4 +286,11 @@ void Enemy::updateShootDelay()
 {
     int cycleSpeed = GameController::getInstance()->getCycleTime();
     fireRate = cycleSpeed * deltaTime;
+}
+
+void Enemy::loadTowerSprite()
+{
+    if (tower->getType() == 1) setStyleSheet("image: url(:img/tower1.png); background-color:255,255,255,0;");
+    else if (tower->getType() == 2) setStyleSheet("image: url(:img/towerType2.png); background-color:255,255,255,0;");
+    else if (tower->getType() == 3) setStyleSheet("image: url(:img/towerType3.png); background-color:255,255,255,0;");
 }

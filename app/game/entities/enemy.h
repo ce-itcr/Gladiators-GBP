@@ -98,6 +98,8 @@ private:
     void shoot(Entity *entity);
 
     void updateShootDelay();
+
+    void loadTowerSprite();
 };
 
 #endif // ENEMY_H
