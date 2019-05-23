@@ -2,6 +2,22 @@
 
 Gladiators GBP corresponde al _Proyecto II_ para el curso de _Algoritmos y Estructuras de Datos II (CE2103)_, el mismo consiste en un juego donde **los gladiadores deben atravesar una zona de intimidación para poder ingresar en el coliseo**. El juego está ambientado en la antigua Roma. Gladiators GBP es una aplicación cliente/servidor, básicamente **el servidor** _gestiona las poblaciones de gladiadores y torres_, y  **el cliente** _lleva el control de la lógica del juego_. El juego termina cuando un 25% de la población llega al coliseo.
  
+ 
+ ## Vista previa
+ 
+ Busqueda de caminos        |
+ :-------------------------:|
+ ![](doc/img/path.gif)      |
+ 
+ Hechizos                   |
+ :-------------------------:|
+ ![](doc/img/spells.gif)    |
+ 
+ Elije un Mapa              | Pelea contra Jefes        |
+ :-------------------------:|:-------------------------:|
+ ![](doc/img/maps.gif)      | ![size](doc/img/boos.gif)
+ 
+ 
 ## Pre Requisitos. 
 
 ```
