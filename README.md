@@ -1,4 +1,12 @@
-# Gladiators GBP
+<p align="center">
+<img src="https://res.cloudinary.com/dek4evg4t/image/upload/v1555285331/gladiators-gbp/imagotipo.png" width="450"/>
+</p>
+
+<p align="center">
+<a href="https://github.com/ce-itcr/Gladiators-GBP/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/badge/license-GPL--3.0-green.svg"></a>
+ <a href=""><img src="https://img.shields.io/badge/build-passing-green.svg"></a>
+ <a href="https://github.com/ce-itcr/Gladiators-GBP/graphs/contributors"><img src="https://img.shields.io/badge/collaborators-5-green.svg"></a>
+</p>
 
 Gladiators GBP corresponde al _Proyecto II_ para el curso de _Algoritmos y Estructuras de Datos II (CE2103)_, el mismo consiste en un juego donde **los gladiadores deben atravesar una zona de intimidación para poder ingresar en el coliseo**. El juego está ambientado en la antigua Roma. Gladiators GBP es una aplicación cliente/servidor, básicamente **el servidor** _gestiona las poblaciones de gladiadores y torres_, y  **el cliente** _lleva el control de la lógica del juego_. El juego termina cuando un 25% de la población llega al coliseo.
  
@@ -22,6 +30,7 @@ Gladiators GBP corresponde al _Proyecto II_ para el curso de _Algoritmos y Estru
 
 ```
 Qt5::Widgets Qt5::Core
+openjdk 11.0.3
 ```
 
 
@@ -58,5 +67,5 @@ Este proyecto está bajo la Licencia (GNU GENERAL PUBLIC LICENSE) - mira el arch
 [LICENSE](https://github.com/ce-itcr/Gladiators-GBP/blob/master/LICENSE) para detalles.
 
 <p align="center">
-<img src="https://res.cloudinary.com/dek4evg4t/image/upload/v1555285331/gladiators-gbp/imagotipo.png" width="450"/>
+<img src="https://res.cloudinary.com/dek4evg4t/image/upload/v1555285331/gladiators-gbp/isotipo.png" width="200"/>
 </p>
